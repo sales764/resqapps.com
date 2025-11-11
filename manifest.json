@@ -1,0 +1,210 @@
+{
+  "name": "RESQ+ Emergency Response System",
+  "short_name": "RESQ+",
+  "description": "Professional emergency app with AI Medical Nurse, Team GPS tracking, Community Alerts & Interactive Training Game. Red Cross compliant. 100% Free forever.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#0D47A1",
+  "theme_color": "#1565C0",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "72x72",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "96x96",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "128x128",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "144x144",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "152x152",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "384x384",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/app-icon.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/resq-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/resq-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["health", "medical", "utilities", "emergency", "lifestyle"],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "shortcuts": [
+    {
+      "name": "Emergency SOS",
+      "short_name": "SOS",
+      "description": "Quick access to emergency SOS alert",
+      "url": "/index.html#sos",
+      "icons": [
+        {
+          "src": "images/resq-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "AI Medical Nurse",
+      "short_name": "AI Nurse",
+      "description": "Talk to AI medical assistant for triage",
+      "url": "/index.html#features",
+      "icons": [
+        {
+          "src": "images/resq-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Team Tracker",
+      "short_name": "Team",
+      "description": "Track your team with GPS coordination",
+      "url": "/index.html#features",
+      "icons": [
+        {
+          "src": "images/resq-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Training Game",
+      "short_name": "Training",
+      "description": "Practice emergency response skills",
+      "url": "/index.html#features",
+      "icons": [
+        {
+          "src": "images/resq-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AI Medical Nurse - Emergency Triage"
+    },
+    {
+      "src": "images/screenshot-2.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Team GPS Tracking - Real-time Coordination"
+    },
+    {
+      "src": "images/screenshot-3.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Emergency Protocols - Step-by-step Guides"
+    },
+    {
+      "src": "images/screenshot-4.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Community Alerts - Real-time Notifications"
+    },
+    {
+      "src": "images/screenshot-5.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Training Game - Interactive Learning"
+    },
+    {
+      "src": "images/screenshot-6.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Emergency Contacts - Quick Access"
+    },
+    {
+      "src": "images/screenshot-7.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Medical Database - Offline Access"
+    },
+    {
+      "src": "images/screenshot-8.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Multi-language Support - 4 Languages"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.resqplus.emergency",
+      "id": "com.resqplus.emergency"
+    }
+  ]
+}

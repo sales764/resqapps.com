@@ -1,0 +1,395 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Item 47/78: Design System
+   ======================================== */
+
+:root {
+    /* ====================================
+       BRAND COLORS
+       ==================================== */
+    
+    /* Primary Colors */
+    --primary-color: #ff3b3b;              /* RESQ+ Emergency Red */
+    --primary-hover: #e53935;              /* Darker red for hover */
+    --primary-light: rgba(255, 59, 59, 0.1);  /* Light red background */
+    
+    /* Secondary Colors */
+    --secondary-color: #4facfe;            /* Blue accent */
+    --secondary-dark: #3d8fd1;             /* Darker blue */
+    --secondary-light: rgba(79, 172, 254, 0.1);  /* Light blue background */
+    
+    /* Accent Colors */
+    --accent-cyan: #00f2fe;                /* Bright cyan */
+    --accent-green: #4caf50;               /* Success green */
+    --accent-orange: #ff9800;              /* Warning orange */
+    --accent-purple: #9c27b0;              /* Purple accent */
+    
+    
+    /* ====================================
+       GRADIENTS
+       ==================================== */
+    
+    /* Primary Gradients */
+    --gradient-primary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-primary-hover: linear-gradient(135deg, #3d8fd1 0%, #00d4e0 100%);
+    
+    /* Background Gradients */
+    --gradient-dark: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --gradient-dark-alt: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+    
+    /* Accent Gradients */
+    --gradient-red: linear-gradient(135deg, #ff3b3b 0%, #e53935 100%);
+    --gradient-green: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    --gradient-orange: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    
+    /* Special Gradients */
+    --gradient-sunset: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+    --gradient-ocean: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+    
+    
+    /* ====================================
+       TEXT COLORS
+       ==================================== */
+    
+    --text-primary: #ffffff;               /* Main text (white) */
+    --text-secondary: rgba(255, 255, 255, 0.9);  /* Secondary text */
+    --text-muted: rgba(255, 255, 255, 0.7);      /* Muted text */
+    --text-disabled: rgba(255, 255, 255, 0.5);   /* Disabled text */
+    --text-dark: #1a1a1a;                  /* Dark text for light backgrounds */
+    
+    
+    /* ====================================
+       BACKGROUND COLORS
+       ==================================== */
+    
+    --bg-primary: #0f2027;                 /* Main dark background */
+    --bg-secondary: #203a43;               /* Secondary background */
+    --bg-tertiary: #2c5364;                /* Tertiary background */
+    
+    --bg-card: rgba(255, 255, 255, 0.05);  /* Card background (glassmorphism) */
+    --bg-card-hover: rgba(255, 255, 255, 0.1);  /* Card hover */
+    
+    --bg-overlay: rgba(0, 0, 0, 0.7);      /* Modal/popup overlay */
+    --bg-overlay-light: rgba(0, 0, 0, 0.5);  /* Lighter overlay */
+    
+    
+    /* ====================================
+       BORDER COLORS
+       ==================================== */
+    
+    --border-color: rgba(255, 255, 255, 0.1);  /* Default border */
+    --border-color-hover: rgba(255, 255, 255, 0.2);  /* Border hover */
+    --border-color-focus: #4facfe;         /* Border focus (blue) */
+    
+    
+    /* ====================================
+       STATUS COLORS
+       ==================================== */
+    
+    /* Success */
+    --success-color: #4caf50;
+    --success-light: rgba(76, 175, 80, 0.1);
+    --success-dark: #45a049;
+    
+    /* Error */
+    --error-color: #ff3b3b;
+    --error-light: rgba(255, 59, 59, 0.1);
+    --error-dark: #e53935;
+    
+    /* Warning */
+    --warning-color: #ff9800;
+    --warning-light: rgba(255, 152, 0, 0.1);
+    --warning-dark: #f57c00;
+    
+    /* Info */
+    --info-color: #4facfe;
+    --info-light: rgba(79, 172, 254, 0.1);
+    --info-dark: #3d8fd1;
+    
+    
+    /* ====================================
+       SOCIAL MEDIA COLORS
+       ==================================== */
+    
+    --facebook-color: #1877F2;
+    --twitter-color: #1DA1F2;
+    --linkedin-color: #0A66C2;
+    --whatsapp-color: #25D366;
+    --telegram-color: #0088cc;
+    --instagram-color: #E4405F;
+    --youtube-color: #FF0000;
+    
+    
+    /* ====================================
+       SPACING SYSTEM
+       ==================================== */
+    
+    /* Base spacing unit: 8px */
+    --space-xs: 4px;        /* 0.5x */
+    --space-sm: 8px;        /* 1x */
+    --space-md: 16px;       /* 2x */
+    --space-lg: 24px;       /* 3x */
+    --space-xl: 32px;       /* 4x */
+    --space-2xl: 48px;      /* 6x */
+    --space-3xl: 64px;      /* 8x */
+    --space-4xl: 96px;      /* 12x */
+    
+    
+    /* ====================================
+       TYPOGRAPHY
+       ==================================== */
+    
+    /* Font Families */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --font-mono: 'Monaco', 'Courier New', monospace;
+    
+    /* Font Sizes */
+    --font-xs: 12px;
+    --font-sm: 14px;
+    --font-base: 16px;
+    --font-lg: 18px;
+    --font-xl: 20px;
+    --font-2xl: 24px;
+    --font-3xl: 32px;
+    --font-4xl: 40px;
+    --font-5xl: 48px;
+    --font-6xl: 64px;
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.6;
+    --line-height-loose: 1.8;
+    
+    
+    /* ====================================
+       BORDER RADIUS
+       ==================================== */
+    
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 9999px;  /* For circles/pills */
+    
+    
+    /* ====================================
+       SHADOWS
+       ==================================== */
+    
+    /* Elevation Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.4);
+    --shadow-2xl: 0 30px 70px rgba(0, 0, 0, 0.5);
+    
+    /* Colored Shadows */
+    --shadow-primary: 0 10px 30px rgba(79, 172, 254, 0.4);
+    --shadow-primary-hover: 0 15px 40px rgba(79, 172, 254, 0.6);
+    --shadow-success: 0 10px 30px rgba(76, 175, 80, 0.4);
+    --shadow-error: 0 10px 30px rgba(255, 59, 59, 0.4);
+    
+    /* Inner Shadow */
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    
+    /* ====================================
+       TRANSITIONS
+       ==================================== */
+    
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-slower: 0.8s ease;
+    
+    /* Specific Transitions */
+    --transition-all: all 0.3s ease;
+    --transition-colors: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    --transition-transform: transform 0.3s ease;
+    --transition-opacity: opacity 0.3s ease;
+    
+    
+    /* ====================================
+       Z-INDEX LAYERS
+       ==================================== */
+    
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-toast: 1080;
+    
+    
+    /* ====================================
+       BREAKPOINTS (for reference)
+       ==================================== */
+    
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+    
+    
+    /* ====================================
+       ANIMATION TIMING
+       ==================================== */
+    
+    --duration-instant: 0.1s;
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    --duration-slower: 0.8s;
+    
+    /* Easing Functions */
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    
+    /* ====================================
+       GLASSMORPHISM
+       ==================================== */
+    
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(20px);
+    
+    
+    /* ====================================
+       BUTTON STYLES
+       ==================================== */
+    
+    --btn-padding-sm: 8px 16px;
+    --btn-padding-md: 12px 24px;
+    --btn-padding-lg: 16px 32px;
+    --btn-padding-xl: 20px 40px;
+    
+    --btn-height-sm: 36px;
+    --btn-height-md: 44px;
+    --btn-height-lg: 52px;
+    --btn-height-xl: 60px;
+    
+    
+    /* ====================================
+       FORM INPUTS
+       ==================================== */
+    
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-bg-focus: rgba(255, 255, 255, 0.15);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --input-border-focus: var(--secondary-color);
+    --input-padding: 12px 16px;
+    --input-height: 44px;
+    
+    
+    /* ====================================
+       CUSTOM SCROLLBAR
+       ==================================== */
+    
+    --scrollbar-width: 8px;
+    --scrollbar-track: rgba(255, 255, 255, 0.05);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ====================================
+   DARK MODE OVERRIDES (Future)
+   ==================================== */
+
+@media (prefers-color-scheme: light) {
+    /* Add light mode variables if needed */
+    /* Currently site is dark-themed only */
+}
+
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+/* Quick access to common patterns */
+.gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.gradient-dark {
+    background: var(--gradient-dark);
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+}
+
+.shadow-glow {
+    box-shadow: var(--shadow-primary);
+}
+
+.transition-all {
+    transition: var(--transition-all);
+}
+
+
+/* ====================================
+   CUSTOM SCROLLBAR (Global)
+   ==================================== */
+
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+
+/* ====================================
+   SELECTION COLORS
+   ==================================== */
+
+::selection {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+::-moz-selection {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+}

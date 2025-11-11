@@ -1,0 +1,632 @@
+/* ============================================
+   STELLAR COMING SOON SECTION
+   Professional Beta Launch Design
+   ============================================ */
+
+.stellar-coming-soon {
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1419 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stellar-coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 59, 59, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Stellar Header */
+.stellar-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.stellar-badge-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.stellar-logo-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 40px rgba(79, 172, 254, 0.3),
+        0 0 0 4px rgba(79, 172, 254, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.stellar-beta-badge {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 20px rgba(255, 59, 59, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(255, 59, 59, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(255, 59, 59, 0.6); }
+}
+
+.stellar-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stellar-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+/* Stellar Card */
+.stellar-coming-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.8s ease 0.6s both;
+    position: relative;
+    z-index: 1;
+}
+
+/* Status Badge */
+.stellar-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    padding: 12px 24px;
+    border-radius: 50px;
+    margin-bottom: 32px;
+    color: #ffa500;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.status-pulse {
+    width: 12px;
+    height: 12px;
+    background: #ffa500;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7);
+}
+
+@keyframes statusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 165, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+}
+
+/* Content */
+.stellar-content-wrapper {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stellar-coming-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+/* Form Section */
+.stellar-form-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.stellar-form-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.form-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.form-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.stellar-form-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.stellar-form-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+/* Form Steps */
+.form-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-circle {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-color: #4facfe;
+    color: white;
+    box-shadow: 0 4px 20px rgba(79, 172, 254, 0.4);
+}
+
+.step-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+.step-item.active .step-label {
+    color: #4facfe;
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Form Input */
+.form-input-wrapper {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stellar-input {
+    flex: 1;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.stellar-input:focus {
+    outline: none;
+    border-color: #4facfe;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+}
+
+.stellar-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.stellar-submit-btn {
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 59, 59, 0.3);
+}
+
+.stellar-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 59, 59, 0.5);
+}
+
+.btn-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.stellar-submit-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.form-step-info {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Features Grid */
+.stellar-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.stellar-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.stellar-feature-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(79, 172, 254, 0.3);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   STELLAR SHARE STORY SECTION
+   ============================================ */
+
+.stellar-share-story {
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1419 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stellar-share-story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.stellar-community-badge {
+    background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Story Card */
+.stellar-story-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 60px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.8s ease 0.6s both;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* Camera Icon */
+.stellar-camera-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 32px;
+}
+
+.camera-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+.stellar-camera-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    color: #8a2be2;
+    filter: drop-shadow(0 4px 20px rgba(138, 43, 226, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Story Content */
+.stellar-story-content {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stellar-story-heading {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stellar-story-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Story Button */
+.stellar-story-btn {
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(138, 43, 226, 0.4);
+    margin-bottom: 32px;
+}
+
+.stellar-story-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(138, 43, 226, 0.6);
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Benefits */
+.stellar-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(138, 43, 226, 0.3);
+    transform: translateY(-2px);
+}
+
+.benefit-icon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .stellar-coming-soon,
+    .stellar-share-story {
+        padding: 60px 0;
+    }
+
+    .stellar-logo-badge {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stellar-title {
+        font-size: 32px;
+    }
+
+    .stellar-coming-card,
+    .stellar-story-card {
+        padding: 32px 24px;
+    }
+
+    .form-input-wrapper {
+        flex-direction: column;
+    }
+
+    .stellar-submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stellar-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-steps {
+        gap: 8px;
+    }
+
+    .step-label {
+        display: none;
+    }
+
+    .step-line {
+        width: 40px;
+    }
+
+    .stellar-camera-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .stellar-camera-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stellar-story-heading {
+        font-size: 24px;
+    }
+
+    .stellar-benefits {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .benefit-item {
+        width: 100%;
+        justify-content: center;
+    }
+}

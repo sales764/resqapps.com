@@ -1,0 +1,396 @@
+/* ========================================
+   LOADING SKELETONS
+   Item 53/78: Content loading placeholders
+   ======================================== */
+
+/* ====================================
+   PULSE ANIMATION
+   ==================================== */
+
+@keyframes skeleton-pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ====================================
+   BASE SKELETON STYLES
+   ==================================== */
+
+.skeleton {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: skeleton-shimmer 2s infinite;
+}
+
+/* Skeleton with shimmer effect */
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 1000px 100%;
+    animation: skeleton-shimmer 2s infinite;
+}
+
+/* ====================================
+   SKELETON SHAPES
+   ==================================== */
+
+/* Text line skeleton */
+.skeleton-text {
+    height: 16px;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.skeleton-text-short {
+    width: 60%;
+}
+
+.skeleton-text-medium {
+    width: 80%;
+}
+
+.skeleton-text-long {
+    width: 100%;
+}
+
+/* Heading skeleton */
+.skeleton-heading {
+    height: 32px;
+    width: 70%;
+    margin: 16px 0;
+}
+
+.skeleton-heading-large {
+    height: 48px;
+    width: 80%;
+}
+
+/* Avatar/Circle skeleton */
+.skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.skeleton-avatar-small {
+    width: 32px;
+    height: 32px;
+}
+
+.skeleton-avatar-large {
+    width: 64px;
+    height: 64px;
+}
+
+/* Image skeleton */
+.skeleton-image {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 12px;
+}
+
+.skeleton-image-square {
+    padding-bottom: 100%; /* 1:1 aspect ratio */
+}
+
+.skeleton-image-portrait {
+    padding-bottom: 133%; /* 3:4 aspect ratio */
+}
+
+/* Button skeleton */
+.skeleton-button {
+    height: 44px;
+    width: 120px;
+    border-radius: 12px;
+}
+
+.skeleton-button-large {
+    height: 52px;
+    width: 160px;
+}
+
+/* Badge/Pill skeleton */
+.skeleton-badge {
+    height: 24px;
+    width: 80px;
+    border-radius: 24px;
+}
+
+/* Icon skeleton */
+.skeleton-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+/* ====================================
+   SKELETON CARDS
+   ==================================== */
+
+/* Feature card skeleton */
+.skeleton-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Use case card skeleton */
+.skeleton-use-case {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.skeleton-use-case-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+/* Testimonial skeleton */
+.skeleton-testimonial {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.skeleton-testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* ====================================
+   SKELETON LAYOUTS
+   ==================================== */
+
+/* Grid of skeleton cards */
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+/* List of skeleton items */
+.skeleton-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skeleton-list-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+/* ====================================
+   SPECIFIC COMPONENTS
+   ==================================== */
+
+/* Newsletter popup skeleton */
+.skeleton-newsletter {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+}
+
+/* Social proof skeleton */
+.skeleton-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+/* Phone mockup skeleton */
+.skeleton-phone {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 9/19.5;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 8px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Stats skeleton */
+.skeleton-stat {
+    text-align: center;
+}
+
+.skeleton-stat-number {
+    height: 48px;
+    width: 120px;
+    margin: 0 auto 8px;
+}
+
+.skeleton-stat-label {
+    height: 16px;
+    width: 80px;
+    margin: 0 auto;
+}
+
+/* ====================================
+   HERO SECTION SKELETON
+   ==================================== */
+
+.skeleton-hero {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.skeleton-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ====================================
+   LOADING STATES
+   ==================================== */
+
+/* Hide real content when loading */
+.loading-container {
+    position: relative;
+}
+
+.loading-container.is-loading > *:not(.skeleton):not(.skeleton-grid):not(.skeleton-hero) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fade in when loaded */
+.loaded {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+
+@media (max-width: 768px) {
+    .skeleton-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .skeleton-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skeleton-heading {
+        height: 24px;
+        width: 90%;
+    }
+    
+    .skeleton-phone {
+        max-width: 280px;
+    }
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+/* No animation (reduced motion) */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton,
+    .skeleton::after {
+        animation: none;
+    }
+}
+
+/* Dark skeleton for light backgrounds */
+.skeleton-dark {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-dark::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.1),
+        transparent
+    );
+}
+
+/* Skeleton spacing */
+.skeleton-gap-sm {
+    gap: 8px;
+}
+
+.skeleton-gap-md {
+    gap: 16px;
+}
+
+.skeleton-gap-lg {
+    gap: 24px;
+}

@@ -1,0 +1,348 @@
+/* ========================================
+   BACK TO TOP BUTTON
+   Item 62/78: Scroll to top functionality
+   ======================================== */
+
+/* ====================================
+   BUTTON BASE
+   ==================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary-color, #1565C0) 0%, #0d47a1 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                0 8px 24px rgba(21, 101, 192, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+/* Icon */
+.back-to-top::before {
+    content: "↑";
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ====================================
+   VISIBLE STATE
+   ==================================== */
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* ====================================
+   HOVER STATE
+   ==================================== */
+
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+                0 12px 32px rgba(21, 101, 192, 0.5);
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+}
+
+/* Bounce animation on hover */
+.back-to-top:hover::before {
+    animation: arrowBounce 0.6s ease infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* ====================================
+   ACTIVE STATE
+   ==================================== */
+
+.back-to-top:active {
+    transform: translateY(-2px) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ====================================
+   FOCUS VISIBLE
+   ==================================== */
+
+.back-to-top:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ====================================
+   PROGRESS RING (optional)
+   ==================================== */
+
+.back-to-top-with-progress {
+    position: relative;
+}
+
+.back-to-top-with-progress::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--secondary-color, #00f2fe);
+    transform: rotate(0deg);
+    transition: transform 0.1s linear;
+}
+
+/* Progress based on scroll */
+.back-to-top-with-progress[data-progress="25"]::after {
+    transform: rotate(90deg);
+}
+
+.back-to-top-with-progress[data-progress="50"]::after {
+    transform: rotate(180deg);
+}
+
+.back-to-top-with-progress[data-progress="75"]::after {
+    transform: rotate(270deg);
+}
+
+.back-to-top-with-progress[data-progress="100"]::after {
+    transform: rotate(360deg);
+}
+
+/* ====================================
+   TOOLTIP
+   ==================================== */
+
+.back-to-top::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover::after {
+    opacity: 1;
+}
+
+/* Arrow for tooltip */
+.back-to-top[data-tooltip]::before {
+    position: relative;
+    z-index: 1;
+}
+
+/* ====================================
+   MOBILE RESPONSIVE
+   ==================================== */
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+    
+    .back-to-top::before {
+        font-size: 24px;
+    }
+    
+    /* Hide tooltip on mobile */
+    .back-to-top::after {
+        display: none;
+    }
+}
+
+/* ====================================
+   THEME ADJUSTMENTS
+   ==================================== */
+
+/* Light theme */
+[data-theme="light"] .back-to-top {
+    background: linear-gradient(135deg, #1565C0 0%, #0d47a1 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
+                0 8px 24px rgba(21, 101, 192, 0.3);
+}
+
+[data-theme="light"] .back-to-top:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
+                0 12px 32px rgba(21, 101, 192, 0.4);
+}
+
+/* ====================================
+   VARIANTS
+   ==================================== */
+
+/* Emergency variant (red) */
+.back-to-top.emergency {
+    background: linear-gradient(135deg, #ff3b3b 0%, #d32f2f 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                0 8px 24px rgba(255, 59, 59, 0.4);
+}
+
+.back-to-top.emergency:hover {
+    background: linear-gradient(135deg, #ff4b4b 0%, #e33f3f 100%);
+}
+
+/* Secondary variant (cyan) */
+.back-to-top.secondary {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                0 8px 24px rgba(79, 172, 254, 0.4);
+}
+
+/* Minimal variant */
+.back-to-top.minimal {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.back-to-top.minimal:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ====================================
+   ALTERNATIVE ICONS
+   ==================================== */
+
+/* Chevron up */
+.back-to-top.icon-chevron::before {
+    content: "⌃";
+    font-size: 32px;
+}
+
+/* Arrow circle */
+.back-to-top.icon-circle::before {
+    content: "⬆";
+}
+
+/* Rocket */
+.back-to-top.icon-rocket::before {
+    content: "🚀";
+    font-size: 26px;
+}
+
+/* ====================================
+   PULSE ANIMATION
+   ==================================== */
+
+.back-to-top.pulse {
+    animation: buttonPulse 2s ease infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                    0 8px 24px rgba(21, 101, 192, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                    0 8px 24px rgba(21, 101, 192, 0.6),
+                    0 0 0 10px rgba(21, 101, 192, 0.1);
+    }
+}
+
+/* ====================================
+   ACCESSIBILITY
+   ==================================== */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .back-to-top {
+        border: 3px solid white;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top,
+    .back-to-top::before,
+    .back-to-top::after {
+        transition: none;
+        animation: none;
+    }
+    
+    .back-to-top.visible {
+        transform: none;
+    }
+}
+
+/* ====================================
+   PRINT
+   ==================================== */
+
+@media print {
+    .back-to-top {
+        display: none !important;
+    }
+}
+
+/* ====================================
+   POSITION VARIANTS
+   ==================================== */
+
+/* Bottom left */
+.back-to-top.position-left {
+    right: auto;
+    left: 30px;
+}
+
+@media (max-width: 768px) {
+    .back-to-top.position-left {
+        left: 20px;
+    }
+}
+
+/* Top right */
+.back-to-top.position-top {
+    bottom: auto;
+    top: 30px;
+}
+
+/* ====================================
+   SMOOTH SCROLL OVERRIDE
+   ==================================== */
+
+/* Ensure smooth scrolling is enabled */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll padding for fixed headers */
+html {
+    scroll-padding-top: 80px;
+}

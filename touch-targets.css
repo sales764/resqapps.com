@@ -1,0 +1,360 @@
+/* ============================================
+   TOUCH TARGET SIZE OPTIMIZATION
+   WCAG 2.1 AA Compliance - Min 44x44px
+   Item 16/78: Accessibility Enhancement
+   Item 35/78: Disable 300ms tap delay
+   ============================================ */
+
+/* ====================================
+   0. Disable 300ms Tap Delay (Mobile)
+   ==================================== */
+/* Remove 300ms click delay on mobile browsers */
+a,
+button,
+input,
+select,
+textarea,
+label,
+[role="button"],
+[tabindex] {
+    touch-action: manipulation;
+}
+
+/* Allow default touch actions for scrollable areas */
+.scrollable,
+[style*="overflow"],
+textarea {
+    touch-action: pan-y pinch-zoom;
+}
+
+/* ====================================
+   1. Navigation Links
+   ==================================== */
+.nav-links a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+}
+
+/* ====================================
+   2. Mobile Menu Button
+   ==================================== */
+.mobile-menu-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====================================
+   3. Language Switcher Buttons
+   ==================================== */
+.lang-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====================================
+   4. All Interactive Buttons
+   ==================================== */
+button,
+.btn,
+a.btn,
+input[type="submit"],
+input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Ensure proper padding for buttons */
+.btn {
+    padding: 12px 24px;
+}
+
+/* ====================================
+   5. Footer Links
+   ==================================== */
+.footer-list a,
+.footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+/* ====================================
+   6. Social Media Icons
+   ==================================== */
+.social-links a,
+.social-icon,
+a[href*="facebook"],
+a[href*="twitter"],
+a[href*="instagram"],
+a[href*="linkedin"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* ====================================
+   7. Close Buttons (Modal, etc.)
+   ==================================== */
+.close,
+.close-btn,
+#closeModal,
+[aria-label*="close"],
+[aria-label*="Close"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====================================
+   8. FAQ Toggle Buttons
+   ==================================== */
+.faq-question,
+.faq-item button,
+[role="button"] {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+/* ====================================
+   9. Form Controls
+   ==================================== */
+input[type="checkbox"],
+input[type="radio"] {
+    min-height: 24px;
+    min-width: 24px;
+    /* These can be slightly smaller but need sufficient spacing */
+}
+
+/* Ensure checkbox/radio labels are clickable */
+label {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    min-height: 44px;
+    padding: 10px 8px;
+}
+
+/* ====================================
+   10. Cards and Clickable Areas
+   ==================================== */
+.card a,
+.feature-card a,
+.screenshot-card a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+
+/* ====================================
+   11. Breadcrumbs and Pagination
+   ==================================== */
+.breadcrumb a,
+.pagination a,
+.pagination button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+}
+
+/* ====================================
+   12. Tab Controls
+   ==================================== */
+[role="tab"],
+.tab,
+.tab-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+/* ====================================
+   13. Dropdown Triggers
+   ==================================== */
+.dropdown-toggle,
+.dropdown button,
+select {
+    min-height: 44px;
+    padding: 12px 16px;
+}
+
+/* ====================================
+   14. Store Buttons (App Download)
+   ==================================== */
+.store-button,
+.app-store-btn,
+.play-store-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+/* ====================================
+   15. Icon-Only Buttons
+   ==================================== */
+button[aria-label]:not([aria-label=""]) {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Icon buttons specifically */
+.icon-btn,
+button:not(.btn) {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* ====================================
+   16. Link Spacing for Small Text
+   ==================================== */
+/* Ensure small links have enough clickable area */
+a {
+    position: relative;
+}
+
+/* Pseudo-element to expand touch area for small links */
+a:not(.btn):not(.nav-links a)::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    /* Invisible but increases touch area */
+}
+
+/* ====================================
+   17. Mobile-Specific Adjustments
+   ==================================== */
+@media (max-width: 768px) {
+    /* Increase spacing on mobile for easier tapping */
+    .nav-links a {
+        padding: 16px 20px;
+    }
+    
+    button,
+    .btn,
+    a.btn {
+        min-height: 48px;
+        padding: 14px 24px;
+    }
+    
+    .mobile-menu-btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even more generous on small screens */
+    .nav-links a {
+        padding: 18px 24px;
+        font-size: 18px;
+    }
+    
+    button,
+    .btn {
+        min-height: 50px;
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+}
+
+/* ====================================
+   18. Accessibility - Focus States
+   ==================================== */
+/* Ensure focus indicators are visible */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[role="button"]:focus {
+    outline: 3px solid #4facfe;
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    a:focus,
+    button:focus,
+    [role="button"]:focus {
+        outline: 3px solid currentColor;
+        outline-offset: 3px;
+    }
+}
+
+/* ====================================
+   19. Hover States for Touch Screens
+   ==================================== */
+/* Prevent hover states from sticking on touch */
+@media (hover: none) {
+    a:hover,
+    button:hover {
+        /* Remove sticky hover effects on touch devices */
+        transform: none !important;
+    }
+}
+
+/* ====================================
+   20. Active/Pressed States
+   ==================================== */
+/* Visual feedback for touch */
+a:active,
+button:active,
+[role="button"]:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* ====================================
+   NOTES FOR DEVELOPERS:
+   
+   WCAG 2.1 Level AA Requirements:
+   - Minimum target size: 44x44 CSS pixels
+   - Spacing between targets: at least 8px
+   - Exception: Inline text links can be smaller
+   
+   Best Practices:
+   - 48x48px for primary actions (mobile)
+   - 44x44px for secondary actions
+   - 36x36px minimum for text links
+   - 8-12px spacing between touch targets
+   
+   Testing:
+   - Use browser dev tools "Device Mode"
+   - Test on real devices (iOS, Android)
+   - Use accessibility audit tools
+   - Test with large fingers/thumbs
+   ==================================== */

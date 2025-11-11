@@ -1,0 +1,481 @@
+/* ============================================
+   RESQ+ STELLAR DESIGN SYSTEM
+   Created to Save Lives with Beauty & Efficiency
+   From Another Planet - Reinventing Emergency UI
+   ============================================ */
+
+:root {
+    /* Stellar Color Palette - Life-Saving Colors */
+    --stellar-red: #ff3b3b;
+    --stellar-red-glow: rgba(255, 59, 59, 0.3);
+    --stellar-blue: #0091ff;
+    --stellar-blue-glow: rgba(0, 145, 255, 0.3);
+    --stellar-purple: #7c3aed;
+    --stellar-green: #00ff88;
+    --stellar-gold: #ffd700;
+    
+    /* Gradients from Space */
+    --gradient-emergency: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 50%, #ff9b9b 100%);
+    --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --gradient-life: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --gradient-night: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    
+    /* Stellar Shadows */
+    --shadow-stellar: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px var(--stellar-blue-glow);
+    --shadow-glow-red: 0 0 20px var(--stellar-red-glow), 0 0 40px var(--stellar-red-glow);
+    --shadow-glow-blue: 0 0 20px var(--stellar-blue-glow), 0 0 40px var(--stellar-blue-glow);
+    --shadow-float: 0 30px 60px rgba(0, 0, 0, 0.12);
+    
+    /* Cosmic Spacing */
+    --space-cosmic: 8rem;
+    --space-stellar: 6rem;
+    --space-orbit: 4rem;
+    --space-moon: 3rem;
+    --space-star: 2rem;
+}
+
+/* ============================================
+   STELLAR ANIMATIONS
+   ============================================ */
+
+@keyframes stellar-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes stellar-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 var(--stellar-blue-glow); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 20px transparent; }
+}
+
+@keyframes stellar-glow {
+    0%, 100% { filter: drop-shadow(0 0 5px var(--stellar-blue)) drop-shadow(0 0 15px var(--stellar-blue)); }
+    50% { filter: drop-shadow(0 0 10px var(--stellar-blue)) drop-shadow(0 0 25px var(--stellar-blue)); }
+}
+
+@keyframes stellar-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes stellar-shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+@keyframes stellar-heartbeat {
+    0%, 100% { transform: scale(1); }
+    10% { transform: scale(1.1); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+}
+
+@keyframes stellar-emerge {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* ============================================
+   STELLAR HERO SECTION - LIFE-SAVING COMMAND CENTER
+   ============================================ */
+
+.stellar-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-night);
+    overflow: hidden;
+}
+
+/* Animated background particles */
+.stellar-hero::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 85%, white, transparent);
+    background-size: 200% 200%;
+    animation: stellar-shimmer 60s linear infinite;
+    opacity: 0.5;
+}
+
+.stellar-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff 0%, var(--stellar-blue) 50%, var(--stellar-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(0, 145, 255, 0.5);
+    animation: stellar-emerge 1s ease-out;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.stellar-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    margin-top: var(--space-star);
+    animation: stellar-emerge 1s ease-out 0.2s both;
+}
+
+/* ============================================
+   STELLAR CARDS - FLOATING IN SPACE
+   ============================================ */
+
+.stellar-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: var(--space-moon);
+    box-shadow: var(--shadow-stellar);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: stellar-float 6s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.stellar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.7s;
+}
+
+.stellar-card:hover::before {
+    left: 100%;
+}
+
+.stellar-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 60px var(--stellar-blue-glow);
+    border-color: var(--stellar-blue);
+}
+
+/* ============================================
+   STELLAR BUTTONS - COMMAND INTERFACE
+   ============================================ */
+
+.stellar-btn {
+    position: relative;
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background: var(--gradient-emergency);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow-red);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stellar-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.stellar-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.stellar-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 59, 59, 0.4), 0 0 60px var(--stellar-red-glow);
+}
+
+.stellar-btn-secondary {
+    background: var(--gradient-ai);
+    box-shadow: var(--shadow-glow-blue);
+}
+
+.stellar-btn-secondary:hover {
+    box-shadow: 0 20px 40px rgba(0, 145, 255, 0.4), 0 0 60px var(--stellar-blue-glow);
+}
+
+/* ============================================
+   STELLAR ICONS - CUSTOM SVG INTEGRATION
+   ============================================ */
+
+.stellar-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--space-star);
+    filter: drop-shadow(0 5px 15px rgba(0, 145, 255, 0.5));
+    animation: stellar-pulse 3s ease-in-out infinite;
+}
+
+.stellar-icon-lg {
+    width: 120px;
+    height: 120px;
+}
+
+.stellar-icon-emergency {
+    animation: stellar-heartbeat 2s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(255, 59, 59, 0.7));
+}
+
+/* ============================================
+   STELLAR FEATURES GRID
+   ============================================ */
+
+.stellar-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-moon);
+    padding: var(--space-stellar) 0;
+}
+
+.stellar-feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: var(--space-moon);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+.stellar-feature-card:hover {
+    transform: translateY(-15px) rotateY(5deg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    box-shadow: var(--shadow-stellar);
+}
+
+/* ============================================
+   STELLAR STATS DISPLAY
+   ============================================ */
+
+.stellar-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--space-moon);
+    padding: var(--space-orbit);
+    background: var(--gradient-night);
+    border-radius: 30px;
+    margin: var(--space-stellar) 0;
+}
+
+.stellar-stat {
+    text-align: center;
+    color: white;
+}
+
+.stellar-stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--stellar-blue), var(--stellar-purple), var(--stellar-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.5rem;
+    animation: stellar-glow 2s ease-in-out infinite;
+}
+
+.stellar-stat-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* ============================================
+   STELLAR SCROLL PROGRESS
+   ============================================ */
+
+.stellar-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--stellar-red), var(--stellar-blue), var(--stellar-green), var(--stellar-gold));
+    background-size: 200% 100%;
+    animation: stellar-shimmer 3s linear infinite;
+    z-index: 99999;
+    box-shadow: 0 0 20px var(--stellar-blue-glow);
+}
+
+/* ============================================
+   STELLAR EMERGENCY PULSE
+   ============================================ */
+
+.stellar-emergency-pulse {
+    position: relative;
+}
+
+.stellar-emergency-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--stellar-red);
+    transform: translate(-50%, -50%);
+    animation: stellar-pulse 2s infinite;
+}
+
+/* ============================================
+   STELLAR TEXT EFFECTS
+   ============================================ */
+
+.stellar-text-glow {
+    text-shadow: 
+        0 0 10px rgba(0, 145, 255, 0.8),
+        0 0 20px rgba(0, 145, 255, 0.6),
+        0 0 30px rgba(0, 145, 255, 0.4);
+}
+
+.stellar-text-gradient {
+    background: linear-gradient(135deg, var(--stellar-blue), var(--stellar-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* ============================================
+   STELLAR GLASSMORPHISM
+   ============================================ */
+
+.stellar-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* ============================================
+   STELLAR RESPONSIVE - ENHANCED
+   ============================================ */
+
+@media (max-width: 768px) {
+    .stellar-features {
+        grid-template-columns: 1fr;
+        gap: var(--space-star);
+    }
+    
+    .stellar-stats {
+        flex-direction: column;
+        gap: var(--space-star);
+        padding: var(--space-moon) !important;
+    }
+    
+    .stellar-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+    }
+    
+    .stellar-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .stellar-card {
+        padding: var(--space-star);
+    }
+    
+    .stellar-btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .stellar-hero {
+        min-height: auto;
+        padding: 8rem 0 4rem;
+    }
+    
+    .stellar-glass {
+        padding: 2rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .stellar-title {
+        font-size: 2rem !important;
+    }
+    
+    .stellar-stats {
+        padding: 2rem 1rem !important;
+    }
+    
+    .stellar-stat-number {
+        font-size: 2rem !important;
+    }
+}
+
+/* ============================================
+   STELLAR ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   STELLAR CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gradient-night);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-ai);
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-emergency);
+}

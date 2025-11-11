@@ -1,0 +1,261 @@
+/* ========================================
+   INLINE STYLES CLEANUP
+   Item 52/78: Refactored inline styles to CSS
+   ======================================== */
+
+/* ====================================
+   BODY & GLOBAL STYLES
+   ==================================== */
+
+/* Body gradient background */
+body.emergency-gradient {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) !important;
+    background-attachment: fixed !important;
+    color: white !important;
+    min-height: 100vh !important;
+}
+
+/* ====================================
+   SCROLL PROGRESS BAR
+   ==================================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    z-index: 99999;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+/* ====================================
+   SKIP LINK (Accessibility)
+   ==================================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #1565C0;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ====================================
+   PRIVACY NOTICE (Hero)
+   ==================================== */
+
+.privacy-notice {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.privacy-notice-icon {
+    color: #00C853;
+    font-size: 18px;
+}
+
+.privacy-notice strong {
+    color: #fff;
+}
+
+/* ====================================
+   PHONE MOCKUP IMAGE
+   ==================================== */
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* ====================================
+   USE CASE CARDS
+   ==================================== */
+
+.use-case {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.use-case-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* ====================================
+   SHARE STORY SECTION
+   ==================================== */
+
+.share-story {
+    background: transparent;
+    padding: 80px 0;
+}
+
+.share-story .section-header {
+    background: transparent;
+}
+
+.share-story .section-title {
+    color: white;
+}
+
+.share-story .section-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.share-story-cta {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.share-story-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.share-story-text {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* ====================================
+   CONTACT EMAIL LINK
+   ==================================== */
+
+.contact-email {
+    color: #4facfe;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+    color: #00f2fe;
+    text-decoration: underline;
+}
+
+/* ====================================
+   PRIVACY PAGE FOOTER
+   ==================================== */
+
+.privacy-footer {
+    text-align: center;
+    color: var(--text-light);
+    margin-top: var(--spacing-2xl);
+}
+
+/* ====================================
+   FACEBOOK PIXEL NOSCRIPT IMAGE
+   ==================================== */
+
+.fb-pixel-img {
+    display: none;
+}
+
+/* ====================================
+   TESTIMONIAL CARDS (if inline)
+   ==================================== */
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+/* ====================================
+   CALL TO ACTION BUTTONS
+   ==================================== */
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* ====================================
+   EMERGENCY STATS
+   ==================================== */
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 8px;
+}
+
+/* ====================================
+   FEATURE HIGHLIGHTS
+   ==================================== */
+
+.feature-highlight {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* ====================================
+   RESPONSIVE ADJUSTMENTS
+   ==================================== */
+
+@media (max-width: 768px) {
+    .privacy-notice {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    
+    .use-case {
+        padding: 20px;
+    }
+    
+    .use-case-icon {
+        font-size: 36px;
+    }
+    
+    .share-story-icon {
+        font-size: 48px;
+    }
+    
+    .share-story-text {
+        font-size: 16px;
+    }
+}

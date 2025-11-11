@@ -1,0 +1,504 @@
+/* ========================================
+   MICRO-INTERACTIONS
+   Item 57/78: Subtle animations for better UX
+   ======================================== */
+
+/* ====================================
+   KEYFRAME ANIMATIONS
+   ==================================== */
+
+/* Bounce subtle */
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Scale pulse */
+@keyframes scalePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Shake subtle */
+@keyframes shakeSubtle {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotate subtle */
+@keyframes rotateSubtle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(79, 172, 254, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+    }
+}
+
+/* ====================================
+   BUTTON CLICK ANIMATIONS
+   ==================================== */
+
+/* Primary button click */
+.btn-primary:active,
+button:active {
+    animation: scalePulse 0.3s ease;
+    transform: scale(0.95);
+}
+
+/* Button with ripple effect */
+.btn,
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after,
+button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.btn:active::after,
+button:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* ====================================
+   LINK MICRO-INTERACTIONS
+   ==================================== */
+
+/* Link hover bounce */
+a:hover {
+    animation: bounceSubtle 0.5s ease;
+}
+
+/* Icon link rotation */
+a.icon-link:hover svg,
+a.icon-link:hover i {
+    animation: rotateSubtle 0.4s ease;
+}
+
+/* ====================================
+   CARD INTERACTIONS
+   ==================================== */
+
+/* Card on click */
+.card:active,
+.feature-card:active {
+    transform: translateY(-6px) scale(0.98);
+}
+
+/* Card entrance animation */
+.card,
+.feature-card {
+    animation: fadeInUp 0.6s ease;
+}
+
+/* Stagger animation for multiple cards */
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.3s; }
+.card:nth-child(5) { animation-delay: 0.4s; }
+.card:nth-child(6) { animation-delay: 0.5s; }
+
+/* ====================================
+   INPUT INTERACTIONS
+   ==================================== */
+
+/* Input focus animation */
+input:focus,
+textarea:focus {
+    animation: glowPulse 1.5s ease infinite;
+}
+
+/* Checkbox click */
+input[type="checkbox"]:checked {
+    animation: scalePulse 0.3s ease;
+}
+
+/* Radio button click */
+input[type="radio"]:checked {
+    animation: scalePulse 0.3s ease;
+}
+
+/* Input error shake */
+input.error,
+input:invalid {
+    animation: shakeSubtle 0.4s ease;
+}
+
+/* ====================================
+   ICON ANIMATIONS
+   ==================================== */
+
+/* Icon hover pulse */
+.icon:hover,
+i:hover,
+svg:hover {
+    animation: scalePulse 0.4s ease;
+}
+
+/* Loading spinner */
+.loading-icon,
+.spinner {
+    animation: rotateSubtle 1s linear infinite;
+}
+
+/* Checkmark animation */
+.checkmark {
+    animation: scalePulse 0.5s ease;
+}
+
+/* ====================================
+   BADGE & PILL INTERACTIONS
+   ==================================== */
+
+/* Badge hover */
+.badge:hover,
+.pill:hover {
+    animation: bounceSubtle 0.4s ease;
+}
+
+/* Notification badge pulse */
+.notification-badge {
+    animation: scalePulse 2s ease infinite;
+}
+
+/* ====================================
+   TOOLTIP INTERACTIONS
+   ==================================== */
+
+/* Tooltip entrance */
+.tooltip {
+    animation: fadeInUp 0.3s ease;
+}
+
+/* Tooltip on trigger hover */
+[data-tooltip]:hover::after {
+    animation: fadeInUp 0.2s ease;
+}
+
+/* ====================================
+   MODAL & POPUP INTERACTIONS
+   ==================================== */
+
+/* Modal entrance */
+.modal,
+.popup {
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Modal backdrop */
+.modal-overlay {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Close button hover */
+.modal-close:hover,
+.popup-close:hover {
+    animation: rotateSubtle 0.4s ease;
+}
+
+/* ====================================
+   NAVIGATION INTERACTIONS
+   ==================================== */
+
+/* Mobile menu toggle */
+.mobile-menu-btn:active {
+    animation: scalePulse 0.2s ease;
+}
+
+/* Menu item entrance */
+.nav-links li {
+    animation: fadeInUp 0.4s ease;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0s; }
+.nav-links li:nth-child(2) { animation-delay: 0.05s; }
+.nav-links li:nth-child(3) { animation-delay: 0.1s; }
+.nav-links li:nth-child(4) { animation-delay: 0.15s; }
+.nav-links li:nth-child(5) { animation-delay: 0.2s; }
+
+/* ====================================
+   SOCIAL MEDIA INTERACTIONS
+   ==================================== */
+
+/* Social icon click */
+.social-links a:active {
+    animation: scalePulse 0.3s ease;
+}
+
+/* Social icon hover bounce */
+.social-links a:hover {
+    animation: bounceSubtle 0.5s ease;
+}
+
+/* ====================================
+   FORM SUBMIT ANIMATIONS
+   ==================================== */
+
+/* Submit button loading */
+button[type="submit"].loading,
+input[type="submit"].loading {
+    animation: glowPulse 1s ease infinite;
+}
+
+/* Success state */
+.success {
+    animation: scalePulse 0.5s ease;
+}
+
+/* Error state */
+.error {
+    animation: shakeSubtle 0.4s ease;
+}
+
+/* ====================================
+   SCROLL ANIMATIONS
+   ==================================== */
+
+/* Scroll to top button */
+.back-to-top {
+    animation: bounceSubtle 2s ease infinite;
+}
+
+/* Floating elements */
+.float {
+    animation: bounceSubtle 3s ease-in-out infinite;
+}
+
+/* ====================================
+   HOVER GLOW EFFECTS
+   ==================================== */
+
+/* Button glow on hover */
+.btn-primary:hover,
+.btn-cta:hover {
+    animation: glowPulse 1s ease infinite;
+}
+
+/* CTA pulse attention */
+.cta-pulse {
+    animation: scalePulse 2s ease infinite;
+}
+
+/* ====================================
+   EMERGENCY SPECIFIC
+   ==================================== */
+
+/* SOS button urgent pulse */
+.sos-button {
+    animation: scalePulse 1.5s ease infinite;
+}
+
+.sos-button:hover {
+    animation: scalePulse 0.5s ease infinite;
+}
+
+/* Emergency alert pulse */
+.emergency-alert {
+    animation: glowPulse 1s ease infinite;
+}
+
+/* Recording indicator pulse */
+.recording-indicator {
+    animation: scalePulse 1s ease infinite;
+}
+
+/* ====================================
+   LOADING STATES
+   ==================================== */
+
+/* Skeleton shimmer */
+.skeleton {
+    animation: shimmer 2s ease infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Loading dots */
+.loading-dots span {
+    animation: bounceSubtle 1.4s ease infinite;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ====================================
+   PROGRESS INDICATORS
+   ==================================== */
+
+/* Progress bar fill */
+.progress-bar {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Step indicator pulse */
+.step.active {
+    animation: scalePulse 0.8s ease;
+}
+
+/* ====================================
+   NOTIFICATION ANIMATIONS
+   ==================================== */
+
+/* Toast notification entrance */
+.toast,
+.notification {
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Success notification */
+.toast.success {
+    animation: fadeInUp 0.4s ease, scalePulse 0.5s ease 0.5s;
+}
+
+/* Error notification */
+.toast.error {
+    animation: fadeInUp 0.4s ease, shakeSubtle 0.4s ease 0.5s;
+}
+
+/* ====================================
+   ACCESSIBILITY
+   ==================================== */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    /* Keep essential animations but make instant */
+    .sos-button,
+    .emergency-alert,
+    .recording-indicator {
+        animation: none;
+    }
+}
+
+/* ====================================
+   PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+/* Use will-change for animated elements */
+.btn:hover,
+.card:hover,
+a:hover {
+    will-change: transform;
+}
+
+/* Remove will-change after animation */
+.btn,
+.card,
+a {
+    will-change: auto;
+}
+
+/* GPU acceleration */
+@keyframes gpuAccelerated {
+    from { transform: translateZ(0); }
+    to { transform: translateZ(0); }
+}
+
+/* ====================================
+   TIMING FUNCTIONS
+   ==================================== */
+
+/* Custom easing for smooth feel */
+.smooth-ease {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bounce-ease {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.elastic-ease {
+    animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+/* Disable animations */
+.no-animation {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Pause animation */
+.pause-animation {
+    animation-play-state: paused !important;
+}
+
+/* Fast animation */
+.fast {
+    animation-duration: 0.2s !important;
+}
+
+/* Slow animation */
+.slow {
+    animation-duration: 1s !important;
+}
+
+/* Delay classes */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }

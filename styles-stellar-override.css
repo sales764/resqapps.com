@@ -1,0 +1,519 @@
+/* ============================================
+   STELLAR OVERRIDE - FORCE STELLAR EVERYWHERE
+   Make the ENTIRE site stellar-themed
+   ============================================ */
+
+/* Override CSS variables that cause white backgrounds */
+:root {
+    --bg-white: rgba(255, 255, 255, 0.05) !important;
+    --bg-light: rgba(255, 255, 255, 0.03) !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: rgba(255,255,255,0.8) !important;
+}
+
+/* Force specific problem sections */
+.coming-soon,
+.use-cases,
+.share-story-section {
+    background: transparent !important;
+}
+
+.coming-soon *,
+.use-cases *,
+.share-story-section * {
+    color: inherit !important;
+}
+
+/* Force dark background everywhere */
+html {
+    background: #0f2027 !important;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) !important;
+    background-attachment: fixed !important;
+    color: white !important;
+    min-height: 100vh;
+}
+
+/* Force ALL cards to dark theme */
+.feature-card,
+.screenshot-card,
+.use-case-card,
+.use-case,
+.faq-item,
+.stat-card,
+.step-card,
+.coming-soon-content,
+.download-card,
+div[style*="background: white"],
+div[style*="background: #fff"],
+div[style*="background-color: white"],
+div[style*="background-color: #fff"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Specific fix for use-cases section */
+.use-cases {
+    background: transparent !important;
+}
+
+.use-cases .use-case {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 30px;
+    border-radius: 16px;
+    color: white !important;
+}
+
+.use-cases .use-case h3,
+.use-cases .use-case p,
+.use-cases .use-case * {
+    color: white !important;
+}
+
+/* Force main sections to be transparent (not all divs) */
+section:not(.modal-content):not(.toast):not(.feature-card):not(.screenshot-card) {
+    background-color: transparent !important;
+}
+
+main {
+    background-color: transparent !important;
+}
+
+/* Specific overrides for common white backgrounds */
+.container,
+.section,
+.content,
+.wrapper,
+.page,
+.main-content,
+article {
+    background: transparent !important;
+}
+
+/* But keep card backgrounds visible */
+.feature-card,
+.screenshot-card,
+.use-case-card,
+.faq-item,
+.stat-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Navbar stellar */
+.navbar {
+    background: rgba(15, 32, 39, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-links a:hover {
+    color: #00f2fe !important;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Hero section stellar */
+.hero {
+    background: transparent !important;
+    color: white !important;
+}
+
+.hero-title {
+    background: linear-gradient(135deg, #fff 0%, #4facfe 50%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.hero-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Buttons stellar */
+.btn-primary {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 100%) !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(255, 59, 59, 0.3), 0 0 20px rgba(255, 59, 59, 0.2) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(255, 59, 59, 0.4), 0 0 40px rgba(255, 59, 59, 0.3) !important;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Feature cards stellar */
+.features {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.section-badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.section-title {
+    background: linear-gradient(135deg, #fff 0%, #4facfe 50%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.section-description {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(79, 172, 254, 0.1) !important;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 60px rgba(79, 172, 254, 0.2) !important;
+    border-color: #4facfe !important;
+}
+
+.feature-title {
+    background: linear-gradient(135deg, #4facfe, #764ba2) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.feature-description,
+.feature-list {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.feature-list li {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Screenshots section */
+.screenshots {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.screenshot-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.screenshot-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.screenshot-caption {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* How it works section */
+.how-it-works {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 100%) !important;
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.step-title {
+    background: linear-gradient(135deg, #4facfe, #764ba2) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.step-description {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Use cases section */
+.use-cases {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.use-case-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+.use-case-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: #4facfe !important;
+}
+
+.use-case-title {
+    color: white !important;
+}
+
+.use-case-description {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Stats section */
+.stats-section {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3) !important;
+}
+
+.stat-number {
+    background: linear-gradient(135deg, #4facfe, #00f2fe, #38ef7d) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: none !important;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Coming soon section */
+.coming-soon,
+.share-story-section,
+.share-story-cta {
+    background: transparent !important;
+}
+
+/* Share story section - KILL ALL WHITE BACKGROUNDS */
+.share-story-section,
+.share-story-section *,
+.share-story-section div,
+.share-story-section .container,
+.share-story-section p {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* But keep button gradient */
+.share-story-section button.stellar-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* And title gradient */
+.share-story-section h2 {
+    background: linear-gradient(135deg, #fff 0%, #4facfe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.coming-soon-content,
+.share-story-cta {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* FAQ section */
+.faq {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 100%) !important;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: #4facfe !important;
+}
+
+.faq-question h3 {
+    color: white !important;
+}
+
+.faq-answer {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Download section */
+.download {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.download-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.download-title {
+    background: linear-gradient(135deg, #fff 0%, #4facfe 50%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.download-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.store-button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.store-label,
+.store-name {
+    color: white !important;
+}
+
+.info-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Footer stellar */
+.footer {
+    background: rgba(15, 32, 39, 0.95) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.footer-title {
+    color: #4facfe !important;
+}
+
+.footer-description,
+.footer-list a,
+.copyright,
+.disclaimer {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer-list a:hover {
+    color: #4facfe !important;
+}
+
+/* Phone mockups */
+.phone-frame {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Forms */
+input[type="email"],
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Modal */
+.modal-content {
+    background: linear-gradient(135deg, #203a43 0%, #2c5364 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.modal-content h2 {
+    color: white !important;
+}
+
+.modal-content p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.modal-content label {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff3b3b, #4facfe, #38ef7d, #ffd700);
+    background-size: 200% 100%;
+    animation: stellar-shimmer 3s linear infinite;
+    z-index: 99999;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+}
+
+@keyframes stellar-shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-card,
+    .screenshot-card,
+    .use-case-card {
+        padding: 1.5rem !important;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* Accessibility - maintain readability */
+::selection {
+    background: rgba(79, 172, 254, 0.3);
+    color: white;
+}
+
+/* Links should remain visible */
+a {
+    color: #4facfe;
+}
+
+a:hover {
+    color: #00f2fe;
+}

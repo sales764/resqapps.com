@@ -1,0 +1,546 @@
+/* ========================================
+   PRINT STYLESHEET
+   Item 59/78: Optimized printing for web pages
+   ======================================== */
+
+@media print {
+
+/* ====================================
+   GENERAL SETTINGS
+   ==================================== */
+
+* {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+    margin: 2cm;
+}
+
+/* ====================================
+   PAGE SETTINGS
+   ==================================== */
+
+@page {
+    margin: 2cm;
+    size: A4 portrait;
+}
+
+@page :first {
+    margin-top: 1cm;
+}
+
+@page :left {
+    margin-left: 2.5cm;
+    margin-right: 2cm;
+}
+
+@page :right {
+    margin-left: 2cm;
+    margin-right: 2.5cm;
+}
+
+/* ====================================
+   HIDE ELEMENTS
+   ==================================== */
+
+/* Hide navigation and UI elements */
+.navbar,
+.nav-links,
+.mobile-menu-btn,
+.lang-switcher,
+.theme-toggle,
+.back-to-top,
+.scroll-progress,
+.newsletter-popup,
+.live-chat,
+.social-share,
+.cookie-banner,
+.modal-overlay,
+.popup,
+video,
+audio,
+iframe,
+.video-container,
+.phone-mockup,
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.cta-button,
+.emergency-btn,
+.social-links,
+.share-buttons,
+footer,
+.skip-link {
+    display: none !important;
+}
+
+/* ====================================
+   TYPOGRAPHY
+   ==================================== */
+
+h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin-top: 18pt;
+    margin-bottom: 10pt;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+}
+
+h4, h5, h6 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+p {
+    margin-bottom: 10pt;
+    orphans: 3;
+    widows: 3;
+}
+
+/* ====================================
+   LINKS
+   ==================================== */
+
+a {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Show URL after link text */
+a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+}
+
+/* Don't show URLs for anchors or JavaScript links */
+a[href^="#"]::after,
+a[href^="javascript:"]::after {
+    content: "";
+}
+
+/* Don't show URLs for email links */
+a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    content: " (Email: " attr(href) ")";
+}
+
+/* ====================================
+   IMAGES
+   ==================================== */
+
+img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+}
+
+/* Hide decorative images */
+img[alt=""],
+img:not([alt]) {
+    display: none;
+}
+
+/* ====================================
+   TABLES
+   ==================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: avoid;
+    margin-bottom: 12pt;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tr {
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1pt solid #000;
+    padding: 6pt;
+    text-align: left;
+}
+
+th {
+    background: #f0f0f0;
+    font-weight: bold;
+}
+
+/* ====================================
+   LISTS
+   ==================================== */
+
+ul, ol {
+    margin-bottom: 12pt;
+    padding-left: 24pt;
+}
+
+li {
+    margin-bottom: 6pt;
+}
+
+/* ====================================
+   BLOCKQUOTES
+   ==================================== */
+
+blockquote {
+    margin: 12pt 24pt;
+    padding-left: 12pt;
+    border-left: 3pt solid #000;
+    font-style: italic;
+}
+
+/* ====================================
+   CODE & PRE
+   ==================================== */
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f5f5f5;
+    padding: 2pt 4pt;
+    border: 1pt solid #ddd;
+}
+
+pre {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f5f5f5;
+    padding: 12pt;
+    border: 1pt solid #ddd;
+    page-break-inside: avoid;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ====================================
+   SECTIONS & CONTAINERS
+   ==================================== */
+
+section {
+    page-break-inside: avoid;
+    margin-bottom: 18pt;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ====================================
+   CARDS & FEATURES
+   ==================================== */
+
+.card,
+.feature-card,
+.use-case {
+    border: 1pt solid #000;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    page-break-inside: avoid;
+    background: #fff;
+}
+
+/* ====================================
+   PRIVACY POLICY / LEGAL CONTENT
+   ==================================== */
+
+.privacy-section {
+    margin-bottom: 18pt;
+    page-break-inside: avoid;
+}
+
+.privacy-section h2 {
+    border-bottom: 2pt solid #000;
+    padding-bottom: 6pt;
+}
+
+/* ====================================
+   EMERGENCY INFORMATION
+   ==================================== */
+
+/* Emergency profile for printing */
+.emergency-profile {
+    border: 2pt solid #000;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    page-break-inside: avoid;
+}
+
+.emergency-profile h2 {
+    background: #000;
+    color: #fff;
+    padding: 6pt;
+    margin: -12pt -12pt 12pt -12pt;
+}
+
+/* Medical information */
+.medical-info {
+    border: 1pt solid #000;
+    padding: 8pt;
+    margin-bottom: 8pt;
+}
+
+.critical-info {
+    border: 2pt solid #000;
+    background: #f0f0f0;
+    padding: 8pt;
+    margin-bottom: 8pt;
+    font-weight: bold;
+}
+
+/* ====================================
+   QR CODE (for emergency profiles)
+   ==================================== */
+
+.qr-code {
+    page-break-inside: avoid;
+    text-align: center;
+    margin: 12pt 0;
+}
+
+.qr-code img {
+    max-width: 200pt;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ====================================
+   HEADERS & FOOTERS
+   ==================================== */
+
+/* Header for each page */
+@page {
+    @top-center {
+        content: "RESQ+ Emergency Response System";
+        font-size: 10pt;
+        color: #666;
+    }
+    
+    @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-size: 10pt;
+        color: #666;
+    }
+}
+
+/* Print header */
+.print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 18pt;
+    border-bottom: 2pt solid #000;
+    padding-bottom: 12pt;
+}
+
+.print-header h1 {
+    margin: 0;
+    font-size: 20pt;
+}
+
+.print-date {
+    display: block !important;
+    font-size: 10pt;
+    color: #666;
+    margin-top: 6pt;
+}
+
+/* ====================================
+   PAGE BREAKS
+   ==================================== */
+
+/* Avoid breaks */
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+p, blockquote {
+    page-break-inside: avoid;
+}
+
+/* Force breaks */
+.page-break {
+    page-break-before: always;
+}
+
+.page-break-after {
+    page-break-after: always;
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+.print-only {
+    display: block !important;
+}
+
+.no-print {
+    display: none !important;
+}
+
+.print-break {
+    page-break-before: always;
+}
+
+/* ====================================
+   CONTACT INFORMATION
+   ==================================== */
+
+.contact-info {
+    border: 1pt solid #000;
+    padding: 12pt;
+    margin: 12pt 0;
+    page-break-inside: avoid;
+}
+
+.contact-info h3 {
+    margin-top: 0;
+    border-bottom: 1pt solid #000;
+    padding-bottom: 6pt;
+}
+
+/* ====================================
+   EMERGENCY CONTACTS
+   ==================================== */
+
+.emergency-contact {
+    border: 2pt solid #000;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    page-break-inside: avoid;
+    background: #f9f9f9;
+}
+
+.emergency-contact h3 {
+    margin-top: 0;
+    font-size: 14pt;
+    color: #000;
+}
+
+.emergency-contact .phone {
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 6pt 0;
+}
+
+/* ====================================
+   ABBREVIATIONS
+   ==================================== */
+
+abbr[title]::after {
+    content: " (" attr(title) ")";
+    font-size: 10pt;
+}
+
+/* ====================================
+   FORMS (for emergency profiles)
+   ==================================== */
+
+input,
+textarea,
+select {
+    border: 1pt solid #000;
+    padding: 4pt;
+    display: inline-block;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 6pt;
+}
+
+/* ====================================
+   BADGES & PILLS
+   ==================================== */
+
+.badge,
+.pill {
+    border: 1pt solid #000;
+    padding: 2pt 6pt;
+    display: inline-block;
+    margin-right: 4pt;
+}
+
+/* ====================================
+   OPTIMIZE FOR BLACK & WHITE
+   ==================================== */
+
+/* Remove gradients */
+* {
+    background-image: none !important;
+}
+
+/* Ensure text is readable */
+* {
+    color: #000 !important;
+}
+
+/* High contrast borders */
+.card,
+.feature-card,
+table,
+.emergency-profile {
+    border-color: #000 !important;
+}
+
+/* ====================================
+   ACCESSIBILITY
+   ==================================== */
+
+/* Ensure sufficient contrast */
+::selection {
+    background: #000;
+    color: #fff;
+}
+
+/* ====================================
+   PERFORMANCE
+   ==================================== */
+
+/* Disable animations */
+* {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Disable transforms */
+* {
+    transform: none !important;
+}
+
+} /* End @media print */

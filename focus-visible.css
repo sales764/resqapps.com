@@ -1,0 +1,325 @@
+/* ========================================
+   FOCUS VISIBLE STYLES
+   Item 55/78: Keyboard navigation accessibility
+   ======================================== */
+
+/* ====================================
+   RESET DEFAULT FOCUS STYLES
+   ==================================== */
+
+/* Remove default outline for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ====================================
+   FOCUS VISIBLE STYLES
+   ==================================== */
+
+/* Primary focus style for keyboard navigation */
+*:focus-visible {
+    outline: 3px solid var(--primary-color, #1565C0);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ====================================
+   LINKS
+   ==================================== */
+
+a:focus-visible {
+    outline: 3px solid var(--secondary-color, #00f2fe);
+    outline-offset: 4px;
+    background: rgba(0, 242, 254, 0.1);
+    border-radius: 4px;
+}
+
+/* Navigation links */
+.nav-links a:focus-visible,
+.navbar a:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Footer links */
+footer a:focus-visible {
+    outline: 2px solid var(--secondary-color, #00f2fe);
+    outline-offset: 2px;
+}
+
+/* ====================================
+   BUTTONS
+   ==================================== */
+
+button:focus-visible,
+.btn:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="button"]:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Primary buttons */
+.btn-primary:focus-visible {
+    outline: 3px solid #fff;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3), 
+                0 10px 30px rgba(255, 59, 59, 0.4);
+}
+
+/* Secondary buttons */
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--primary-color, #1565C0);
+    box-shadow: 0 0 0 6px rgba(21, 101, 192, 0.2);
+}
+
+/* ====================================
+   FORM INPUTS
+   ==================================== */
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary-color, #1565C0);
+    outline-offset: 2px;
+    border-color: var(--primary-color, #1565C0);
+    box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.1);
+}
+
+/* Email input */
+input[type="email"]:focus-visible {
+    outline: 2px solid var(--secondary-color, #00f2fe);
+    border-color: var(--secondary-color, #00f2fe);
+    box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.1);
+}
+
+/* Error state focus */
+input.error:focus-visible,
+input:invalid:focus-visible {
+    outline: 2px solid #ff3b3b;
+    border-color: #ff3b3b;
+    box-shadow: 0 0 0 4px rgba(255, 59, 59, 0.1);
+}
+
+/* ====================================
+   CHECKBOXES & RADIO BUTTONS
+   ==================================== */
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+    outline: 2px solid var(--primary-color, #1565C0);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(21, 101, 192, 0.15);
+}
+
+/* ====================================
+   LANGUAGE SWITCHER
+   ==================================== */
+
+.lang-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* ====================================
+   MOBILE MENU
+   ==================================== */
+
+.mobile-menu-btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ====================================
+   CARDS & INTERACTIVE ELEMENTS
+   ==================================== */
+
+.card:focus-visible,
+.feature-card:focus-visible,
+.use-case:focus-visible {
+    outline: 3px solid var(--secondary-color, #00f2fe);
+    outline-offset: 4px;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 242, 254, 0.3);
+}
+
+/* ====================================
+   SOCIAL MEDIA BUTTONS
+   ==================================== */
+
+.social-links a:focus-visible,
+.social-share-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* ====================================
+   MODAL & POPUP
+   ==================================== */
+
+.modal:focus-visible,
+.popup:focus-visible {
+    outline: 3px solid var(--primary-color, #1565C0);
+    outline-offset: -3px;
+}
+
+.modal-close:focus-visible,
+.popup-close:focus-visible {
+    outline: 2px solid #ff3b3b;
+    outline-offset: 2px;
+    background: rgba(255, 59, 59, 0.1);
+}
+
+/* ====================================
+   SKIP LINKS
+   ==================================== */
+
+.skip-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 0;
+    background: var(--primary-color, #1565C0);
+    color: white;
+    padding: 12px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ====================================
+   TABS & ACCORDIONS
+   ==================================== */
+
+[role="tab"]:focus-visible {
+    outline: 2px solid var(--primary-color, #1565C0);
+    outline-offset: 2px;
+    background: rgba(21, 101, 192, 0.1);
+}
+
+[role="button"]:focus-visible {
+    outline: 2px solid var(--primary-color, #1565C0);
+    outline-offset: 3px;
+}
+
+/* ====================================
+   IMAGES WITH LINKS
+   ==================================== */
+
+a img:focus-visible {
+    outline: 3px solid var(--secondary-color, #00f2fe);
+    outline-offset: 4px;
+}
+
+/* ====================================
+   EMERGENCY-SPECIFIC STYLES
+   ==================================== */
+
+/* SOS Button */
+.sos-button:focus-visible,
+.emergency-btn:focus-visible {
+    outline: 4px solid #fff;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 8px rgba(255, 59, 59, 0.3),
+                0 0 20px rgba(255, 59, 59, 0.5);
+    animation: emergencyPulse 1s infinite;
+}
+
+@keyframes emergencyPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 8px rgba(255, 59, 59, 0.3),
+                    0 0 20px rgba(255, 59, 59, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(255, 59, 59, 0.2),
+                    0 0 30px rgba(255, 59, 59, 0.6);
+    }
+}
+
+/* ====================================
+   HIGH CONTRAST MODE
+   ==================================== */
+
+@media (prefers-contrast: high) {
+    *:focus-visible {
+        outline-width: 4px;
+        outline-color: currentColor;
+    }
+}
+
+/* ====================================
+   DARK MODE ADJUSTMENTS
+   ==================================== */
+
+@media (prefers-color-scheme: dark) {
+    *:focus-visible {
+        outline-color: #4facfe;
+    }
+    
+    button:focus-visible,
+    .btn:focus-visible {
+        outline-color: #00f2fe;
+    }
+}
+
+/* ====================================
+   REDUCED MOTION
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *:focus-visible {
+        transition: none;
+        animation: none;
+    }
+    
+    .sos-button:focus-visible,
+    .emergency-btn:focus-visible {
+        animation: none;
+    }
+}
+
+/* ====================================
+   FOCUS WITHIN (for containers)
+   ==================================== */
+
+/* Highlight parent when child has focus */
+.form-group:focus-within {
+    background: rgba(21, 101, 192, 0.03);
+    border-radius: 8px;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+/* Remove focus for specific elements (use sparingly) */
+.no-focus-visible:focus-visible {
+    outline: none;
+}
+
+/* Custom focus color */
+.focus-primary:focus-visible {
+    outline-color: var(--primary-color, #1565C0);
+}
+
+.focus-secondary:focus-visible {
+    outline-color: var(--secondary-color, #00f2fe);
+}
+
+.focus-success:focus-visible {
+    outline-color: #4caf50;
+}
+
+.focus-error:focus-visible {
+    outline-color: #ff3b3b;
+}
+
+.focus-warning:focus-visible {
+    outline-color: #ff9800;
+}

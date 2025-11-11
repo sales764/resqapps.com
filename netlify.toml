@@ -1,0 +1,48 @@
+# Netlify Configuration pour resqapps.com
+# Force HTTPS et redirige tout vers resqapps.com (sans www)
+
+# Redirections: www → non-www
+[[redirects]]
+  from = "https://www.resqapps.com/*"
+  to = "https://resqapps.com/:splat"
+  status = 301
+  force = true
+
+# Redirections: netlify.app → resqapps.com
+[[redirects]]
+  from = "https://resqapps.netlify.app/*"
+  to = "https://resqapps.com/:splat"
+  status = 301
+  force = true
+
+# Headers de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache control pour assets
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 404 page personnalisée
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

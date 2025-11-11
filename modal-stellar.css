@@ -1,0 +1,196 @@
+/* ============================================
+   SHARE STORY MODAL - STELLAR THEME
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    overflow-y: auto;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex !important;
+    animation: modal-fade-in 0.3s ease;
+}
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #203a43 0%, #2c5364 100%) !important;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+    animation: modal-slide-up 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#closeModal {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#closeModal:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    color: white !important;
+    background: linear-gradient(135deg, #fff 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-content p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.modal-content label {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="url"],
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 12px !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="email"]:focus,
+.modal-content input[type="url"]:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+    outline: none;
+    border-color: #4facfe !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+}
+
+.modal-content input::placeholder,
+.modal-content textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.modal-content select option {
+    background: #2c5364;
+    color: white;
+}
+
+#uploadArea {
+    border: 2px dashed rgba(255, 255, 255, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 30px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    transition: all 0.3s ease;
+}
+
+#uploadArea:hover {
+    border-color: #4facfe !important;
+    background: rgba(79, 172, 254, 0.05) !important;
+}
+
+#uploadArea.dragover {
+    border-color: #38ef7d !important;
+    background: rgba(56, 239, 125, 0.1) !important;
+}
+
+#fileName {
+    margin-top: 8px !important;
+    font-size: 14px !important;
+    color: #38ef7d !important;
+}
+
+.modal-content input[type="checkbox"] {
+    width: auto !important;
+    margin-top: 4px;
+}
+
+.modal-content button[type="submit"] {
+    width: 100% !important;
+    padding: 16px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.modal-content button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.modal-content button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+#charCount {
+    font-weight: 600;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20px;
+        padding: 30px 20px !important;
+    }
+}

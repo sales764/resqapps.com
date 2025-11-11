@@ -1,0 +1,158 @@
+/* ========================================
+   SMOOTH SCROLL BEHAVIOR
+   Item 54/78: Enhanced navigation experience
+   ======================================== */
+
+/* ====================================
+   SMOOTH SCROLLING
+   ==================================== */
+
+/* Enable smooth scrolling for all anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Disable smooth scroll for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ====================================
+   SCROLL PADDING (for fixed headers)
+   ==================================== */
+
+/* Add scroll padding to prevent content from hiding under fixed header */
+html {
+    scroll-padding-top: 80px; /* Height of fixed navbar */
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+}
+
+/* ====================================
+   SCROLL SNAP (optional for sections)
+   ==================================== */
+
+/* Optional: Enable scroll snapping for sections
+.scroll-snap-container {
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+*/
+
+/* ====================================
+   ENHANCED SCROLL INDICATORS
+   ==================================== */
+
+/* Smooth fade for scroll progress bar */
+.scroll-progress {
+    transition: width 0.1s ease-out;
+}
+
+/* ====================================
+   ANCHOR OFFSET (for skip links)
+   ==================================== */
+
+/* Add offset to prevent content hiding under fixed elements */
+:target {
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+    :target {
+        scroll-margin-top: 60px;
+    }
+}
+
+/* ====================================
+   SMOOTH SCROLLBAR (webkit only)
+   ==================================== */
+
+/* Custom scrollbar with smooth appearance */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ====================================
+   BACK TO TOP BUTTON (if implemented)
+   ==================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color, #1565C0);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ====================================
+   PERFORMANCE OPTIMIZATION
+   ==================================== */
+
+/* Use CSS containment for better scroll performance */
+section {
+    contain: layout style paint;
+}
+
+/* Optimize repaints during scrolling */
+.fixed-element {
+    will-change: transform;
+}

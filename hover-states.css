@@ -1,0 +1,587 @@
+/* ========================================
+   HOVER STATES - ENHANCED
+   Item 56/78: Clear hover states for all links and buttons
+   ======================================== */
+
+/* ====================================
+   GLOBAL HOVER TRANSITIONS
+   ==================================== */
+
+/* Smooth transitions for all interactive elements */
+a,
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.card,
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+/* ====================================
+   LINKS
+   ==================================== */
+
+/* Default links */
+a {
+    position: relative;
+    color: var(--secondary-color, #00f2fe);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: #4facfe;
+    transform: translateX(2px);
+}
+
+/* Underline animation */
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--secondary-color, #00f2fe);
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ====================================
+   NAVIGATION LINKS
+   ==================================== */
+
+.nav-links a {
+    position: relative;
+    color: white;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a::after {
+    display: none; /* Remove underline for nav */
+}
+
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* ====================================
+   BUTTONS - PRIMARY
+   ==================================== */
+
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(255, 59, 59, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 59, 59, 0.4);
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff7b7b 100%);
+}
+
+.btn-primary:hover::before {
+    left: 100%; /* Shimmer effect */
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 59, 59, 0.3);
+}
+
+/* ====================================
+   BUTTONS - SECONDARY
+   ==================================== */
+
+.btn-secondary,
+button.btn-secondary,
+a.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+/* ====================================
+   BUTTONS - CTA (Call to Action)
+   ==================================== */
+
+.cta-button,
+.btn-cta {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.5);
+    background: linear-gradient(135deg, #5fbcfe 0%, #10f2fe 100%);
+}
+
+.cta-button:active {
+    transform: translateY(-2px) scale(1);
+}
+
+/* ====================================
+   ICON BUTTONS
+   ==================================== */
+
+.icon-btn,
+button.icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn:active {
+    transform: scale(1.05) rotate(0deg);
+}
+
+/* ====================================
+   MOBILE MENU BUTTON
+   ==================================== */
+
+.mobile-menu-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* ====================================
+   LANGUAGE SWITCHER
+   ==================================== */
+
+.lang-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+/* ====================================
+   CARDS
+   ==================================== */
+
+.card,
+.feature-card,
+.use-case,
+.testimonial {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover,
+.feature-card:hover,
+.use-case:hover,
+.testimonial:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Card glow effect on hover */
+.card::before,
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.card:hover::before,
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* ====================================
+   SOCIAL MEDIA LINKS
+   ==================================== */
+
+.social-links a,
+.social-share-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover,
+.social-share-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a::after,
+.social-share-btn::after {
+    display: none; /* Remove underline */
+}
+
+/* Specific social media colors on hover */
+.social-facebook:hover {
+    background: #1877f2;
+}
+
+.social-twitter:hover {
+    background: #1da1f2;
+}
+
+.social-linkedin:hover {
+    background: #0077b5;
+}
+
+.social-whatsapp:hover {
+    background: #25d366;
+}
+
+/* ====================================
+   FORM INPUTS
+   ==================================== */
+
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+textarea {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+input:hover,
+textarea:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color, #1565C0);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.1);
+}
+
+/* ====================================
+   SUBMIT BUTTONS
+   ==================================== */
+
+input[type="submit"],
+button[type="submit"] {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+    background: linear-gradient(135deg, #5fbcfe 0%, #10f2fe 100%);
+}
+
+/* ====================================
+   EMERGENCY SOS BUTTON
+   ==================================== */
+
+.sos-button,
+.emergency-btn {
+    background: linear-gradient(135deg, #ff3b3b 0%, #d32f2f 100%);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 59, 59, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sos-button:hover,
+.emergency-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 59, 59, 0.6);
+    background: linear-gradient(135deg, #ff4b4b 0%, #e33f3f 100%);
+    animation: emergencyPulse 0.5s infinite;
+}
+
+@keyframes emergencyPulse {
+    0%, 100% { box-shadow: 0 15px 40px rgba(255, 59, 59, 0.6); }
+    50% { box-shadow: 0 20px 50px rgba(255, 59, 59, 0.8); }
+}
+
+/* ====================================
+   BADGES & PILLS
+   ==================================== */
+
+.badge,
+.pill,
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.badge:hover,
+.pill:hover,
+.tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* ====================================
+   FOOTER LINKS
+   ==================================== */
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+footer a::after {
+    background: white;
+}
+
+/* ====================================
+   LOGO
+   ==================================== */
+
+.logo {
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.logo::after {
+    display: none; /* Remove underline */
+}
+
+/* ====================================
+   PHONE MOCKUP (if clickable)
+   ==================================== */
+
+.phone-mockup:hover {
+    transform: scale(1.02) translateY(-5px);
+    filter: brightness(1.05);
+}
+
+/* ====================================
+   IMAGES WITH LINKS
+   ==================================== */
+
+a img {
+    transition: all 0.3s ease;
+}
+
+a:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* ====================================
+   DISABLED STATE
+   ==================================== */
+
+button:disabled,
+.btn:disabled,
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button:disabled:hover,
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ====================================
+   REDUCED MOTION
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ====================================
+   MOBILE OPTIMIZATIONS
+   ==================================== */
+
+@media (max-width: 768px) {
+    /* Reduce hover effects on mobile (touch) */
+    .card:hover,
+    .feature-card:hover {
+        transform: translateY(-4px); /* Less movement */
+    }
+    
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* ====================================
+   POINTER FINE (mouse/trackpad)
+   ==================================== */
+
+@media (pointer: fine) {
+    /* Enhanced hover effects for precise pointers */
+    a:hover {
+        text-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+    }
+}
+
+/* ====================================
+   POINTER COARSE (touch)
+   ==================================== */
+
+@media (pointer: coarse) {
+    /* Simplified hover for touch devices */
+    *:hover {
+        transform: none; /* Disable transform on touch */
+    }
+    
+    button:active,
+    .btn:active {
+        transform: scale(0.95); /* Press effect instead */
+    }
+}

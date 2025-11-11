@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0D47A1">
+    <title>Offline - RESQ+ Emergency Response</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-stellar.css">
+    <link rel="stylesheet" href="lang-switcher.css">
+    
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            background: rgba(13, 71, 161, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offline-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-container {
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a8c0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .sub-message {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.4);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .retry-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(79, 172, 254, 0.4);
+        }
+
+        .retry-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(79, 172, 254, 0.6);
+        }
+
+        .retry-button:active {
+            transform: translateY(-1px);
+        }
+
+        .tips {
+            margin-top: 50px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tips h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tip:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tip-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .tip-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        .branding {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .offline-card {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .message {
+                font-size: 18px;
+            }
+
+            .offline-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            .tips {
+                padding: 20px;
+            }
+        }
+
+        /* Loading animation when retrying */
+        .retry-button.loading {
+            pointer-events: none;
+            background: linear-gradient(135deg, #888 0%, #666 100%);
+        }
+
+        .retry-button.loading::after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <picture>
+                        <source srcset="images/resq-logo.webp" type="image/webp">
+                        <source srcset="images/resq-logo.png" type="image/png">
+                        <img src="images/resq-logo.png" alt="RESQ+ Logo" width="200" height="50">
+                    </picture>
+                    <span class="logo-text">RESQ+</span>
+                </a>
+                <div class="nav-links" id="nav-links">
+                <a href="index.html#features" data-i18n="nav_features">Features</a>
+                <a href="index.html" data-i18n="nav_notify">Get Notified</a>
+                <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+                <div class="lang-switcher">
+                    <button onclick="i18n.switchLang('en')" class="lang-btn" type="button">🇬🇧</button>
+                    <button onclick="i18n.switchLang('fr')" class="lang-btn" type="button">🇫🇷</button>
+                    <button onclick="i18n.switchLang('th')" class="lang-btn" type="button">🇹🇭</button>
+                    <button onclick="i18n.switchLang('zh')" class="lang-btn" type="button">🇨🇳</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="offline-card">
+            <div class="icon-container">
+                <div class="offline-icon">
+                    📡
+                </div>
+            </div>
+
+            <h1 data-i18n="offline_title">You're Offline</h1>
+
+            <div class="connection-status">
+                <span class="status-dot"></span>
+                <span data-i18n="offline_description">No Internet Connection</span>
+            </div>
+
+            <p class="message">
+                Looks like you've lost your internet connection.
+            </p>
+
+            <p class="sub-message">
+                Don't worry! RESQ+ Emergency Services will be ready when you're back online.
+            </p>
+
+            <button class="retry-button" onclick="retryConnection()">
+                <span>🔄</span> <span data-i18n="offline_btn_retry">Try Again</span>
+            </button>
+
+            <div class="tips">
+                <h3>
+                    <span>💡</span>
+                    <span data-i18n="offline_features_title">While you're offline, try:</span>
+                </h3>
+
+                <div class="tip">
+                    <div class="tip-icon">📶</div>
+                    <div class="tip-text">
+                        Check your WiFi or mobile data connection
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-icon">✈️</div>
+                    <div class="tip-text">
+                        Make sure Airplane Mode is turned off
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-icon">🔌</div>
+                    <div class="tip-text">
+                        Restart your router or modem
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-icon">🌐</div>
+                    <div class="tip-text">
+                        Check if other websites are working
+                    </div>
+                </div>
+            </div>
+
+            <div class="branding">
+                <div class="logo">RESQ+</div>
+                <div class="tagline">Emergency Response System</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Check connection status
+        function updateConnectionStatus() {
+            if (navigator.onLine) {
+                document.querySelector('.connection-status').style.background = 'rgba(76, 175, 80, 0.2)';
+                document.querySelector('.connection-status').style.borderColor = 'rgba(76, 175, 80, 0.4)';
+                document.querySelector('.status-dot').style.background = '#4caf50';
+                document.querySelector('.connection-status span:last-child').textContent = 'Connection Restored!';
+                
+                // Auto-reload after 2 seconds
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }
+        }
+
+        // Retry connection
+        function retryConnection() {
+            const button = document.querySelector('.retry-button');
+            button.classList.add('loading');
+            button.textContent = 'Checking...';
+
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    window.location.reload();
+                } else {
+                    button.classList.remove('loading');
+                    button.textContent = '🔄 Try Again';
+                    
+                    // Show temporary message
+                    const message = document.querySelector('.sub-message');
+                    const originalText = message.textContent;
+                    message.textContent = 'Still offline. Please check your connection.';
+                    message.style.color = 'rgba(255, 107, 107, 0.9)';
+                    
+                    setTimeout(() => {
+                        message.textContent = originalText;
+                        message.style.color = 'rgba(255, 255, 255, 0.7)';
+                    }, 3000);
+                }
+            }, 1500);
+        }
+
+        // Listen for online event
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', () => {
+            document.querySelector('.connection-status').style.background = 'rgba(255, 107, 107, 0.2)';
+            document.querySelector('.connection-status').style.borderColor = 'rgba(255, 107, 107, 0.4)';
+            document.querySelector('.status-dot').style.background = '#ff6b6b';
+            document.querySelector('.connection-status span:last-child').textContent = 'No Internet Connection';
+        });
+
+        // Check on load
+        updateConnectionStatus();
+
+        // Periodic check
+        setInterval(() => {
+            if (navigator.onLine) {
+                updateConnectionStatus();
+            }
+        }, 5000);
+    </script>
+    
+    <script src="translations.js"></script>
+    <script src="translations-complete.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>

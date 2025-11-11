@@ -1,0 +1,475 @@
+/* ========================================
+   BLOG STYLES
+   Item 75/78: Blog section for content marketing
+   ======================================== */
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Blog Hero */
+.blog-hero {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.blog-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+}
+
+.blog-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Categories */
+.blog-categories {
+    background: white;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.category-pill {
+    padding: 10px 20px;
+    background: rgba(13, 71, 161, 0.1);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0D47A1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-pill:hover {
+    background: rgba(13, 71, 161, 0.15);
+    transform: translateY(-2px);
+}
+
+.category-pill.active {
+    background: #0D47A1;
+    color: white;
+    border-color: #0D47A1;
+}
+
+/* Blog Section */
+.blog-section {
+    padding: 60px 0;
+    min-height: 400px;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 32px;
+}
+
+/* Blog Card */
+.blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.blog-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image */
+.blog-card-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.05);
+}
+
+.blog-card-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    background: rgba(13, 71, 161, 0.9);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Card Content */
+.blog-card-content {
+    padding: 24px;
+}
+
+.blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.blog-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.blog-card-excerpt {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+/* Card Footer */
+.blog-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.blog-card-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.blog-card-author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.blog-card-link {
+    color: #0D47A1;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.blog-card-link:hover {
+    color: #1565C0;
+    transform: translateX(4px);
+}
+
+/* Loading State */
+.blog-loading {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(13, 71, 161, 0.2);
+    border-top-color: #0D47A1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.blog-loading p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+}
+
+/* Empty State */
+.blog-empty {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.blog-empty p {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Newsletter CTA */
+.blog-newsletter {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+    padding: 60px 0;
+}
+
+.newsletter-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.newsletter-card h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+}
+
+.newsletter-card p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin: 0 0 32px 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.newsletter-form button {
+    padding: 14px 32px;
+    background: white;
+    color: #0D47A1;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.success-icon {
+    font-size: 24px;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ======================================== */
+/* MOBILE RESPONSIVE */
+/* ======================================== */
+
+@media (max-width: 768px) {
+    .blog-hero {
+        padding: 60px 0 40px;
+    }
+
+    .blog-hero h1 {
+        font-size: 36px;
+    }
+
+    .blog-hero p {
+        font-size: 16px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .category-pills {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-pill {
+        flex-shrink: 0;
+    }
+
+    .newsletter-card h2 {
+        font-size: 24px;
+    }
+
+    .newsletter-card p {
+        font-size: 16px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+/* ======================================== */
+/* DARK THEME SUPPORT */
+/* ======================================== */
+
+[data-theme="dark"] .blog-categories {
+    background: #1a1a2e;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .category-pill {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+}
+
+[data-theme="dark"] .category-pill:hover {
+    background: rgba(79, 172, 254, 0.2);
+}
+
+[data-theme="dark"] .category-pill.active {
+    background: #4facfe;
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .blog-section {
+    background: #0a0a0a;
+}
+
+[data-theme="dark"] .blog-card {
+    background: #1a1a2e;
+}
+
+[data-theme="dark"] .blog-card-title {
+    color: white;
+}
+
+[data-theme="dark"] .blog-card-excerpt {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .blog-card-meta {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .blog-card-author {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .blog-card-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .blog-loading p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .blog-empty p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ======================================== */
+/* REDUCED MOTION */
+/* ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-card,
+    .blog-card-image img,
+    .category-pill {
+        transition: none;
+    }
+
+    .blog-card.show {
+        animation: none;
+    }
+
+    .loading-spinner {
+        animation: none;
+        border-top-color: transparent;
+    }
+}
+
+/* ======================================== */
+/* PRINT */
+/* ======================================== */
+
+@media print {
+    .blog-hero,
+    .blog-categories,
+    .blog-newsletter,
+    footer {
+        display: none;
+    }
+
+    .blog-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

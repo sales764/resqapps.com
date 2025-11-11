@@ -1,0 +1,166 @@
+# robots.txt for RESQ+ Emergency Response System
+# https://resqapps.com/robots.txt
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Disallow crawling of private or admin areas (if they exist in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow crawling of system files
+Disallow: /cgi-bin/
+Disallow: /*.php$
+Disallow: /*.inc$
+
+# Allow specific resources
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemap location
+Sitemap: https://resqapps.com/sitemap.xml
+
+# Crawl-delay (optional, remove if causing issues)
+# Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# ====================================
+# ANTI-SCRAPING: Block bad bots
+# ====================================
+
+# SEO audit bots (slow them down)
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+# Block scraping bots
+User-agent: HTTrack
+Disallow: /
+
+User-agent: wget
+Disallow: /
+
+User-agent: curl
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: WebsiteQuester
+Disallow: /
+
+User-agent: WebsiteExtractor
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CherryPicker
+Disallow: /
+
+User-agent: ProWebWalker
+Disallow: /
+
+User-agent: Crescent
+Disallow: /
+
+User-agent: BlackWidow
+Disallow: /
+
+User-agent: SuperHTTP
+Disallow: /
+
+User-agent: Surfbot
+Disallow: /
+
+User-agent: asterias
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebEnhancer
+Disallow: /
+
+User-agent: WebSauger
+Disallow: /
+
+User-agent: WebSite
+Disallow: /
+
+User-agent: WebWhacker
+Disallow: /
+
+User-agent: Widow
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+User-agent: Zeus
+Disallow: /
+
+# Copyright notice
+# © 2024 RESQ+. All content is protected.
+# Unauthorized scraping or copying is prohibited.

@@ -1,0 +1,486 @@
+/* ========================================
+   BLOG POST STYLES
+   Individual blog post page
+   ======================================== */
+
+/* Container */
+.container-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Post Header */
+.post-header {
+    padding: 60px 0 40px;
+}
+
+.post-category {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(13, 71, 161, 0.1);
+    color: #0D47A1;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.post-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-author img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.post-date {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.post-share {
+    display: flex;
+    gap: 8px;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(13, 71, 161, 0.1);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background: #0D47A1;
+    transform: scale(1.1);
+}
+
+/* Featured Image */
+.post-featured-image {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.post-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Post Content */
+.post-content {
+    padding: 0 0 60px;
+}
+
+.post-content .lead {
+    font-size: 20px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+}
+
+.post-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 48px 0 16px 0;
+}
+
+.post-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 32px 0 12px 0;
+}
+
+.post-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 24px;
+}
+
+.post-content ul,
+.post-content ol {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 24px;
+    padding-left: 24px;
+}
+
+.post-content li {
+    margin-bottom: 8px;
+}
+
+.post-content strong {
+    font-weight: 700;
+    color: #0D47A1;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #0D47A1;
+    padding-left: 24px;
+    margin: 32px 0;
+    font-size: 20px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Callout Boxes */
+.callout {
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin: 32px 0;
+}
+
+.callout-info {
+    background: rgba(33, 150, 243, 0.1);
+    border-left: 4px solid #2196F3;
+}
+
+.callout-warning {
+    background: rgba(255, 152, 0, 0.1);
+    border-left: 4px solid #FF9800;
+}
+
+.callout-success {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 8px;
+    color: inherit;
+}
+
+/* Post Footer */
+.post-footer {
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 40px 0;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.tag {
+    padding: 8px 16px;
+    background: rgba(13, 71, 161, 0.1);
+    color: #0D47A1;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.post-share-footer h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.share-btn-large {
+    padding: 12px 24px;
+    background: #0D47A1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn-large:hover {
+    background: #1565C0;
+    transform: translateY(-2px);
+}
+
+/* Related Posts */
+.related-posts {
+    background: rgba(13, 71, 161, 0.05);
+    padding: 60px 0;
+}
+
+.related-posts h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 32px 0;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+/* Newsletter */
+.post-newsletter {
+    padding: 60px 0;
+}
+
+.newsletter-box {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+    color: white;
+    padding: 48px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.newsletter-box h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+}
+
+.newsletter-box p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin: 0 0 32px 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+.newsletter-form button {
+    padding: 14px 32px;
+    background: white;
+    color: #0D47A1;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Back to Blog */
+.back-to-blog {
+    color: #0D47A1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-to-blog:hover {
+    transform: translateX(-4px);
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ======================================== */
+/* MOBILE RESPONSIVE */
+/* ======================================== */
+
+@media (max-width: 768px) {
+    .post-header {
+        padding: 40px 0 30px;
+    }
+
+    .post-title {
+        font-size: 32px;
+    }
+
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .post-content .lead {
+        font-size: 18px;
+    }
+
+    .post-content h2 {
+        font-size: 26px;
+    }
+
+    .post-content h3 {
+        font-size: 20px;
+    }
+
+    .post-content p,
+    .post-content ul,
+    .post-content ol {
+        font-size: 16px;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+    }
+
+    .share-btn-large {
+        width: 100%;
+    }
+
+    .newsletter-box {
+        padding: 32px 24px;
+    }
+
+    .newsletter-box h2 {
+        font-size: 24px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+/* ======================================== */
+/* DARK THEME SUPPORT */
+/* ======================================== */
+
+[data-theme="dark"] .post-category {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+}
+
+[data-theme="dark"] .post-title {
+    color: white;
+}
+
+[data-theme="dark"] .author-name {
+    color: white;
+}
+
+[data-theme="dark"] .post-date {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .share-btn {
+    background: rgba(79, 172, 254, 0.1);
+}
+
+[data-theme="dark"] .share-btn:hover {
+    background: #4facfe;
+}
+
+[data-theme="dark"] .post-content h2,
+[data-theme="dark"] .post-content h3 {
+    color: white;
+}
+
+[data-theme="dark"] .post-content p,
+[data-theme="dark"] .post-content ul,
+[data-theme="dark"] .post-content ol {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .post-content blockquote {
+    color: rgba(255, 255, 255, 0.7);
+    border-left-color: #4facfe;
+}
+
+[data-theme="dark"] .callout-info {
+    background: rgba(33, 150, 243, 0.2);
+}
+
+[data-theme="dark"] .callout-warning {
+    background: rgba(255, 152, 0, 0.2);
+}
+
+[data-theme="dark"] .callout-success {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+[data-theme="dark"] .post-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .tag {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+}
+
+[data-theme="dark"] .related-posts {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ======================================== */
+/* PRINT */
+/* ======================================== */
+
+@media print {
+    .post-share,
+    .post-share-footer,
+    .related-posts,
+    .post-newsletter,
+    footer,
+    header {
+        display: none;
+    }
+
+    .post-content {
+        padding: 0;
+    }
+}

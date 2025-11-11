@@ -1,0 +1,232 @@
+/* ========================================
+   GEOLOCATION LANGUAGE PROMPT STYLES
+   Item 72/78: Optional language confirmation UI
+   ======================================== */
+
+/* Prompt Container */
+.geo-language-prompt {
+    position: fixed;
+    top: 80px;
+    right: 24px;
+    z-index: 99997;
+    max-width: 380px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.geo-language-prompt.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Prompt Card */
+.geo-language-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+/* Close Button */
+.geo-language-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.geo-language-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Icon */
+.geo-language-icon {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 12px;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Message */
+.geo-language-message {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+}
+
+.geo-language-message strong {
+    color: #4facfe;
+    font-weight: 700;
+}
+
+/* Actions */
+.geo-language-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Confirm Button */
+.geo-language-confirm {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+}
+
+.geo-language-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 172, 254, 0.6);
+}
+
+.geo-language-confirm:active {
+    transform: translateY(0);
+}
+
+/* Dismiss Button */
+.geo-language-dismiss {
+    padding: 10px 20px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.geo-language-dismiss:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ======================================== */
+/* MOBILE RESPONSIVE */
+/* ======================================== */
+
+@media (max-width: 768px) {
+    .geo-language-prompt {
+        top: 70px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+    }
+
+    .geo-language-card {
+        padding: 16px;
+    }
+
+    .geo-language-icon {
+        font-size: 36px;
+    }
+
+    .geo-language-message {
+        font-size: 13px;
+    }
+}
+
+/* ======================================== */
+/* DARK THEME SUPPORT */
+/* ======================================== */
+
+[data-theme="dark"] .geo-language-card {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ======================================== */
+/* LIGHT THEME SUPPORT */
+/* ======================================== */
+
+[data-theme="light"] .geo-language-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .geo-language-message {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .geo-language-message strong {
+    color: #0D47A1;
+}
+
+[data-theme="light"] .geo-language-dismiss {
+    color: rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .geo-language-dismiss:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .geo-language-close {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .geo-language-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================== */
+/* REDUCED MOTION */
+/* ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .geo-language-prompt {
+        transition: opacity 0.3s ease;
+    }
+
+    .geo-language-icon {
+        animation: none;
+    }
+
+    .geo-language-confirm:hover {
+        transform: none;
+    }
+}
+
+/* ======================================== */
+/* PRINT */
+/* ======================================== */
+
+@media print {
+    .geo-language-prompt {
+        display: none !important;
+    }
+}

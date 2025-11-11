@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJWC7EHMT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEJWC7EHMT', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure',
+            'send_page_view': true
+        });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "u3grpfsb4k");
+    </script>
+    
+    <!-- Facebook Pixel (Optional - for Facebook Ads) -->
+    <!-- UNCOMMENT BELOW IF YOU WANT TO USE FACEBOOK ADS -->
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_FACEBOOK_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    -->
+    
+    <!-- Sentry Error Logging (Optional - for production monitoring) -->
+    <!-- UNCOMMENT BELOW IF YOU WANT TO TRACK JS ERRORS -->
+    <!--
+    <script
+        src="https://browser.sentry-cdn.com/7.91.0/bundle.min.js"
+        integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        crossorigin="anonymous"
+    ></script>
+    <script>
+        Sentry.init({
+            dsn: "YOUR_SENTRY_DSN_HERE",
+            integrations: [
+                new Sentry.BrowserTracing(),
+                new Sentry.Replay()
+            ],
+            // Performance Monitoring
+            tracesSampleRate: 0.1, // 10% of transactions
+            // Session Replay
+            replaysSessionSampleRate: 0.1, // 10% of sessions
+            replaysOnErrorSampleRate: 1.0, // 100% of sessions with errors
+            // Environment
+            environment: "production",
+            // Release tracking
+            release: "resqplus@1.0.0"
+        });
+    </script>
+    -->
+    
+    <!-- Mobile Format Detection -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    
+    <!-- Security - Compatible with Facebook/Messenger -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'self' https://*.facebook.com https://*.messenger.com;">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- SEO Meta Tags -->
+    <title>RESQ+ | AI Emergency Response App - Medical Nurse, Team Coordination & Training</title>
+    <meta name="description" content="AI Medical Nurse, GPS team tracking & emergency training in one app. Red Cross compliant. 100% free forever. Save lives with professional guidance. Download soon.">
+    <meta name="keywords" content="emergency app, AI medical assistant, first aid app, emergency response, team safety, medical triage, emergency training, SOS app">
+    <meta name="author" content="RESQ+ Emergency Systems">
+    <link rel="canonical" href="https://resqapps.com/">
+    
+    <!-- Hreflang for multilingual -->
+    <link rel="alternate" hreflang="en" href="https://resqapps.com/" />
+    <link rel="alternate" hreflang="fr" href="https://resqapps.com/?lang=fr" />
+    <link rel="alternate" hreflang="th" href="https://resqapps.com/?lang=th" />
+    <link rel="alternate" hreflang="zh" href="https://resqapps.com/?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://resqapps.com/" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RESQ+ | AI Emergency Response App - Save Lives with Professional Guidance">
+    <meta property="og:description" content="🚨 AI Medical Nurse + GPS Team Tracking + Emergency Training. Red Cross compliant. 15+ Features. 4 Languages. 100% FREE forever. Be prepared for any emergency.">
+    <meta property="og:url" content="https://resqapps.com/">
+    <meta property="og:site_name" content="RESQ+">
+    <meta property="og:image" content="https://resqapps.com/images/app-icon.webp">
+    <meta property="og:image:secure_url" content="https://resqapps.com/images/app-icon.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="RESQ+ Emergency Response App - AI Medical Nurse, Team Coordination & Training">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="th_TH">
+    <meta property="og:locale:alternate" content="zh_CN">
+    
+    <!-- Favicons & Icons -->
+    <link rel="icon" type="image/webp" href="images/app-icon.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    
+    <!-- Performance & PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1565C0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="RESQ+">
+    <meta name="application-name" content="RESQ+">
+    <meta name="msapplication-TileColor" content="#1565C0">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@RESQPlus">
+    <meta name="twitter:creator" content="@RESQPlus">
+    <meta name="twitter:title" content="RESQ+ | AI Emergency Response App - Save Lives 🚨">
+    <meta name="twitter:description" content="AI Medical Nurse + GPS Team Tracking + Emergency Training. Red Cross compliant. 15+ Features. 4 Languages. 100% FREE forever. Download soon!">
+    <meta name="twitter:image" content="https://resqapps.com/images/app-icon.webp">
+    <meta name="twitter:image:alt" content="RESQ+ Emergency Response App - Professional emergency guidance in your pocket">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="images/resq-logo.png" as="image">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="styles-stellar.css" as="style">
+    
+    <!-- Fonts - Optimized Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- CSS Variables (Design System) - LOAD FIRST -->
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="smooth-scroll.css">
+    <link rel="stylesheet" href="focus-visible.css">
+    <link rel="stylesheet" href="hover-states.css">
+    <link rel="stylesheet" href="back-to-top.css">
+    <link rel="stylesheet" href="pwa-install.css">
+    <!-- <link rel="stylesheet" href="push-notifications.css"> -->
+    <link rel="stylesheet" href="geo-language.css">
+    <link rel="stylesheet" href="keyboard-shortcuts.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-stellar.css">
+    <link rel="stylesheet" href="ux-advanced.css?v=2.2">
+    <link rel="stylesheet" href="modal-stellar.css">
+    <link rel="stylesheet" href="lang-switcher.css">
+    <link rel="stylesheet" href="lang-tooltip.css">
+    <link rel="stylesheet" href="logo-stellar.css">
+    <link rel="stylesheet" href="touch-targets.css">
+    <link rel="stylesheet" href="cta-optimized.css">
+    <link rel="stylesheet" href="inline-cleanup.css">
+    <link rel="stylesheet" href="skeleton-loader.css">
+    <link rel="stylesheet" href="form-validation.css">
+    <link rel="stylesheet" href="coming-soon-stellar.css">
+    <link rel="stylesheet" href="back-to-top.css">
+    <link rel="stylesheet" href="styles-stellar-override.css?v=4">
+    <link rel="stylesheet" href="print.css" media="print">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "RESQ+",
+      "operatingSystem": "Android",
+      "applicationCategory": "HealthApplication",
+      "description": "Professional emergency app with AI Medical Nurse, Team GPS tracking, Community Alerts & Interactive Training Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RESQ+",
+      "url": "https://resqapps.com",
+      "logo": "https://resqapps.com/images/resq-logo.png",
+      "sameAs": [
+        "https://github.com/resqplus"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "sales@sornsawan.com",
+        "contactType": "Customer Service",
+        "availableLanguage": ["English", "French", "Thai", "Chinese"]
+      }
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://resqapps.com/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is RESQ+?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQ+ is a comprehensive emergency response application that combines AI Medical Nurse capabilities, team GPS tracking, community alerts, and interactive emergency training. It's designed to help save lives by providing professional emergency guidance in critical situations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is RESQ+ free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, RESQ+ is 100% free forever. All features including AI Medical Nurse, GPS team tracking, emergency protocols, and training games are available at no cost. We believe emergency preparedness should be accessible to everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What languages does RESQ+ support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQ+ supports 4 languages: English, French, Thai, and Chinese. You can easily switch between languages within the app to ensure clear communication during emergencies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does RESQ+ work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, RESQ+ includes essential offline features. Emergency protocols, first aid guides, and the AI Medical Nurse can function without internet connection. However, GPS tracking, community alerts, and real-time updates require an active internet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the AI Medical Nurse feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The AI Medical Nurse is an intelligent emergency triage system that guides you through medical emergencies using Red Cross protocols. It asks questions about symptoms, provides step-by-step first aid instructions, and helps determine the urgency level of medical situations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does team GPS tracking work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Team GPS tracking allows groups to share real-time location information during emergencies. Perfect for outdoor activities, events, or emergency response teams. Members can see each other's locations on a map and coordinate rescue efforts effectively."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my medical data private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. RESQ+ follows a privacy-first approach. All medical information, including your emergency profile and AI conversations, stays encrypted on your device. We do not collect, store, or share your personal medical data with third parties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can RESQ+ replace calling emergency services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. RESQ+ is designed to complement, not replace, professional emergency services. In life-threatening situations, always call local emergency numbers (911, 1669, 112, etc.) immediately. RESQ+ provides guidance while waiting for professional help to arrive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What emergency training does RESQ+ provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQ+ includes interactive emergency training games covering CPR techniques, first aid procedures, disaster preparedness, and emergency response protocols. Learn life-saving skills through engaging simulations and scenarios based on real emergency situations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When will RESQ+ be available on Google Play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQ+ is coming soon to Google Play Store. Sign up for notifications on our website to be among the first to download when we launch. We're currently in final testing to ensure the best possible emergency response experience."
+          }
+        }
+      ]
+    }
+    </script>
+    
+</head>
+<body class="emergency-gradient">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
+    
+    <!-- Header -->
+    <header role="banner">
+        <!-- Navigation -->
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <picture>
+                        <source srcset="images/resq-logo.webp" type="image/webp">
+                        <source srcset="images/resq-logo.png" type="image/png">
+                        <img src="images/resq-logo.png" alt="RESQ+ Logo" data-i18n-alt="homepage.logoAlt" width="200" height="50">
+                    </picture>
+                    <span class="logo-text">RESQ+</span>
+                </a>
+                <div class="nav-links" id="nav-links">
+                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
+                <a href="#testimonials" data-i18n="nav_notify">Get Notified</a>
+                <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+                
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button onclick="i18n.switchLang('en')" class="lang-btn" aria-label="Switch to English" aria-pressed="false" type="button">🇬🇧</button>
+                    <button onclick="i18n.switchLang('fr')" class="lang-btn" aria-label="Passer en Français" aria-pressed="false" type="button">🇫🇷</button>
+                    <button onclick="i18n.switchLang('th')" class="lang-btn" aria-label="เปลี่ยนเป็นภาษาไทย" aria-pressed="false" type="button">🇹🇭</button>
+                    <button onclick="i18n.switchLang('zh')" class="lang-btn" aria-label="切换到中文" aria-pressed="false" type="button">🇨🇳</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main-content" role="main">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge" data-i18n="hero_badge">🚨 Official Emergency App</span>
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_title_1">Your Life-Saving</span><br>
+                        <span class="gradient-text" data-i18n="hero_title_2">Emergency Companion</span>
+                    </h1>
+                    <p class="hero-description" data-i18n="hero_desc">
+                        Complete emergency response ecosystem with AI Medical Nurse, Team Coordination, 
+                        Community Alerts, Interactive Training Game, and advanced SOS system. 
+                        Available in English, French, Thai, and Chinese.
+                    </p>
+                    <p class="privacy-notice">
+                        <span class="privacy-notice-icon">🔒</span>
+                        <strong data-i18n="privacy_label">Privacy First:</strong> <span data-i18n="privacy_text">No personal data collected. All medical info stays on your device.</span>
+                    </p>
+                    
+                    <!-- Countdown Timer Container -->
+                    <div id="countdown-container"></div>
+                    
+                    <!-- Social Proof Container -->
+                    <div id="social-proof-hero"></div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#testimonials" class="btn btn-primary">
+                            <span class="btn-icon">🚀</span>
+                            <span data-i18n="btn_get_notified">Get Notified at Launch</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <span class="btn-icon">✨</span>
+                            <span data-i18n="btn_explore">Explore Features</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label" data-i18n="stat_features">Features</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label" data-i18n="stat_languages">Languages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label" data-i18n="stat_ai_nurse">AI Nurse</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-i18n="stat_free">FREE</span>
+                            <span class="stat-label" data-i18n="stat_forever">Forever</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="images/screenshot-8.webp" alt="RESQ+ Emergency Response Coming Soon to Google Play" loading="eager" width="360" height="780" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <style>
+                    @keyframes phoneFloat {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                    }
+                </style>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="features_badge">✨ Features</span>
+                <h2 class="section-title" data-i18n="features_title">Everything You Need in an Emergency</h2>
+                <p class="section-description" data-i18n="features_desc">Comprehensive emergency response tools designed to save lives</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1: SOS Smart System -->
+                <div class="feature-card">
+                    <div class="feature-icon emergency">🚨</div>
+                    <h3 class="feature-title" data-i18n="features.feature1_title">SOS Smart System</h3>
+                    <p class="feature-description" data-i18n="features.feature1_desc">
+                        Advanced emergency activation with flash morse code, automatic video recording, 
+                        SMS alerts, and sound alert system.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature1_item1">✓ Flash morse code (... --- ...)</li>
+                        <li data-i18n="features.feature1_item2">✓ Auto-recording with timer</li>
+                        <li data-i18n="features.feature1_item3">✓ SMS emergency alerts</li>
+                        <li data-i18n="features.feature1_item4">✓ Sound alert system</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2: AI Emergency Nurse -->
+                <div class="feature-card">
+                    <div class="feature-icon medical">🤖</div>
+                    <h3 class="feature-title" data-i18n="features.feature2_title">AI Emergency Nurse</h3>
+                    <p class="feature-description" data-i18n="features.feature2_desc">
+                        24/7 AI medical assistant with Red Cross protocols, triage assessment, 
+                        and first aid kit guidance in 4 languages.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature2_item1">✓ Voice & image support</li>
+                        <li data-i18n="features.feature2_item2">✓ ABC+D triage protocol</li>
+                        <li data-i18n="features.feature2_item3">✓ EN / FR / TH / ZH languages</li>
+                        <li data-i18n="features.feature2_item4">✓ First aid kit integration</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3: Team Connect -->
+                <div class="feature-card">
+                    <div class="feature-icon services">👥</div>
+                    <h3 class="feature-title" data-i18n="features.feature3_title">Team Connect</h3>
+                    <p class="feature-description" data-i18n="features.feature3_desc">
+                        Create and coordinate with emergency teams. Real-time location sharing, 
+                        team alerts with voice messages, and QR code joining.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature3_item1">✓ Team creation & management</li>
+                        <li data-i18n="features.feature3_item2">✓ Real-time GPS tracking</li>
+                        <li data-i18n="features.feature3_item3">✓ Voice message alerts</li>
+                        <li data-i18n="features.feature3_item4">✓ QR code team joining</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4: Emergency Profile -->
+                <div class="feature-card">
+                    <div class="feature-icon profile">💊</div>
+                    <h3 class="feature-title" data-i18n="features.feature4_title">Emergency Profile</h3>
+                    <p class="feature-description" data-i18n="features.feature4_desc">
+                        Complete medical profile with blood type, allergies, medications, 
+                        insurance, and privacy-controlled QR code for first responders.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature4_item1">✓ Medical history & allergies</li>
+                        <li data-i18n="features.feature4_item2">✓ Emergency contacts</li>
+                        <li data-i18n="features.feature4_item3">✓ QR code with privacy settings</li>
+                        <li data-i18n="features.feature4_item4">✓ Insurance information</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5: First Aid & Triage -->
+                <div class="feature-card">
+                    <div class="feature-icon firstaid">🏥</div>
+                    <h3 class="feature-title" data-i18n="features.feature5_title">First Aid & Triage</h3>
+                    <p class="feature-description" data-i18n="features.feature5_desc">
+                        Professional medical triage with color-coded protocols 
+                        (RED/ORANGE/YELLOW/GREEN) and smart first aid kit recommendations.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature5_item1">✓ 4-level triage system</li>
+                        <li data-i18n="features.feature5_item2">✓ Interactive protocols</li>
+                        <li data-i18n="features.feature5_item3">✓ First aid kit guidance</li>
+                        <li data-i18n="features.feature5_item4">✓ Step-by-step instructions</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6: Community & Alerts -->
+                <div class="feature-card">
+                    <div class="feature-icon alerts">🔔</div>
+                    <h3 class="feature-title" data-i18n="features.feature6_title">Community & Alerts</h3>
+                    <p class="feature-description" data-i18n="features.feature6_desc">
+                        Government disaster alerts, community danger reports, request help feature, 
+                        and real-time emergency notifications.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature6_item1">✓ Government alerts (Thailand)</li>
+                        <li data-i18n="features.feature6_item2">✓ Community danger reports</li>
+                        <li data-i18n="features.feature6_item3">✓ Request help nearby</li>
+                        <li data-i18n="features.feature6_item4">✓ Emergency broadcasts</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 7: Rush Map -->
+                <div class="feature-card">
+                    <div class="feature-icon services">🗺️</div>
+                    <h3 class="feature-title" data-i18n="features.feature7_title">Rush Map</h3>
+                    <p class="feature-description" data-i18n="features.feature7_desc">
+                        Find nearest emergency services instantly. Police stations and hospitals 
+                        near you with one-tap navigation and calling.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature7_item1">✓ Nearest police stations</li>
+                        <li data-i18n="features.feature7_item2">✓ Nearest hospitals</li>
+                        <li data-i18n="features.feature7_item3">✓ GPS navigation</li>
+                        <li data-i18n="features.feature7_item4">✓ One-tap calling</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 8: Rescue Game -->
+                <div class="feature-card">
+                    <div class="feature-icon medical">🎮</div>
+                    <h3 class="feature-title" data-i18n="features.feature8_title">Rescue Game</h3>
+                    <p class="feature-description" data-i18n="features.feature8_desc">
+                        Interactive emergency training game with real scenarios. Practice 
+                        life-saving skills, earn badges, and unlock achievements.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature8_item1">✓ Real emergency scenarios</li>
+                        <li data-i18n="features.feature8_item2">✓ Heatstroke & snakebite training</li>
+                        <li data-i18n="features.feature8_item3">✓ Badges & achievements</li>
+                        <li data-i18n="features.feature8_item4">✓ Skill progression system</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 9: QR Scanner -->
+                <div class="feature-card">
+                    <div class="feature-icon profile">📷</div>
+                    <h3 class="feature-title" data-i18n="features.feature9_title">QR Scanner</h3>
+                    <p class="feature-description" data-i18n="features.feature9_desc">
+                        Scan emergency medical QR codes to access patient information, 
+                        join teams, and access emergency protocols instantly.
+                    </p>
+                    <ul class="feature-list">
+                        <li data-i18n="features.feature9_item1">✓ Medical profile scanning</li>
+                        <li data-i18n="features.feature9_item2">✓ Team QR joining</li>
+                        <li data-i18n="features.feature9_item3">✓ Fast emergency data access</li>
+                        <li data-i18n="features.feature9_item4">✓ Privacy-protected</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="screenshots_badge">📱 Screenshots</span>
+                <h2 class="section-title" data-i18n="screenshots_title">Professional Emergency Interface</h2>
+                <p class="section-description" data-i18n="screenshots_desc">Designed for emergency situations - clear, fast, reliable</p>
+            </div>
+
+            <!-- Coming Soon Message -->
+            <div class="screenshots-placeholder">
+                <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 2s ease-in-out infinite;">📱</div>
+                <h3 class="screenshots-title">
+                    Screenshots Coming Soon!
+                </h3>
+                <p class="text-theme-secondary" style="font-size: 18px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
+                    We're finalizing the app interface for the Google Play Store launch. 
+                    Professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features will be available soon.
+                </p>
+                <div class="screenshots-badge">
+                    🚀 Launching Soon on Google Play
+                </div>
+            </div>
+            
+            <style>
+                @keyframes pulse {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="howitworks_badge">🎯 How It Works</span>
+                <h2 class="section-title" data-i18n="howitworks_title">3 Simple Steps to Safety</h2>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📥</div>
+                    <h3 class="step-title" data-i18n="step1_title">Download & Setup</h3>
+                    <p class="step-description" data-i18n="step1_desc">
+                        Once launched, install RESQ+ from Google Play Store and complete your 
+                        emergency profile with medical information.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">👤</div>
+                    <h3 class="step-title" data-i18n="step2_title">Add Emergency Contacts</h3>
+                    <p class="step-description" data-i18n="step2_desc">
+                        Set up your emergency contacts and customize your 
+                        SOS settings for instant alerts.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🚨</div>
+                    <h3 class="step-title" data-i18n="step3_title">Stay Protected 24/7</h3>
+                    <p class="step-description" data-i18n="step3_desc">
+                        Access emergency services, AI medical guidance, and 
+                        instant SOS features whenever you need help.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label" data-i18n="stats1_label">Emergency Features</div>
+                    <div class="stat-sublabel" data-i18n="stats1_sublabel">in one ecosystem</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label" data-i18n="stats2_label">Languages</div>
+                    <div class="stat-sublabel" data-i18n="stats2_sublabel">EN • FR • TH • ZH</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label" data-i18n="stats3_label">AI Support</div>
+                    <div class="stat-sublabel" data-i18n="stats3_sublabel">always available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label" data-i18n="stats4_label">Free Forever</div>
+                    <div class="stat-sublabel" data-i18n="stats4_sublabel">no ads, no subscription</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="usecase_badge">🌟 Real Scenarios</span>
+                <h2 class="section-title" data-i18n="usecase_title">RESQ+ in Action</h2>
+                <p class="section-description" data-i18n="usecase_desc">See how RESQ+ makes a difference in real emergencies</p>
+            </div>
+
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <div class="use-case-icon">🏔️</div>
+                    <h3 data-i18n="usecase1_title">Mountain Hiking Emergency</h3>
+                    <p class="use-case-story" data-i18n="usecase1_story">
+                        "During a group hike, one member twisted their ankle. Using RESQ+'s 
+                        <strong>Team GPS</strong>, we pinpointed their exact location. The 
+                        <strong>AI Nurse</strong> guided us through first aid while the 
+                        <strong>Team Alert</strong> notified everyone instantly."
+                    </p>
+                    <div class="use-case-features">
+                        <span class="feature-pill" data-i18n="usecase1_pill1">Team GPS</span>
+                        <span class="feature-pill" data-i18n="usecase1_pill2">AI Nurse</span>
+                        <span class="feature-pill" data-i18n="usecase1_pill3">Alerts</span>
+                    </div>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">🏖️</div>
+                    <h3 data-i18n="usecase2_title">Beach Accident</h3>
+                    <p class="use-case-story" data-i18n="usecase2_story">
+                        "A child was stung by a jellyfish. Parents used the <strong>AI Medical Nurse</strong> 
+                        to get immediate triage assessment (YELLOW level) and step-by-step treatment 
+                        instructions with the <strong>First Aid Kit</strong> feature."
+                    </p>
+                    <div class="use-case-features">
+                        <span class="feature-pill" data-i18n="usecase2_pill1">AI Triage</span>
+                        <span class="feature-pill" data-i18n="usecase2_pill2">First Aid</span>
+                        <span class="feature-pill" data-i18n="usecase2_pill3">Voice Guidance</span>
+                    </div>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">🚗</div>
+                    <h3 data-i18n="usecase3_title">Car Accident</h3>
+                    <p class="use-case-story" data-i18n="usecase3_story">
+                        "After a minor collision, the driver activated <strong>SOS Smart</strong> which 
+                        automatically recorded video evidence, sent SMS to emergency contacts, and used 
+                        <strong>Rush Map</strong> to find the nearest hospital."
+                    </p>
+                    <div class="use-case-features">
+                        <span class="feature-pill" data-i18n="usecase3_pill1">SOS System</span>
+                        <span class="feature-pill" data-i18n="usecase3_pill2">Video Recording</span>
+                        <span class="feature-pill" data-i18n="usecase3_pill3">Rush Map</span>
+                    </div>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">👴</div>
+                    <h3 data-i18n="usecase4_title">Elderly Medical Emergency</h3>
+                    <p class="use-case-story" data-i18n="usecase4_story">
+                        "An elderly patient collapsed. First responders scanned their 
+                        <strong>Emergency QR Code</strong> to instantly access medical history, 
+                        allergies, and medications - saving critical time."
+                    </p>
+                    <div class="use-case-features">
+                        <span class="feature-pill" data-i18n="usecase4_pill1">QR Profile</span>
+                        <span class="feature-pill" data-i18n="usecase4_pill2">Medical History</span>
+                        <span class="feature-pill" data-i18n="usecase4_pill3">Fast Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Your Story Section - Stellar Design -->
+    <section id="share-story" class="share-story stellar-share-story">
+        <div class="container">
+            <!-- Stellar Header with Logo -->
+            <div class="section-header stellar-header">
+                <div class="stellar-badge-wrapper">
+                    <img src="images/resq-logo.webp" alt="RESQ+ Logo" class="stellar-logo-badge">
+                    <span class="stellar-community-badge">COMMUNITY</span>
+                </div>
+                <h2 class="section-title stellar-title" data-i18n="share_title">
+                    <span class="gradient-text">RESQ+</span> Saved My Life
+                </h2>
+                <p class="section-description stellar-description" data-i18n="share_desc">
+                    Share your emergency story and inspire others. Get featured and gain visibility!
+                </p>
+            </div>
+
+            <!-- Stellar Story Card -->
+            <div class="stellar-story-card">
+                <!-- Camera Icon with Animation -->
+                <div class="stellar-camera-wrapper">
+                    <div class="camera-glow"></div>
+                    <svg class="stellar-camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </div>
+
+                <!-- Content -->
+                <div class="stellar-story-content">
+                    <h3 class="stellar-story-heading" data-i18n="share_heading">Your Story Could Be Here!</h3>
+                    <p class="stellar-story-text" data-i18n="share_text">
+                        Share how RESQ+ helped you in an emergency. Your story will inspire others and help save lives.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <button onclick="openStoryModal()" class="stellar-btn stellar-story-btn" data-i18n="share_button">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                        <span>Share My Emergency Story</span>
+                    </button>
+
+                    <!-- Benefits -->
+                    <div class="stellar-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <span>Get Featured</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <span>Inspire Others</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <span>Gain Social Media Visibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Coming Soon Section - Stellar Design -->
+    <section id="testimonials" class="testimonials coming-soon-section stellar-coming-soon">
+        <div class="container">
+            <!-- Stellar Header with Logo -->
+            <div class="section-header stellar-header">
+                <div class="stellar-badge-wrapper">
+                    <img src="images/resq-logo.webp" alt="RESQ+ Logo" class="stellar-logo-badge">
+                    <span class="stellar-beta-badge">BETA</span>
+                </div>
+                <h2 class="section-title stellar-title" data-i18n="coming_title">
+                    Launching on <span class="gradient-text">Google Play</span>
+                </h2>
+                <p class="section-description stellar-description" data-i18n="coming_desc">
+                    Be the first to know when RESQ+ is available for download
+                </p>
+            </div>
+
+            <!-- Stellar Content Card -->
+            <div class="stellar-coming-card">
+                <!-- Status Badge -->
+                <div class="stellar-status-badge">
+                    <div class="status-pulse"></div>
+                    <span data-i18n="coming_heading">App Under Final Review</span>
+                </div>
+
+                <!-- Main Content -->
+                <div class="stellar-content-wrapper">
+                    <p class="stellar-coming-text" data-i18n="coming_text">
+                        RESQ+ is currently undergoing final testing and quality assurance. 
+                        We're committed to delivering a reliable, professional emergency response app 
+                        that you can trust when it matters most.
+                    </p>
+
+                    <!-- Notification Form -->
+                    <div class="stellar-form-section">
+                        <div class="stellar-form-header">
+                            <div class="form-icon-wrapper">
+                                <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="stellar-form-title" data-i18n="coming_form_title">Get Notified at Launch</h4>
+                                <p class="stellar-form-desc" data-i18n="coming_form_desc">
+                                    Enter your email to receive an instant notification when RESQ+ goes live
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Multi-Step Form -->
+                        <form action="https://formspree.io/f/mNkynpqo" method="POST" class="stellar-notify-form">
+                            <input type="hidden" name="_next" value="https://resqapps.com/thank-you.html">
+                            <input type="hidden" name="_subject" value="New RESQ+ Newsletter Signup!">
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <!-- Step Indicators -->
+                            <div class="form-steps">
+                                <div class="step-item active">
+                                    <div class="step-circle">1</div>
+                                    <span class="step-label">Email</span>
+                                </div>
+                                <div class="step-line"></div>
+                                <div class="step-item">
+                                    <div class="step-circle">2</div>
+                                    <span class="step-label">Confirm</span>
+                                </div>
+                            </div>
+
+                            <div class="form-input-wrapper">
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="your@email.com" 
+                                    class="stellar-input" 
+                                    data-i18n-placeholder="homepage.emailPlaceholder" 
+                                    required
+                                >
+                                <button type="submit" class="stellar-btn stellar-submit-btn" data-i18n="coming_button">
+                                    <span>Notify Me</span>
+                                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <noscript>
+                                <p style="color: #ffa500; font-size: 12px; margin-top: 10px;">
+                                    ⚠️ JavaScript disabled - form will submit directly to our server
+                                </p>
+                            </noscript>
+
+                            <p class="form-step-info">Step 1 of 2</p>
+                        </form>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="stellar-features-grid">
+                        <div class="stellar-feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span data-i18n="coming_feature1">100% Free</span>
+                        </div>
+                        <div class="stellar-feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span data-i18n="coming_feature2">No Ads</span>
+                        </div>
+                        <div class="stellar-feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span data-i18n="coming_feature3">Zero Personal Data</span>
+                        </div>
+                        <div class="stellar-feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span data-i18n="coming_feature4">Local Storage Only</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="faq_badge">❓ FAQ</span>
+                <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+                <p class="section-description" data-i18n="faq_desc">Everything you need to know about RESQ+</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">💰</span>
+                        <h3 data-i18n="faq1_q">Is RESQ+ really free?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq1_a">
+                        Yes! RESQ+ is 100% free forever. No subscriptions, no in-app purchases, 
+                        no ads. We believe emergency response should be accessible to everyone.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🌐</span>
+                        <h3 data-i18n="faq2_q">Does it work offline?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq2_a">
+                        Many features work offline including First Aid guidance, Emergency Profile, 
+                        and SOS activation. AI Nurse and Team GPS require internet connection.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🔒</span>
+                        <h3 data-i18n="faq3_q">Is my medical data safe?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq3_a">
+                        Absolutely. We DO NOT collect personal data (names, photos, medical info, insurance). 
+                        All your emergency profile data stays locally on YOUR device, encrypted. 
+                        We only collect anonymous usage statistics to improve response times and save more lives. 
+                        GDPR compliant.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🤖</span>
+                        <h3 data-i18n="faq4_q">How accurate is the AI Medical Nurse?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq4_a">
+                        The AI follows Red Cross ABC+D triage protocols and provides evidence-based 
+                        guidance. However, it's a support tool - always call emergency services 
+                        (1669) for life-threatening situations.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">📱</span>
+                        <h3 data-i18n="faq5_q">Which devices are supported?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq5_a">
+                        RESQ+ works on Android 7.0 and above. It's optimized for both phones 
+                        and tablets with responsive design for all screen sizes.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🌍</span>
+                        <h3 data-i18n="faq6_q">What languages are supported?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq6_a">
+                        RESQ+ supports English, French, Thai, and Chinese with full translation of all 
+                        features including the AI Medical Nurse conversations.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">👥</span>
+                        <h3 data-i18n="faq7_q">How many people can join a team?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq7_a">
+                        Teams can have unlimited members. Perfect for hiking groups, family 
+                        trips, school outings, or corporate events.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🔋</span>
+                        <h3 data-i18n="faq8_q">Does it drain battery?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq8_a">
+                        RESQ+ is optimized for low battery usage. Team GPS tracking uses minimal 
+                        power and you can disable features you're not using to save battery.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🚨</span>
+                        <h3 data-i18n="faq9_q">What happens when I press SOS?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq9_a">
+                        The SOS Smart System activates flash morse code, starts video recording, 
+                        can send SMS to emergency contacts, and provides quick access to 
+                        emergency services (1669).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">📊</span>
+                        <h3 data-i18n="faq10_q">What data do you collect?</h3>
+                    </div>
+                    <div class="faq-answer" data-i18n="faq10_a">
+                        We ONLY collect anonymous usage statistics (feature usage, response times, app performance) 
+                        to improve RESQ+ and save more lives every second. We do NOT collect personal data, 
+                        names, photos, medical information, or insurance details. Your privacy is our priority.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-card">
+                <div class="download-content">
+                    <h2 class="download-title" data-i18n="download_title">Coming Soon to Google Play</h2>
+                    <p class="download-description" data-i18n="download_desc">
+                        RESQ+ will soon be available for download. Get notified the moment 
+                        it launches and be among the first to access professional emergency 
+                        response at your fingertips. Free, no subscriptions, no ads.
+                    </p>
+                    <div class="download-buttons">
+                        <div class="store-button google-play store-button-disabled">
+                            <div class="store-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32">
+                                    <path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                </svg>
+                            </div>
+                            <div class="store-text">
+                                <span class="store-label" data-i18n="download_button_text">COMING SOON</span>
+                                <span class="store-name" data-i18n="download_button_subtext">Google Play</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-info">
+                        <div class="info-item">
+                            <span class="info-icon">✅</span>
+                            <span class="info-text" data-i18n="download_feature1">100% Free</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🔒</span>
+                            <span class="info-text" data-i18n="download_feature2">Privacy Protected</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🌍</span>
+                            <span class="info-text" data-i18n="download_feature3">4 Languages (EN/FR/TH/ZH)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-image">
+                    <div class="download-phone">
+                        <div class="phone-frame-large">
+                            <div class="phone-screen-large">
+                                <img src="images/screenshot-8.png" alt="RESQ+ Ready - Coming Soon to Google Play" data-i18n-alt="homepage.screenshot8Alt" width="360" height="780" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="images/resq-logo.png" alt="RESQ+ Logo" data-i18n-alt="homepage.logoAlt" width="45" height="45" loading="lazy" decoding="async" style="width: 45px; height: 45px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));">
+                    </div>
+                    <p class="footer-description" data-i18n="footer_description" style="white-space: pre-line;">Complete Emergency Response Ecosystem
+15+ Features • Team Coordination • AI Medical Nurse
+Designed to save lives in critical situations
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title" data-i18n="footer_product">Product</h4>
+                        <ul class="footer-list">
+                            <li><a href="#features" data-i18n="footer_features">Features</a></li>
+                            <li><a href="#screenshots" data-i18n="footer_screenshots">Screenshots</a></li>
+                            <li><a href="#download" data-i18n="footer_download">Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title" data-i18n="footer_legal">Legal</h4>
+                        <ul class="footer-list">
+                            <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+                            <li><a href="terms.html" data-i18n="footer_terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title" data-i18n="footer_support">Support</h4>
+                        <ul class="footer-list">
+                            <li>
+                                <a href="mailto:sales@sornsawan.com" style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-size: 18px;">📧</span>
+                                    <span>
+                                        <span data-i18n="contact.email" style="display: block; font-size: 12px; opacity: 0.7;">Email Us</span>
+                                        <span style="display: block; font-weight: 600; color: #4facfe;">sales@sornsawan.com</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/66636706074" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-size: 18px;">💬</span>
+                                    <span>
+                                        <span data-i18n="contact.whatsapp" style="display: block; font-size: 12px; opacity: 0.7;">WhatsApp</span>
+                                        <span style="display: block; font-weight: 600; color: #25D366;">+66 63 670 6074</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li><a href="#faq" data-i18n="footer_faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright" data-i18n="footer_copyright">© 2024 RESQ+. All rights reserved.</p>
+                <p class="disclaimer" data-i18n="footer_disclaimer">
+                    ⚠️ RESQ+ is a support tool and does not replace professional emergency services. 
+                    Always call local emergency numbers (Police, Ambulance, Fire) in life-threatening situations.
+                </p>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Share Story Modal -->
+    <div id="storyModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto;">
+        <div class="modal-content" style="background: white; max-width: 600px; margin: 50px auto; border-radius: 24px; padding: 40px; position: relative;">
+            <button id="closeModal" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 32px; cursor: pointer; color: #6B7280;">&times;</button>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 64px; margin-bottom: 16px;">📸</div>
+                <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #1F2937;">Share Your RESQ+ Story</h2>
+                <p style="color: #6B7280; font-size: 16px;">Help inspire others and get featured on our website!</p>
+            </div>
+
+            <form id="storyForm" enctype="multipart/form-data">
+                <!-- Name -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Your Name *</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 12px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px;" placeholder="John Doe">
+                </div>
+
+                <!-- Story Type -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Emergency Type *</label>
+                    <select name="storyType" required style="width: 100%; padding: 12px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px;">
+                        <option value="">Select type...</option>
+                        <option value="hiking">🏔️ Hiking/Outdoor</option>
+                        <option value="accident">🚗 Car Accident</option>
+                        <option value="medical">🏥 Medical Emergency</option>
+                        <option value="beach">🏖️ Beach/Water</option>
+                        <option value="elderly">👴 Elderly Care</option>
+                        <option value="training">🎮 Training/Learning</option>
+                        <option value="other">✨ Other</option>
+                    </select>
+                </div>
+
+                <!-- Your Story -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Your Story * (max 500 characters)</label>
+                    <textarea name="story" required maxlength="500" rows="5" style="width: 100%; padding: 12px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px; resize: vertical;" placeholder="Tell us how RESQ+ helped you during an emergency..."></textarea>
+                    <div style="text-align: right; font-size: 12px; color: #6B7280; margin-top: 4px;"><span id="charCount">0</span>/500</div>
+                </div>
+
+                <!-- Photo/Video Upload -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Photo or Video *</label>
+                    <div style="border: 2px dashed #E5E7EB; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; background: #F9FAFB;" id="uploadArea">
+                        <input type="file" name="media" accept="image/*,video/*" required style="display: none;" id="mediaInput">
+                        <div style="font-size: 48px; margin-bottom: 12px;">📁</div>
+                        <p style="color: #6B7280; margin-bottom: 8px;">Click to upload or drag & drop</p>
+                        <p style="font-size: 12px; color: #9CA3AF;">Image or Video (Max 10MB)</p>
+                    </div>
+                    <div id="fileName" style="margin-top: 8px; font-size: 14px; color: #10B981;"></div>
+                </div>
+
+                <!-- Social Media Link -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Social Media Link (Optional)</label>
+                    <input type="url" name="socialLink" style="width: 100%; padding: 12px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px;" placeholder="https://instagram.com/yourprofile">
+                    <p style="font-size: 12px; color: #6B7280; margin-top: 4px;">
+                        📱 Add your Instagram, YouTube, TikTok, or Facebook link to gain more visibility!
+                    </p>
+                </div>
+
+                <!-- Email -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Your Email *</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 12px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px;" placeholder="your@email.com">
+                    <p style="font-size: 12px; color: #6B7280; margin-top: 4px;">We'll contact you if your story is featured</p>
+                </div>
+
+                <!-- Consent -->
+                <div style="margin-bottom: 30px;">
+                    <label style="display: flex; align-items: start; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" name="consent" required style="margin-top: 4px;">
+                        <span style="font-size: 14px; color: #6B7280;">
+                            I consent to share my story and media on the RESQ+ website and social media. 
+                            I understand my social media link will be included for visibility.
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" style="width: 100%; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer;">
+                    🚀 Submit My Story
+                </button>
+
+                <p style="text-align: center; font-size: 12px; color: #6B7280; margin-top: 16px;">
+                    Stories are reviewed before publication. We'll notify you by email if featured!
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK (Optional - for email notifications) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script src="translations.js"></script>
+    <script src="translations-complete.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="script.js?v=2" defer></script>
+    <script src="ux-advanced.js?v=2.2" defer></script>
+    <script src="email-approval.js?v=2" defer></script>
+    <script src="visitor-tracking.js?v=2" defer></script>
+    <script src="modal-stellar.js?v=2" defer></script>
+    <script src="ga4-events.js" defer></script>
+    <script src="error-logger.js" defer></script>
+    <!-- <script src="exit-intent.js" defer></script> DISABLED - Using newsletter-popup.js instead -->
+    <script src="countdown-timer.js" defer></script>
+    <script src="social-proof.js" defer></script>
+    <script src="signup-progress.js" defer></script>
+    <script src="live-chat.js" defer></script>
+    <script src="social-share.js?v=2.0" defer></script>
+    <!-- <script src="email-validator.js" defer></script> DISABLED - Causes conflicts with newsletter popup -->
+    <script src="utm-tracker.js"></script>
+    <script src="newsletter-popup.js" defer></script>
+    <script src="code-loader.js" defer></script>
+    <script src="skeleton-loader.js" defer></script>
+    <script src="form-validation.js" defer></script>
+    <script src="lang-tooltip.js" defer></script>
+    <script src="back-to-top.js" defer></script>
+    <script src="rate-limiter.js" defer></script>
+    <script src="input-sanitizer.js" defer></script>
+    <script src="anti-scraping.js" defer></script>
+    <script src="pwa-install.js" defer></script>
+    <!-- <script src="push-notifications.js" defer></script> -->
+    <script src="geo-language.js" defer></script>
+    <script src="keyboard-shortcuts.js" defer></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+
+</body>
+</html>
