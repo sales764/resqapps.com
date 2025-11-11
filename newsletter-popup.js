@@ -8,11 +8,11 @@
 
     // Configuration
     const config = {
-        // Trigger settings
+        // Trigger settings - DISABLED
         triggers: {
-            timeDelay: 0,            // DISABLED - Only use scroll trigger
-            scrollPercent: 50,       // Show after 50% scroll
-            exitIntent: false        // Don't trigger on exit (already have exit-intent.js)
+            timeDelay: 0,            // DISABLED
+            scrollPercent: 0,        // DISABLED - Popup turned off
+            exitIntent: false        // DISABLED
         },
         
         // Display settings
