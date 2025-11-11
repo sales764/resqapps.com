@@ -144,7 +144,7 @@ if (storyForm) {
 
         try {
             // Submit to Formspree
-            const response = await fetch('https://formspree.io/f/mNkynpqo', {
+            const response = await fetch('https://formspree.io/f/mvlkypvo', {
                 method: 'POST',
                 body: formData,
                 headers: {

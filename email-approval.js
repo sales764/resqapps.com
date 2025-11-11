@@ -12,7 +12,7 @@ const EMAIL_CONFIG = {
 };
 
 // Alternative: Formspree (simpler setup)
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mNkynpqo'; // Replace with your Formspree form ID
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvlkypvo'; // Real Formspree form ID
 
 // Admin email for notifications
 const ADMIN_EMAIL = 'sales@sornsawan.com';

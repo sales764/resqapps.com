@@ -146,7 +146,7 @@
                         <p class="newsletter-subtitle">${config.content.subtitle}</p>
                         <p class="newsletter-description">${config.content.description}</p>
                         
-                        <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mNkynpqo" method="POST">
+                        <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mvlkypvo" method="POST">
                             <div class="newsletter-input-group">
                                 <input 
                                     type="email" 
@@ -611,7 +611,7 @@
                 formData.append('_subject', 'New RESQ+ Newsletter Popup Signup!');
                 formData.append('source', 'Newsletter Popup');
                 
-                fetch('https://formspree.io/f/mNkynpqo', {
+                fetch('https://formspree.io/f/mvlkypvo', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -721,7 +721,7 @@
         }
 
         // Send to Formspree
-        fetch('https://formspree.io/f/mNkynpqo', {
+        fetch('https://formspree.io/f/mvlkypvo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
