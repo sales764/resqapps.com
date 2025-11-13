@@ -1,0 +1,200 @@
+================================================================================
+  HOW TO MAKE resqapps.com WORK - SUPER SIMPLE GUIDE
+================================================================================
+
+YOUR GOAL: Type "resqapps.com" in browser → Your website appears!
+
+TOTAL TIME: 30 minutes (then wait 24 hours for DNS)
+
+================================================================================
+STEP 1: UPLOAD FILES TO GITHUB (5 minutes)
+================================================================================
+
+METHOD: Double-click deploy-to-github.bat
+
+1. Open folder: C:\Users\Sales\AndroidStudioProjects\Resq\website\
+
+2. Find file: deploy-to-github.bat
+
+3. Double-click it
+
+4. When asked, enter your GitHub info:
+   - Username: sales764
+   - Password: (your GitHub password or token)
+
+5. Wait for "DEPLOYMENT COMPLETE!" message
+
+6. DONE! Files are now on GitHub ✅
+
+
+================================================================================
+STEP 2: ENABLE GITHUB PAGES (2 minutes)
+================================================================================
+
+1. Go to: https://github.com/sales764/resqapps.com/settings/pages
+
+2. You'll see "Source" section
+
+3. Click dropdown and select: main
+
+4. Click dropdown next to it and select: / (root)
+
+5. Click "Save"
+
+6. Wait 3 minutes
+
+7. TEST: Go to https://sales764.github.io/resqapps.com/
+   → Your website should appear! ✅
+
+
+================================================================================
+STEP 3: CONNECT YOUR DOMAIN resqapps.com (3 minutes)
+================================================================================
+
+A. IN GITHUB:
+-------------
+1. Stay on: https://github.com/sales764/resqapps.com/settings/pages
+
+2. Scroll down to "Custom domain"
+
+3. Type: resqapps.com
+
+4. Click "Save"
+
+5. Wait for green checkmark (might take 1 minute)
+
+
+B. IN YOUR DOMAIN REGISTRAR (Where you bought resqapps.com):
+------------------------------------------------------------
+
+WHERE DID YOU BUY resqapps.com? 
+→ Namecheap? GoDaddy? Cloudflare? Other?
+
+LOGIN to that website, then:
+
+1. Find "DNS Settings" or "DNS Management"
+
+2. DELETE any existing A records or CNAME records
+
+3. ADD these NEW records:
+
+   Record 1:
+   Type: A
+   Host: @ (or leave blank)
+   Value: 185.199.108.153
+   TTL: Automatic (or 3600)
+
+   Record 2:
+   Type: A
+   Host: @ (or leave blank)
+   Value: 185.199.109.153
+   TTL: Automatic (or 3600)
+
+   Record 3:
+   Type: A
+   Host: @ (or leave blank)
+   Value: 185.199.110.153
+   TTL: Automatic (or 3600)
+
+   Record 4:
+   Type: A
+   Host: @ (or leave blank)
+   Value: 185.199.111.153
+   TTL: Automatic (or 3600)
+
+   Record 5:
+   Type: CNAME
+   Host: www
+   Value: sales764.github.io
+   TTL: Automatic (or 3600)
+
+4. Click "Save" or "Save Changes"
+
+
+C. WAIT FOR DNS TO WORK:
+------------------------
+- This takes 24-48 hours (usually 12 hours)
+- Check progress at: https://dnschecker.org
+- Type: resqapps.com
+- Look for green checkmarks around the world
+
+
+================================================================================
+STEP 4: ENABLE HTTPS (1 minute - DO THIS AFTER 24 HOURS)
+================================================================================
+
+After DNS works (after 24 hours):
+
+1. Go back to: https://github.com/sales764/resqapps.com/settings/pages
+
+2. Find "Enforce HTTPS" checkbox
+
+3. Check ✅ the box
+
+4. Done!
+
+
+================================================================================
+FINAL RESULT
+================================================================================
+
+After all steps complete:
+
+✅ Type resqapps.com → Your website appears!
+✅ Type www.resqapps.com → Your website appears!
+✅ Secure HTTPS connection (green padlock)
+✅ Works on all devices (phone, tablet, computer)
+✅ 100% FREE hosting forever!
+
+
+================================================================================
+QUICK CHECKLIST
+================================================================================
+
+□ Step 1: Upload files (5 min) → deploy-to-github.bat
+□ Step 2: Enable GitHub Pages (2 min)
+□ Step 3a: Add custom domain in GitHub (1 min)
+□ Step 3b: Configure DNS in domain registrar (3 min)
+□ Step 3c: Wait 24 hours for DNS
+□ Step 4: Enable HTTPS (1 min)
+□ DONE! Type resqapps.com and see your website! 🎉
+
+
+================================================================================
+NEED HELP WITH DNS?
+================================================================================
+
+Tell me where you bought resqapps.com and I'll give you EXACT steps:
+
+→ Namecheap: I'll show you exactly where to click
+→ GoDaddy: I'll show you exactly where to click
+→ Cloudflare: I'll show you exactly where to click
+→ Other: Just tell me the name and I'll help!
+
+
+================================================================================
+COSTS
+================================================================================
+
+GitHub Pages: FREE ✅
+Hosting: FREE ✅
+SSL Certificate: FREE ✅
+Bandwidth: FREE (100GB/month) ✅
+Storage: FREE (1GB) ✅
+
+You already own resqapps.com, so: $0 TOTAL! 🎉
+
+
+================================================================================
+START NOW!
+================================================================================
+
+1. Double-click: C:\Users\Sales\AndroidStudioProjects\Resq\website\deploy-to-github.bat
+
+2. Then come back and I'll help you with the next steps!
+
+
+================================================================================
+Questions? I'm here to help!
+sales@sornsawan.com | WhatsApp: +66 63 670 6074
+================================================================================

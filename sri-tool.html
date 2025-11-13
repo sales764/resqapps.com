@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>SRI Hash Generator - RESQ+</title>
+    <!-- Theme Support -->
+    <link rel="stylesheet" href="theme-toggle.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        input[type="text"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(79, 172, 254, 0.5);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px 12px;
+            background: rgba(79, 172, 254, 0.2);
+            border: 1px solid rgba(79, 172, 254, 0.5);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(79, 172, 254, 0.4);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: white;
+            border-bottom-color: #4facfe;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-info {
+            background: rgba(33, 150, 243, 0.1);
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            color: #64b5f6;
+        }
+
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: #ffd54f;
+        }
+
+        .alert-success {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #4facfe;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 SRI Hash Generator</h1>
+        <p class="subtitle">Generate Subresource Integrity hashes for CDN resources</p>
+
+        <div class="card">
+            <div class="card-title">
+                <span>📦</span>
+                Generate SRI Hash
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('url')">From URL</button>
+                <button class="tab" onclick="switchTab('text')">From Text</button>
+                <button class="tab" onclick="switchTab('file')">From File</button>
+            </div>
+
+            <!-- URL Tab -->
+            <div id="url-tab" class="tab-content active">
+                <div class="alert alert-info">
+                    Enter the URL of a CDN resource (script or stylesheet) to generate its SRI hash.
+                </div>
+
+                <div class="input-group">
+                    <label for="url-input">Resource URL</label>
+                    <input 
+                        type="url" 
+                        id="url-input" 
+                        placeholder="https://cdn.example.com/library.js"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="url-algorithm">Hash Algorithm</label>
+                    <select id="url-algorithm">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha384" selected>SHA-384 (Recommended)</option>
+                        <option value="sha512">SHA-512</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="generateFromURL()">
+                    Generate SRI Hash
+                </button>
+
+                <div class="loading" id="url-loading">
+                    <div class="spinner"></div>
+                    <div>Fetching and generating hash...</div>
+                </div>
+
+                <div class="result" id="url-result"></div>
+            </div>
+
+            <!-- Text Tab -->
+            <div id="text-tab" class="tab-content">
+                <div class="alert alert-info">
+                    Paste the content of your script or stylesheet to generate its SRI hash.
+                </div>
+
+                <div class="input-group">
+                    <label for="text-input">Content</label>
+                    <textarea 
+                        id="text-input" 
+                        placeholder="console.log('Hello World');"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="text-algorithm">Hash Algorithm</label>
+                    <select id="text-algorithm">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha384" selected>SHA-384 (Recommended)</option>
+                        <option value="sha512">SHA-512</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="generateFromText()">
+                    Generate SRI Hash
+                </button>
+
+                <div class="result" id="text-result"></div>
+            </div>
+
+            <!-- File Tab -->
+            <div id="file-tab" class="tab-content">
+                <div class="alert alert-info">
+                    Upload a JavaScript or CSS file to generate its SRI hash.
+                </div>
+
+                <div class="input-group">
+                    <label for="file-input">Select File</label>
+                    <input 
+                        type="file" 
+                        id="file-input" 
+                        accept=".js,.css"
+                        style="padding: 8px;"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="file-algorithm">Hash Algorithm</label>
+                    <select id="file-algorithm">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha384" selected>SHA-384 (Recommended)</option>
+                        <option value="sha512">SHA-512</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="generateFromFile()">
+                    Generate SRI Hash
+                </button>
+
+                <div class="result" id="file-result"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span>📖</span>
+                How to Use SRI
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Important:</strong> SRI should only be used for static CDN resources.
+                Do NOT use SRI for dynamic resources like Google Analytics or Google Fonts.
+            </div>
+
+            <h3 style="margin: 20px 0 10px; font-size: 18px;">✅ Good Use Cases:</h3>
+            <ul class="text-theme-secondary" style="line-height: 1.8; margin-left: 20px;">
+                <li>jQuery, Bootstrap, Vue, React from CDNs</li>
+                <li>CSS frameworks from CDNs</li>
+                <li>Icon libraries from CDNs</li>
+                <li>Any static, versioned CDN resource</li>
+            </ul>
+
+            <h3 style="margin: 20px 0 10px; font-size: 18px;">❌ Bad Use Cases:</h3>
+            <ul class="text-theme-secondary" style="line-height: 1.8; margin-left: 20px;">
+                <li>Google Analytics / Tag Manager (changes frequently)</li>
+                <li>Google Fonts (serves different CSS per browser)</li>
+                <li>Microsoft Clarity (dynamic content)</li>
+                <li>Any analytics or tracking scripts</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="sri-generator.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to selected tab
+            event.target.classList.add('active');
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        async function generateFromURL() {
+            const url = document.getElementById('url-input').value;
+            const algorithm = document.getElementById('url-algorithm').value;
+            const loading = document.getElementById('url-loading');
+            const result = document.getElementById('url-result');
+
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            loading.classList.add('show');
+            result.classList.remove('show');
+
+            try {
+                const hash = await SRIGenerator.fromURL(url, algorithm);
+                const fileName = url.split('/').pop().split('?')[0];
+                const isScript = fileName.endsWith('.js');
+                const tag = isScript ? 'script' : 'link';
+                const attrs = isScript 
+                    ? `src="${url}"` 
+                    : `rel="stylesheet" href="${url}"`;
+
+                result.innerHTML = `
+                    <div class="alert alert-success">
+                        ✅ SRI hash generated successfully!
+                    </div>
+                    <div class="result-label">SRI Hash</div>
+                    <div class="result-value">
+                        ${hash}
+                        <button class="copy-btn" onclick="copyToClipboard('${hash}')">Copy</button>
+                    </div>
+                    <div class="result-label">HTML Tag</div>
+                    <div class="result-value">
+                        &lt;${tag} ${attrs} integrity="${hash}" crossorigin="anonymous"&gt;&lt;/${tag}&gt;
+                        <button class="copy-btn" onclick="copyToClipboard('<${tag} ${attrs} integrity=&quot;${hash}&quot; crossorigin=&quot;anonymous&quot;></${tag}>')">Copy</button>
+                    </div>
+                `;
+                result.classList.add('show');
+            } catch (error) {
+                result.innerHTML = `
+                    <div class="alert alert-warning">
+                        ❌ Error: ${error.message}
+                    </div>
+                `;
+                result.classList.add('show');
+            } finally {
+                loading.classList.remove('show');
+            }
+        }
+
+        async function generateFromText() {
+            const text = document.getElementById('text-input').value;
+            const algorithm = document.getElementById('text-algorithm').value;
+            const result = document.getElementById('text-result');
+
+            if (!text) {
+                alert('Please enter some content');
+                return;
+            }
+
+            try {
+                const hash = await SRIGenerator.fromString(text, algorithm);
+
+                result.innerHTML = `
+                    <div class="alert alert-success">
+                        ✅ SRI hash generated successfully!
+                    </div>
+                    <div class="result-label">SRI Hash</div>
+                    <div class="result-value">
+                        ${hash}
+                        <button class="copy-btn" onclick="copyToClipboard('${hash}')">Copy</button>
+                    </div>
+                `;
+                result.classList.add('show');
+            } catch (error) {
+                result.innerHTML = `
+                    <div class="alert alert-warning">
+                        ❌ Error: ${error.message}
+                    </div>
+                `;
+                result.classList.add('show');
+            }
+        }
+
+        async function generateFromFile() {
+            const fileInput = document.getElementById('file-input');
+            const algorithm = document.getElementById('file-algorithm').value;
+            const result = document.getElementById('file-result');
+
+            if (!fileInput.files.length) {
+                alert('Please select a file');
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            try {
+                const hash = await SRIGenerator.fromFile(file, algorithm);
+                const isScript = file.name.endsWith('.js');
+                const tag = isScript ? 'script' : 'link';
+                const attrs = isScript 
+                    ? `src="URL_HERE"` 
+                    : `rel="stylesheet" href="URL_HERE"`;
+
+                result.innerHTML = `
+                    <div class="alert alert-success">
+                        ✅ SRI hash generated for ${file.name}
+                    </div>
+                    <div class="result-label">SRI Hash</div>
+                    <div class="result-value">
+                        ${hash}
+                        <button class="copy-btn" onclick="copyToClipboard('${hash}')">Copy</button>
+                    </div>
+                    <div class="result-label">HTML Tag (replace URL_HERE)</div>
+                    <div class="result-value">
+                        &lt;${tag} ${attrs} integrity="${hash}" crossorigin="anonymous"&gt;&lt;/${tag}&gt;
+                        <button class="copy-btn" onclick="copyToClipboard('<${tag} ${attrs} integrity=&quot;${hash}&quot; crossorigin=&quot;anonymous&quot;></${tag}>')">Copy</button>
+                    </div>
+                `;
+                result.classList.add('show');
+            } catch (error) {
+                result.innerHTML = `
+                    <div class="alert alert-warning">
+                        ❌ Error: ${error.message}
+                    </div>
+                `;
+                result.classList.add('show');
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                event.target.textContent = 'Copied!';
+                setTimeout(() => {
+                    event.target.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

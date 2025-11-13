@@ -1,0 +1,112 @@
+╔══════════════════════════════════════════════════════════════╗
+║        ✅ CHECKLIST DÉPLOIEMENT - resqapps.com             ║
+║          Cochez au fur et à mesure que vous avancez        ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 IDs À NOTER (remplissez au fur et à mesure):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Google Analytics ID: G-_____________________
+
+Microsoft Clarity ID: _________________________
+
+Formspree Form ID: ___________________________
+
+
+🎯 ÉTAPES PRINCIPALES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ ÉTAPE 1: Domaine acheté (resqapps.com) ✅ FAIT!
+
+□ ÉTAPE 2: NETLIFY (5 min)
+   □ Créer compte Netlify
+   □ Déployer dossier "website"
+   □ Site en ligne sur: ______________.netlify.app
+   □ Renommer en: resqapps.netlify.app
+
+□ ÉTAPE 3: CONNEXION DOMAINE (10 min)
+   □ Dans Netlify: Add custom domain → resqapps.com
+   □ Dans Cloudflare DNS: Ajouter CNAME @ → resqapps.netlify.app
+   □ Dans Cloudflare DNS: Ajouter CNAME www → resqapps.netlify.app
+   □ Les 2 records en mode "DNS only" (GRIS, pas orange)
+   □ Attendre 5-30 min
+   □ Vérifier: https://resqapps.com fonctionne
+   □ SSL/HTTPS activé automatiquement
+
+□ ÉTAPE 4A: GOOGLE ANALYTICS (10 min)
+   □ Créer compte sur analytics.google.com
+   □ Créer propriété "RESQ+ Emergency App"
+   □ Flux web: https://resqapps.com
+   □ COPIER ID: G-_______________ (noter en haut)
+
+□ ÉTAPE 4B: MICROSOFT CLARITY (5 min)
+   □ Créer compte sur clarity.microsoft.com
+   □ Nouveau projet "RESQ Apps"
+   □ URL: https://resqapps.com
+   □ COPIER Project ID: ______________ (noter en haut)
+
+□ ÉTAPE 4C: FORMSPREE (5 min)
+   □ Créer compte sur formspree.io
+   □ Nouveau form "RESQ Apps - Story Submissions"
+   □ COPIER Form ID: ______________ (noter en haut)
+
+□ ÉTAPE 5: MODIFIER FICHIERS (10 min)
+   □ index.html → Remplacer G-XXXXXXXXXX (2 fois)
+   □ index.html → Remplacer CLARITY_PROJECT_ID (1 fois)
+   □ 404.html → Remplacer G-XXXXXXXXXX (2 fois)
+   □ 404.html → Remplacer CLARITY_PROJECT_ID (1 fois)
+   □ 500.html → Remplacer G-XXXXXXXXXX (2 fois)
+   □ 500.html → Remplacer CLARITY_PROJECT_ID (1 fois)
+   □ email-approval.js → Remplacer YOUR_FORM_ID (1 fois)
+
+□ ÉTAPE 6: RE-DÉPLOYER (2 min)
+   □ Netlify → Deploys
+   □ Glisser dossier "website" à nouveau
+   □ Attendre build
+
+□ ÉTAPE 7: VÉRIFICATIONS (5 min)
+   □ Ouvrir https://resqapps.com
+   □ Console (F12) → Pas d'erreurs rouges
+   □ Language switcher fonctionne
+   □ Tester formulaire "Share Your Story"
+   □ Email reçu sur sales@sornsawan.com
+   □ Google Analytics → Temps réel montre visiteur
+   □ Toutes les pages accessibles
+
+
+╔══════════════════════════════════════════════════════════════╗
+║               🎉 SITE 100% FONCTIONNEL!                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Quand TOUTES les cases sont cochées:
+
+✅ Site en ligne: https://resqapps.com
+✅ SSL/HTTPS sécurisé
+✅ Google Analytics actif
+✅ Microsoft Clarity enregistre
+✅ Formulaires fonctionnent
+✅ 8 pages complètes
+✅ 4 langues (EN/FR/TH/ZH)
+
+FÉLICITATIONS! 🎊🚀
+
+
+📊 TEMPS ESTIMÉ:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Étape 2: 5 min
+Étape 3: 10 min
+Étape 4: 20 min
+Étape 5: 10 min
+Étape 6: 2 min
+Étape 7: 5 min
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOTAL: 52 minutes
+
++ Temps d'attente DNS: 5-30 min
+GRAND TOTAL: ~1h30 max
+
+
+🆘 AIDE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Si bloqué, consultez: GUIDE-RESQAPPS-DEPLOIEMENT.txt
+Contact: sales@sornsawan.com ou WhatsApp +66636706074

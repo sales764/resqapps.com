@@ -1,0 +1,31 @@
+# Documentation files (don't need on live site)
+*.md
+!README.md
+
+# Backend examples (not needed for static site)
+backend-examples/
+
+# Development scripts (but keep deploy script)
+!deploy-to-github.bat
+*.ps1
+minify-all.ps1
+convert-to-webp.ps1
+setup-linting.bat
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

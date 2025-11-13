@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RESQ+ API Documentation - Integrate emergency response services into your application">
+    <title>API Documentation - RESQ+ Emergency Response</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJWC7EHMT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEJWC7EHMT', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure',
+            'send_page_view': true
+        });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "u3grpfsb4k");
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/app-icon.webp">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-stellar.css">
+    <link rel="stylesheet" href="lang-switcher.css">
+    <link rel="stylesheet" href="api-docs.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+    
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <header role="banner">
+        <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <picture>
+                        <source srcset="images/resq-logo.webp" type="image/webp">
+                        <source srcset="images/resq-logo.png" type="image/png">
+                        <img src="images/resq-logo.png" alt="RESQ+ Logo" width="200" height="50">
+                    </picture>
+                    <span class="logo-text">RESQ+</span>
+                </a>
+                <div class="nav-links" id="nav-links">
+                <a href="index.html#features" data-i18n="nav_features">Features</a>
+                <a href="index.html#testimonials" data-i18n="nav_notify">Get Notified</a>
+                <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+                <div class="lang-switcher">
+                    <button onclick="i18n.switchLang('en')" class="lang-btn" type="button">🇬🇧</button>
+                    <button onclick="i18n.switchLang('fr')" class="lang-btn" type="button">🇫🇷</button>
+                    <button onclick="i18n.switchLang('th')" class="lang-btn" type="button">🇹🇭</button>
+                    <button onclick="i18n.switchLang('zh')" class="lang-btn" type="button">🇨🇳</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="api-hero">
+        <div class="container">
+            <h1>⚡ RESQ+ API Documentation</h1>
+            <p>Integrate emergency response services into your application</p>
+            <div class="hero-badges">
+                <span class="badge">REST API</span>
+                <span class="badge">JSON</span>
+                <span class="badge">OAuth 2.0</span>
+                <span class="badge">Rate Limited</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="api-section" id="getting-started">
+        <div class="container-docs">
+            <div class="docs-sidebar">
+                <nav class="sidebar-nav">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#endpoints">Endpoints</a>
+                            <ul>
+                                <li><a href="#emergency">Emergency</a></li>
+                                <li><a href="#alerts">Alerts</a></li>
+                                <li><a href="#users">Users</a></li>
+                                <li><a href="#hospitals">Hospitals</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#rate-limits">Rate Limits</a></li>
+                        <li><a href="#errors">Error Handling</a></li>
+                        <li><a href="#examples">Code Examples</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="docs-content">
+                <!-- Getting Started -->
+                <div class="docs-section">
+                    <h2>🚀 Getting Started</h2>
+                    <p>The RESQ+ API allows you to integrate emergency response services into your application. Access real-time emergency alerts, hospital data, and coordinate emergency responses.</p>
+                    
+                    <div class="info-box">
+                        <h3>📋 Prerequisites</h3>
+                        <ul>
+                            <li>Register for an API key at <a href="#register">resqapps.com/api/register</a></li>
+                            <li>Understand REST API principles</li>
+                            <li>Have a valid use case for emergency services integration</li>
+                        </ul>
+                    </div>
+
+                    <h3>Base URL</h3>
+                    <div class="code-block">
+                        <pre><code>https://api.resqapps.com/v1</code></pre>
+                    </div>
+
+                    <h3>Quick Example</h3>
+                    <div class="code-block">
+                        <pre><code class="language-bash">curl -X GET "https://api.resqapps.com/v1/alerts" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"</code></pre>
+                    </div>
+                </div>
+
+                <!-- Authentication -->
+                <div class="docs-section" id="authentication">
+                    <h2>🔐 Authentication</h2>
+                    <p>All API requests require authentication using an API key. Include your API key in the Authorization header.</p>
+
+                    <h3>API Key Authentication</h3>
+                    <div class="code-block">
+                        <pre><code class="language-http">Authorization: Bearer YOUR_API_KEY</code></pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3>⚠️ Security</h3>
+                        <ul>
+                            <li>Never expose your API key in client-side code</li>
+                            <li>Keep your API key secure and regenerate if compromised</li>
+                            <li>Use HTTPS for all requests</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Endpoints -->
+                <div class="docs-section" id="endpoints">
+                    <h2>📡 API Endpoints</h2>
+
+                    <!-- Emergency Endpoints -->
+                    <div class="endpoint-group" id="emergency">
+                        <h3>🚨 Emergency Endpoints</h3>
+
+                        <!-- Create Emergency -->
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method post">POST</span>
+                                <span class="endpoint-path">/emergency</span>
+                            </div>
+                            <p>Create a new emergency request</p>
+                            
+                            <h4>Request Body</h4>
+                            <div class="code-block">
+                                <pre><code class="language-json">{
+  "type": "medical",
+  "severity": "high",
+  "location": {
+    "latitude": 13.7563,
+    "longitude": 100.5018
+  },
+  "description": "Heart attack victim",
+  "contactPhone": "+66812345678"
+}</code></pre>
+                            </div>
+
+                            <h4>Response</h4>
+                            <div class="code-block">
+                                <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "emergencyId": "emg_1234567890",
+    "status": "dispatched",
+    "estimatedArrival": "8 minutes",
+    "ambulanceId": "amb_456",
+    "createdAt": "2024-11-08T16:30:00Z"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Get Emergency Status -->
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="endpoint-path">/emergency/:id</span>
+                            </div>
+                            <p>Get emergency request status</p>
+                            
+                            <h4>Response</h4>
+                            <div class="code-block">
+                                <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "emergencyId": "emg_1234567890",
+    "status": "en_route",
+    "currentLocation": {
+      "latitude": 13.7500,
+      "longitude": 100.5000
+    },
+    "estimatedArrival": "5 minutes"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alerts Endpoints -->
+                    <div class="endpoint-group" id="alerts">
+                        <h3>📢 Alert Endpoints</h3>
+
+                        <!-- Get Alerts -->
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="endpoint-path">/alerts</span>
+                            </div>
+                            <p>Get active emergency alerts in a region</p>
+                            
+                            <h4>Query Parameters</h4>
+                            <table class="params-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>latitude</code></td>
+                                        <td>number</td>
+                                        <td>Yes</td>
+                                        <td>Latitude coordinate</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>longitude</code></td>
+                                        <td>number</td>
+                                        <td>Yes</td>
+                                        <td>Longitude coordinate</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>radius</code></td>
+                                        <td>number</td>
+                                        <td>No</td>
+                                        <td>Search radius in km (default: 10)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Response</h4>
+                            <div class="code-block">
+                                <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "alerts": [
+      {
+        "id": "alert_789",
+        "type": "earthquake",
+        "severity": "high",
+        "title": "Earthquake Alert",
+        "description": "Magnitude 5.2 earthquake detected",
+        "location": {
+          "latitude": 13.7563,
+          "longitude": 100.5018
+        },
+        "radius": 50,
+        "issuedAt": "2024-11-08T16:25:00Z"
+      }
+    ],
+    "count": 1
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hospital Endpoints -->
+                    <div class="endpoint-group" id="hospitals">
+                        <h3>🏥 Hospital Endpoints</h3>
+
+                        <!-- Get Nearby Hospitals -->
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="endpoint-path">/hospitals/nearby</span>
+                            </div>
+                            <p>Find nearby hospitals with emergency services</p>
+                            
+                            <h4>Response</h4>
+                            <div class="code-block">
+                                <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "hospitals": [
+      {
+        "id": "hosp_123",
+        "name": "Bangkok General Hospital",
+        "distance": 2.5,
+        "availableBeds": 15,
+        "emergencyServices": true,
+        "phone": "+6621234567",
+        "location": {
+          "latitude": 13.7465,
+          "longitude": 100.5345
+        }
+      }
+    ]
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rate Limits -->
+                <div class="docs-section" id="rate-limits">
+                    <h2>⏱️ Rate Limits</h2>
+                    <p>API requests are rate limited to ensure fair usage and system stability.</p>
+
+                    <table class="rate-limits-table">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Requests/Hour</th>
+                                <th>Requests/Day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Free</td>
+                                <td>100</td>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <td>Basic</td>
+                                <td>1,000</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td>Pro</td>
+                                <td>10,000</td>
+                                <td>100,000</td>
+                            </tr>
+                            <tr>
+                                <td>Enterprise</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Rate Limit Headers</h3>
+                    <div class="code-block">
+                        <pre><code class="language-http">X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1699464000</code></pre>
+                    </div>
+                </div>
+
+                <!-- Error Handling -->
+                <div class="docs-section" id="errors">
+                    <h2>❌ Error Handling</h2>
+                    <p>The API uses standard HTTP response codes and returns detailed error messages.</p>
+
+                    <h3>HTTP Status Codes</h3>
+                    <table class="status-codes-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>200</code></td>
+                                <td>Success</td>
+                            </tr>
+                            <tr>
+                                <td><code>201</code></td>
+                                <td>Created</td>
+                            </tr>
+                            <tr>
+                                <td><code>400</code></td>
+                                <td>Bad Request</td>
+                            </tr>
+                            <tr>
+                                <td><code>401</code></td>
+                                <td>Unauthorized</td>
+                            </tr>
+                            <tr>
+                                <td><code>403</code></td>
+                                <td>Forbidden</td>
+                            </tr>
+                            <tr>
+                                <td><code>404</code></td>
+                                <td>Not Found</td>
+                            </tr>
+                            <tr>
+                                <td><code>429</code></td>
+                                <td>Rate Limit Exceeded</td>
+                            </tr>
+                            <tr>
+                                <td><code>500</code></td>
+                                <td>Internal Server Error</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Error Response Format</h3>
+                    <div class="code-block">
+                        <pre><code class="language-json">{
+  "success": false,
+  "error": {
+    "code": "INVALID_COORDINATES",
+    "message": "Invalid latitude or longitude values",
+    "details": {
+      "latitude": "Must be between -90 and 90"
+    }
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="docs-section" id="examples">
+                    <h2>💻 Code Examples</h2>
+
+                    <!-- JavaScript -->
+                    <h3>JavaScript (Node.js)</h3>
+                    <div class="code-block">
+                        <pre><code class="language-javascript">const axios = require('axios');
+
+const API_KEY = 'your_api_key_here';
+const BASE_URL = 'https://api.resqapps.com/v1';
+
+async function createEmergency() {
+  try {
+    const response = await axios.post(`${BASE_URL}/emergency`, {
+      type: 'medical',
+      severity: 'high',
+      location: {
+        latitude: 13.7563,
+        longitude: 100.5018
+      },
+      description: 'Heart attack victim',
+      contactPhone: '+66812345678'
+    }, {
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    console.log('Emergency created:', response.data);
+  } catch (error) {
+    console.error('Error:', error.response.data);
+  }
+}
+
+createEmergency();</code></pre>
+                    </div>
+
+                    <!-- Python -->
+                    <h3>Python</h3>
+                    <div class="code-block">
+                        <pre><code class="language-python">import requests
+
+API_KEY = 'your_api_key_here'
+BASE_URL = 'https://api.resqapps.com/v1'
+
+def create_emergency():
+    headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+    }
+    
+    data = {
+        'type': 'medical',
+        'severity': 'high',
+        'location': {
+            'latitude': 13.7563,
+            'longitude': 100.5018
+        },
+        'description': 'Heart attack victim',
+        'contactPhone': '+66812345678'
+    }
+    
+    response = requests.post(f'{BASE_URL}/emergency', json=data, headers=headers)
+    
+    if response.status_code == 201:
+        print('Emergency created:', response.json())
+    else:
+        print('Error:', response.json())
+
+create_emergency()</code></pre>
+                    </div>
+
+                    <!-- PHP -->
+                    <h3>PHP</h3>
+                    <div class="code-block">
+                        <pre><code class="language-php"><?php
+$apiKey = 'your_api_key_here';
+$baseUrl = 'https://api.resqapps.com/v1';
+
+function createEmergency($apiKey, $baseUrl) {
+    $data = [
+        'type' => 'medical',
+        'severity' => 'high',
+        'location' => [
+            'latitude' => 13.7563,
+            'longitude' => 100.5018
+        ],
+        'description' => 'Heart attack victim',
+        'contactPhone' => '+66812345678'
+    ];
+    
+    $ch = curl_init("$baseUrl/emergency");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer $apiKey",
+        'Content-Type: application/json'
+    ]);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    if ($httpCode === 201) {
+        echo "Emergency created: " . $response;
+    } else {
+        echo "Error: " . $response;
+    }
+}
+
+createEmergency($apiKey, $baseUrl);
+?></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="api-cta">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Register for your API key and start integrating emergency services today</p>
+            <a href="#register" class="cta-button">Get API Key</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RESQ+. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">API Terms</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script>
+        // Syntax highlighting
+        hljs.highlightAll();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Track code copy
+        document.querySelectorAll('.code-block').forEach(block => {
+            block.addEventListener('click', () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'api_code_copy', {
+                        'event_category': 'API Docs',
+                        'event_label': 'Code Copied'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="translations.js"></script>
+    <script src="translations-complete.js"></script>
+    <script src="i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('nav-links');
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    <script src="anti-scraping.js" defer></script>
+</body>
+</html>

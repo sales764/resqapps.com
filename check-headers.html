@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Headers Checker - RESQ+</title>
+    
+    <!-- Theme Support -->
+    <link rel="stylesheet" href="theme-toggle.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .check-button {
+            display: block;
+            width: 300px;
+            margin: 0 auto 40px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.5);
+        }
+
+        .results {
+            display: grid;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .header-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .header-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-name {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .status.present {
+            background: #4caf50;
+        }
+
+        .status.missing {
+            background: #ff3b3b;
+        }
+
+        .header-value {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+
+        .missing-text {
+            color: #ff3b3b;
+            font-style: italic;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 64px;
+            font-weight: 800;
+            margin: 40px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+
+        .score.a-plus { color: #4caf50; }
+        .score.a { color: #8bc34a; }
+        .score.b { color: #ffc107; }
+        .score.c { color: #ff9800; }
+        .score.d { color: #ff5722; }
+        .score.f { color: #ff3b3b; }
+
+        .recommendation {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .external-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .external-link {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .external-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Security Headers Checker</h1>
+        <p class="subtitle">RESQ+ Emergency Response System</p>
+
+        <button class="check-button" onclick="checkHeaders()">
+            Check Current Page Headers
+        </button>
+
+        <div id="results" class="results"></div>
+
+        <div class="external-links">
+            <a href="https://securityheaders.com/" target="_blank" class="external-link">
+                🔍 Check with SecurityHeaders.com
+            </a>
+            <a href="https://observatory.mozilla.org/" target="_blank" class="external-link">
+                🔭 Mozilla Observatory
+            </a>
+            <a href="https://www.ssllabs.com/ssltest/" target="_blank" class="external-link">
+                🔐 SSL Labs Test
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const requiredHeaders = [
+            {
+                name: 'X-Frame-Options',
+                required: true,
+                recommended: 'SAMEORIGIN',
+                description: 'Prevents clickjacking attacks by controlling iframe embedding',
+                severity: 'critical'
+            },
+            {
+                name: 'X-Content-Type-Options',
+                required: true,
+                recommended: 'nosniff',
+                description: 'Prevents MIME-sniffing vulnerabilities',
+                severity: 'high'
+            },
+            {
+                name: 'Referrer-Policy',
+                required: true,
+                recommended: 'strict-origin-when-cross-origin',
+                description: 'Controls referrer information sent with requests',
+                severity: 'medium'
+            },
+            {
+                name: 'Content-Security-Policy',
+                required: true,
+                recommended: 'configured',
+                description: 'Controls which resources can be loaded (XSS prevention)',
+                severity: 'critical'
+            },
+            {
+                name: 'X-XSS-Protection',
+                required: false,
+                recommended: '1; mode=block',
+                description: 'Legacy XSS filter (for older browsers)',
+                severity: 'low'
+            },
+            {
+                name: 'Strict-Transport-Security',
+                required: true,
+                recommended: 'max-age=31536000; includeSubDomains; preload',
+                description: 'Forces HTTPS connections',
+                severity: 'critical'
+            },
+            {
+                name: 'Permissions-Policy',
+                required: true,
+                recommended: 'configured',
+                description: 'Controls browser features and APIs',
+                severity: 'medium'
+            }
+        ];
+
+        async function checkHeaders() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="loading">Checking headers...</div>';
+
+            try {
+                // Fetch current page to get headers
+                const response = await fetch(window.location.href, {
+                    method: 'HEAD'
+                });
+
+                const headers = {};
+                for (let [key, value] of response.headers.entries()) {
+                    headers[key.toLowerCase()] = value;
+                }
+
+                let score = 0;
+                let maxScore = 0;
+
+                const results = requiredHeaders.map(header => {
+                    const headerKey = header.name.toLowerCase();
+                    const present = headerKey in headers;
+                    const value = headers[headerKey] || null;
+
+                    if (header.severity === 'critical') maxScore += 30;
+                    else if (header.severity === 'high') maxScore += 20;
+                    else if (header.severity === 'medium') maxScore += 10;
+                    else maxScore += 5;
+
+                    if (present) {
+                        if (header.severity === 'critical') score += 30;
+                        else if (header.severity === 'high') score += 20;
+                        else if (header.severity === 'medium') score += 10;
+                        else score += 5;
+                    }
+
+                    return {
+                        ...header,
+                        present,
+                        value
+                    };
+                });
+
+                const percentage = Math.round((score / maxScore) * 100);
+                let grade = 'F';
+                if (percentage >= 95) grade = 'A+';
+                else if (percentage >= 90) grade = 'A';
+                else if (percentage >= 80) grade = 'B';
+                else if (percentage >= 70) grade = 'C';
+                else if (percentage >= 60) grade = 'D';
+
+                resultsDiv.innerHTML = `
+                    <div class="score ${grade.toLowerCase().replace('+', '-plus')}">
+                        Grade: ${grade}
+                        <div style="font-size: 24px; margin-top: 10px; opacity: 0.8">
+                            ${percentage}% Security Score
+                        </div>
+                    </div>
+                    ${results.map(header => `
+                        <div class="header-item">
+                            <div class="header-name">
+                                <span class="status ${header.present ? 'present' : 'missing'}"></span>
+                                ${header.name}
+                                ${header.required ? '<span style="color: #ff3b3b;">*</span>' : ''}
+                            </div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin: 5px 0;">
+                                ${header.description}
+                            </div>
+                            ${header.present ? `
+                                <div class="header-value">${header.value}</div>
+                            ` : `
+                                <div class="missing-text">❌ Missing (Recommended: ${header.recommended})</div>
+                                <div class="recommendation">
+                                    <strong>⚠️ Recommendation:</strong> Add this header to your server configuration.
+                                    See SECURITY-HEADERS.md for implementation details.
+                                </div>
+                            `}
+                        </div>
+                    `).join('')}
+                `;
+
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="header-item">
+                        <div class="header-name">
+                            <span class="status missing"></span>
+                            Error Checking Headers
+                        </div>
+                        <div class="missing-text">
+                            ${error.message}
+                        </div>
+                        <div class="recommendation">
+                            <strong>Note:</strong> This tool can only check headers when running on a web server.
+                            For local testing, use browser DevTools Network tab or online tools like securityheaders.com
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-check on load
+        window.addEventListener('load', checkHeaders);
+    </script>
+    <script src="theme-toggle.js"></script>
+</body>
+</html>

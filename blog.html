@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RESQ+ Blog - Emergency response tips, safety guides, and latest news">
+    <title>Blog - RESQ+ Emergency Response</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJWC7EHMT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEJWC7EHMT', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure',
+            'send_page_view': true
+        });
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "u3grpfsb4k");
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/app-icon.webp">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-stellar.css">
+    <link rel="stylesheet" href="lang-switcher.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="theme-toggle.css">
+</head>
+<body>
+    <header role="banner">
+        <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <picture>
+                        <source srcset="images/resq-logo.webp" type="image/webp">
+                        <source srcset="images/resq-logo.png" type="image/png">
+                        <img src="images/resq-logo.png" alt="RESQ+ Logo" width="200" height="50">
+                    </picture>
+                    <span class="logo-text">RESQ+</span>
+                </a>
+                <div class="nav-links" id="nav-links">
+                <a href="index.html#features" data-i18n="nav_features">Features</a>
+                <a href="index.html#screenshots" data-i18n="nav_screenshots">Screenshots</a>
+                <a href="index.html#testimonials" data-i18n="nav_notify">Get Notified</a>
+                <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+                <div class="lang-switcher">
+                    <button onclick="i18n.switchLang('en')" class="lang-btn" type="button">🇬🇧</button>
+                    <button onclick="i18n.switchLang('fr')" class="lang-btn" type="button">🇫🇷</button>
+                    <button onclick="i18n.switchLang('th')" class="lang-btn" type="button">🇹🇭</button>
+                    <button onclick="i18n.switchLang('zh')" class="lang-btn" type="button">🇨🇳</button>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>📰 RESQ+ Blog</h1>
+            <p>Emergency response tips, safety guides, and latest news</p>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="category-pills">
+                <button class="category-pill active" data-category="all">All Posts</button>
+                <button class="category-pill" data-category="safety-tips">🛡️ Safety Tips</button>
+                <button class="category-pill" data-category="emergency-guides">🚨 Emergency Guides</button>
+                <button class="category-pill" data-category="news">📢 News</button>
+                <button class="category-pill" data-category="case-studies">📋 Case Studies</button>
+                <button class="category-pill" data-category="technology">💻 Technology</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog posts will be inserted here by JavaScript -->
+            </div>
+            
+            <!-- Loading State -->
+            <div class="blog-loading" id="blog-loading">
+                <div class="loading-spinner"></div>
+                <p>Loading posts...</p>
+            </div>
+            
+            <!-- Empty State -->
+            <div class="blog-empty" id="blog-empty" style="display: none;">
+                <p>No posts found in this category.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="blog-newsletter">
+        <div class="container">
+            <div class="newsletter-card">
+                <h2>📬 Stay Updated</h2>
+                <p>Get the latest emergency response tips and safety guides delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RESQ+. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="translations-complete.js"></script>
+    <script src="i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('nav-links');
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    <script src="blog-data.js"></script>
+    <script src="blog.js"></script>
+    <script src="anti-scraping.js" defer></script>
+    <script src="theme-toggle.js"></script>
+</body>
+</html>

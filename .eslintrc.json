@@ -1,0 +1,66 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "rules": {
+    // Possible Errors
+    "no-console": "off",
+    "no-debugger": "warn",
+    "no-alert": "warn",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    
+    // Best Practices
+    "eqeqeq": ["error", "always"],
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-with": "error",
+    "curly": ["error", "all"],
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
+    
+    // Variables
+    "no-undef": "error",
+    "no-use-before-define": ["error", { "functions": false }],
+    
+    // Stylistic Issues
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "brace-style": ["error", "1tbs"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    
+    // ES6
+    "arrow-spacing": "error",
+    "prefer-const": "warn",
+    "prefer-template": "warn",
+    "template-curly-spacing": "error",
+    "no-var": "warn"
+  },
+  "globals": {
+    "gtag": "readonly",
+    "Tawk_API": "readonly",
+    "Intercom": "readonly",
+    "clarity": "readonly",
+    "UTMTracker": "writable",
+    "EmailValidator": "writable",
+    "SocialShare": "writable",
+    "LiveChat": "writable",
+    "CodeLoader": "writable",
+    "CSSHelper": "writable",
+    "NewsletterPopup": "writable"
+  }
+}

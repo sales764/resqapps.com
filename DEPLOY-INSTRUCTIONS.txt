@@ -1,0 +1,255 @@
+================================================================================
+  RESQ.COM - DEPLOYMENT INSTRUCTIONS (GITHUB PAGES)
+================================================================================
+
+Your website is NOW READY for: https://resq.com
+
+I already fixed:
+✅ sitemap.xml → changed to resq.com
+✅ robots.txt → changed to resq.com
+✅ All files prepared
+
+================================================================================
+STEP 1: UPLOAD TO GITHUB (Choose ONE method)
+================================================================================
+
+METHOD A: Double-Click Deployment (EASIEST!)
+--------------------------------------------
+1. Find file: deploy-to-github.bat
+2. Double-click it
+3. Enter your GitHub username and password when asked
+4. Wait 2 minutes
+5. DONE!
+
+
+METHOD B: Manual Upload (If batch file doesn't work)
+---------------------------------------------------
+1. Go to: https://github.com/sales764/resqapps.com
+2. Click "Add file" → "Upload files"
+3. Drag ALL files from: C:\Users\Sales\AndroidStudioProjects\Resq\website\
+4. Scroll down and click "Commit changes"
+
+
+METHOD C: Git Commands (For advanced users)
+------------------------------------------
+Open PowerShell in website folder and run:
+
+git init
+git add .
+git commit -m "Deploy RESQ website"
+git remote add origin https://github.com/sales764/resqapps.com.git
+git branch -M main
+git push -u origin main -f
+
+
+================================================================================
+STEP 2: ENABLE GITHUB PAGES
+================================================================================
+
+1. Go to: https://github.com/sales764/resqapps.com/settings/pages
+
+2. Under "Source":
+   - Branch: main
+   - Folder: / (root)
+   - Click "Save"
+
+3. Wait 2-3 minutes
+
+4. Your website will be temporarily at:
+   https://sales764.github.io/resqapps.com/
+
+TEST IT FIRST before connecting custom domain!
+
+
+================================================================================
+STEP 3: CONNECT CUSTOM DOMAIN (resq.com)
+================================================================================
+
+IMPORTANT: Do you own resq.com already?
+
+IF YES - Continue below
+IF NO - You need to buy it first (cost: $10-15/year)
+
+
+A. In GitHub Pages Settings:
+-----------------------------
+1. Go to: https://github.com/sales764/resqapps.com/settings/pages
+2. Find "Custom domain" box
+3. Type: resq.com
+4. Click "Save"
+5. Wait for DNS check
+
+
+B. In Your Domain Registrar (Namecheap/GoDaddy/etc):
+----------------------------------------------------
+Add these DNS records:
+
+TYPE: A
+HOST: @
+VALUE: 185.199.108.153
+
+TYPE: A
+HOST: @
+VALUE: 185.199.109.153
+
+TYPE: A
+HOST: @
+VALUE: 185.199.110.153
+
+TYPE: A
+HOST: @
+VALUE: 185.199.111.153
+
+TYPE: CNAME
+HOST: www
+VALUE: sales764.github.io
+
+
+C. Wait for DNS Propagation:
+----------------------------
+- Usually takes 24-48 hours
+- Check status at: https://dnschecker.org
+- Once propagated, your site will work at resq.com
+
+
+D. Enable HTTPS (IMPORTANT!):
+-----------------------------
+1. After DNS propagates (24-48 hours)
+2. Go back to: https://github.com/sales764/resqapps.com/settings/pages
+3. Check ✅ "Enforce HTTPS"
+4. Done!
+
+
+================================================================================
+QUICK CHECKLIST
+================================================================================
+
+Step 1: Upload files to GitHub
+□ Files uploaded successfully
+□ Repository shows all files
+
+Step 2: Enable GitHub Pages
+□ GitHub Pages enabled (main branch)
+□ Temporary URL works: https://sales764.github.io/resqapps.com/
+□ Test all pages load
+□ Test language switching
+□ Test on mobile
+
+Step 3: Custom Domain Setup
+□ Own resq.com domain
+□ Added custom domain in GitHub
+□ Configured DNS records (A + CNAME)
+□ Waited 24-48 hours for DNS
+□ Enabled HTTPS
+□ Website works at https://resq.com
+
+
+================================================================================
+COSTS
+================================================================================
+
+GitHub Pages Hosting: FREE ✅
+- 100GB bandwidth/month
+- 1GB storage
+- Free SSL certificate
+- Unlimited pages
+
+Domain Name: ~$10-15/year
+- Only if you don't own resq.com yet
+- Buy from: Namecheap, GoDaddy, or Cloudflare
+
+TOTAL COST: $10-15/year (just the domain!)
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: "404 - File not found"
+Solution: 
+- Make sure index.html is in root folder
+- Wait 5 minutes after enabling Pages
+- Clear browser cache
+
+Problem: "Custom domain not working"
+Solution:
+- DNS takes 24-48 hours to work
+- Check dnschecker.org
+- Verify DNS records are correct
+- Make sure you typed resq.com (not www.resq.com) in GitHub
+
+Problem: "Images not loading"
+Solution:
+- Make sure /images folder was uploaded
+- Check file names match exactly (case-sensitive)
+
+Problem: "Can't enable HTTPS"
+Solution:
+- Wait for DNS to fully propagate first
+- Remove and re-add custom domain
+- Wait 10 minutes and try again
+
+
+================================================================================
+TIMELINE
+================================================================================
+
+Right Now:
+- Upload files to GitHub (5 minutes)
+- Enable GitHub Pages (1 minute)
+- Test temporary URL (1 minute)
+
+If you own resq.com:
+- Add custom domain (2 minutes)
+- Configure DNS (5 minutes)
+- Wait 24-48 hours for DNS propagation
+- Enable HTTPS (1 minute)
+
+If you DON'T own resq.com yet:
+- Buy domain (10 minutes)
+- Follow "If you own resq.com" steps above
+
+
+================================================================================
+YOUR WEBSITE WILL BE LIVE AT
+================================================================================
+
+Temporary URL (works immediately):
+https://sales764.github.io/resqapps.com/
+
+Final URL (after DNS setup):
+https://resq.com
+https://www.resq.com
+
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. START NOW: Double-click deploy-to-github.bat
+   OR manually upload files to GitHub
+
+2. ENABLE PAGES: Go to Settings → Pages → Enable
+
+3. TEST: Visit temporary GitHub URL
+
+4. CUSTOM DOMAIN: Add resq.com and configure DNS
+
+5. CELEBRATE! 🎉
+
+
+================================================================================
+NEED HELP?
+================================================================================
+
+Contact: sales@sornsawan.com
+WhatsApp: +66 63 670 6074
+
+Files are ready in:
+C:\Users\Sales\AndroidStudioProjects\Resq\website\
+
+GitHub Repository:
+https://github.com/sales764/resqapps.com
+
+Created: November 11, 2024
+================================================================================

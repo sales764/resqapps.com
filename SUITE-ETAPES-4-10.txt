@@ -1,0 +1,21 @@
+╔══════════════════════════════════════════════════════════════╗
+║  🎓 SUITE - ÉTAPES 4 À 10 (Pour plus tard!)               ║
+║     NE LISEZ PAS MAINTENANT - Faites d'abord 1-3!         ║
+╚══════════════════════════════════════════════════════════════╝
+
+⚠️ ATTENDEZ! 
+Ce fichier est pour APRÈS avoir fait les étapes 1-3.
+Revenez ici quand vous aurez terminé GUIDE-DEBUTANT-SIMPLE.txt
+
+
+Quand vous serez prêt, vous ferez:
+
+ÉTAPE 4: Connecter resqapps.com
+ÉTAPE 5: Google Analytics  
+ÉTAPE 6: Microsoft Clarity
+ÉTAPE 7: Formspree (emails)
+ÉTAPE 8: Modifier fichiers
+ÉTAPE 9: Re-déployer
+ÉTAPE 10: Tester tout
+
+POUR L'INSTANT: Concentrez-vous sur GUIDE-DEBUTANT-SIMPLE.txt! 😊

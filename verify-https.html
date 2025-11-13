@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>HTTPS Verification Tool - RESQ+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .status-card.success {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .status-card.warning {
+            border-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        .status-card.error {
+            border-color: #ff3b3b;
+            background: rgba(255, 59, 59, 0.1);
+        }
+
+        .status-icon {
+            font-size: 64px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .status-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .status-message {
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .checks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .check-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .check-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .check-status {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .check-status.pass {
+            background: #4caf50;
+        }
+
+        .check-status.fail {
+            background: #ff3b3b;
+        }
+
+        .check-status.info {
+            background: #2196f3;
+        }
+
+        .check-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .check-detail {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .detail-value {
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .checks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 HTTPS Verification</h1>
+        <p class="subtitle">Complete HTTPS Security Check for RESQ+ Website</p>
+
+        <div id="main-status" class="status-card">
+            <div class="status-icon">⏳</div>
+            <div class="status-title">Running Verification...</div>
+            <div class="status-message">Please wait while we check your HTTPS configuration</div>
+        </div>
+
+        <div id="checks-container" class="checks-grid"></div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.location.reload()">
+                🔄 Re-check
+            </button>
+            <a href="HTTPS-GUIDE.md" class="btn btn-secondary" target="_blank">
+                📖 View Documentation
+            </a>
+            <a href="check-headers.html" class="btn btn-secondary">
+                🔐 Check Security Headers
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const checks = [];
+
+        function addCheck(name, status, detail, value = null) {
+            checks.push({ name, status, detail, value });
+        }
+
+        function runVerification() {
+            // Check 1: Current Protocol
+            const protocol = window.location.protocol;
+            const isHttps = protocol === 'https:';
+            addCheck(
+                'Page Protocol',
+                isHttps ? 'pass' : 'fail',
+                isHttps ? 'Page is served over HTTPS' : 'Page is served over HTTP',
+                protocol
+            );
+
+            // Check 2: Upgrade Meta Tag
+            const upgradeMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+            const hasUpgrade = upgradeMeta && upgradeMeta.content.includes('upgrade-insecure-requests');
+            addCheck(
+                'Upgrade Insecure Requests',
+                hasUpgrade ? 'pass' : 'fail',
+                hasUpgrade ? 'Meta tag present and configured' : 'Meta tag missing or misconfigured',
+                hasUpgrade ? 'Enabled' : 'Missing'
+            );
+
+            // Check 3: External Links
+            const externalLinks = Array.from(document.querySelectorAll('a[href^="http"]'));
+            const httpLinks = externalLinks.filter(a => a.href.startsWith('http://'));
+            const httpsLinks = externalLinks.filter(a => a.href.startsWith('https://'));
+            addCheck(
+                'External Links',
+                httpLinks.length === 0 ? 'pass' : 'fail',
+                `${httpsLinks.length} HTTPS links, ${httpLinks.length} HTTP links`,
+                `${httpsLinks.length} secure`
+            );
+
+            // Check 4: Images
+            const images = Array.from(document.querySelectorAll('img[src]'));
+            const httpImages = images.filter(img => img.src.startsWith('http://'));
+            addCheck(
+                'Images',
+                httpImages.length === 0 ? 'pass' : 'fail',
+                `${images.length - httpImages.length} secure, ${httpImages.length} insecure`,
+                `${httpImages.length} HTTP images`
+            );
+
+            // Check 5: Scripts
+            const scripts = Array.from(document.querySelectorAll('script[src]'));
+            const httpScripts = scripts.filter(s => s.src.startsWith('http://'));
+            addCheck(
+                'Scripts',
+                httpScripts.length === 0 ? 'pass' : 'fail',
+                `${scripts.length - httpScripts.length} secure, ${httpScripts.length} insecure`,
+                `${httpScripts.length} HTTP scripts`
+            );
+
+            // Check 6: Stylesheets
+            const stylesheets = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+            const httpStyles = stylesheets.filter(l => l.href.startsWith('http://'));
+            addCheck(
+                'Stylesheets',
+                httpStyles.length === 0 ? 'pass' : 'fail',
+                `${stylesheets.length - httpStyles.length} secure, ${httpStyles.length} insecure`,
+                `${httpStyles.length} HTTP styles`
+            );
+
+            // Check 7: Mixed Content
+            const totalInsecure = httpLinks.length + httpImages.length + httpScripts.length + httpStyles.length;
+            addCheck(
+                'Mixed Content',
+                totalInsecure === 0 ? 'pass' : 'fail',
+                totalInsecure === 0 ? 'No mixed content detected' : `${totalInsecure} insecure resources found`,
+                totalInsecure === 0 ? 'Clean' : `${totalInsecure} issues`
+            );
+
+            // Check 8: Browser Security
+            const isSecureContext = window.isSecureContext;
+            addCheck(
+                'Secure Context',
+                isSecureContext ? 'pass' : 'fail',
+                isSecureContext ? 'Running in secure context' : 'Not in secure context',
+                isSecureContext ? 'Yes' : 'No'
+            );
+
+            renderResults();
+        }
+
+        function renderResults() {
+            const passCount = checks.filter(c => c.status === 'pass').length;
+            const failCount = checks.filter(c => c.status === 'fail').length;
+            const totalCount = checks.length;
+            const percentage = Math.round((passCount / totalCount) * 100);
+
+            // Update main status
+            const mainStatus = document.getElementById('main-status');
+            let statusClass = 'success';
+            let statusIcon = '✅';
+            let statusTitle = 'All Checks Passed!';
+            let statusMessage = 'Your website is fully configured for HTTPS.';
+
+            if (failCount > 0) {
+                statusClass = 'error';
+                statusIcon = '❌';
+                statusTitle = `${failCount} Issue${failCount > 1 ? 's' : ''} Found`;
+                statusMessage = `${passCount} of ${totalCount} checks passed (${percentage}%). Please review the issues below.`;
+            }
+
+            mainStatus.className = `status-card ${statusClass}`;
+            mainStatus.innerHTML = `
+                <div class="status-icon">${statusIcon}</div>
+                <div class="status-title">${statusTitle}</div>
+                <div class="status-message">${statusMessage}</div>
+            `;
+
+            // Render checks
+            const container = document.getElementById('checks-container');
+            container.innerHTML = checks.map(check => `
+                <div class="check-item">
+                    <div class="check-header">
+                        <div class="check-status ${check.status}">
+                            ${check.status === 'pass' ? '✓' : '✗'}
+                        </div>
+                        <div class="check-title">${check.name}</div>
+                    </div>
+                    <div class="check-detail">
+                        ${check.detail}
+                    </div>
+                    ${check.value ? `
+                        <div class="code-block">${check.value}</div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Run verification on load
+        window.addEventListener('load', () => {
+            setTimeout(runVerification, 500);
+        });
+    </script>
+</body>
+</html>

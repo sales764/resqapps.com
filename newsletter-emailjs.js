@@ -11,7 +11,7 @@
     const EMAILJS_CONFIG = {
         serviceId: 'service_b4sky23',
         templateId: 'template_od7f3qc',
-        publicKey: 'DqmkWe82GB4TOL1ri'
+        publicKey: 'DqmkWeB2GB4TOL1ri'
     };
 
     // Email Content Translations

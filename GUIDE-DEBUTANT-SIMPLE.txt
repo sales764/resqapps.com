@@ -1,0 +1,302 @@
+╔══════════════════════════════════════════════════════════════╗
+║    🎓 GUIDE POUR DÉBUTANT - resqapps.com                  ║
+║       Explications SIMPLES, étape par étape                ║
+║       Prenez votre temps, pas de stress! 😊                ║
+╚══════════════════════════════════════════════════════════════╝
+
+📍 VOUS ÊTES ICI:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Vous avez un site web dans: c:\...\Resq\website\
+✅ Vous avez acheté: resqapps.com sur Cloudflare
+⏳ Maintenant: Mettre le site en ligne
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  🤔 COMPRENDRE D'ABORD - C'EST QUOI TOUT ÇA?              ║
+╚══════════════════════════════════════════════════════════════╝
+
+🏠 VOTRE SITE = Une maison (les fichiers HTML/CSS/JS)
+   Actuellement: Sur votre ordinateur seulement
+   
+🌍 NETLIFY = Le terrain où on construit la maison
+   Gratuit, permet de mettre votre maison sur internet
+   
+📬 resqapps.com = L'adresse postale de votre maison
+   Les gens tapent ça pour trouver votre site
+   
+☁️ CLOUDFLARE = La sécurité et les routes vers votre maison
+   Protection + Fait aller votre site super vite
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  ÉTAPE 1: CRÉER COMPTE NETLIFY (10 minutes)               ┃
+┃  🎯 But: Avoir un endroit gratuit pour mettre le site     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+A. OUVRIR NETLIFY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ouvrez votre navigateur (Chrome, Edge, Firefox...)
+
+2. Dans la barre d'adresse, tapez exactement:
+   https://app.netlify.com/signup
+   
+3. Appuyez sur Entrée
+
+
+B. CRÉER VOTRE COMPTE (Choisissez UNE méthode)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vous verrez 3 boutons:
+
+   [GitHub]  [GitLab]  [Email]
+   
+RECOMMANDATION: Cliquez sur [Email] (le plus simple!)
+
+4. Dans la page qui s'ouvre:
+   
+   Email: Tapez votre email → sales@sornsawan.com
+   
+   Password: Créez un mot de passe
+             (Exemple: ResQ2025!Strong)
+             Minimum 8 caractères
+   
+5. Cliquez sur: "Sign up"
+
+6. Netlify va envoyer un email à: sales@sornsawan.com
+
+7. Ouvrez votre email
+
+8. Cherchez email de: Netlify
+   Sujet: "Verify your email for Netlify"
+   
+9. Cliquez sur le bouton dans l'email:
+   "Verify email" ou "Confirm email"
+
+10. Vous êtes maintenant sur le Dashboard Netlify!
+    (Page d'accueil de Netlify)
+
+✅ ÉTAPE 1 TERMINÉE! Vous avez un compte Netlify!
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  ÉTAPE 2: DÉPLOYER VOTRE SITE (5 minutes)                 ┃
+┃  🎯 But: Mettre votre site sur internet                   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+A. PRÉPARER LE DOSSIER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+11. Ouvrez l'Explorateur Windows (icône dossier)
+
+12. Allez dans:
+    c:\Users\Sales\AndroidStudioProjects\Resq\
+    
+13. Vous devriez voir le dossier: website
+    
+    📁 website
+       ├── index.html
+       ├── privacy.html
+       ├── images
+       ├── ... (beaucoup d'autres fichiers)
+
+14. NE TOUCHEZ PAS le dossier pour l'instant!
+    (On va le glisser dans un instant)
+
+
+B. UPLOADER SUR NETLIFY (La partie magique!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+15. Retournez sur votre navigateur (Netlify Dashboard)
+
+16. Vous verrez une grande zone avec écrit:
+    "Want to deploy a new site without connecting to Git?"
+    
+    Ou simplement:
+    "Add new site" (bouton en haut à droite)
+
+17. Cliquez sur: "Add new site" → "Deploy manually"
+
+18. Vous verrez maintenant une GRANDE ZONE en pointillés:
+    
+    ┌─────────────────────────────────────────┐
+    │  📂                                      │
+    │  Drop your site folder here            │
+    │  or browse to upload                   │
+    └─────────────────────────────────────────┘
+
+19. MAINTENANT, FAITES CECI EXACTEMENT:
+    
+    a) Gardez la fenêtre du navigateur OUVERTE à GAUCHE
+    
+    b) Ouvrez l'Explorateur Windows à DROITE
+       (celui avec le dossier website)
+    
+    c) Arrangez les 2 fenêtres côte-à-côte:
+    
+       [Navigateur Netlify] | [Explorateur Windows]
+       Zone en pointillés   | Dossier website
+    
+    d) GLISSEZ le dossier "website" ENTIER
+       depuis l'Explorateur → vers la zone en pointillés
+       
+       ⚠️ IMPORTANT: Glissez LE DOSSIER ENTIER "website"
+          PAS seulement les fichiers à l'intérieur!
+
+20. Vous verrez:
+    - Une barre de progression (upload...)
+    - Puis: "Building..." ou "Deploying..."
+    
+21. Attendez 30-60 secondes (Netlify travaille!)
+
+22. Quand terminé, vous verrez:
+    
+    ✅ Published
+    
+    Et une URL comme:
+    https://random-name-123456.netlify.app
+
+23. CLIQUEZ sur cette URL pour voir votre site!
+
+24. SI VOUS VOYEZ VOTRE SITE:
+    🎉 FÉLICITATIONS! Votre site est en ligne!
+
+✅ ÉTAPE 2 TERMINÉE! Site déployé!
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  ÉTAPE 3: RENOMMER LE SITE (3 minutes)                    ┃
+┃  🎯 But: Avoir une URL plus jolie (optionnel)             ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+Actuellement: https://random-name-123456.netlify.app
+But: https://resqapps.netlify.app (plus joli!)
+
+25. Sur la page de votre site dans Netlify,
+    Cherchez en haut:
+    
+    Site settings (bouton)
+    
+26. Cliquez sur: "Site settings"
+
+27. Dans la page qui s'ouvre, cherchez:
+    "Site information" (section en haut)
+
+28. Vous verrez:
+    Site name: random-name-123456
+    
+29. Cliquez sur: "Change site name" (bouton à côté)
+
+30. Une petite fenêtre s'ouvre:
+    
+    Site name: [random-name-123456]
+    
+31. Effacez tout et tapez: resqapps
+
+32. Cliquez: "Save"
+
+33. Maintenant votre URL est:
+    https://resqapps.netlify.app
+    
+34. Testez dans navigateur!
+
+✅ ÉTAPE 3 TERMINÉE! URL plus jolie!
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  ARRÊTEZ-VOUS ICI ET FAITES UNE PAUSE! ☕                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+🎉 FÉLICITATIONS! Vous avez déjà fait la partie la plus importante!
+
+Votre site est MAINTENANT EN LIGNE sur:
+→ https://resqapps.netlify.app
+
+PRENEZ UNE PAUSE DE 10 MINUTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Levez-vous
+✅ Buvez un café/thé
+✅ Testez votre site sur votre téléphone
+✅ Montrez-le à quelqu'un!
+
+Quand vous revenez, on connectera votre domaine resqapps.com
+(Les prochaines étapes sont aussi faciles!)
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  🔄 PRÊT À CONTINUER? ÉTAPES SUIVANTES                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Après votre pause, vous allez faire:
+
+ÉTAPE 4: Connecter resqapps.com (15 minutes)
+   → Faire pointer votre domaine vers le site
+
+ÉTAPE 5: Configurer Google Analytics (10 minutes)
+   → Voir combien de visiteurs vous avez
+
+ÉTAPE 6: Configurer Clarity (5 minutes)
+   → Voir comment les gens utilisent votre site
+
+ÉTAPE 7: Configurer formulaires (5 minutes)
+   → Recevoir les soumissions par email
+
+ÉTAPE 8: Modifier les fichiers (10 minutes)
+   → Mettre vos vrais IDs dans le code
+
+ÉTAPE 9: Re-déployer (2 minutes)
+   → Mettre à jour le site
+
+ÉTAPE 10: Tester tout (10 minutes)
+   → Vérifier que tout fonctionne
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  📝 NOTES IMPORTANTES POUR VOUS                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+💡 CONSEILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Prenez votre temps - Pas de rush!
+2. Si quelque chose ne fonctionne pas, relisez l'étape
+3. Notez vos mots de passe quelque part!
+4. Gardez tous les onglets ouverts (Netlify, Cloudflare, etc.)
+5. Si vraiment bloqué, contactez-moi!
+
+
+📋 NOTEZ ICI VOS INFOS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Email Netlify: sales@sornsawan.com
+
+Mot de passe Netlify: ________________________
+
+URL temporaire Netlify: https://resqapps.netlify.app
+
+Statut:
+□ Étape 1 - Compte Netlify créé
+□ Étape 2 - Site déployé
+□ Étape 3 - URL renommée
+
+
+🆘 BESOIN D'AIDE?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Si vous êtes bloqué:
+
+1. Relisez l'étape lentement
+2. Vérifiez que l'étape précédente est bien faite
+3. Essayez de recharger la page (F5)
+4. Contactez-moi:
+   📧 Décrivez où vous êtes bloqué
+   📱 WhatsApp: +66 63 670 6074
+
+
+───────────────────────────────────────────────────────────────
+Fait le: 9 Novembre 2025
+Pour: resqapps.com
+Étapes 1-3 complétées! 🎉
+───────────────────────────────────────────────────────────────
+
+QUAND VOUS ÊTES PRÊT, DITES-MOI ET JE VOUS ENVOIE LES ÉTAPES 4-10!
+Prenez votre temps! 😊
