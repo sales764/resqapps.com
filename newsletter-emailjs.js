@@ -187,15 +187,21 @@
         console.log('[Newsletter EmailJS] Form interceptor setup complete');
     }
 
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            initEmailJS();
-            setupFormInterceptor();
-        });
-    } else {
+    // Initialize when DOM is fully ready
+    function init() {
+        console.log('[Newsletter EmailJS] Initializing...');
         initEmailJS();
-        setupFormInterceptor();
+        
+        // Wait a bit for other scripts to load
+        setTimeout(function() {
+            setupFormInterceptor();
+        }, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        setTimeout(init, 1000);
     }
 
 })();
