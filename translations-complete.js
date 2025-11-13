@@ -375,7 +375,18 @@ const i18nComplete = {
         terms_liability_title: "6. Liability Disclaimer",
         terms_changes_title: "7. Changes to Terms",
         terms_contact_title: "8. Contact",
-        terms_back_home: "← Back to Homepage"
+        terms_back_home: "← Back to Homepage",
+        
+        // Newsletter Popup
+        newsletter_title: "📧 Stay Updated!",
+        newsletter_subtitle: "Get early access & exclusive updates",
+        newsletter_description: "Join 5,000+ people getting notified when RESQ+ launches. Red Cross approved emergency guidance in your inbox.",
+        newsletter_placeholder: "Enter your email",
+        newsletter_button: "Get Early Access",
+        newsletter_privacy: "We respect your privacy. Unsubscribe anytime.",
+        newsletter_success_title: "🎉 You're In!",
+        newsletter_success_message: "Check your inbox for confirmation.",
+        newsletter_contact_label: "Or contact us directly:"
     },
     
     fr: {
@@ -733,7 +744,18 @@ const i18nComplete = {
         terms_liability_title: "6. Déclaration de Responsabilité",
         terms_changes_title: "7. Modifications des Conditions",
         terms_contact_title: "8. Contact",
-        terms_back_home: "← Retour à l'Accueil"
+        terms_back_home: "← Retour à l'Accueil",
+        
+        // Newsletter Popup
+        newsletter_title: "📧 Restez Informé!",
+        newsletter_subtitle: "Accès anticipé et mises à jour exclusives",
+        newsletter_description: "Rejoignez 5 000+ personnes notifiées au lancement de RESQ+. Conseils d'urgence approuvés par la Croix-Rouge dans votre boîte mail.",
+        newsletter_placeholder: "Entrez votre email",
+        newsletter_button: "Accès Anticipé",
+        newsletter_privacy: "Nous respectons votre vie privée. Désabonnement à tout moment.",
+        newsletter_success_title: "🎉 C'est Fait!",
+        newsletter_success_message: "Vérifiez votre boîte mail pour confirmation.",
+        newsletter_contact_label: "Ou contactez-nous directement:"
     },
     
     th: {
@@ -1103,7 +1125,18 @@ const i18nComplete = {
         terms_liability_title: "6. ข้อจำกัดความรับผิดชอบ",
         terms_changes_title: "7. การเปลี่ยนแปลงข้อกำหนด",
         terms_contact_title: "8. ติดต่อ",
-        terms_back_home: "← กลับสู่หน้าแรก"
+        terms_back_home: "← กลับสู่หน้าแรก",
+        
+        // Newsletter Popup
+        newsletter_title: "📧 ติดตามข่าวสาร!",
+        newsletter_subtitle: "เข้าถึงก่อนใครและรับข่าวสารพิเศษ",
+        newsletter_description: "เข้าร่วมกับ 5,000+ คนที่รับการแจ้งเตือนเมื่อ RESQ+ เปิดตัว คำแนะนำฉุกเฉินที่ได้รับการรับรองจาก Red Cross ส่งตรงถึงอีเมลคุณ",
+        newsletter_placeholder: "ใส่อีเมลของคุณ",
+        newsletter_button: "เข้าถึงก่อนใคร",
+        newsletter_privacy: "เราเคารพความเป็นส่วนตัวของคุณ ยกเลิกได้ทุกเมื่อ",
+        newsletter_success_title: "🎉 เสร็จแล้ว!",
+        newsletter_success_message: "ตรวจสอบอีเมลของคุณเพื่อยืนยัน",
+        newsletter_contact_label: "หรือติดต่อเราโดยตรง:"
     },
     
     zh: {
@@ -1473,6 +1506,17 @@ const i18nComplete = {
         terms_liability_title: "6. 责任免责声明",
         terms_changes_title: "7. 条款变更",
         terms_contact_title: "8. 联系我们",
-        terms_back_home: "← 返回首页"
+        terms_back_home: "← 返回首页",
+        
+        // Newsletter Popup
+        newsletter_title: "📧 保持更新！",
+        newsletter_subtitle: "获得早期访问和独家更新",
+        newsletter_description: "加入5,000多人，在RESQ+推出时收到通知。红十字会批准的紧急指导直达您的收件箱。",
+        newsletter_placeholder: "输入您的邮箱",
+        newsletter_button: "获取早期访问",
+        newsletter_privacy: "我们尊重您的隐私。随时取消订阅。",
+        newsletter_success_title: "🎉 成功！",
+        newsletter_success_message: "查看您的收件箱以确认。",
+        newsletter_contact_label: "或直接联系我们："
     }
 };

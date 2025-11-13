@@ -93,7 +93,7 @@
      */
     function loadTranslatedContent() {
         const lang = localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en';
-        const translations = window.TRANSLATIONS?.newsletter?.[lang];
+        const translations = window.TRANSLATIONS?.[lang];
         
         if (!translations) {
             console.warn('[Newsletter Popup] No translations found for language:', lang);
@@ -114,7 +114,15 @@
             };
         } else {
             config.content = {
-                ...translations,
+                title: translations.newsletter_title || "📧 Stay Updated!",
+                subtitle: translations.newsletter_subtitle || "Get early access & exclusive updates",
+                description: translations.newsletter_description || "Join 5,000+ people getting notified when RESQ+ launches.",
+                placeholder: translations.newsletter_placeholder || "Enter your email",
+                buttonText: translations.newsletter_button || "Get Early Access",
+                privacyText: translations.newsletter_privacy || "We respect your privacy. Unsubscribe anytime.",
+                successTitle: translations.newsletter_success_title || "🎉 You're In!",
+                successMessage: translations.newsletter_success_message || "Check your inbox for confirmation.",
+                contactLabel: translations.newsletter_contact_label || "Or contact us directly:",
                 contactEmail: "sales@sornsawan.com",
                 contactWhatsApp: "+66 63 670 6074",
                 contactWhatsAppLink: "https://wa.me/66636706074"
