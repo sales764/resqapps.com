@@ -83,35 +83,13 @@
         return localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en';
     }
 
-    // Show debug message on page
-    function showDebug(message, isError = false) {
-        const debug = document.createElement('div');
-        debug.style.cssText = `
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: ${isError ? '#ff4444' : '#44ff44'};
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 99999;
-            font-family: monospace;
-            font-size: 12px;
-            max-width: 300px;
-        `;
-        debug.textContent = message;
-        document.body.appendChild(debug);
-        setTimeout(() => debug.remove(), 5000);
-        console.log('[Newsletter EmailJS]', message);
-    }
-
     // Initialize EmailJS
     function initEmailJS() {
         if (typeof emailjs !== 'undefined') {
             emailjs.init(EMAILJS_CONFIG.publicKey);
-            showDebug('✅ EmailJS Initialized');
+            console.log('[Newsletter EmailJS] Initialized successfully');
         } else {
-            showDebug('❌ EmailJS library not loaded', true);
+            console.error('[Newsletter EmailJS] EmailJS library not loaded');
         }
     }
 
@@ -148,27 +126,21 @@
         const form = document.querySelector('.stellar-notify-form');
         
         if (!form) {
-            showDebug('❌ Form not found', true);
+            console.warn('[Newsletter EmailJS] Form not found');
             return;
         }
-        
-        showDebug('✅ Form found, interceptor set');
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            showDebug('📧 Form submitted!');
             
             const emailInput = form.querySelector('input[name="email"]');
             const submitBtn = form.querySelector('.stellar-submit-btn');
             const email = emailInput?.value?.trim();
 
             if (!email) {
-                showDebug('❌ No email entered', true);
                 alert('Please enter a valid email address');
                 return;
             }
-
-            showDebug('✉️ Email: ' + email);
 
             // Disable button during submission
             const originalText = submitBtn.innerHTML;
@@ -177,7 +149,7 @@
 
             try {
                 // Step 1: Submit to Formspree (collects email for you)
-                showDebug('📤 Sending to Formspree...');
+                console.log('[Newsletter EmailJS] Submitting to Formspree...');
                 const formData = new FormData(form);
                 const formspreeResponse = await fetch(form.action, {
                     method: 'POST',
@@ -191,27 +163,27 @@
                     throw new Error('Formspree submission failed');
                 }
 
-                showDebug('✅ Formspree OK');
+                console.log('[Newsletter EmailJS] Formspree submission successful');
 
                 // Step 2: Send confirmation email via EmailJS
-                showDebug('📨 Sending confirmation email...');
+                console.log('[Newsletter EmailJS] Sending confirmation email...');
                 const emailJsResult = await sendConfirmationEmail(email);
 
                 if (emailJsResult.success) {
-                    showDebug('✅ Email sent successfully!');
+                    console.log('[Newsletter EmailJS] ✅ Email sent successfully!');
                 } else {
-                    showDebug('❌ Email failed: ' + emailJsResult.error.text, true);
+                    console.error('[Newsletter EmailJS] ❌ Email failed:', emailJsResult.error);
                 }
 
                 // Step 3: Wait a bit to ensure email is sent, then redirect
-                showDebug('⏳ Waiting 2 seconds...');
+                console.log('[Newsletter EmailJS] Waiting before redirect...');
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                showDebug('↪️ Redirecting...');
+                console.log('[Newsletter EmailJS] Redirecting...');
                 window.location.href = form.querySelector('input[name="_next"]')?.value || '/thank-you.html';
 
             } catch (error) {
-                showDebug('❌ Error: ' + error.message, true);
+                console.error('[Newsletter EmailJS] Error:', error);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
                 alert('An error occurred. Please try again.');
