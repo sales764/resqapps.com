@@ -9,7 +9,7 @@
 
     // EmailJS Configuration
     const EMAILJS_CONFIG = {
-        serviceId: 'service_b4kky23',
+        serviceId: 'service_b4sky23',
         templateId: 'zu99b2p',
         publicKey: 'DqmkWe82GB4TOL1ri'
     };
@@ -165,15 +165,20 @@
                 console.log('[Newsletter EmailJS] Formspree submission successful');
 
                 // Step 2: Send confirmation email via EmailJS
+                console.log('[Newsletter EmailJS] Starting email send...');
                 const emailJsResult = await sendConfirmationEmail(email);
 
                 if (emailJsResult.success) {
-                    console.log('[Newsletter EmailJS] Confirmation email sent successfully');
+                    console.log('[Newsletter EmailJS] ✅ Confirmation email sent successfully!');
                 } else {
-                    console.warn('[Newsletter EmailJS] Email sending failed, but subscription recorded');
+                    console.error('[Newsletter EmailJS] ❌ Email sending failed:', emailJsResult.error);
                 }
 
-                // Step 3: Redirect to thank you page
+                // Step 3: Wait a bit to ensure email is sent, then redirect
+                console.log('[Newsletter EmailJS] Waiting 2 seconds before redirect...');
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                console.log('[Newsletter EmailJS] Redirecting to thank you page...');
                 window.location.href = form.querySelector('input[name="_next"]')?.value || '/thank-you.html';
 
             } catch (error) {
