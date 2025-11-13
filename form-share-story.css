@@ -1,0 +1,194 @@
+/* ========================================
+   SHARE YOUR STORY FORM STYLES
+   Extracted from inline styles for better maintainability
+   ======================================== */
+
+.stellar-story-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stellar-story-form .form-group {
+    margin-bottom: 20px;
+}
+
+.stellar-story-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.stellar-story-form input[type="text"],
+.stellar-story-form input[type="email"],
+.stellar-story-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.stellar-story-form input[type="text"]:focus,
+.stellar-story-form input[type="email"]:focus,
+.stellar-story-form textarea:focus {
+    outline: none;
+    border-color: rgba(79, 172, 254, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 0 0 3px rgba(79, 172, 254, 0.2),
+        0 0 20px rgba(79, 172, 254, 0.3);
+    transform: translateY(-2px);
+}
+
+.stellar-story-form input::placeholder,
+.stellar-story-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.stellar-story-form .char-count {
+    text-align: right;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+}
+
+.stellar-story-form .upload-area {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+}
+
+.stellar-story-form .upload-area:hover {
+    border-color: rgba(79, 172, 254, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.stellar-story-form .upload-area .upload-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.stellar-story-form .upload-area .upload-text {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stellar-story-form .upload-area .upload-hint {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+}
+
+.stellar-story-form .file-name {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #4facfe;
+    font-weight: 500;
+}
+
+.stellar-story-form .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: gradient-shift 3s ease infinite;
+}
+
+.stellar-story-form .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+}
+
+.stellar-story-form .submit-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.stellar-story-form .submit-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(102, 126, 234, 0.6),
+        0 0 30px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background-position: right center;
+}
+
+.stellar-story-form .submit-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.stellar-story-form .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.stellar-story-form .form-note {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 16px;
+    line-height: 1.5;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stellar-story-form {
+        padding: 0 1rem;
+    }
+    
+    .stellar-story-form input[type="text"],
+    .stellar-story-form input[type="email"],
+    .stellar-story-form textarea {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    .stellar-story-form .submit-btn {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+

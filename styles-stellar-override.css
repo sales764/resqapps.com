@@ -27,6 +27,8 @@
 /* Force dark background everywhere */
 html {
     background: #0f2027 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
 }
 
 body {
@@ -34,6 +36,8 @@ body {
     background-attachment: fixed !important;
     color: white !important;
     min-height: 100vh;
+    overflow-x: hidden !important;
+    width: 100% !important;
 }
 
 /* Force ALL cards to dark theme */

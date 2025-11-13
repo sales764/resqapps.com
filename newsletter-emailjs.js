@@ -165,7 +165,15 @@
 
                 console.log('[Newsletter EmailJS] Formspree submission successful');
 
-                // Step 2: Send confirmation email via EmailJS
+                // Step 2: Update social proof counter
+                if (typeof window.SocialProof !== 'undefined') {
+                    const currentCount = window.SocialProof.getCount() || 0;
+                    const newCount = currentCount + 1;
+                    window.SocialProof.setCount(newCount);
+                    console.log('[Newsletter EmailJS] ✅ Social proof counter updated to:', newCount);
+                }
+
+                // Step 3: Send confirmation email via EmailJS
                 console.log('[Newsletter EmailJS] Sending confirmation email...');
                 const emailJsResult = await sendConfirmationEmail(email);
 
@@ -175,7 +183,7 @@
                     console.error('[Newsletter EmailJS] ❌ Email failed:', emailJsResult.error);
                 }
 
-                // Step 3: Wait a bit to ensure email is sent, then redirect
+                // Step 4: Wait a bit to ensure email is sent, then redirect
                 console.log('[Newsletter EmailJS] Waiting before redirect...');
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 

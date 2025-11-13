@@ -40,9 +40,10 @@
 }
 
 .navbar .logo img {
-    width: 55px !important;
-    height: 55px !important;
-    object-fit: contain;
+    width: auto !important;
+    height: 50px !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
     filter: drop-shadow(0 4px 12px rgba(21, 101, 192, 0.4));
     transition: all 0.3s ease;
 }
@@ -97,8 +98,9 @@
     }
     
     .navbar .logo img {
-        width: 45px !important;
-        height: 45px !important;
+        width: auto !important;
+        height: 40px !important;
+        max-width: 160px !important;
     }
     
     .navbar .logo-text {
@@ -107,6 +109,11 @@
 }
 
 @media (max-width: 480px) {
+    .navbar .logo img {
+        height: 35px !important;
+        max-width: 140px !important;
+    }
+    
     .navbar .logo-text {
         font-size: 1.4rem !important;
     }

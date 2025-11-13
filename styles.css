@@ -13,6 +13,12 @@
     box-sizing: border-box;
 }
 
+/* Prevent text overflow globally */
+p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 :root {
     /* Emergency Colors */
     --emergency-red: #E53935;
@@ -67,6 +73,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -75,6 +83,34 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 110px; /* Exact header height: logo (50px) + logo padding (16px) + nav-wrapper padding (24px) + extra space (20px) */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 140px; /* More space on mobile for wrapped nav */
+    }
+}
+
+/* Calculate exact header height and add padding */
+header {
+    position: relative;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 32, 39, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 /* Optimized section spacing */
@@ -88,32 +124,17 @@ section + section {
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    box-sizing: border-box;
 }
 
 /* ========================================
    2. Navigation
    ======================================== */
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-sm) 0;
-}
+/* Navbar styles are defined below - removing duplicate */
 
 .logo {
     display: flex;
@@ -123,12 +144,16 @@ section + section {
     font-weight: 800;
     color: var(--primary);
     text-decoration: none;
+    flex-shrink: 0;
+    z-index: 1001;
 }
 
 .logo img {
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 50px;
+    max-width: 200px;
     object-fit: contain;
+    display: block;
 }
 
 .logo-icon {
@@ -137,25 +162,94 @@ section + section {
 
 .nav-links {
     display: flex;
+    align-items: center;
     list-style: none;
-    gap: var(--spacing-lg);
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none !important;
-    }
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0;
+    }
+    
+    .nav-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 0.75rem;
+        justify-content: center;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .lang-switcher {
+        order: 2;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        margin-left: auto;
+    }
+    
+    .lang-btn {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+    }
 }
 
 .mobile-menu-btn {
@@ -180,10 +274,19 @@ section + section {
    ======================================== */
 
 .hero {
-    padding: 8rem 0 4rem;
+    padding: 2rem 0 4rem;
     background: var(--gradient-emergency);
     position: relative;
     overflow: hidden;
+    margin-top: 0;
+    scroll-margin-top: 100px; /* Prevent content hiding under header */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 1.5rem 0 3rem;
+        scroll-margin-top: 150px;
+    }
 }
 
 .hero::before {
@@ -206,8 +309,17 @@ section + section {
     z-index: 1;
 }
 
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
 .hero-text {
     color: white;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .badge {
@@ -226,6 +338,9 @@ section + section {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--spacing-md);
+    margin-top: 0;
+    padding-top: 0;
+    scroll-margin-top: 100px; /* Prevent hiding when scrolling */
 }
 
 .gradient-text {
@@ -331,6 +446,7 @@ section + section {
 
 .phone-frame {
     width: 300px;
+    max-width: 100%;
     height: 600px;
     background: #1a1a1a;
     border-radius: 2.5rem;
@@ -427,6 +543,11 @@ section + section {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     border: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .feature-card:hover {
@@ -709,6 +830,7 @@ section + section {
 
 .phone-frame-large {
     width: 250px;
+    max-width: 100%;
     height: 500px;
     background: #1a1a1a;
     border-radius: 2rem;
@@ -864,7 +986,7 @@ section + section {
     }
     
     .hero {
-        padding: 6rem 0 3rem;
+        padding: 1rem 0 3rem;
     }
     
     .hero-title {
@@ -925,6 +1047,27 @@ section + section {
     
     .faq-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .faq-item {
+        padding: 1.5rem;
+    }
+    
+    .faq-question {
+        gap: 0.75rem;
+    }
+    
+    .faq-icon {
+        font-size: 1.5rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .faq-answer {
+        font-size: 0.9rem;
     }
     
     .testimonial-summary {
@@ -1024,6 +1167,11 @@ section + section {
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .use-case:hover {
@@ -1183,6 +1331,15 @@ section + section {
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .faq-item {
@@ -1191,6 +1348,11 @@ section + section {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .faq-item:hover {
@@ -1202,6 +1364,8 @@ section + section {
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .faq-icon {
@@ -1215,12 +1379,26 @@ section + section {
     color: #111827;
     margin: 0;
     padding-top: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+    min-width: 0;
 }
 
 .faq-answer {
     line-height: 1.7;
     color: #4b5563;
     padding-left: 3rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .faq-answer {
+        padding-left: 0;
+        padding-top: 0.5rem;
+    }
 }
 
 /* ========================================

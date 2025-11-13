@@ -6,6 +6,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========================================
+    // 0. Calculate and set body padding-top based on actual navbar height
+    // ========================================
+    function setBodyPaddingTop() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const navbarHeight = navbar.offsetHeight;
+            document.body.style.paddingTop = (navbarHeight + 20) + 'px'; // Add 20px extra space
+            // Debug only in development
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('[Header Fix] Navbar height:', navbarHeight, 'px - Body padding-top set to:', (navbarHeight + 20) + 'px');
+            }
+        }
+    }
+    
+    // Set on load
+    setBodyPaddingTop();
+    
+    // Recalculate on resize (in case header height changes)
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setBodyPaddingTop, 250);
+    });
+    
+    // Recalculate after a short delay to ensure all styles are loaded
+    setTimeout(setBodyPaddingTop, 100);
+    
+    // ========================================
     // 1. Mobile Menu Toggle
     // ========================================
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
