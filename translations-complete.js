@@ -96,6 +96,9 @@ const i18nComplete = {
         screenshots_badge: "📱 Screenshots",
         screenshots_title: "Professional Emergency Interface",
         screenshots_desc: "Designed for emergency situations - clear, fast, reliable",
+        screenshots_coming_soon_title: "Screenshots Coming Soon!",
+        screenshots_coming_soon_message: "We're finalizing the app interface for the Google Play Store launch. Professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features will be available soon.",
+        screenshots_launching_soon: "🚀 Launching Soon on Google Play",
         screenshot1_caption: "Multi-language welcome screen",
         screenshot2_caption: "One-tap emergency services",
         screenshot3_caption: "AI medical assistant",
@@ -459,6 +462,9 @@ const i18nComplete = {
         screenshots_badge: "📱 Captures d'écran",
         screenshots_title: "Interface d'Urgence Professionnelle",
         screenshots_desc: "Conçu pour les situations d'urgence - clair, rapide, fiable",
+        screenshots_coming_soon_title: "Captures d'écran à venir !",
+        screenshots_coming_soon_message: "Nous finalisons l'interface de l'application pour le lancement sur Google Play Store. Des captures d'écran professionnelles de notre Infirmière Médicale IA, Coordination d'Équipe et fonctionnalités de Formation aux Urgences seront disponibles bientôt.",
+        screenshots_launching_soon: "🚀 Lancement bientôt sur Google Play",
         
         // How It Works
         howitworks_badge: "🎯 Comment Ça Marche",
@@ -826,6 +832,9 @@ const i18nComplete = {
         screenshots_badge: "📱 ภาพหน้าจอ",
         screenshots_title: "อินเทอร์เฟซฉุกเฉินระดับมืออาชีพ",
         screenshots_desc: "ออกแบบสำหรับสถานการณ์ฉุกเฉิน - ชัดเจน รวดเร็ว เชื่อถือได้",
+        screenshots_coming_soon_title: "ภาพหน้าจออีกไม่นาน!",
+        screenshots_coming_soon_message: "เรากำลังปรับแต่งอินเทอร์เฟซแอปพลิเคชันสำหรับการเปิดตัว Google Play Store ภาพหน้าจออย่างมืออาชีพของพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินจะพร้อมใช้งานเร็ว ๆ นี้",
+        screenshots_launching_soon: "🚀 เปิดตัวเร็ว ๆ นี้บน Google Play",
         
         // How It Works
         howitworks_badge: "🎯 วิธีการทำงาน",
@@ -1193,6 +1202,9 @@ const i18nComplete = {
         screenshots_badge: "📱 截图",
         screenshots_title: "专业紧急界面",
         screenshots_desc: "专为紧急情况设计 - 清晰、快速、可靠",
+        screenshots_coming_soon_title: "即将推出屏幕截图！",
+        screenshots_coming_soon_message: "我们正在为 Google Play Store 发布而完善应用界面。我们的 AI 医疗护士、团队协调和紧急培训功能的专业屏幕截图将很快推出。",
+        screenshots_launching_soon: "🚀 即将在 Google Play 上推出",
         
         // How It Works
         howitworks_badge: "🎯 工作原理",
