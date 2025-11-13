@@ -10,7 +10,7 @@
     // EmailJS Configuration
     const EMAILJS_CONFIG = {
         serviceId: 'service_b4sky23',
-        templateId: 'zu99b2p',
+        templateId: 'template_od7f3qc',
         publicKey: 'DqmkWe82GB4TOL1ri'
     };
 
