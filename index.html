@@ -183,6 +183,7 @@
     <link rel="stylesheet" href="ux-advanced.css?v=2.2">
     <link rel="stylesheet" href="modal-stellar.css">
     <link rel="stylesheet" href="lang-switcher.css">
+    <link rel="stylesheet" href="stories-styles.css">
     <link rel="stylesheet" href="lang-tooltip.css">
     <link rel="stylesheet" href="logo-stellar.css">
     <link rel="stylesheet" href="touch-targets.css">
@@ -193,6 +194,7 @@
     <link rel="stylesheet" href="coming-soon-stellar.css">
     <link rel="stylesheet" href="back-to-top.css">
     <link rel="stylesheet" href="styles-stellar-override.css?v=4">
+    <link rel="stylesheet" href="premium-design-enhancements.css?v=1">
     <link rel="stylesheet" href="print.css" media="print">
     
     <!-- Schema.org Markup -->
@@ -850,6 +852,21 @@
                 </div>
             </div>
 
+            <!-- Approved Stories Grid -->
+            <div id="stories-loading" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.6);">
+                <div style="font-size: 48px; margin-bottom: 16px;">⏳</div>
+                <p>Loading stories...</p>
+            </div>
+
+            <div id="stories-empty" style="display: none; text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.6);">
+                <div style="font-size: 64px; margin-bottom: 20px;">📸</div>
+                <h3 style="color: rgba(255,255,255,0.9); margin-bottom: 12px; font-size: 24px;">No Stories Yet</h3>
+                <p style="font-size: 16px; line-height: 1.6; max-width: 500px; margin: 0 auto;">
+                    Be the first to share your RESQ+ emergency story! Your story could inspire others and help save lives.
+                </p>
+            </div>
+
+            <div id="approved-stories-grid" class="story-grid" style="margin-top: 60px;"></div>
         </div>
     </section>
 
@@ -1310,7 +1327,7 @@ Designed to save lives in critical situations
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="newsletter-emailjs.js?v=9"></script>
+    <script src="newsletter-emailjs.js?v=10"></script>
     
     <script src="translations.js?v=4"></script>
     <script src="translations-complete.js?v=4" defer></script>
@@ -1320,6 +1337,8 @@ Designed to save lives in critical situations
     <script src="email-approval.js?v=2" defer></script>
     <script src="visitor-tracking.js?v=2" defer></script>
     <script src="modal-stellar.js?v=2" defer></script>
+    <script src="stories-data.js?v=1"></script>
+    <script src="stories-display.js?v=1" defer></script>
     <script src="ga4-events.js" defer></script>
     <script src="error-logger.js" defer></script>
     <!-- <script src="exit-intent.js" defer></script> DISABLED - Using newsletter-popup.js instead -->

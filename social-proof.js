@@ -9,10 +9,10 @@
     // Configuration
     const config = {
         // Mode: 'static' or 'live'
-        mode: 'static',
+        mode: 'dynamic',  // Changed to dynamic to track real signups
         
         // Static mode settings
-        staticCount: 5247,  // Change this number manually
+        staticCount: 1,  // Starting count - will increment with real signups
         
         // Live mode settings (if using backend)
         apiEndpoint: '/api/signup-count',  // Your API endpoint

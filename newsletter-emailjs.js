@@ -88,24 +88,62 @@
         if (typeof emailjs !== 'undefined') {
             emailjs.init(EMAILJS_CONFIG.publicKey);
             console.log('[Newsletter EmailJS] Initialized successfully');
+            return true;
         } else {
             console.error('[Newsletter EmailJS] EmailJS library not loaded');
+            return false;
         }
+    }
+    
+    // Check if EmailJS is ready
+    function isEmailJSReady() {
+        return typeof emailjs !== 'undefined' && emailjs.init;
     }
 
     // Send confirmation email via EmailJS
     async function sendConfirmationEmail(email) {
         try {
+            // Validate email
+            if (!email || !email.includes('@')) {
+                throw new Error('Invalid email address: ' + email);
+            }
+
+            // Check if EmailJS is ready
+            if (!isEmailJSReady()) {
+                // Try to initialize again
+                if (!initEmailJS()) {
+                    throw new Error('EmailJS is not loaded. Please refresh the page.');
+                }
+            }
+
             const lang = getCurrentLanguage();
             const content = EMAIL_TRANSLATIONS[lang] || EMAIL_TRANSLATIONS.en;
 
+            // Map content to match EmailJS template variables exactly
+            // Template uses {{subtitle}}, {{title}}, {{message}}, {{email}}, etc.
             const templateParams = {
                 email: email,
                 to_email: email,
-                ...content
+                subtitle: content.subtitle,  // Template uses {{subtitle}} in lowercase
+                title: content.title,
+                message: content.message,
+                whats_next_title: content.whats_next_title,
+                benefit_1: content.benefit_1,
+                benefit_2: content.benefit_2,
+                benefit_3: content.benefit_3,
+                benefit_4: content.benefit_4,
+                features_title: content.features_title,
+                features_list: content.features_list,
+                cta_button: content.cta_button,
+                contact_title: content.contact_title,
+                copyright: content.copyright
             };
 
             console.log('[Newsletter EmailJS] Sending email in language:', lang);
+            console.log('[Newsletter EmailJS] Email address:', email);
+            console.log('[Newsletter EmailJS] Template params:', templateParams);
+            console.log('[Newsletter EmailJS] Service ID:', EMAILJS_CONFIG.serviceId);
+            console.log('[Newsletter EmailJS] Template ID:', EMAILJS_CONFIG.templateId);
 
             const response = await emailjs.send(
                 EMAILJS_CONFIG.serviceId,
@@ -113,10 +151,15 @@
                 templateParams
             );
 
-            console.log('[Newsletter EmailJS] Confirmation email sent:', response);
+            console.log('[Newsletter EmailJS] ✅ Confirmation email sent successfully!');
+            console.log('[Newsletter EmailJS] Response:', response);
             return { success: true, response };
         } catch (error) {
-            console.error('[Newsletter EmailJS] Error sending email:', error);
+            console.error('[Newsletter EmailJS] ❌ Error sending email:', error);
+            console.error('[Newsletter EmailJS] Error details:', JSON.stringify(error, null, 2));
+            if (error.text) {
+                console.error('[Newsletter EmailJS] Error text:', error.text);
+            }
             return { success: false, error };
         }
     }
@@ -137,7 +180,18 @@
             const submitBtn = form.querySelector('.stellar-submit-btn');
             const email = emailInput?.value?.trim();
 
+            console.log('[Newsletter EmailJS] Form submitted');
+            console.log('[Newsletter EmailJS] Email input found:', !!emailInput);
+            console.log('[Newsletter EmailJS] Email value:', email);
+
             if (!email) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address');
                 return;
             }
@@ -163,7 +217,7 @@
                     throw new Error('Formspree submission failed');
                 }
 
-                console.log('[Newsletter EmailJS] Formspree submission successful');
+                console.log('[Newsletter EmailJS] ✅ Formspree submission successful');
 
                 // Step 2: Update social proof counter
                 if (typeof window.SocialProof !== 'undefined') {
@@ -174,13 +228,14 @@
                 }
 
                 // Step 3: Send confirmation email via EmailJS
-                console.log('[Newsletter EmailJS] Sending confirmation email...');
+                console.log('[Newsletter EmailJS] 📧 Sending confirmation email to:', email);
                 const emailJsResult = await sendConfirmationEmail(email);
 
                 if (emailJsResult.success) {
                     console.log('[Newsletter EmailJS] ✅ Email sent successfully!');
                 } else {
                     console.error('[Newsletter EmailJS] ❌ Email failed:', emailJsResult.error);
+                    // Don't block the user flow if EmailJS fails, but log it
                 }
 
                 // Step 4: Wait a bit to ensure email is sent, then redirect
@@ -217,5 +272,8 @@
     } else if (document.readyState === 'interactive' || document.readyState === 'complete') {
         setTimeout(init, 1000);
     }
+
+    // Expose sendConfirmationEmail function for use by popup and other scripts
+    window.sendConfirmationEmail = sendConfirmationEmail;
 
 })();
