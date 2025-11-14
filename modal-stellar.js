@@ -126,13 +126,39 @@ function handleFiles(files) {
     }
 }
 
-// Form submission - REAL Formspree Integration
+// Form submission - Integrated with EmailJS approval system
 if (storyForm) {
     storyForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const submitBtn = storyForm.querySelector('button[type="submit"]');
         const formData = new FormData(storyForm);
+
+        // Validate required fields
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const storyType = formData.get('storyType');
+        const story = formData.get('story');
+
+        if (!name || !email || !storyType || !story) {
+            if (window.toast) {
+                toast.error('Please fill in all required fields', 3000);
+            } else {
+                alert('Please fill in all required fields');
+            }
+            return;
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            if (window.toast) {
+                toast.error('Please enter a valid email address', 3000);
+            } else {
+                alert('Please enter a valid email address');
+            }
+            return;
+        }
 
         // Show loading state
         if (window.RESQ && window.RESQ.showButtonLoading) {
@@ -143,8 +169,11 @@ if (storyForm) {
         }
 
         try {
-            // Submit to Formspree
-            const response = await fetch('https://formspree.io/f/mvlkypvo', {
+            console.log('[Story Form] Starting submission process...');
+
+            // Step 1: Submit to Formspree (collects data)
+            console.log('[Story Form] Submitting to Formspree...');
+            const formspreeResponse = await fetch('https://formspree.io/f/mvlkypvo', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -152,48 +181,63 @@ if (storyForm) {
                 }
             });
 
-            if (response.ok) {
-                // Success
-                if (window.toast) {
-                    toast.success('🎉 Your story has been submitted! We\'ll review it and notify you if featured.', 5000);
-                } else {
-                    alert('Success! Your story has been submitted for review.');
-                }
-
-                // Track with GA4
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'story_submission', {
-                        'event_category': 'Engagement',
-                        'event_label': 'Share Story',
-                        'story_type': formData.get('storyType')
-                    });
-                }
-
-                // Reset form
-                storyForm.reset();
-                if (fileName) fileName.textContent = '';
-                if (charCount) charCount.textContent = '0';
-                if (uploadArea) {
-                    uploadArea.innerHTML = `
-                        <div style="font-size: 48px; margin-bottom: 12px;">📁</div>
-                        <p style="color: #6B7280; margin-bottom: 8px;">Click to upload or drag & drop</p>
-                        <p style="font-size: 12px; color: #9CA3AF;">Image or Video (Max 10MB)</p>
-                    `;
-                }
-
-                // Close modal after success
-                setTimeout(() => {
-                    closeStoryModal();
-                }, 2000);
-
-            } else {
-                // Formspree error
+            if (!formspreeResponse.ok) {
                 throw new Error('Formspree submission failed');
             }
 
+            console.log('[Story Form] ✅ Formspree submission successful');
+
+            // Step 2: Send approval email to admin via EmailJS
+            if (window.emailApproval && window.emailApproval.handleStorySubmission) {
+                console.log('[Story Form] Sending approval email to admin...');
+                const emailResult = await window.emailApproval.handleStorySubmission(formData);
+                console.log('[Story Form] Email result:', emailResult);
+            } else {
+                console.warn('[Story Form] Email approval system not available');
+            }
+
+            // Step 3: Send confirmation email to user
+            if (window.emailApproval && window.emailApproval.sendUserConfirmation) {
+                console.log('[Story Form] Sending confirmation email to user...');
+                await window.emailApproval.sendUserConfirmation(email, name);
+            }
+
+            // Step 4: Track with GA4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'story_submission', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Share Story',
+                    'story_type': storyType
+                });
+            }
+
+            // Step 5: Show success message
+            if (window.toast) {
+                toast.success('🎉 Your story has been submitted! We\'ll review it and notify you if featured.', 5000);
+            } else {
+                alert('Success! Your story has been submitted for review.');
+            }
+
+            // Step 6: Reset form
+            storyForm.reset();
+            if (fileName) fileName.textContent = '';
+            if (charCount) charCount.textContent = '0';
+            if (uploadArea) {
+                uploadArea.innerHTML = `
+                    <div style="font-size: 48px; margin-bottom: 12px;">📁</div>
+                    <p style="color: #6B7280; margin-bottom: 8px;">Click to upload or drag & drop</p>
+                    <p style="font-size: 12px; color: #9CA3AF;">Image or Video (Max 10MB)</p>
+                `;
+            }
+
+            // Step 7: Close modal after success
+            setTimeout(() => {
+                closeStoryModal();
+            }, 2000);
+
         } catch (error) {
             // Error handling
-            console.error('Story submission error:', error);
+            console.error('[Story Form] Submission error:', error);
             if (window.toast) {
                 toast.error('Failed to submit story. Please try again or contact us directly.', 4000);
             } else {

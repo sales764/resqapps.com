@@ -8,10 +8,10 @@
 
     // Configuration
     const config = {
-        // Trigger settings - DISABLED
+        // Trigger settings
         triggers: {
             timeDelay: 0,            // DISABLED
-            scrollPercent: 0,        // DISABLED - Popup turned off
+            scrollPercent: 50,       // Show popup at 50% scroll
             exitIntent: false        // DISABLED
         },
         
@@ -710,13 +710,14 @@
 
     /**
      * Handles newsletter form submission
-     * Validates email, shows success state, and tracks signup event
+     * Validates email, sends via EmailJS, updates counter, and tracks signup event
      * @param {Event} e - Form submit event
      */
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         const emailInput = document.getElementById('newsletterEmail');
+        const submitBtn = emailInput?.closest('form')?.querySelector('button[type="submit"]');
         const email = emailInput.value.trim();
 
         if (!email) return;
@@ -728,46 +729,90 @@
             return;
         }
 
-        // Send to Formspree
-        fetch('https://formspree.io/f/mvlkypvo', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                _subject: 'New RESQ+ Newsletter Popup Signup!',
-                source: 'Newsletter Popup',
-                timestamp: new Date().toISOString()
-            })
-        }).then(response => {
-            if (response.ok) {
-                // Track with GA4
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'newsletter_signup', {
-                        'event_category': 'Conversion',
-                        'event_label': 'Newsletter Popup',
-                        'value': email
-                    });
-                }
+        // Disable button during submission
+        const originalText = submitBtn?.innerHTML;
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span>';
+        }
 
-                // Show success
-                const form = document.getElementById('newsletterForm');
-                const success = document.getElementById('newsletterSuccess');
+        try {
+            // Step 1: Submit to Formspree (collects email for you)
+            console.log('[Newsletter Popup] Submitting to Formspree...');
+            const formspreeResponse = await fetch('https://formspree.io/f/mvlkypvo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    _subject: 'New RESQ+ Newsletter Popup Signup!',
+                    source: 'Newsletter Popup',
+                    timestamp: new Date().toISOString()
+                })
+            });
 
-                if (form && success) {
-                    form.style.display = 'none';
-                    success.style.display = 'block';
-                }
-
-                // Auto-close after 3 seconds
-                setTimeout(() => {
-                    closePopup();
-                }, 3000);
+            if (!formspreeResponse.ok) {
+                throw new Error('Formspree submission failed');
             }
-        }).catch(error => {
+
+            console.log('[Newsletter Popup] ✅ Formspree submission successful');
+
+            // Step 2: Update social proof counter
+            if (typeof window.SocialProof !== 'undefined') {
+                const currentCount = window.SocialProof.getCount() || 0;
+                const newCount = currentCount + 1;
+                window.SocialProof.setCount(newCount);
+                console.log('[Newsletter Popup] ✅ Social proof counter updated to:', newCount);
+            }
+
+            // Step 3: Send confirmation email via EmailJS (same as main form)
+            if (typeof emailjs !== 'undefined' && typeof window.sendConfirmationEmail === 'function') {
+                console.log('[Newsletter Popup] 📧 Sending confirmation email via EmailJS...');
+                const emailJsResult = await window.sendConfirmationEmail(email);
+                
+                if (emailJsResult.success) {
+                    console.log('[Newsletter Popup] ✅ Email sent successfully!');
+                } else {
+                    console.error('[Newsletter Popup] ❌ Email failed:', emailJsResult.error);
+                    // Don't block the user flow if EmailJS fails
+                }
+            } else {
+                console.warn('[Newsletter Popup] EmailJS not available, skipping email confirmation');
+            }
+
+            // Step 4: Track with GA4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'newsletter_signup', {
+                    'event_category': 'Conversion',
+                    'event_label': 'Newsletter Popup',
+                    'value': email
+                });
+            }
+
+            // Step 5: Show success
+            const form = document.getElementById('newsletterForm');
+            const success = document.getElementById('newsletterSuccess');
+
+            if (form && success) {
+                form.style.display = 'none';
+                success.style.display = 'block';
+            }
+
+            // Auto-close after 3 seconds
+            setTimeout(() => {
+                closePopup();
+            }, 3000);
+
+        } catch (error) {
             console.error('[Newsletter Popup] Error:', error);
-        });
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+            alert('An error occurred. Please try again.');
+        }
     }
 
     /**
