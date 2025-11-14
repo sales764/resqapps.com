@@ -40,12 +40,14 @@
 
     // Create social proof HTML
     function createSocialProofHTML(count) {
+        // Format the count immediately (no animation delay)
+        const formattedCount = formatNumber(count);
         return `
             <div class="social-proof-container">
                 <div class="social-proof-content">
                     <div class="social-proof-icon">👥</div>
                     <div class="social-proof-text">
-                        <span class="social-proof-number" data-count="${count}">0</span>
+                        <span class="social-proof-number" data-count="${count}">${formattedCount}</span>
                         <span class="social-proof-label" data-i18n="countdown.peopleSignedUp">people already signed up</span>
                     </div>
                 </div>
@@ -206,16 +208,33 @@
         document.head.appendChild(style);
     }
 
-    // Animate counter from 0 to target
+    // Animate counter from current value to target
     function animateCounter(element, target) {
+        // Get current value from element (already displayed)
+        const currentText = element.textContent.replace(/,/g, '');
+        const startValue = parseInt(currentText) || 0;
+        
+        // If already at target, no animation needed
+        if (startValue === target) {
+            element.textContent = formatNumber(target);
+            return;
+        }
+        
+        // If starting from 0 and target is the initial count, show immediately (no animation)
+        if (startValue === 0 && target === config.staticCount) {
+            element.textContent = formatNumber(target);
+            element.setAttribute('data-count', target);
+            return;
+        }
+
         if (!config.animateOnLoad) {
             element.textContent = formatNumber(target);
+            element.setAttribute('data-count', target);
             return;
         }
 
         const duration = config.animationDuration;
         const startTime = Date.now();
-        const startValue = 0;
 
         function update() {
             const now = Date.now();
@@ -231,6 +250,7 @@
                 requestAnimationFrame(update);
             } else {
                 element.textContent = formatNumber(target);
+                element.setAttribute('data-count', target);
             }
         }
         
@@ -310,12 +330,19 @@
         // Get initial count (always start from staticCount so the base value
         // like 2 signups is visible immediately, even in dynamic mode)
         const initialCount = config.staticCount;
+        targetCount = initialCount; // Set target immediately
         
-        // Insert HTML into all containers
+        // Insert HTML into all containers with correct initial value
         config.containers.forEach(selector => {
             const container = document.querySelector(selector);
             if (container) {
                 container.innerHTML = createSocialProofHTML(initialCount);
+                // Ensure the count is set correctly
+                const numberElement = container.querySelector('.social-proof-number');
+                if (numberElement) {
+                    numberElement.setAttribute('data-count', initialCount);
+                    numberElement.textContent = formatNumber(initialCount);
+                }
             }
         });
         
@@ -325,7 +352,7 @@
             applyTranslations(currentLang);
         }
         
-        // Initial update
+        // Initial update (will only animate if count changes from initial)
         updateCount();
         
         // Setup live updates if in live mode
