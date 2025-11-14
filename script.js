@@ -6,19 +6,43 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========================================
-    // 0. Calculate and set body padding-top based on actual navbar height
+    // 0. Calculate and set body padding-top based on actual navbar height + social share bar
     // ========================================
     function setBodyPaddingTop() {
         const navbar = document.querySelector('.navbar');
+        const socialShareBar = document.getElementById('social-share-bar');
+        
         if (navbar) {
             const navbarHeight = navbar.offsetHeight;
-            document.body.style.paddingTop = (navbarHeight + 20) + 'px'; // Add 20px extra space
+            let totalHeight = navbarHeight;
+            
+            // Add social share bar height if it exists and is visible
+            if (socialShareBar && socialShareBar.offsetHeight > 0) {
+                const socialBarHeight = socialShareBar.offsetHeight;
+                totalHeight += socialBarHeight;
+                
+                // Also position the social share bar correctly below the header
+                socialShareBar.style.top = navbarHeight + 'px';
+                
+                // Debug only in development
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    console.log('[Header Fix] Navbar:', navbarHeight, 'px + Social Bar:', socialBarHeight, 'px = Total:', totalHeight, 'px');
+                }
+            }
+            
+            // Add 20px extra space for breathing room
+            const finalPadding = totalHeight + 20;
+            document.body.style.paddingTop = finalPadding + 'px';
+            
             // Debug only in development
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                console.log('[Header Fix] Navbar height:', navbarHeight, 'px - Body padding-top set to:', (navbarHeight + 20) + 'px');
+                console.log('[Header Fix] Body padding-top set to:', finalPadding, 'px');
             }
         }
     }
+    
+    // Make function globally available for social-share.js to call
+    window.setBodyPaddingTop = setBodyPaddingTop;
     
     // Set on load
     setBodyPaddingTop();
@@ -32,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Recalculate after a short delay to ensure all styles are loaded
     setTimeout(setBodyPaddingTop, 100);
+    
+    // Recalculate after social share bar is created (called by social-share.js)
+    setTimeout(setBodyPaddingTop, 500);
     
     // ========================================
     // 1. Mobile Menu Toggle
