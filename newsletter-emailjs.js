@@ -140,8 +140,19 @@
             const lang = getCurrentLanguage();
             const content = EMAIL_TRANSLATIONS[lang] || EMAIL_TRANSLATIONS.en;
 
+            // Build HTML list for the RESQ+ Features block used in the EmailJS template
+            // Your template uses {{features_list}} inside the orange RESQ+ Features box
+            const featuresListHtml = `
+                <span style="color: #00d4ff;">🤖 ${content.features_item_1}</span>
+                • <span style="color: #ff0080;">👥 ${content.features_item_2}</span><br>
+                <span style="color: #ff4500;">🚨 ${content.features_item_3}</span>
+                • <span style="color: #00d4ff;">🎮 ${content.features_item_4}</span><br>
+                <span style="color: #ff0080;">📱 ${content.features_item_5}</span>
+                • <span style="color: #ff4500;">🔒 ${content.features_item_6}</span>
+            `;
+
             // Map content to match EmailJS template variables exactly
-            // Template uses {{subtitle}}, {{title}}, {{message}}, {{email}}, etc.
+            // Template uses {{subtitle}}, {{title}}, {{message}}, {{email}}, {{features_list}}, etc.
             const templateParams = {
                 email: email,
                 to_email: email,
@@ -154,6 +165,9 @@
                 benefit_3: content.benefit_3,
                 benefit_4: content.benefit_4,
                 features_title: content.features_title,
+                // HTML block used by {{features_list}} in your EmailJS template
+                features_list: featuresListHtml,
+                // Keep individual items available too (in case you reuse them later)
                 features_item_1: content.features_item_1,
                 features_item_2: content.features_item_2,
                 features_item_3: content.features_item_3,

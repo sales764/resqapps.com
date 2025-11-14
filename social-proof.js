@@ -307,8 +307,9 @@
         // Add styles
         addStyles();
         
-        // Get initial count
-        const initialCount = config.mode === 'static' ? config.staticCount : 0;
+        // Get initial count (always start from staticCount so the base value
+        // like 2 signups is visible immediately, even in dynamic mode)
+        const initialCount = config.staticCount;
         
         // Insert HTML into all containers
         config.containers.forEach(selector => {
