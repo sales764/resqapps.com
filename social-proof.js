@@ -12,7 +12,7 @@
         mode: 'dynamic',  // Changed to dynamic to track real signups
         
         // Static mode settings
-        staticCount: 1,  // Starting count - will increment with real signups
+        staticCount: 2,  // Starting count (you + your wife) - will increment with real signups
         
         // Live mode settings (if using backend)
         apiEndpoint: '/api/signup-count',  // Your API endpoint
