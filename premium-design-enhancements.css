@@ -1330,74 +1330,79 @@ footer::before,
 }
 
 /* ========================================
-   27. RESPONSIVE ENHANCEMENTS
+   27. RESPONSIVE ENHANCEMENTS (CONSOLIDÉ)
+   Ces règles sont maintenant intégrées dans la section 28
+   pour éviter les conflits et assurer la cohérence
    ======================================== */
+
+/* Règles de priorité pour garantir la cohérence responsive */
+/* Ces règles s'appliquent après styles.css pour assurer la cohérence */
 
 @media (max-width: 1024px) {
     .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
     
     .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
     
     .use-cases-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 }
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 4vw + 0.5rem, 2rem) !important;
     }
     
     .steps-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     .testimonials-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
     
     .stat-card .stat-number {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 5vw + 1rem, 3rem) !important;
     }
     
     .feature-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 2rem !important;
     }
     
     .step-icon {
-        font-size: 3rem;
+        font-size: 3rem !important;
     }
     
     .use-case-icon {
-        font-size: 3rem;
+        font-size: 3rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .section-title {
-        font-size: 1.75rem;
+        font-size: clamp(1.5rem, 5vw + 0.5rem, 1.75rem) !important;
     }
     
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     .stat-card {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1.5rem !important;
     }
     
     .stat-card .stat-number {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 6vw + 1rem, 2.5rem) !important;
     }
 }
 
@@ -1414,16 +1419,26 @@ footer::before,
 .hero-title {
     font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
     line-height: clamp(1.1, 1.1, 1.2);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .section-title {
     font-size: clamp(1.75rem, 4vw + 0.5rem, 2.5rem);
     line-height: clamp(1.2, 1.2, 1.3);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .hero-description {
     font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     line-height: clamp(1.6, 1.6, 1.8);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .section-description {
@@ -2250,6 +2265,324 @@ a[role="button"],
     .btn,
     a[role="button"] {
         min-height: 48px; /* Légèrement plus grand sur petits écrans */
+    }
+}
+
+/* ========================================
+   OPTIMISATIONS SPÉCIFIQUES iPad
+   Tablettes 768px - 1024px
+   ======================================== */
+
+/* iPad Portrait (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Containers optimisés */
+    .container {
+        padding: 0 2rem;
+        max-width: 900px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    /* Hero Section - Layout optimisé iPad */
+    .hero {
+        padding: 2.5rem 0 3.5rem;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.25rem, 5vw + 1rem, 2.75rem);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: clamp(1.1rem, 2.5vw + 0.5rem, 1.2rem);
+        line-height: 1.7;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        hyphens: auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .hero-title {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        min-width: 200px;
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        min-width: 140px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: clamp(1.75rem, 4vw + 0.5rem, 2rem);
+    }
+    
+    /* Navigation optimisée iPad */
+    .nav-links {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .lang-switcher {
+        gap: 0.5rem;
+    }
+    
+    .lang-btn {
+        min-width: 48px;
+        min-height: 48px;
+        font-size: 1.2rem;
+    }
+    
+    /* Features Grid - 2 colonnes sur iPad */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .feature-card {
+        padding: 2rem 1.75rem;
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.25rem;
+    }
+    
+    /* Steps Grid - 3 colonnes sur iPad */
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75rem;
+    }
+    
+    .step {
+        padding: 2rem 1.5rem;
+    }
+    
+    .step-icon {
+        font-size: 3.5rem;
+    }
+    
+    /* Stats Grid - 2 colonnes sur iPad */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    .stat-card .stat-number {
+        font-size: clamp(3rem, 6vw + 1rem, 3.5rem);
+    }
+    
+    /* Use Cases - 2 colonnes sur iPad */
+    .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .use-case {
+        padding: 2rem 1.75rem;
+    }
+    
+    .use-case-icon {
+        font-size: 3.5rem;
+    }
+    
+    /* Testimonials - 2 colonnes sur iPad */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* FAQ - 2 colonnes sur iPad */
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+    }
+    
+    .faq-item {
+        padding: 2rem 1.75rem;
+    }
+    
+    /* Section Headers */
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 4.5vw + 0.5rem, 2.25rem);
+        margin-bottom: 1.25rem;
+    }
+    
+    .section-description {
+        font-size: clamp(1rem, 2vw + 0.5rem, 1.1rem);
+        max-width: 750px;
+    }
+    
+    /* Phone Mockup - Taille optimisée iPad */
+    .phone-frame,
+    .phone-mockup {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    /* Social Proof - Optimisé iPad */
+    .social-proof-container {
+        max-width: 450px;
+        padding: 1.5rem 2rem;
+    }
+    
+    .social-proof-number {
+        font-size: clamp(2rem, 4vw + 1rem, 2.5rem);
+    }
+    
+    /* Countdown Timer - Optimisé iPad */
+    #countdown-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Footer - Layout optimisé iPad */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+    
+    /* Espacements sections */
+    section {
+        padding: clamp(2.5rem, 5vw + 1rem, 3rem) 0;
+    }
+}
+
+/* iPad Paysage (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    .container {
+        max-width: 1100px;
+        padding: 0 2.5rem;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        text-align: left;
+    }
+    
+    .hero-text {
+        order: 1;
+    }
+    
+    .hero-image {
+        order: 2;
+    }
+    
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+    
+    .hero-stats {
+        justify-content: flex-start;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* iPad Pro 12.9" (1024px - 1366px portrait) */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+    .container {
+        max-width: 1000px;
+        padding: 0 2rem;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 }
 
