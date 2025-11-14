@@ -412,11 +412,16 @@
             
             .share-buttons-bar {
                 display: flex !important;
+                flex-direction: row !important;
                 align-items: center;
                 justify-content: center;
-                gap: 0.75rem;
+                gap: 0.5rem;
                 flex-wrap: wrap;
                 visibility: visible !important;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .share-btn-bar {
@@ -425,7 +430,10 @@
                 padding: 0 !important;
                 border-radius: 8px;
                 min-width: 40px !important;
+                max-width: 40px !important;
+                flex-shrink: 0 !important;
                 display: flex !important;
+                flex-direction: row !important;
                 align-items: center !important;
                 justify-content: center !important;
                 visibility: visible !important;
@@ -441,11 +449,16 @@
                 border-color: rgba(255, 255, 255, 0.4);
             }
             
+            .share-btn-bar:active {
+                transform: scale(0.95);
+            }
+            
             .share-btn-bar .share-icon {
                 width: 20px !important;
                 height: 20px !important;
                 display: flex !important;
                 visibility: visible !important;
+                flex-shrink: 0 !important;
             }
             
             .share-btn-bar .share-icon svg {
@@ -457,15 +470,30 @@
             /* Body padding will be calculated dynamically by script.js */
             /* Removed fixed padding-top to allow dynamic calculation */
             
+            /* Mobile & Android optimizations */
             @media (max-width: 768px) {
                 .social-share-bar {
-                    padding: 0.5rem 0;
+                    padding: 0.5rem 0.75rem;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                
+                .share-buttons-bar {
+                    gap: 0.4rem !important;
+                    flex-wrap: nowrap !important;
+                    justify-content: center !important;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                    padding: 0 0.5rem;
                 }
                 
                 .share-btn-bar {
-                    width: 36px !important;
-                    height: 36px !important;
-                    min-width: 36px !important;
+                    width: 38px !important;
+                    height: 38px !important;
+                    min-width: 38px !important;
+                    max-width: 38px !important;
+                    flex-shrink: 0 !important;
+                    flex-grow: 0 !important;
                 }
                 
                 .share-btn-bar .share-icon {
@@ -474,12 +502,36 @@
                 }
             }
             
+            /* Small mobile devices */
+            @media (max-width: 480px) {
+                .social-share-bar {
+                    padding: 0.4rem 0.5rem;
+                }
+                
+                .share-buttons-bar {
+                    gap: 0.35rem !important;
+                    padding: 0 0.25rem;
+                }
+                
+                .share-btn-bar {
+                    width: 36px !important;
+                    height: 36px !important;
+                    min-width: 36px !important;
+                    max-width: 36px !important;
+                }
+                
+                .share-btn-bar .share-icon {
+                    width: 16px !important;
+                    height: 16px !important;
+                }
+            }
+            
             /* Floating Buttons (DISABLED) */
             .social-share-floating {
                 display: none !important;
             }
             
-            /* Mobile responsiveness */
+            /* Mobile responsiveness for inline buttons only (NOT header bar) */
             @media (max-width: 768px) {
                 .social-share-inline {
                     flex-direction: column;
