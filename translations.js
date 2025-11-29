@@ -379,27 +379,27 @@ const TRANSLATIONS = {
         }
     },
     
-    // Screenshots Coming Soon Section
+    // Screenshots Section
     screenshots: {
         en: {
-            coming_soon_title: "Screenshots Coming Soon!",
-            coming_soon_message: "We're finalizing the app interface for the Google Play Store launch. Professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features will be available soon.",
-            launching_soon: "🚀 Launching Soon on Google Play"
+            coming_soon_title: "View Screenshots on Google Play!",
+            coming_soon_message: "RESQ+ is now available! See professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features directly on the Google Play Store. Download now and explore all the life-saving features.",
+            launching_soon: "🚀 View on Google Play"
         },
         fr: {
-            coming_soon_title: "Captures d'écran à venir !",
-            coming_soon_message: "Nous finalisons l'interface de l'application pour le lancement sur Google Play Store. Des captures d'écran professionnelles de notre Infirmière Médicale IA, Coordination d'Équipe et fonctionnalités de Formation aux Urgences seront disponibles bientôt.",
-            launching_soon: "🚀 Lancement bientôt sur Google Play"
+            coming_soon_title: "Voir les Captures d'écran sur Google Play !",
+            coming_soon_message: "RESQ+ est maintenant disponible ! Voir les captures d'écran professionnelles de notre Infirmière Médicale IA, Coordination d'Équipe et fonctionnalités de Formation aux Urgences directement sur Google Play Store. Téléchargez maintenant et explorez toutes les fonctionnalités qui sauvent des vies.",
+            launching_soon: "🚀 Voir sur Google Play"
         },
         th: {
-            coming_soon_title: "ภาพหน้าจออีกไม่นาน!",
-            coming_soon_message: "เรากำลังปรับแต่งอินเทอร์เฟซแอปพลิเคชันสำหรับการเปิดตัว Google Play Store ภาพหน้าจออย่างมืออาชีพของพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินจะพร้อมใช้งานเร็ว ๆ นี้",
-            launching_soon: "🚀 เปิดตัวเร็ว ๆ นี้บน Google Play"
+            coming_soon_title: "ดูภาพหน้าจอบน Google Play!",
+            coming_soon_message: "RESQ+ พร้อมใช้งานแล้ว! ดูภาพหน้าจออย่างมืออาชีพของพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินโดยตรงบน Google Play Store ดาวน์โหลดตอนนี้และสำรวจคุณสมบัติที่ช่วยชีวิตทั้งหมด",
+            launching_soon: "🚀 ดูบน Google Play"
         },
         zh: {
-            coming_soon_title: "即将推出屏幕截图！",
-            coming_soon_message: "我们正在为 Google Play Store 发布而完善应用界面。我们的 AI 医疗护士、团队协调和紧急培训功能的专业屏幕截图将很快推出。",
-            launching_soon: "🚀 即将在 Google Play 上推出"
+            coming_soon_title: "在Google Play上查看屏幕截图！",
+            coming_soon_message: "RESQ+现已推出！直接在Google Play Store上查看我们的AI医疗护士、团队协调和紧急培训功能的专业屏幕截图。立即下载并探索所有救生功能。",
+            launching_soon: "🚀 在Google Play上查看"
         }
     },
     

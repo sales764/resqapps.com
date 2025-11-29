@@ -358,6 +358,88 @@ section + section {
     max-width: 90%;
 }
 
+.hero-newsletter {
+    margin: var(--spacing-xl) 0;
+    max-width: 500px;
+}
+
+.newsletter-form-simple {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.newsletter-input-wrapper {
+    display: flex;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 4px;
+    transition: all 0.3s ease;
+}
+
+.newsletter-input-wrapper:focus-within {
+    border-color: rgba(79, 172, 254, 0.5);
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-btn {
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    border-radius: calc(var(--radius-lg) - 2px);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+}
+
+.newsletter-btn:active {
+    transform: translateY(0);
+}
+
+.newsletter-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.newsletter-privacy {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    text-align: center;
+}
+
 .hero-buttons {
     display: flex;
     gap: var(--spacing-md);
@@ -630,6 +712,44 @@ section + section {
 
 .screenshot-card {
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.screenshot-card:hover {
+    transform: translateY(-5px);
+}
+
+.screenshot-frame {
+    background: var(--gradient-emergency);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    aspect-ratio: 9/19.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screenshot-card:hover .screenshot-frame {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-xl);
+}
+
+.screenshot-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--radius-lg) - 4px);
+    display: block;
+}
+
+.screenshot-caption {
+    margin-top: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .screenshot-placeholder {
@@ -769,41 +889,62 @@ section + section {
 .store-button {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--text-primary);
+    gap: 8px;
+    padding: 8px 16px;
+    background: #000000;
     color: white;
-    border-radius: var(--radius-md);
+    border: none;
+    border-radius: 4px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: all 0.2s ease;
+    position: relative;
+    min-width: 155px;
+    height: 60px;
+    justify-content: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .store-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background: var(--primary);
+    background: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.store-button:active {
+    background: #000000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .store-icon {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 .store-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    line-height: 1.1;
+    margin-left: 4px;
 }
 
 .store-label {
-    font-size: 0.7rem;
-    opacity: 0.8;
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 2px;
 }
 
 .store-name {
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.2;
 }
 
 .download-info {
@@ -996,6 +1137,24 @@ section + section {
     .hero-description {
         font-size: 1rem;
         max-width: 100%;
+    }
+    
+    .hero-newsletter {
+        max-width: 100%;
+    }
+    
+    .newsletter-input-wrapper {
+        flex-direction: column;
+        padding: 12px;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .hero-buttons {

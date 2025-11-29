@@ -63,16 +63,31 @@ const i18n = {
             share_button: "📸 Share My Emergency Story",
             share_benefits: "✓ Get Featured ✓ Inspire Others ✓ Gain Social Media Visibility",
             
-            // Coming Soon
-            coming_badge: "🚀 Coming Soon",
-            coming_title: "Launching on Google Play",
-            coming_desc: "Be the first to know when RESQ+ is available for download",
-            coming_heading: "App Under Final Review",
-            coming_text: "RESQ+ is currently undergoing final testing and quality assurance. We're committed to delivering a reliable, professional emergency response app that you can trust when it matters most.",
-            coming_form_title: "Get Notified at Launch",
-            coming_form_desc: "Enter your email to receive an instant notification when RESQ+ goes live",
-            coming_button: "Notify Me",
+            // Available Now
+            coming_badge: "🚀 NOW AVAILABLE",
+            coming_title: "Available Now on Google Play",
+            coming_desc: "Download RESQ+ today and be prepared for any emergency",
+            coming_heading: "30-Day Improvement Period - Your Feedback Matters!",
+            coming_text: "RESQ+ is now live on Google Play! We're in a 30-day improvement period, actively refining features based on your feedback. Download now and help us make RESQ+ the best emergency response app possible.",
+            coming_form_title: "Download on Google Play",
+            coming_form_desc: "Get RESQ+ now and start protecting yourself and your loved ones",
+            coming_button: "Download",
+            coming_button_label: "GET IT ON",
             coming_features: "✓ 100% Free ✓ No Ads ✓ Zero Personal Data ✓ Local Storage Only",
+            
+            // Newsletter
+            newsletter_subscribe: "Subscribe",
+            newsletter_privacy: "🔒 We respect your privacy. Unsubscribe at any time.",
+            
+            // Screenshot Captions
+            screenshot1_caption: "Home Screen",
+            screenshot2_caption: "Emergency Control Center",
+            screenshot3_caption: "AI Emergency Nurse",
+            screenshot4_caption: "Team Connect",
+            screenshot5_caption: "Medical Profile",
+            screenshot6_caption: "Emergency Settings",
+            screenshot7_caption: "SOS Features",
+            screenshot8_caption: "Available Now",
             
             // FAQ
             faq_badge: "❓ FAQ",
@@ -117,16 +132,31 @@ const i18n = {
             share_button: "📸 Partager Mon Histoire d'Urgence",
             share_benefits: "✓ Être Mis en Avant ✓ Inspirer les Autres ✓ Gagner en Visibilité sur les Réseaux Sociaux",
             
-            // Coming Soon
-            coming_badge: "🚀 Bientôt Disponible",
-            coming_title: "Lancement sur Google Play",
-            coming_desc: "Soyez le premier à savoir quand RESQ+ sera disponible au téléchargement",
-            coming_heading: "Application en Révision Finale",
-            coming_text: "RESQ+ est actuellement en phase de tests finals et d'assurance qualité. Nous nous engageons à livrer une application de réponse d'urgence fiable et professionnelle en qui vous pouvez avoir confiance quand cela compte le plus.",
-            coming_form_title: "Être Notifié au Lancement",
-            coming_form_desc: "Entrez votre email pour recevoir une notification instantanée quand RESQ+ sera en ligne",
-            coming_button: "Me Notifier",
+            // Available Now
+            coming_badge: "🚀 MAINTENANT DISPONIBLE",
+            coming_title: "Disponible Maintenant sur Google Play",
+            coming_desc: "Téléchargez RESQ+ dès aujourd'hui et soyez prêt pour toute urgence",
+            coming_heading: "Période d'Amélioration de 30 Jours - Votre Avis Compte !",
+            coming_text: "RESQ+ est maintenant disponible sur Google Play ! Nous sommes dans une période d'amélioration de 30 jours, affinant activement les fonctionnalités en fonction de vos commentaires. Téléchargez maintenant et aidez-nous à faire de RESQ+ la meilleure application de réponse d'urgence possible.",
+            coming_form_title: "Télécharger sur Google Play",
+            coming_form_desc: "Obtenez RESQ+ maintenant et commencez à protéger vous et vos proches",
+            coming_button: "Télécharger",
+            coming_button_label: "OBTENIR SUR",
             coming_features: "✓ 100% Gratuit ✓ Sans Publicités ✓ Zéro Données Personnelles ✓ Stockage Local Seulement",
+            
+            // Newsletter
+            newsletter_subscribe: "S'abonner",
+            newsletter_privacy: "🔒 Nous respectons votre vie privée. Désabonnez-vous à tout moment.",
+            
+            // Screenshot Captions
+            screenshot1_caption: "Écran d'Accueil",
+            screenshot2_caption: "Centre de Contrôle d'Urgence",
+            screenshot3_caption: "Infirmière d'Urgence IA",
+            screenshot4_caption: "Connexion d'Équipe",
+            screenshot5_caption: "Profil Médical",
+            screenshot6_caption: "Paramètres d'Urgence",
+            screenshot7_caption: "Fonctionnalités SOS",
+            screenshot8_caption: "Disponible Maintenant",
             
             // FAQ
             faq_badge: "❓ FAQ",
@@ -171,16 +201,31 @@ const i18n = {
             share_button: "📸 แบ่งปันเรื่องราวฉุกเฉินของฉัน",
             share_benefits: "✓ ได้รับการแนะนำ ✓ สร้างแรงบันดาลใจให้ผู้อื่น ✓ เพิ่มการมองเห็นบนโซเชียลมีเดีย",
             
-            // Coming Soon
-            coming_badge: "🚀 เร็วๆ นี้",
-            coming_title: "เปิดตัวบน Google Play",
-            coming_desc: "เป็นคนแรกที่รู้เมื่อ RESQ+ พร้อมให้ดาวน์โหลด",
-            coming_heading: "แอปอยู่ระหว่างการตรวจสอบขั้นสุดท้าย",
-            coming_text: "RESQ+ กำลังอยู่ระหว่างการทดสอบขั้นสุดท้ายและการประกันคุณภาพ เรามุ่งมั่นที่จะส่งมอบแอปตอบสนองฉุกเฉินที่เชื่อถือได้และเป็นมืออาชีพที่คุณสามารถไว้วางใจได้เมื่อมันสำคัญที่สุด",
-            coming_form_title: "รับการแจ้งเตือนเมื่อเปิดตัว",
-            coming_form_desc: "ใส่อีเมลของคุณเพื่อรับการแจ้งเตือนทันทีเมื่อ RESQ+ เปิดตัว",
-            coming_button: "แจ้งเตือนฉัน",
+            // Available Now
+            coming_badge: "🚀 พร้อมใช้งานแล้ว",
+            coming_title: "พร้อมใช้งานบน Google Play",
+            coming_desc: "ดาวน์โหลด RESQ+ วันนี้และเตรียมพร้อมสำหรับเหตุฉุกเฉินใดๆ",
+            coming_heading: "ช่วงปรับปรุง 30 วัน - ความคิดเห็นของคุณมีความสำคัญ!",
+            coming_text: "RESQ+ พร้อมใช้งานบน Google Play แล้ว! เราอยู่ในช่วงปรับปรุง 30 วัน กำลังปรับแต่งฟีเจอร์อย่างต่อเนื่องตามความคิดเห็นของคุณ ดาวน์โหลดตอนนี้และช่วยเราทำให้ RESQ+ เป็นแอปตอบสนองฉุกเฉินที่ดีที่สุด",
+            coming_form_title: "ดาวน์โหลดบน Google Play",
+            coming_form_desc: "รับ RESQ+ ตอนนี้และเริ่มปกป้องตัวคุณและคนที่คุณรัก",
+            coming_button: "ดาวน์โหลด",
+            coming_button_label: "ดาวน์โหลดจาก",
             coming_features: "✓ ฟรี 100% ✓ ไม่มีโฆษณา ✓ ไม่มีข้อมูลส่วนบุคคล ✓ จัดเก็บในเครื่องเท่านั้น",
+            
+            // Newsletter
+            newsletter_subscribe: "สมัครรับข่าวสาร",
+            newsletter_privacy: "🔒 เรายึดถือความเป็นส่วนตัวของคุณ ยกเลิกการสมัครได้ตลอดเวลา",
+            
+            // Screenshot Captions
+            screenshot1_caption: "หน้าจอหลัก",
+            screenshot2_caption: "ศูนย์ควบคุมฉุกเฉิน",
+            screenshot3_caption: "พยาบาลฉุกเฉิน AI",
+            screenshot4_caption: "เชื่อมต่อทีม",
+            screenshot5_caption: "โปรไฟล์ทางการแพทย์",
+            screenshot6_caption: "การตั้งค่าฉุกเฉิน",
+            screenshot7_caption: "คุณสมบัติ SOS",
+            screenshot8_caption: "พร้อมใช้งานแล้ว",
             
             // FAQ
             faq_badge: "❓ คำถามที่พบบ่อย",
@@ -225,16 +270,31 @@ const i18n = {
             share_button: "📸 分享我的紧急故事",
             share_benefits: "✓ 获得特色展示 ✓ 激励他人 ✓ 提高社交媒体知名度",
             
-            // Coming Soon
-            coming_badge: "🚀 即将推出",
-            coming_title: "即将在Google Play上推出",
-            coming_desc: "成为第一个知道RESQ+何时可供下载的人",
-            coming_heading: "应用正在最终审核中",
-            coming_text: "RESQ+目前正在进行最终测试和质量保证。我们致力于提供一个可靠、专业的紧急响应应用，您可以在最需要的时候信赖它。",
-            coming_form_title: "启动时获取通知",
-            coming_form_desc: "输入您的电子邮件，以便在RESQ+上线时立即收到通知",
-            coming_button: "通知我",
+            // Available Now
+            coming_badge: "🚀 现已推出",
+            coming_title: "现已在Google Play上推出",
+            coming_desc: "立即下载RESQ+，为任何紧急情况做好准备",
+            coming_heading: "30天改进期 - 您的反馈很重要！",
+            coming_text: "RESQ+现已在Google Play上推出！我们正处于30天的改进期，根据您的反馈积极完善功能。立即下载，帮助我们使RESQ+成为最好的紧急响应应用。",
+            coming_form_title: "在Google Play上下载",
+            coming_form_desc: "立即获取RESQ+，开始保护您和您所爱的人",
+            coming_button: "下载",
+            coming_button_label: "在",
             coming_features: "✓ 100%免费 ✓ 无广告 ✓ 零个人数据 ✓ 仅本地存储",
+            
+            // Newsletter
+            newsletter_subscribe: "订阅",
+            newsletter_privacy: "🔒 我们尊重您的隐私。随时可以取消订阅。",
+            
+            // Screenshot Captions
+            screenshot1_caption: "主屏幕",
+            screenshot2_caption: "紧急控制中心",
+            screenshot3_caption: "AI紧急护士",
+            screenshot4_caption: "团队连接",
+            screenshot5_caption: "医疗档案",
+            screenshot6_caption: "紧急设置",
+            screenshot7_caption: "SOS功能",
+            screenshot8_caption: "现已推出",
             
             // FAQ
             faq_badge: "❓ 常见问题",

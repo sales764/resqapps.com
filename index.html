@@ -333,7 +333,7 @@
           "name": "When will RESQ+ be available on Google Play?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RESQ+ is coming soon to Google Play Store. Sign up for notifications on our website to be among the first to download when we launch. We're currently in final testing to ensure the best possible emergency response experience."
+            "text": "RESQ+ is now available on Google Play Store! Download it today and be prepared for any emergency. We're in a 30-day improvement period, actively refining features based on user feedback to ensure the best possible emergency response experience."
           }
         }
       ]
@@ -406,11 +406,35 @@
                         <strong data-i18n="privacy_label">Privacy First:</strong> <span data-i18n="privacy_text">No personal data collected. All medical info stays on your device.</span>
                     </p>
                     
-                    <!-- Countdown Timer Container -->
-                    <div id="countdown-container"></div>
-                    
-                    <!-- Social Proof Container -->
-                    <div id="social-proof-hero"></div>
+                    <!-- Newsletter Form -->
+                    <div class="hero-newsletter">
+                        <form action="https://formspree.io/f/xblqlawn" method="POST" class="newsletter-form-simple">
+                            <input type="hidden" name="_next" value="https://resqapps.com/thank-you.html">
+                            <input type="hidden" name="_subject" value="New RESQ+ Newsletter Signup!">
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <div class="newsletter-input-wrapper">
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="your@email.com" 
+                                    class="newsletter-input" 
+                                    data-i18n-placeholder="homepage.emailPlaceholder"
+                                    required
+                                    aria-label="Email address"
+                                >
+                                <button type="submit" class="newsletter-btn" data-i18n="newsletter_subscribe">
+                                    <span>Subscribe</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="newsletter-privacy" data-i18n="newsletter_privacy">
+                                🔒 We respect your privacy. Unsubscribe at any time.
+                            </p>
+                        </form>
+                    </div>
                     
                     <div class="hero-buttons">
                         <a href="#testimonials" class="btn btn-primary">
@@ -445,7 +469,7 @@
                     <div class="phone-mockup">
                         <div class="phone-frame">
                             <div class="phone-screen">
-                                <img src="images/screenshot-8.webp" alt="RESQ+ Emergency Response Coming Soon to Google Play" loading="eager" width="360" height="780" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                                <img src="images/screenshot-8.webp" alt="RESQ+ Emergency Response Available Now on Google Play" loading="eager" width="360" height="780" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
                             </div>
                         </div>
                     </div>
@@ -627,27 +651,110 @@
                 <p class="section-description" data-i18n="screenshots_desc">Designed for emergency situations - clear, fast, reliable</p>
             </div>
 
-            <!-- Coming Soon Message -->
-            <div class="screenshots-placeholder">
-                <div style="font-size: 80px; margin-bottom: 20px; animation: pulse 2s ease-in-out infinite;">📱</div>
-                <h3 class="screenshots-title" data-i18n="screenshots_coming_soon_title">
-                    Screenshots Coming Soon!
-                </h3>
-                <p class="text-theme-secondary" style="font-size: 18px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;" data-i18n="screenshots_coming_soon_message">
-                    We're finalizing the app interface for the Google Play Store launch. 
-                    Professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features will be available soon.
-                </p>
-                <div class="screenshots-badge" data-i18n="screenshots_launching_soon">
-                    🚀 Launching Soon on Google Play
+            <!-- Screenshots Gallery -->
+            <div class="screenshots-slider">
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-1.webp" 
+                             alt="RESQ+ Home Screen" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-1.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot1_caption">Home Screen</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-2.webp" 
+                             alt="RESQ+ Emergency Control Center" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-2.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot2_caption">Emergency Control Center</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-3.webp" 
+                             alt="RESQ+ AI Emergency Nurse" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-3.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot3_caption">AI Emergency Nurse</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-4.webp" 
+                             alt="RESQ+ Team Connect" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-4.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot4_caption">Team Connect</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-5.webp" 
+                             alt="RESQ+ Medical Profile" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-5.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot5_caption">Medical Profile</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-6.webp" 
+                             alt="RESQ+ Emergency Settings" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-6.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot6_caption">Emergency Settings</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-7.webp" 
+                             alt="RESQ+ SOS Features" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-7.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot7_caption">SOS Features</p>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-frame">
+                        <img src="images/screenshot-8.webp" 
+                             alt="RESQ+ Available Now" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.src='images/screenshot-8.png'">
+                    </div>
+                    <p class="screenshot-caption" data-i18n="screenshot8_caption">Available Now</p>
                 </div>
             </div>
             
-            <style>
-                @keyframes pulse {
-                    0%, 100% { transform: scale(1); }
-                    50% { transform: scale(1.1); }
-                }
-            </style>
+            <!-- Download CTA -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="screenshots-badge" 
+                   style="display: inline-block; text-decoration: none; transition: transform 0.3s ease; padding: 14px 32px; font-size: 16px;"
+                   onmouseover="this.style.transform='scale(1.05)'"
+                   onmouseout="this.style.transform='scale(1)'"
+                   data-i18n="screenshots_launching_soon">
+                    🚀 Download on Google Play
+                </a>
+            </div>
         </div>
     </section>
 
@@ -873,99 +980,76 @@
         </div>
     </section>
 
-    <!-- Coming Soon Section - Stellar Design -->
+    <!-- Available Now Section - Stellar Design -->
     <section id="testimonials" class="testimonials coming-soon-section stellar-coming-soon">
         <div class="container">
             <!-- Stellar Header with Logo -->
             <div class="section-header stellar-header">
                 <div class="stellar-badge-wrapper">
                     <img src="images/resq-logo.webp" alt="RESQ+ Logo" class="stellar-logo-badge">
-                    <span class="stellar-beta-badge">BETA</span>
+                    <span class="stellar-beta-badge stellar-live-badge" data-i18n="coming_badge">🚀 NOW AVAILABLE</span>
                 </div>
                 <h2 class="section-title stellar-title" data-i18n="coming_title">
-                    Launching on <span class="gradient-text">Google Play</span>
+                    Available Now on <span class="gradient-text">Google Play</span>
                 </h2>
                 <p class="section-description stellar-description" data-i18n="coming_desc">
-                    Be the first to know when RESQ+ is available for download
+                    Download RESQ+ today and be prepared for any emergency
                 </p>
             </div>
 
             <!-- Stellar Content Card -->
             <div class="stellar-coming-card">
                 <!-- Status Badge -->
-                <div class="stellar-status-badge">
-                    <div class="status-pulse"></div>
-                    <span data-i18n="coming_heading">App Under Final Review</span>
+                <div class="stellar-status-badge stellar-improvement-badge">
+                    <div class="status-pulse status-pulse-green"></div>
+                    <span data-i18n="coming_heading">30-Day Improvement Period - Your Feedback Matters!</span>
                 </div>
 
                 <!-- Main Content -->
                 <div class="stellar-content-wrapper">
                     <p class="stellar-coming-text" data-i18n="coming_text">
-                        RESQ+ is currently undergoing final testing and quality assurance. 
-                        We're committed to delivering a reliable, professional emergency response app 
-                        that you can trust when it matters most.
+                        RESQ+ is now live on Google Play! We're in a 30-day improvement period, 
+                        actively refining features based on your feedback. Download now and help us 
+                        make RESQ+ the best emergency response app possible.
                     </p>
 
-                    <!-- Notification Form -->
-                    <div class="stellar-form-section">
+                    <!-- Google Play Download Button -->
+                    <div class="stellar-form-section stellar-download-section">
                         <div class="stellar-form-header">
-                            <div class="form-icon-wrapper">
-                                <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <div class="form-icon-wrapper form-icon-wrapper-play">
+                                <svg class="form-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="stellar-form-title" data-i18n="coming_form_title">Get Notified at Launch</h4>
+                                <h4 class="stellar-form-title" data-i18n="coming_form_title">Download on Google Play</h4>
                                 <p class="stellar-form-desc" data-i18n="coming_form_desc">
-                                    Enter your email to receive an instant notification when RESQ+ goes live
+                                    Get RESQ+ now and start protecting yourself and your loved ones
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Multi-Step Form -->
-                        <form action="https://formspree.io/f/xblqlawn" method="POST" class="stellar-notify-form">
-                            <input type="hidden" name="_next" value="https://resqapps.com/thank-you.html">
-                            <input type="hidden" name="_subject" value="New RESQ+ Newsletter Signup!">
-                            <input type="hidden" name="_captcha" value="false">
-                            
-                            <!-- Step Indicators -->
-                            <div class="form-steps">
-                                <div class="step-item active">
-                                    <div class="step-circle">1</div>
-                                    <span class="step-label">Email</span>
-                                </div>
-                                <div class="step-line"></div>
-                                <div class="step-item">
-                                    <div class="step-circle">2</div>
-                                    <span class="step-label">Confirm</span>
-                                </div>
-                            </div>
-
-                            <div class="form-input-wrapper">
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    placeholder="your@email.com" 
-                                    class="stellar-input" 
-                                    data-i18n-placeholder="homepage.emailPlaceholder" 
-                                    required
-                                >
-                                <button type="submit" class="stellar-btn stellar-submit-btn" data-i18n="coming_button">
-                                    <span>Notify Me</span>
-                                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <!-- Google Play Button -->
+                        <div class="google-play-button-wrapper">
+                            <a 
+                                href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="google-play-button"
+                                aria-label="Download RESQ+ on Google Play"
+                            >
+                                <div class="play-button-content">
+                                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                                     </svg>
-                                </button>
-                            </div>
-
-                            <noscript>
-                                <p style="color: #ffa500; font-size: 12px; margin-top: 10px;">
-                                    ⚠️ JavaScript disabled - form will submit directly to our server
-                                </p>
-                            </noscript>
-
-                            <p class="form-step-info">Step 1 of 2</p>
-                        </form>
+                                    <div class="play-button-text">
+                                        <span class="play-button-label" data-i18n="coming_button_label">GET IT ON</span>
+                                        <span class="play-button-name">Google Play</span>
+                                    </div>
+                                </div>
+                                <div class="play-button-shine"></div>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Features Grid -->
@@ -1125,24 +1209,28 @@
         <div class="container">
             <div class="download-card">
                 <div class="download-content">
-                    <h2 class="download-title" data-i18n="download_title">Coming Soon to Google Play</h2>
+                    <h2 class="download-title" data-i18n="download_title">Available Now on Google Play</h2>
                     <p class="download-description" data-i18n="download_desc">
-                        RESQ+ will soon be available for download. Get notified the moment 
-                        it launches and be among the first to access professional emergency 
-                        response at your fingertips. Free, no subscriptions, no ads.
+                        RESQ+ is now live! Download today and be prepared for any emergency. 
+                        We're in a 30-day improvement period - your feedback helps us make RESQ+ 
+                        the best emergency response app. Free, no subscriptions, no ads.
                     </p>
                     <div class="download-buttons">
-                        <div class="store-button google-play store-button-disabled">
+                        <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="store-button google-play"
+                           aria-label="Download RESQ+ on Google Play">
                             <div class="store-icon">
-                                <svg viewBox="0 0 24 24" width="32" height="32">
-                                    <path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                                 </svg>
                             </div>
                             <div class="store-text">
-                                <span class="store-label" data-i18n="download_button_text">COMING SOON</span>
+                                <span class="store-label" data-i18n="download_button_text">GET IT ON</span>
                                 <span class="store-name" data-i18n="download_button_subtext">Google Play</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="download-info">
                         <div class="info-item">
@@ -1163,7 +1251,7 @@
                     <div class="download-phone">
                         <div class="phone-frame-large">
                             <div class="phone-screen-large">
-                                <img src="images/screenshot-8.png" alt="RESQ+ Ready - Coming Soon to Google Play" data-i18n-alt="homepage.screenshot8Alt" width="360" height="780" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                                <img src="images/screenshot-8.png" alt="RESQ+ Available Now on Google Play" data-i18n-alt="homepage.screenshot8Alt" width="360" height="780" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
                             </div>
                         </div>
                     </div>
@@ -1190,7 +1278,7 @@ Designed to save lives in critical situations
                         <ul class="footer-list">
                             <li><a href="#features" data-i18n="footer_features">Features</a></li>
                             <li><a href="#screenshots" data-i18n="footer_screenshots">Screenshots</a></li>
-                            <li><a href="#download" data-i18n="footer_download">Download</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="footer_download">Download on Google Play</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -1227,7 +1315,7 @@ Designed to save lives in critical situations
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright" data-i18n="footer_copyright">© 2024 RESQ+. All rights reserved.</p>
+                <p class="copyright" data-i18n="footer_copyright">© 2025 RESQ+. All rights reserved.</p>
                 <p class="disclaimer" data-i18n="footer_disclaimer">
                     ⚠️ RESQ+ is a support tool and does not replace professional emergency services. 
                     Always call local emergency numbers (Police, Ambulance, Fire) in life-threatening situations.
@@ -1346,7 +1434,7 @@ Designed to save lives in critical situations
     <script src="error-logger.js" defer></script>
     <!-- <script src="exit-intent.js" defer></script> DISABLED - Using newsletter-popup.js instead -->
     <script src="countdown-timer.js" defer></script>
-    <script src="social-proof.js?v=2" defer></script>
+    <!-- <script src="social-proof.js?v=2" defer></script> DISABLED - Replaced with simple newsletter -->
     <script src="signup-progress.js" defer></script>
     <script src="live-chat.js" defer></script>
     <script src="social-share.js?v=3.1" defer></script>
