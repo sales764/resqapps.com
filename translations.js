@@ -1,7 +1,13 @@
 /**
  * GLOBAL TRANSLATIONS FOR ALL PAGES
- * Supports: EN, FR, TH, ZH (All 4 languages complete)
+ * Supports: EN, FR, TH
  */
+
+ const TRANSLATION_SUPPORTED_LANGUAGES = ['en', 'fr', 'th'];
+
+ function normalizeTranslationLanguage(lang) {
+     return TRANSLATION_SUPPORTED_LANGUAGES.includes(lang) ? lang : 'en';
+ }
 
 const TRANSLATIONS = {
     // Common elements across all pages
@@ -340,14 +346,6 @@ const TRANSLATIONS = {
             minutes: "นาที",
             seconds: "วินาที",
             peopleSignedUp: "คนลงทะเบียนแล้ว"
-        },
-        zh: {
-            launchIn: "启动倒计时",
-            days: "天",
-            hours: "小时",
-            minutes: "分钟",
-            seconds: "秒",
-            peopleSignedUp: "人已注册"
         }
     },
     
@@ -370,12 +368,6 @@ const TRANSLATIONS = {
             whatsapp: "💬 วอทส์แอป",
             emailAddress: "sales@sornsawan.com",
             whatsappNumber: "+66 63 670 6074"
-        },
-        zh: {
-            email: "📧 给我们发邮件",
-            whatsapp: "💬 WhatsApp",
-            emailAddress: "sales@sornsawan.com",
-            whatsappNumber: "+66 63 670 6074"
         }
     },
     
@@ -395,11 +387,6 @@ const TRANSLATIONS = {
             coming_soon_title: "ดูภาพหน้าจอบน Google Play!",
             coming_soon_message: "RESQ+ พร้อมใช้งานแล้ว! ดูภาพหน้าจออย่างมืออาชีพของพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินโดยตรงบน Google Play Store ดาวน์โหลดตอนนี้และสำรวจคุณสมบัติที่ช่วยชีวิตทั้งหมด",
             launching_soon: "🚀 ดูบน Google Play"
-        },
-        zh: {
-            coming_soon_title: "在Google Play上查看屏幕截图！",
-            coming_soon_message: "RESQ+现已推出！直接在Google Play Store上查看我们的AI医疗护士、团队协调和紧急培训功能的专业屏幕截图。立即下载并探索所有救生功能。",
-            launching_soon: "🚀 在Google Play上查看"
         }
     },
     
@@ -443,19 +430,6 @@ const TRANSLATIONS = {
             screenshot6Alt: "RESQ+ เชื่อมต่อทีม",
             screenshot7Alt: "RESQ+ เกมช่วยเหลือ",
             screenshot8Alt: "RESQ+ พร้อมแล้ว - เร็วๆ นี้"
-        },
-        zh: {
-            logoAlt: "RESQ+ 标志",
-            heroImageAlt: "RESQ+ 欢迎屏幕",
-            emailPlaceholder: "你的@邮箱.com",
-            screenshot1Alt: "RESQ+ 欢迎屏幕",
-            screenshot2Alt: "RESQ+ SOS 紧急",
-            screenshot3Alt: "RESQ+ AI 医疗护士",
-            screenshot4Alt: "RESQ+ 紧急档案",
-            screenshot5Alt: "RESQ+ 急救和分诊",
-            screenshot6Alt: "RESQ+ 团队连接",
-            screenshot7Alt: "RESQ+ 救援游戏",
-            screenshot8Alt: "RESQ+ 准备就绪 - 即将推出"
         }
     },
     
@@ -472,10 +446,6 @@ const TRANSLATIONS = {
         th: {
             shareOn: "แชร์บน",
             copyLink: "คัดลอกลิงก์"
-        },
-        zh: {
-            shareOn: "分享到",
-            copyLink: "复制链接"
         }
     },
     
@@ -483,10 +453,10 @@ const TRANSLATIONS = {
     newsletter: {
         en: {
             title: "📧 Stay Updated!",
-            subtitle: "Get early access & exclusive updates",
-            description: "Join 5,000+ people getting notified when RESQ+ launches. Red Cross approved emergency guidance in your inbox.",
+            subtitle: "Get product updates & exclusive news",
+            description: "Get updates about RESQ+ improvements, emergency guidance features, and important product news.",
             placeholder: "Enter your email",
-            buttonText: "Get Early Access",
+            buttonText: "Get Updates",
             privacyText: "We respect your privacy. Unsubscribe anytime.",
             successTitle: "🎉 You're In!",
             successMessage: "Check your inbox for confirmation.",
@@ -494,10 +464,10 @@ const TRANSLATIONS = {
         },
         fr: {
             title: "📧 Restez Informé!",
-            subtitle: "Accès anticipé et mises à jour exclusives",
-            description: "Rejoignez 5 000+ personnes notifiées au lancement de RESQ+. Conseils d'urgence approuvés par la Croix-Rouge dans votre boîte mail.",
+            subtitle: "Recevez des mises à jour produit et des nouvelles exclusives",
+            description: "Recevez des nouvelles sur les améliorations de RESQ+, les fonctions de guidage d'urgence et les actualités importantes du produit.",
             placeholder: "Entrez votre email",
-            buttonText: "Accès Anticipé",
+            buttonText: "Recevoir les mises à jour",
             privacyText: "Nous respectons votre vie privée. Désabonnement à tout moment.",
             successTitle: "🎉 C'est Fait!",
             successMessage: "Vérifiez votre boîte mail pour confirmation.",
@@ -505,25 +475,14 @@ const TRANSLATIONS = {
         },
         th: {
             title: "📧 ติดตามข่าวสาร!",
-            subtitle: "เข้าถึงก่อนใครและรับข่าวสารพิเศษ",
-            description: "เข้าร่วมกับ 5,000+ คนที่รับการแจ้งเตือนเมื่อ RESQ+ เปิดตัว คำแนะนำฉุกเฉินที่ได้รับการรับรองจาก Red Cross ส่งตรงถึงอีเมลคุณ",
+            subtitle: "รับอัปเดตสินค้าและข่าวสารพิเศษ",
+            description: "รับข่าวเกี่ยวกับการปรับปรุง RESQ+, ฟีเจอร์คำแนะนำฉุกเฉิน และข่าวสารสำคัญของผลิตภัณฑ์",
             placeholder: "ใส่อีเมลของคุณ",
-            buttonText: "เข้าถึงก่อนใคร",
+            buttonText: "รับอัปเดต",
             privacyText: "เราเคารพความเป็นส่วนตัวของคุณ ยกเลิกได้ทุกเมื่อ",
             successTitle: "🎉 เสร็จแล้ว!",
             successMessage: "ตรวจสอบอีเมลของคุณเพื่อยืนยัน",
             contactLabel: "หรือติดต่อเราโดยตรง:"
-        },
-        zh: {
-            title: "📧 保持更新！",
-            subtitle: "获取抢先体验和独家更新",
-            description: "加入 5,000+ 人，在 RESQ+ 启动时获得通知。红十字会认证的紧急指导直达您的收件箱。",
-            placeholder: "输入您的电子邮件",
-            buttonText: "抢先体验",
-            privacyText: "我们尊重您的隐私。随时取消订阅。",
-            successTitle: "🎉 成功！",
-            successMessage: "查看您的收件箱确认。",
-            contactLabel: "或直接联系我们："
         }
     },
     
@@ -532,19 +491,19 @@ const TRANSLATIONS = {
         en: {
             // Feature 1: SOS Smart
             feature1_title: "SOS Smart",
-            feature1_desc: "Smart SOS button with haptic feedback, flash morse code, auto-SMS, auto-call, and 5-second video recording with blur privacy.",
-            feature1_item1: "✓ Auto-call & auto-SMS (... --- ...)",
-            feature1_item2: "✓ Flash with morse code",
-            feature1_item3: "✓ Video recording with privacy",
-            feature1_item4: "✓ Emergency alerts",
+            feature1_desc: "Emergency SOS with flash Morse code, emergency recording, SMS alerts, and sound alert tools.",
+            feature1_item1: "✓ Flash Morse code (... --- ...)",
+            feature1_item2: "✓ Emergency recording",
+            feature1_item3: "✓ SMS alerts",
+            feature1_item4: "✓ Sound alert tools",
             
             // Feature 2: AI Emergency Nurse
             feature2_title: "AI Emergency Nurse",
-            feature2_desc: "24/7 AI medical assistant with Red Cross protocols, triage assessment, and first aid kit guidance in 4 languages.",
+            feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
             feature2_item1: "✓ Voice & image support",
             feature2_item2: "✓ ABC+D triage protocol",
-            feature2_item3: "✓ EN / FR / TH / ZH languages",
-            feature2_item4: "✓ First aid kit integration",
+            feature2_item3: "✓ Family medical profiles",
+            feature2_item4: "✓ Exact kit inventory match",
             
             // Feature 3: Team Connect
             feature3_title: "Team Connect",
@@ -556,10 +515,10 @@ const TRANSLATIONS = {
             
             // Feature 4: Emergency Profile
             feature4_title: "Emergency Profile",
-            feature4_desc: "Complete medical profile with blood type, allergies, medications, insurance, and privacy-controlled QR code for first responders.",
+            feature4_desc: "Store medical details, contacts, and insurance locally on your device, with privacy controls for emergency information sharing.",
             feature4_item1: "✓ Medical history & allergies",
             feature4_item2: "✓ Emergency contacts",
-            feature4_item3: "✓ QR code with privacy settings",
+            feature4_item3: "✓ QR sharing settings",
             feature4_item4: "✓ Insurance information",
             
             // Feature 5: First Aid & Triage
@@ -572,11 +531,11 @@ const TRANSLATIONS = {
             
             // Feature 6: Community & Alerts
             feature6_title: "Community & Alerts",
-            feature6_desc: "Government disaster alerts, community danger reports, request help feature, and real-time emergency notifications.",
-            feature6_item1: "✓ Government alerts (Thailand)",
+            feature6_desc: "Community danger reports, nearby help requests, and emergency notifications.",
+            feature6_item1: "✓ Community alert feed",
             feature6_item2: "✓ Community danger reports",
             feature6_item3: "✓ Request help nearby",
-            feature6_item4: "✓ Emergency broadcasts",
+            feature6_item4: "✓ Push notifications",
             
             // Feature 7: Rush Map
             feature7_title: "Rush Map",
@@ -586,38 +545,38 @@ const TRANSLATIONS = {
             feature7_item3: "✓ GPS navigation",
             feature7_item4: "✓ One-tap calling",
             
-            // Feature 8: Rescue Game
-            feature8_title: "Rescue Game",
-            feature8_desc: "Interactive emergency training game with real scenarios. Practice life-saving skills, earn badges, and unlock achievements.",
-            feature8_item1: "✓ Real emergency scenarios",
-            feature8_item2: "✓ Heatstroke & snakebite training",
-            feature8_item3: "✓ Badges & achievements",
-            feature8_item4: "✓ Skill progression system",
+            // Feature 8: Weather, Marine & Utility Tools
+            feature8_title: "Weather, Marine & Utility Tools",
+            feature8_desc: "Access weather conditions, marine forecasts, navigation tools, compass modes, and a bubble level from one app.",
+            feature8_item1: "✓ Weather screen",
+            feature8_item2: "✓ Marine dashboard & forecast",
+            feature8_item3: "✓ Compass & Qibla tools",
+            feature8_item4: "✓ Bubble level utility",
             
-            // Feature 9: QR Scanner
-            feature9_title: "QR Scanner",
-            feature9_desc: "Scan emergency medical QR codes to access patient information, join teams, and access emergency protocols instantly.",
-            feature9_item1: "✓ Medical profile scanning",
-            feature9_item2: "✓ Team QR joining",
-            feature9_item3: "✓ Fast emergency data access",
-            feature9_item4: "✓ Privacy-protected"
+            // Feature 9: QR Scanner & Sharing
+            feature9_title: "QR Scanner & Sharing",
+            feature9_desc: "Use QR tools for team joining and manage which emergency profile details are prepared for QR sharing.",
+            feature9_item1: "✓ Team QR joining",
+            feature9_item2: "✓ Camera QR scanning",
+            feature9_item3: "✓ Emergency profile sharing settings",
+            feature9_item4: "✓ Privacy controls"
         },
         fr: {
             // Feature 1: SOS Smart
             feature1_title: "SOS Intelligent",
-            feature1_desc: "Bouton SOS intelligent avec retour haptique, code morse lumineux, SMS automatique, appel automatique et enregistrement vidéo de 5 secondes avec confidentialité.",
-            feature1_item1: "✓ Appel et SMS automatiques (... --- ...)",
-            feature1_item2: "✓ Flash avec code morse",
-            feature1_item3: "✓ Enregistrement vidéo avec confidentialité",
-            feature1_item4: "✓ Alertes d'urgence",
+            feature1_desc: "SOS d'urgence avec code Morse lumineux, enregistrement d'urgence, alertes SMS et outils d'alerte sonore.",
+            feature1_item1: "✓ Code Morse lumineux (... --- ...)",
+            feature1_item2: "✓ Enregistrement d'urgence",
+            feature1_item3: "✓ Alertes SMS",
+            feature1_item4: "✓ Outils d'alerte sonore",
             
             // Feature 2: AI Emergency Nurse
             feature2_title: "Infirmière d'Urgence IA",
-            feature2_desc: "Assistant médical IA 24h/24 et 7j/7 avec protocoles Red Cross, évaluation de triage et conseils sur la trousse de premiers soins en 4 langues.",
+            feature2_desc: "Assistance médicale par IA personnalisée selon les profils médicaux familiaux et le contenu exact de votre trousse de secours. Saisie vocale/image avec triage ABC+D.",
             feature2_item1: "✓ Support vocal et image",
             feature2_item2: "✓ Protocole de triage ABC+D",
-            feature2_item3: "✓ Langues EN / FR / TH / ZH",
-            feature2_item4: "✓ Intégration trousse premiers soins",
+            feature2_item3: "✓ Profils médicaux familiaux",
+            feature2_item4: "✓ Inventaire exact de la trousse",
             
             // Feature 3: Team Connect
             feature3_title: "Connexion d'Équipe",
@@ -629,10 +588,10 @@ const TRANSLATIONS = {
             
             // Feature 4: Emergency Profile
             feature4_title: "Profil d'Urgence",
-            feature4_desc: "Profil médical complet avec groupe sanguin, allergies, médicaments, assurance et code QR à confidentialité contrôlée pour les premiers intervenants.",
+            feature4_desc: "Stockez les informations médicales, contacts et assurances localement sur votre appareil, avec des contrôles de confidentialité pour le partage d'informations d'urgence.",
             feature4_item1: "✓ Antécédents médicaux et allergies",
             feature4_item2: "✓ Contacts d'urgence",
-            feature4_item3: "✓ Code QR avec paramètres de confidentialité",
+            feature4_item3: "✓ Paramètres de partage QR",
             feature4_item4: "✓ Informations d'assurance",
             
             // Feature 5: First Aid & Triage
@@ -645,11 +604,11 @@ const TRANSLATIONS = {
             
             // Feature 6: Community & Alerts
             feature6_title: "Communauté et Alertes",
-            feature6_desc: "Alertes gouvernementales de catastrophe, rapports de danger communautaires, fonction de demande d'aide et notifications d'urgence en temps réel.",
-            feature6_item1: "✓ Alertes gouvernementales (Thaïlande)",
+            feature6_desc: "Rapports de danger communautaires, demandes d'aide à proximité et notifications d'urgence.",
+            feature6_item1: "✓ Flux d'alertes communautaires",
             feature6_item2: "✓ Rapports de danger communautaires",
             feature6_item3: "✓ Demander de l'aide à proximité",
-            feature6_item4: "✓ Diffusions d'urgence",
+            feature6_item4: "✓ Notifications push",
             
             // Feature 7: Rush Map
             feature7_title: "Carte Express",
@@ -659,38 +618,38 @@ const TRANSLATIONS = {
             feature7_item3: "✓ Navigation GPS",
             feature7_item4: "✓ Appel en un clic",
             
-            // Feature 8: Rescue Game
-            feature8_title: "Jeu de Sauvetage",
-            feature8_desc: "Jeu de formation aux urgences interactif avec scénarios réels. Pratiquez des compétences vitales, gagnez des badges et débloquez des réalisations.",
-            feature8_item1: "✓ Scénarios d'urgence réels",
-            feature8_item2: "✓ Formation coup de chaleur et morsure de serpent",
-            feature8_item3: "✓ Badges et réalisations",
-            feature8_item4: "✓ Système de progression des compétences",
+            // Feature 8: Weather, Marine & Utility Tools
+            feature8_title: "Météo, Marine et Outils",
+            feature8_desc: "Accédez aux conditions météo, prévisions marines, outils de navigation, modes boussole et niveau à bulle dans une seule application.",
+            feature8_item1: "✓ Écran météo",
+            feature8_item2: "✓ Tableau de bord et prévisions marines",
+            feature8_item3: "✓ Outils boussole et Qibla",
+            feature8_item4: "✓ Niveau à bulle",
             
-            // Feature 9: QR Scanner
-            feature9_title: "Scanner QR",
-            feature9_desc: "Scannez les codes QR médicaux d'urgence pour accéder aux informations des patients, rejoindre des équipes et accéder instantanément aux protocoles d'urgence.",
-            feature9_item1: "✓ Scan du profil médical",
-            feature9_item2: "✓ Rejoindre une équipe par QR",
-            feature9_item3: "✓ Accès rapide aux données d'urgence",
-            feature9_item4: "✓ Protégé par confidentialité"
+            // Feature 9: QR Scanner & Sharing
+            feature9_title: "Scanner et Partage QR",
+            feature9_desc: "Utilisez les outils QR pour rejoindre une équipe et gérer les informations du profil d'urgence préparées pour le partage QR.",
+            feature9_item1: "✓ Rejoindre une équipe par QR",
+            feature9_item2: "✓ Scan QR avec caméra",
+            feature9_item3: "✓ Paramètres de partage du profil d'urgence",
+            feature9_item4: "✓ Contrôles de confidentialité"
         },
         th: {
             // Feature 1: SOS Smart
             feature1_title: "SOS อัจฉริยะ",
-            feature1_desc: "ปุ่ม SOS อัจฉริยะพร้อมแรงสั่นสะเทือน ไฟกระพริบรหัสมอร์ส ส่ง SMS อัตโนมัติ โทรอัตโนมัติ และบันทึกวิดีโอ 5 วินาทีพร้อมความเป็นส่วนตัว",
-            feature1_item1: "✓ โทรและส่ง SMS อัตโนมัติ (... --- ...)",
-            feature1_item2: "✓ ไฟกระพริบรหัสมอร์ส",
-            feature1_item3: "✓ บันทึกวิดีโอพร้อมความเป็นส่วนตัว",
-            feature1_item4: "✓ การแจ้งเตือนฉุกเฉิน",
+            feature1_desc: "SOS ฉุกเฉินพร้อมไฟแฟลชรหัสมอร์ส การบันทึกเหตุฉุกเฉิน การแจ้งเตือน SMS และเครื่องมือแจ้งเตือนด้วยเสียง",
+            feature1_item1: "✓ แฟลชรหัสมอร์ส (... --- ...)",
+            feature1_item2: "✓ การบันทึกเหตุฉุกเฉิน",
+            feature1_item3: "✓ การแจ้งเตือน SMS",
+            feature1_item4: "✓ เครื่องมือแจ้งเตือนด้วยเสียง",
             
             // Feature 2: AI Emergency Nurse
             feature2_title: "พยาบาลฉุกเฉิน AI",
-            feature2_desc: "ผู้ช่วยทางการแพทย์ AI ตลอด 24/7 พร้อมโปรโตคอล Red Cross การประเมินการคัดกรอง และคำแนะนำชุดปฐมพยาบาลใน 4 ภาษา",
+            feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
             feature2_item1: "✓ รองรับเสียงและรูปภาพ",
             feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
-            feature2_item3: "✓ ภาษา EN / FR / TH / ZH",
-            feature2_item4: "✓ บูรณาการชุดปฐมพยาบาล",
+            feature2_item3: "✓ โปรไฟล์ทางการแพทย์ของครอบครัว",
+            feature2_item4: "✓ วิเคราะห์ตามชุดปฐมพยาบาลของคุณ",
             
             // Feature 3: Team Connect
             feature3_title: "เชื่อมต่อทีม",
@@ -702,10 +661,10 @@ const TRANSLATIONS = {
             
             // Feature 4: Emergency Profile
             feature4_title: "โปรไฟล์ฉุกเฉิน",
-            feature4_desc: "โปรไฟล์ทางการแพทย์ที่สมบูรณ์พร้อมหมู่เลือด ภูมิแพ้ ยา ประกันภัย และ QR code ที่ควบคุมความเป็นส่วนตัวสำหรับผู้ช่วยเหลือฉุกเฉิน",
+            feature4_desc: "จัดเก็บข้อมูลทางการแพทย์ ผู้ติดต่อ และประกันไว้ในอุปกรณ์ของคุณ พร้อมตัวควบคุมความเป็นส่วนตัวสำหรับการแชร์ข้อมูลฉุกเฉิน",
             feature4_item1: "✓ ประวัติทางการแพทย์และภูมิแพ้",
             feature4_item2: "✓ ผู้ติดต่อฉุกเฉิน",
-            feature4_item3: "✓ QR code พร้อมการตั้งค่าความเป็นส่วนตัว",
+            feature4_item3: "✓ การตั้งค่าการแชร์ QR",
             feature4_item4: "✓ ข้อมูลประกันภัย",
             
             // Feature 5: First Aid & Triage
@@ -718,11 +677,11 @@ const TRANSLATIONS = {
             
             // Feature 6: Community & Alerts
             feature6_title: "ชุมชนและการแจ้งเตือน",
-            feature6_desc: "การแจ้งเตือนภัยพิบัติจากรัฐบาล รายงานอันตรายจากชุมชน คุณสมบัติขอความช่วยเหลือ และการแจ้งเตือนฉุกเฉินแบบเรียลไทม์",
-            feature6_item1: "✓ การแจ้งเตือนจากรัฐบาล (ประเทศไทย)",
+            feature6_desc: "รายงานอันตรายจากชุมชน การขอความช่วยเหลือใกล้เคียง และการแจ้งเตือนฉุกเฉิน",
+            feature6_item1: "✓ ฟีดการแจ้งเตือนชุมชน",
             feature6_item2: "✓ รายงานอันตรายจากชุมชน",
             feature6_item3: "✓ ขอความช่วยเหลือใกล้เคียง",
-            feature6_item4: "✓ การออกอากาศฉุกเฉิน",
+            feature6_item4: "✓ การแจ้งเตือนแบบพุช",
             
             // Feature 7: Rush Map
             feature7_title: "แผนที่รวดเร็ว",
@@ -732,101 +691,28 @@ const TRANSLATIONS = {
             feature7_item3: "✓ การนำทาง GPS",
             feature7_item4: "✓ โทรแบบแตะเดียว",
             
-            // Feature 8: Rescue Game
-            feature8_title: "เกมช่วยชีวิต",
-            feature8_desc: "เกมฝึกอบรมฉุกเฉินแบบโต้ตอบพร้อมสถานการณ์จริง ฝึกทักษะช่วยชีวิต รับเหรียญตรา และปลดล็อกความสำเร็จ",
-            feature8_item1: "✓ สถานการณ์ฉุกเฉินจริง",
-            feature8_item2: "✓ การฝึกอบรมลมแดดและงูกัด",
-            feature8_item3: "✓ เหรียญตราและความสำเร็จ",
-            feature8_item4: "✓ ระบบพัฒนาทักษะ",
+            // Feature 8: Weather, Marine & Utility Tools
+            feature8_title: "อากาศ ทะเล และเครื่องมือ",
+            feature8_desc: "เข้าถึงสภาพอากาศ การพยากรณ์ทางทะเล เครื่องมือนำทาง โหมดเข็มทิศ และระดับน้ำในแอปเดียว",
+            feature8_item1: "✓ หน้าจอสภาพอากาศ",
+            feature8_item2: "✓ แดชบอร์ดและพยากรณ์ทางทะเล",
+            feature8_item3: "✓ เครื่องมือเข็มทิศและกิบละห์",
+            feature8_item4: "✓ ระดับน้ำ",
             
-            // Feature 9: QR Scanner
-            feature9_title: "สแกน QR Code",
-            feature9_desc: "สแกน QR code ทางการแพทย์ฉุกเฉินเพื่อเข้าถึงข้อมูลผู้ป่วย เข้าร่วมทีม และเข้าถึงโปรโตคอลฉุกเฉินทันที",
-            feature9_item1: "✓ การสแกนโปรไฟล์ทางการแพทย์",
-            feature9_item2: "✓ การเข้าร่วมทีมผ่าน QR",
-            feature9_item3: "✓ การเข้าถึงข้อมูลฉุกเฉินอย่างรวดเร็ว",
-            feature9_item4: "✓ ได้รับการปกป้องความเป็นส่วนตัว"
-        },
-        zh: {
-            // Feature 1: SOS Smart
-            feature1_title: "智能 SOS",
-            feature1_desc: "智能 SOS 按钮，具有触觉反馈、闪光摩尔斯电码、自动短信、自动呼叫和 5 秒视频录制功能，并保护隐私。",
-            feature1_item1: "✓ 自动呼叫和自动短信 (... --- ...)",
-            feature1_item2: "✓ 摩尔斯电码闪光",
-            feature1_item3: "✓ 隐私保护视频录制",
-            feature1_item4: "✓ 紧急警报",
-            
-            // Feature 2: AI Emergency Nurse
-            feature2_title: "AI 急救护士",
-            feature2_desc: "24/7 AI 医疗助手，配备红十字协议、分诊评估和 4 种语言的急救包指导。",
-            feature2_item1: "✓ 支持语音和图像",
-            feature2_item2: "✓ ABC+D 分诊协议",
-            feature2_item3: "✓ EN / FR / TH / ZH 语言",
-            feature2_item4: "✓ 急救包集成",
-            
-            // Feature 3: Team Connect
-            feature3_title: "团队连接",
-            feature3_desc: "创建并协调紧急团队。实时位置共享、语音消息团队警报和二维码加入。",
-            feature3_item1: "✓ 团队创建和管理",
-            feature3_item2: "✓ 实时 GPS 跟踪",
-            feature3_item3: "✓ 语音消息警报",
-            feature3_item4: "✓ 二维码加入团队",
-            
-            // Feature 4: Emergency Profile
-            feature4_title: "紧急档案",
-            feature4_desc: "完整的医疗档案，包含血型、过敏史、药物、保险和隐私控制的二维码，供急救人员使用。",
-            feature4_item1: "✓ 病史和过敏史",
-            feature4_item2: "✓ 紧急联系人",
-            feature4_item3: "✓ 带隐私设置的二维码",
-            feature4_item4: "✓ 保险信息",
-            
-            // Feature 5: First Aid & Triage
-            feature5_title: "急救和分诊",
-            feature5_desc: "专业医疗分诊，配有颜色编码协议（红/橙/黄/绿）和智能急救包建议。",
-            feature5_item1: "✓ 4 级分诊系统",
-            feature5_item2: "✓ 交互式协议",
-            feature5_item3: "✓ 急救包指导",
-            feature5_item4: "✓ 分步说明",
-            
-            // Feature 6: Community & Alerts
-            feature6_title: "社区和警报",
-            feature6_desc: "政府灾害警报、社区危险报告、请求帮助功能和实时紧急通知。",
-            feature6_item1: "✓ 政府警报（泰国）",
-            feature6_item2: "✓ 社区危险报告",
-            feature6_item3: "✓ 请求附近帮助",
-            feature6_item4: "✓ 紧急广播",
-            
-            // Feature 7: Rush Map
-            feature7_title: "快速地图",
-            feature7_desc: "即时查找最近的紧急服务。附近的警察局和医院，一键导航和呼叫。",
-            feature7_item1: "✓ 最近的警察局",
-            feature7_item2: "✓ 最近的医院",
-            feature7_item3: "✓ GPS 导航",
-            feature7_item4: "✓ 一键呼叫",
-            
-            // Feature 8: Rescue Game
-            feature8_title: "救援游戏",
-            feature8_desc: "交互式紧急训练游戏，包含真实场景。练习救生技能，获得徽章并解锁成就。",
-            feature8_item1: "✓ 真实紧急场景",
-            feature8_item2: "✓ 中暑和蛇咬伤训练",
-            feature8_item3: "✓ 徽章和成就",
-            feature8_item4: "✓ 技能进度系统",
-            
-            // Feature 9: QR Scanner
-            feature9_title: "二维码扫描仪",
-            feature9_desc: "扫描紧急医疗二维码以访问患者信息、加入团队并即时访问紧急协议。",
-            feature9_item1: "✓ 医疗档案扫描",
-            feature9_item2: "✓ 二维码加入团队",
-            feature9_item3: "✓ 快速访问紧急数据",
-            feature9_item4: "✓ 隐私保护"
+            // Feature 9: QR Scanner & Sharing
+            feature9_title: "สแกนและแชร์ QR",
+            feature9_desc: "ใช้เครื่องมือ QR เพื่อเข้าร่วมทีมและจัดการว่าข้อมูลโปรไฟล์ฉุกเฉินใดถูกเตรียมไว้สำหรับการแชร์ผ่าน QR",
+            feature9_item1: "✓ เข้าร่วมทีมด้วย QR",
+            feature9_item2: "✓ สแกน QR ด้วยกล้อง",
+            feature9_item3: "✓ การตั้งค่าการแชร์โปรไฟล์ฉุกเฉิน",
+            feature9_item4: "✓ ตัวควบคุมความเป็นส่วนตัว"
         }
     }
 };
 
 // Initialize translation system
 function initTranslations() {
-    const currentLang = localStorage.getItem('resq_lang') || detectLanguage();
+    const currentLang = 'en';
     applyTranslations(currentLang);
     setupLanguageSelector();
 }
@@ -836,18 +722,19 @@ function detectLanguage() {
     const browserLang = navigator.language.toLowerCase();
     if (browserLang.startsWith('fr')) return 'fr';
     if (browserLang.startsWith('th')) return 'th';
-    if (browserLang.startsWith('zh')) return 'zh';
     return 'en';
 }
 
 // Apply translations to page
 function applyTranslations(lang) {
+    const safeLang = normalizeTranslationLanguage(lang);
+
     // Translate elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         const [section, ...path] = key.split('.');
         
-        let translation = TRANSLATIONS[section]?.[lang];
+        let translation = TRANSLATIONS[section]?.[safeLang];
         for (const p of path) {
             translation = translation?.[p];
         }
@@ -866,7 +753,7 @@ function applyTranslations(lang) {
         const key = element.getAttribute('data-i18n-alt');
         const [section, ...path] = key.split('.');
         
-        let translation = TRANSLATIONS[section]?.[lang];
+        let translation = TRANSLATIONS[section]?.[safeLang];
         for (const p of path) {
             translation = translation?.[p];
         }
@@ -881,7 +768,7 @@ function applyTranslations(lang) {
         const key = element.getAttribute('data-i18n-placeholder');
         const [section, ...path] = key.split('.');
         
-        let translation = TRANSLATIONS[section]?.[lang];
+        let translation = TRANSLATIONS[section]?.[safeLang];
         for (const p of path) {
             translation = translation?.[p];
         }
@@ -892,10 +779,11 @@ function applyTranslations(lang) {
     });
     
     // Update HTML lang attribute
-    document.documentElement.lang = lang;
+    document.documentElement.lang = safeLang;
     
     // Save preference
-    localStorage.setItem('resq_lang', lang);
+    localStorage.setItem('resq_lang', safeLang);
+    localStorage.setItem('selectedLanguage', safeLang);
     
     // Refresh social share buttons if available
     if (window.SocialShare && typeof window.SocialShare.refresh === 'function') {
@@ -917,7 +805,7 @@ function applyTranslations(lang) {
 function setupLanguageSelector() {
     const selector = document.getElementById('language-selector');
     if (selector) {
-        const currentLang = localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en';
+        const currentLang = normalizeTranslationLanguage(localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en');
         selector.value = currentLang;
         
         selector.addEventListener('change', (e) => {
@@ -935,3 +823,506 @@ if (document.readyState === 'loading') {
 } else {
     initTranslations();
 }
+
+
+
+const NEW_FEATURES_EN = {
+    feature1_title: "SOS Smart System",
+    feature1_desc: "Advanced emergency activation with flash morse code, automatic video recording, SMS alerts, and sound alert system.",
+    feature1_item1: "✓ Flash morse code (... --- ...)",
+    feature1_item2: "✓ Auto-recording with timer",
+    feature1_item3: "✓ SMS emergency alerts",
+    feature1_item4: "✓ Sound alert system",
+
+    feature2_title: "AI Emergency Nurse",
+    feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
+    feature2_item1: "✓ Voice & image support",
+    feature2_item2: "✓ ABC+D triage protocol",
+    feature2_item3: "✓ Family medical profiles",
+    feature2_item4: "✓ Exact kit inventory match",
+
+    feature3_title: "Team Connect",
+    feature3_desc: "Create and coordinate with emergency teams. Real-time location sharing, team alerts with voice messages, and QR code joining.",
+    feature3_item1: "✓ Team creation & management",
+    feature3_item2: "✓ Real-time GPS tracking",
+    feature3_item3: "✓ Voice message alerts",
+    feature3_item4: "✓ QR code team joining",
+
+    feature4_title: "Emergency Profile",
+    feature4_desc: "Store medical details, contacts, and insurance locally on your device, with privacy controls for emergency information sharing.",
+    feature4_item1: "✓ Medical history & allergies",
+    feature4_item2: "✓ Emergency contacts",
+    feature4_item3: "✓ QR sharing settings",
+    feature4_item4: "✓ Insurance information",
+
+    feature5_title: "First Aid & Triage",
+    feature5_desc: "Professional medical triage with color-coded protocols (RED/ORANGE/YELLOW/GREEN) and smart first aid kit recommendations.",
+    feature5_item1: "✓ 4-level triage system",
+    feature5_item2: "✓ Interactive protocols",
+    feature5_item3: "✓ First aid kit guidance",
+    feature5_item4: "✓ Step-by-step instructions",
+
+    feature6_title: "Community & Alerts",
+    feature6_desc: "Community danger reports, nearby help requests, and emergency notifications.",
+    feature6_item1: "✓ Community alert feed",
+    feature6_item2: "✓ Community danger reports",
+    feature6_item3: "✓ Request help nearby",
+    feature6_item4: "✓ Push notifications",
+
+    feature7_title: "Global Emergency Directory",
+    feature7_desc: "Automatic region detection updates local emergency numbers instantly (Police, Ambulance, Fire, Mental Health) wherever you travel.",
+    feature7_item1: "✓ Auto region detection",
+    feature7_item2: "✓ Local police & ambulance",
+    feature7_item3: "✓ Offline directory",
+    feature7_item4: "✓ One-tap dialing",
+
+    feature8_title: "My First Aid Kit",
+    feature8_desc: "Manage your medical supplies with a digital inventory. Track completion status, add custom items, and store locally offline.",
+    feature8_item1: "✓ Digital supply inventory",
+    feature8_item2: "✓ Completion tracking",
+    feature8_item3: "✓ Custom equipment",
+    feature8_item4: "✓ Offline local storage",
+
+    feature9_title: "Weather & Utility Tools",
+    feature9_desc: "Access real-time weather, multiple compass modes (Standard, Telescope, Qibla), and a bubble level all in one app.",
+    feature9_item1: "✓ Real-time weather",
+    feature9_item2: "✓ Standard & Qibla compass",
+    feature9_item3: "✓ Bubble level",
+    feature9_item4: "✓ Usable without internet",
+
+    feature10_title: "Rescue Game",
+    feature10_desc: "Interactive emergency training with real-life scenarios. Practice life-saving skills, earn badges, and unlock achievements.",
+    feature10_item1: "✓ Interactive scenarios",
+    feature10_item2: "✓ Earn skill badges",
+    feature10_item3: "✓ Heatstroke & snakebite",
+    feature10_item4: "✓ Progression system",
+
+    feature11_title: "QR Scanner & Sharing",
+    feature11_desc: "Use QR tools for team joining and manage which emergency profile details are prepared for QR sharing.",
+    feature11_item1: "✓ Team QR joining",
+    feature11_item2: "✓ Camera QR scanning",
+    feature11_item3: "✓ Privacy controls",
+    feature11_item4: "✓ Emergency sharing"
+};
+
+const NEW_FEATURES_FR = {
+    feature1_title: "Système SOS Intelligent",
+    feature1_desc: "Activation d'urgence avancée avec code morse lumineux, enregistrement vidéo automatique, alertes SMS et alerte sonore.",
+    feature1_item1: "✓ Code morse lumineux (... --- ...)",
+    feature1_item2: "✓ Auto-enregistrement avec minuteur",
+    feature1_item3: "✓ Alertes d'urgence SMS",
+    feature1_item4: "✓ Système d'alerte sonore",
+
+    feature2_title: "IA Infirmière d'Urgence",
+    feature2_desc: "Assistance médicale par IA personnalisée selon les profils médicaux familiaux et le contenu exact de votre trousse de secours. Saisie vocale/image avec triage ABC+D.",
+    feature2_item1: "✓ Support vocal et d'images",
+    feature2_item2: "✓ Protocole de triage ABC+D",
+    feature2_item3: "✓ Profils médicaux familiaux",
+    feature2_item4: "✓ Inventaire exact de la trousse",
+
+    feature3_title: "Connexion d'Équipe",
+    feature3_desc: "Créez et coordonnez vos équipes d'urgence. Partage de position en temps réel, alertes avec messages vocaux et invitation par code QR.",
+    feature3_item1: "✓ Création et gestion d'équipe",
+    feature3_item2: "✓ Suivi GPS en temps réel",
+    feature3_item3: "✓ Messages vocaux d'alerte",
+    feature3_item4: "✓ Rejoindre par code QR",
+
+    feature4_title: "Profil d'Urgence",
+    feature4_desc: "Stockez localement vos antécédents médicaux, contacts et assurances, avec des paramètres de confidentialité stricts pour le partage.",
+    feature4_item1: "✓ Antécédents médicaux & allergies",
+    feature4_item2: "✓ Contacts d'urgence",
+    feature4_item3: "✓ Paramètres de partage QR",
+    feature4_item4: "✓ Informations d'assurance",
+
+    feature5_title: "Premiers Soins et Triage",
+    feature5_desc: "Triage médical professionnel avec protocoles par code couleur (ROUGE/ORANGE/JAUNE/VERT) et recommandations intelligentes.",
+    feature5_item1: "✓ Système de triage à 4 niveaux",
+    feature5_item2: "✓ Protocoles interactifs",
+    feature5_item3: "✓ Conseils trousse de secours",
+    feature5_item4: "✓ Instructions étape par étape",
+
+    feature6_title: "Communauté et Alertes",
+    feature6_desc: "Signalez des dangers, demandez de l'aide à proximité et recevez des notifications d'urgence locales.",
+    feature6_item1: "✓ Fil d'alertes communautaires",
+    feature6_item2: "✓ Signalement de dangers",
+    feature6_item3: "✓ Demande d'aide à proximité",
+    feature6_item4: "✓ Notifications push",
+
+    feature7_title: "Annuaire d'Urgence Global",
+    feature7_desc: "Détection automatique de la région mettant à jour instantanément les numéros locaux (Police, Ambulance, Pompiers) lors de vos voyages.",
+    feature7_item1: "✓ Détection auto de la région",
+    feature7_item2: "✓ Police & ambulance locales",
+    feature7_item3: "✓ Annuaire hors-ligne",
+    feature7_item4: "✓ Appel en un clic",
+
+    feature8_title: "Ma Trousse de Secours",
+    feature8_desc: "Gérez votre matériel médical avec un inventaire numérique. Suivez son état, ajoutez des objets personnalisés et stockez localement.",
+    feature8_item1: "✓ Inventaire numérique",
+    feature8_item2: "✓ Suivi de complétion",
+    feature8_item3: "✓ Équipements personnalisés",
+    feature8_item4: "✓ Stockage local hors-ligne",
+
+    feature9_title: "Météo, Boussoles & Outils",
+    feature9_desc: "Accédez à la météo en temps réel, aux différents modes de boussole (Standard, Télescope, Qibla) et à un niveau à bulle.",
+    feature9_item1: "✓ Météo en temps réel",
+    feature9_item2: "✓ Boussole Standard & Qibla",
+    feature9_item3: "✓ Niveau à bulle",
+    feature9_item4: "✓ Utilisable sans internet",
+
+    feature10_title: "Jeu de Sauvetage",
+    feature10_desc: "Entraînement interactif aux urgences avec des scénarios réels. Pratiquez vos compétences, gagnez des badges et progressez.",
+    feature10_item1: "✓ Scénarios interactifs",
+    feature10_item2: "✓ Gagnez des badges",
+    feature10_item3: "✓ Insolation et morsure de serpent",
+    feature10_item4: "✓ Système de progression",
+
+    feature11_title: "Scanner et Partage QR",
+    feature11_desc: "Utilisez les outils QR pour rejoindre des équipes et gérer les informations médicales préparées pour le partage d'urgence.",
+    feature11_item1: "✓ Rejoindre une équipe par QR",
+    feature11_item2: "✓ Scanner avec la caméra",
+    feature11_item3: "✓ Contrôles de confidentialité",
+    feature11_item4: "✓ Partage d'urgence"
+};
+
+const NEW_FEATURES_TH = {
+    feature1_title: "ระบบ SOS อัจฉริยะ",
+    feature1_desc: "การเปิดใช้งานฉุกเฉินขั้นสูงด้วยรหัสมอร์สแบบแฟลช การบันทึกวิดีโออัตโนมัติ การแจ้งเตือนผ่าน SMS และระบบเสียงเตือน",
+    feature1_item1: "✓ รหัสมอร์สแบบแฟลช (... --- ...)",
+    feature1_item2: "✓ บันทึกวิดีโออัตโนมัติพร้อมตัวจับเวลา",
+    feature1_item3: "✓ การแจ้งเตือนฉุกเฉินผ่าน SMS",
+    feature1_item4: "✓ ระบบเสียงเตือนภัย",
+
+    feature2_title: "พยาบาลฉุกเฉิน AI",
+    feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
+    feature2_item1: "✓ รองรับการป้อนข้อมูลด้วยเสียงและภาพ",
+    feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
+    feature2_item3: "✓ โปรไฟล์ทางการแพทย์ของครอบครัว",
+    feature2_item4: "✓ วิเคราะห์ตามชุดปฐมพยาบาลของคุณ",
+
+    feature3_title: "การเชื่อมต่อทีม",
+    feature3_desc: "สร้างและประสานงานกับทีมฉุกเฉิน การแชร์ตำแหน่งแบบเรียลไทม์ การแจ้งเตือนทีมด้วยข้อความเสียง และการเข้าร่วมด้วย QR code",
+    feature3_item1: "✓ การสร้างและการจัดการทีม",
+    feature3_item2: "✓ การติดตาม GPS แบบเรียลไทม์",
+    feature3_item3: "✓ การแจ้งเตือนด้วยข้อความเสียง",
+    feature3_item4: "✓ การเข้าร่วมทีมด้วย QR code",
+
+    feature4_title: "โปรไฟล์ฉุกเฉิน",
+    feature4_desc: "จัดเก็บรายละเอียดทางการแพทย์ รายชื่อติดต่อ และประกันภัยแบบออฟไลน์บนอุปกรณ์ของคุณ พร้อมการควบคุมความเป็นส่วนตัว",
+    feature4_item1: "✓ ประวัติทางการแพทย์และอาการแพ้",
+    feature4_item2: "✓ รายชื่อผู้ติดต่อฉุกเฉิน",
+    feature4_item3: "✓ การตั้งค่าการแชร์ QR",
+    feature4_item4: "✓ ข้อมูลการประกันภัย",
+
+    feature5_title: "การปฐมพยาบาลและการคัดกรอง",
+    feature5_desc: "การคัดกรองทางการแพทย์อย่างมืออาชีพพร้อมโปรโตคอลรหัสสี (แดง/ส้ม/เหลือง/เขียว) และคำแนะนำชุดปฐมพยาบาลอัจฉริยะ",
+    feature5_item1: "✓ ระบบการคัดกรอง 4 ระดับ",
+    feature5_item2: "✓ โปรโตคอลแบบโต้ตอบ",
+    feature5_item3: "✓ คำแนะนำเกี่ยวกับชุดปฐมพยาบาล",
+    feature5_item4: "✓ คำแนะนำทีละขั้นตอน",
+
+    feature6_title: "ชุมชนและการแจ้งเตือน",
+    feature6_desc: "รายงานอันตรายในชุมชน การขอความช่วยเหลือในบริเวณใกล้เคียง และการแจ้งเตือนเหตุฉุกเฉิน",
+    feature6_item1: "✓ ฟีดการแจ้งเตือนของชุมชน",
+    feature6_item2: "✓ รายงานอันตรายในชุมชน",
+    feature6_item3: "✓ ขอความช่วยเหลือใกล้เคียง",
+    feature6_item4: "✓ การแจ้งเตือนแบบพุช",
+
+    feature7_title: "ไดเรกทอรีฉุกเฉินทั่วโลก",
+    feature7_desc: "ระบบตรวจจับภูมิภาคอัตโนมัติจะอัปเดตหมายเลขฉุกเฉินในพื้นที่ทันที (ตำรวจ, รถพยาบาล, ดับเพลิง) ทุกที่ที่คุณเดินทาง",
+    feature7_item1: "✓ ตรวจจับภูมิภาคอัตโนมัติ",
+    feature7_item2: "✓ ตำรวจและรถพยาบาลท้องถิ่น",
+    feature7_item3: "✓ ไดเรกทอรีแบบออฟไลน์",
+    feature7_item4: "✓ โทรออกด้วยการแตะเพียงครั้งเดียว",
+
+    feature8_title: "ชุดปฐมพยาบาลของฉัน",
+    feature8_desc: "จัดการอุปกรณ์ทางการแพทย์ด้วยระบบสินค้าคงคลังดิจิทัล ติดตามสถานะความพร้อม เพิ่มรายการแบบกำหนดเอง และเก็บข้อมูลแบบออฟไลน์",
+    feature8_item1: "✓ สินค้าคงคลังดิจิทัล",
+    feature8_item2: "✓ การติดตามสถานะความพร้อม",
+    feature8_item3: "✓ อุปกรณ์กำหนดเอง",
+    feature8_item4: "✓ การจัดเก็บในเครื่องแบบออฟไลน์",
+
+    feature9_title: "สภาพอากาศและเครื่องมือยูทิลิตี้",
+    feature9_desc: "เข้าถึงสภาพอากาศแบบเรียลไทม์, โหมดเข็มทิศหลายโหมด (มาตรฐาน, กล้องโทรทรรศน์, กิบลัต) และระดับน้ำในแอปเดียว",
+    feature9_item1: "✓ สภาพอากาศแบบเรียลไทม์",
+    feature9_item2: "✓ เข็มทิศมาตรฐานและกิบลัต",
+    feature9_item3: "✓ เครื่องวัดระดับน้ำ",
+    feature9_item4: "✓ ใช้งานได้โดยไม่ต้องใช้อินเทอร์เน็ต",
+
+    feature10_title: "เกมช่วยเหลือ",
+    feature10_desc: "การฝึกอบรมฉุกเฉินแบบโต้ตอบกับสถานการณ์จริง ฝึกทักษะการช่วยชีวิต รับเหรียญตรา และปลดล็อกความสำเร็จ",
+    feature10_item1: "✓ สถานการณ์แบบโต้ตอบ",
+    feature10_item2: "✓ รับเหรียญตราทักษะ",
+    feature10_item3: "✓ โรคลมแดดและงูกัด",
+    feature10_item4: "✓ ระบบความก้าวหน้า",
+
+    feature11_title: "เครื่องสแกน QR และการแชร์",
+    feature11_desc: "ใช้เครื่องมือ QR เพื่อเข้าร่วมทีมและจัดการรายละเอียดโปรไฟล์ฉุกเฉินที่เตรียมไว้สำหรับการแชร์ผ่าน QR",
+    feature11_item1: "✓ การเข้าร่วมทีมด้วย QR",
+    feature11_item2: "✓ การสแกน QR ด้วยกล้อง",
+    feature11_item3: "✓ การควบคุมความเป็นส่วนตัว",
+    feature11_item4: "✓ การแชร์ในกรณีฉุกเฉิน"
+};
+
+const NEW_FEATURES_ES = {
+    feature1_title: "Sistema Inteligente SOS",
+    feature1_desc: "Activación de emergencia avanzada con código morse de luz, grabación automática, alertas SMS y sistema de alerta de sonido.",
+    feature1_item1: "✓ Código morse de luz (... --- ...)",
+    feature1_item2: "✓ Auto-grabación con temporizador",
+    feature1_item3: "✓ Alertas SMS de emergencia",
+    feature1_item4: "✓ Sistema de alerta sonora",
+
+    feature2_title: "IA Enfermera de Emergencia",
+    feature2_desc: "Guía médica de IA adaptada a los perfiles médicos de su familia y al inventario exacto de su botiquín de primeros auxilios. Entrada de voz/imagen con triaje ABC+D.",
+    feature2_item1: "✓ Soporte de voz e imagen",
+    feature2_item2: "✓ Protocolo de triaje ABC+D",
+    feature2_item3: "✓ Perfiles médicos familiares",
+    feature2_item4: "✓ Inventario exacto del botiquín",
+
+    feature3_title: "Conexión de Equipo",
+    feature3_desc: "Cree y coordine equipos de emergencia. Ubicación en tiempo real, alertas de equipo con mensajes de voz y unión por código QR.",
+    feature3_item1: "✓ Creación y gestión de equipos",
+    feature3_item2: "✓ Seguimiento GPS en tiempo real",
+    feature3_item3: "✓ Alertas de mensajes de voz",
+    feature3_item4: "✓ Unirse por código QR",
+
+    feature4_title: "Perfil de Emergencia",
+    feature4_desc: "Guarde detalles médicos, contactos y seguros localmente con controles de privacidad para compartir información de emergencia.",
+    feature4_item1: "✓ Historial médico y alergias",
+    feature4_item2: "✓ Contactos de emergencia",
+    feature4_item3: "✓ Configuración para compartir QR",
+    feature4_item4: "✓ Información del seguro",
+
+    feature5_title: "Primeros Auxilios y Triaje",
+    feature5_desc: "Triaje médico profesional con protocolos codificados por colores (ROJO/NARANJA/AMARILLO/VERDE) y recomendaciones de botiquín.",
+    feature5_item1: "✓ Sistema de triaje de 4 niveles",
+    feature5_item2: "✓ Protocolos interactivos",
+    feature5_item3: "✓ Guía de primeros auxilios",
+    feature5_item4: "✓ Instrucciones paso a paso",
+
+    feature6_title: "Comunidad y Alertas",
+    feature6_desc: "Informes de peligro comunitarios, solicitudes de ayuda cercanas y notificaciones de emergencia.",
+    feature6_item1: "✓ Feed de alertas de la comunidad",
+    feature6_item2: "✓ Reporte de peligros",
+    feature6_item3: "✓ Pedir ayuda cerca",
+    feature6_item4: "✓ Notificaciones push",
+
+    feature7_title: "Directorio Global de Emergencia",
+    feature7_desc: "Detección automática de región: actualiza números locales de emergencia (Policía, Ambulancia, Bomberos) donde quiera que viaje.",
+    feature7_item1: "✓ Detección de región automática",
+    feature7_item2: "✓ Policía y ambulancia local",
+    feature7_item3: "✓ Directorio sin conexión",
+    feature7_item4: "✓ Llamada con un toque",
+
+    feature8_title: "Mi Botiquín de Primeros Auxilios",
+    feature8_desc: "Administre sus suministros médicos con un inventario digital. Realice un seguimiento, agregue artículos y guárdelos localmente.",
+    feature8_item1: "✓ Inventario digital",
+    feature8_item2: "✓ Seguimiento del completado",
+    feature8_item3: "✓ Artículos personalizados",
+    feature8_item4: "✓ Almacenamiento local",
+
+    feature9_title: "Herramientas de Clima y Brújula",
+    feature9_desc: "Acceda al clima, múltiples modos de brújula (Estándar, Telescopio, Qibla) y un nivel de burbuja en una sola aplicación.",
+    feature9_item1: "✓ Clima en tiempo real",
+    feature9_item2: "✓ Brújula estándar y Qibla",
+    feature9_item3: "✓ Nivel de burbuja",
+    feature9_item4: "✓ Utilizable sin internet",
+
+    feature10_title: "Juego de Rescate",
+    feature10_desc: "Entrenamiento interactivo de emergencias con escenarios reales. Practique habilidades y gane insignias.",
+    feature10_item1: "✓ Escenarios interactivos",
+    feature10_item2: "✓ Gana insignias",
+    feature10_item3: "✓ Golpe de calor y mordedura",
+    feature10_item4: "✓ Sistema de progresión",
+
+    feature11_title: "Escáner QR y Compartir",
+    feature11_desc: "Utilice herramientas QR para unirse a equipos y administrar qué detalles de su perfil están preparados para compartir.",
+    feature11_item1: "✓ Unirse al equipo con QR",
+    feature11_item2: "✓ Escaneo de cámara QR",
+    feature11_item3: "✓ Controles de privacidad",
+    feature11_item4: "✓ Compartir en emergencias"
+};
+
+const NEW_FEATURES_IT = {
+    feature1_title: "Sistema SOS Intelligente",
+    feature1_desc: "Attivazione di emergenza avanzata con codice morse luminoso, registrazione automatica, avvisi SMS e allarme sonoro.",
+    feature1_item1: "✓ Codice morse luminoso (... --- ...)",
+    feature1_item2: "✓ Registrazione automatica",
+    feature1_item3: "✓ Avvisi SMS di emergenza",
+    feature1_item4: "✓ Sistema di allarme sonoro",
+
+    feature2_title: "Infermiere AI di Emergenza",
+    feature2_desc: "Guida medica IA personalizzata per i profili medici familiari e l'inventario esatto del tuo kit di pronto soccorso. Input vocale/immagine con triage ABC+D.",
+    feature2_item1: "✓ Supporto voce e immagine",
+    feature2_item2: "✓ Protocollo di triage ABC+D",
+    feature2_item3: "✓ Profili medici familiari",
+    feature2_item4: "✓ Inventario esatto del kit",
+
+    feature3_title: "Team Connect",
+    feature3_desc: "Crea e coordina squadre di emergenza. Condivisione posizione in tempo reale, avvisi di squadra con messaggi vocali e QR code.",
+    feature3_item1: "✓ Creazione e gestione team",
+    feature3_item2: "✓ Tracciamento GPS in tempo reale",
+    feature3_item3: "✓ Avvisi con messaggi vocali",
+    feature3_item4: "✓ Unione team tramite QR",
+
+    feature4_title: "Profilo di Emergenza",
+    feature4_desc: "Archivia localmente dettagli medici, contatti e assicurazione, con controlli sulla privacy per la condivisione.",
+    feature4_item1: "✓ Anamnesi medica e allergie",
+    feature4_item2: "✓ Contatti di emergenza",
+    feature4_item3: "✓ Impostazioni condivisione QR",
+    feature4_item4: "✓ Informazioni assicurative",
+
+    feature5_title: "Primo Soccorso e Triage",
+    feature5_desc: "Triage medico professionale con protocolli a colori (ROSSO/ARANCIO/GIALLO/VERDE) e raccomandazioni intelligenti.",
+    feature5_item1: "✓ Sistema di triage a 4 livelli",
+    feature5_item2: "✓ Protocolli interattivi",
+    feature5_item3: "✓ Guida al kit primo soccorso",
+    feature5_item4: "✓ Istruzioni passo dopo passo",
+
+    feature6_title: "Comunità e Avvisi",
+    feature6_desc: "Rapporti di pericolo dalla comunità, richieste di aiuto nelle vicinanze e notifiche di emergenza.",
+    feature6_item1: "✓ Feed avvisi della comunità",
+    feature6_item2: "✓ Segnalazioni di pericolo",
+    feature6_item3: "✓ Richiesta aiuto nelle vicinanze",
+    feature6_item4: "✓ Notifiche push",
+
+    feature7_title: "Rubrica di Emergenza Globale",
+    feature7_desc: "Rilevamento automatico della regione che aggiorna i numeri locali (Polizia, Ambulanza, Vigili del Fuoco) ovunque viaggi.",
+    feature7_item1: "✓ Rilevamento regione automatico",
+    feature7_item2: "✓ Polizia e ambulanza locale",
+    feature7_item3: "✓ Rubrica offline",
+    feature7_item4: "✓ Chiamata con un tocco",
+
+    feature8_title: "Il Mio Kit di Primo Soccorso",
+    feature8_desc: "Gestisci le tue scorte mediche. Tieni traccia del completamento, aggiungi oggetti personalizzati e archivia offline.",
+    feature8_item1: "✓ Inventario digitale",
+    feature8_item2: "✓ Monitoraggio del completamento",
+    feature8_item3: "✓ Attrezzatura personalizzata",
+    feature8_item4: "✓ Archiviazione locale offline",
+
+    feature9_title: "Meteo, Bussole e Strumenti",
+    feature9_desc: "Meteo in tempo reale, diverse modalità bussola (Standard, Telescopio, Qibla) e una livella a bolla in una sola app.",
+    feature9_item1: "✓ Meteo in tempo reale",
+    feature9_item2: "✓ Bussola Standard & Qibla",
+    feature9_item3: "✓ Livella a bolla",
+    feature9_item4: "✓ Utilizzabile senza internet",
+
+    feature10_title: "Gioco di Salvataggio",
+    feature10_desc: "Addestramento interattivo alle emergenze con scenari di vita reale. Fai pratica e guadagna distintivi.",
+    feature10_item1: "✓ Scenari interattivi",
+    feature10_item2: "✓ Guadagna distintivi",
+    feature10_item3: "✓ Colpo di calore e morsi",
+    feature10_item4: "✓ Sistema di progressione",
+
+    feature11_title: "Scanner QR e Condivisione",
+    feature11_desc: "Usa gli strumenti QR per unirti ai team e gestire le informazioni del profilo preparate per la condivisione.",
+    feature11_item1: "✓ Unione team via QR",
+    feature11_item2: "✓ Scansione fotocamera QR",
+    feature11_item3: "✓ Controlli privacy",
+    feature11_item4: "✓ Condivisione emergenza"
+};
+
+const NEW_FEATURES_FIL = {
+    feature1_title: "SOS Smart System",
+    feature1_desc: "Advanced na pag-activate ng emergency na may flash morse code, awtomatikong video recording, SMS alert, at sound alert.",
+    feature1_item1: "✓ Flash morse code (... --- ...)",
+    feature1_item2: "✓ Auto-recording na may timer",
+    feature1_item3: "✓ Mga SMS emergency alert",
+    feature1_item4: "✓ Sound alert system",
+
+    feature2_title: "AI Emergency Nurse",
+    feature2_desc: "AI medikal na gabay na naka-customize para sa mga medikal na profile ng pamilya at sa iyong eksaktong first aid kit inventory. Voice/image input na may ABC+D triage.",
+    feature2_item1: "✓ Voice at image support",
+    feature2_item2: "✓ ABC+D triage protocol",
+    feature2_item3: "✓ Family medical profiles",
+    feature2_item4: "✓ Eksaktong kit inventory",
+
+    feature3_title: "Team Connect",
+    feature3_desc: "Gumawa at makipag-ugnayan sa mga emergency team. Real-time location sharing, voice message alerts, at QR code joining.",
+    feature3_item1: "✓ Pag-gawa at pamamahala ng team",
+    feature3_item2: "✓ Real-time GPS tracking",
+    feature3_item3: "✓ Mga alerto sa voice message",
+    feature3_item4: "✓ QR code team joining",
+
+    feature4_title: "Emergency Profile",
+    feature4_desc: "Itabi ang iyong mga medikal na detalye, contacts, at insurance nang lokal na may kontrol sa privacy para sa pagbabahagi.",
+    feature4_item1: "✓ Medical history at allergy",
+    feature4_item2: "✓ Mga emergency contact",
+    feature4_item3: "✓ Mga setting sa pagbahagi ng QR",
+    feature4_item4: "✓ Impormasyon sa insurance",
+
+    feature5_title: "First Aid & Triage",
+    feature5_desc: "Propesyonal na medikal na triage na may mga protocol na color-coded (RED/ORANGE/YELLOW/GREEN) at first aid kit na gabay.",
+    feature5_item1: "✓ 4-level triage system",
+    feature5_item2: "✓ Mga interactive na protocol",
+    feature5_item3: "✓ Gabay sa first aid kit",
+    feature5_item4: "✓ Sunud-sunod na tagubilin",
+
+    feature6_title: "Komunidad at Mga Alerto",
+    feature6_desc: "Mga ulat ng panganib sa komunidad, paghingi ng tulong sa malapit, at mga notification sa emergency.",
+    feature6_item1: "✓ Feed ng alerto ng komunidad",
+    feature6_item2: "✓ Mga ulat ng panganib",
+    feature6_item3: "✓ Humingi ng tulong sa malapit",
+    feature6_item4: "✓ Mga push notification",
+
+    feature7_title: "Global Emergency Directory",
+    feature7_desc: "Awtomatikong nakikita ang rehiyon para i-update ang mga lokal na numero ng emergency (Pulis, Ambulansya) saan ka man pumunta.",
+    feature7_item1: "✓ Awtomatikong pagtukoy ng rehiyon",
+    feature7_item2: "✓ Pulis at ambulansya sa lugar",
+    feature7_item3: "✓ Offline directory",
+    feature7_item4: "✓ One-tap dialing",
+
+    feature8_title: "Aking First Aid Kit",
+    feature8_desc: "Pamahalaan ang iyong mga medikal na supply. Subaybayan ang pagkumpleto, magdagdag ng mga item, at iimbak nang offline.",
+    feature8_item1: "✓ Digital na imbentaryo",
+    feature8_item2: "✓ Pagsubaybay sa pagkumpleto",
+    feature8_item3: "✓ Pasadyang kagamitan",
+    feature8_item4: "✓ Lokal na imbakan",
+
+    feature9_title: "Panahon at Mga Tool",
+    feature9_desc: "Makuha ang real-time na panahon, maraming compass mode (Standard, Telescope, Qibla), at bubble level sa isang app.",
+    feature9_item1: "✓ Real-time na panahon",
+    feature9_item2: "✓ Standard at Qibla compass",
+    feature9_item3: "✓ Bubble level",
+    feature9_item4: "✓ Magagamit nang walang internet",
+
+    feature10_title: "Rescue Game",
+    feature10_desc: "Interactive na emergency training na may totoong buhay na senaryo. Magsanay, kumita ng mga badge at achievement.",
+    feature10_item1: "✓ Interactive na mga sitwasyon",
+    feature10_item2: "✓ Kumita ng skill badges",
+    feature10_item3: "✓ Heatstroke at kagat ng ahas",
+    feature10_item4: "✓ Progression system",
+
+    feature11_title: "QR Scanner at Pagbahagi",
+    feature11_desc: "Gumamit ng QR para sa pagsali sa team at pamahalaan kung anong mga detalye ng profile ang ibabahagi sa pamamagitan ng QR.",
+    feature11_item1: "✓ Pagsali sa team gamit ang QR",
+    feature11_item2: "✓ Camera QR scanning",
+    feature11_item3: "✓ Mga kontrol sa privacy",
+    feature11_item4: "✓ Pagbabahagi ng emergency"
+};
+
+/* --- AUTO-GENERATED FEATURES PATCH --- */
+['es', 'it', 'fil'].forEach(lang => {
+    if (typeof i18nComplete !== 'undefined' && !i18nComplete[lang]) i18nComplete[lang] = {};
+    if (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS.features && !TRANSLATIONS.features[lang]) TRANSLATIONS.features[lang] = {};
+});
+
+// Update i18nComplete
+if (typeof i18nComplete !== 'undefined') {
+    Object.assign(i18nComplete.en, NEW_FEATURES_EN);
+    Object.assign(i18nComplete.fr, NEW_FEATURES_FR);
+    Object.assign(i18nComplete.th, NEW_FEATURES_TH);
+    Object.assign(i18nComplete.es, NEW_FEATURES_ES);
+    Object.assign(i18nComplete.it, NEW_FEATURES_IT);
+    Object.assign(i18nComplete.fil, NEW_FEATURES_FIL);
+}
+
+// Update TRANSLATIONS
+if (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS.features) {
+    Object.assign(TRANSLATIONS.features.en, NEW_FEATURES_EN);
+    Object.assign(TRANSLATIONS.features.fr, NEW_FEATURES_FR);
+    Object.assign(TRANSLATIONS.features.th, NEW_FEATURES_TH);
+    Object.assign(TRANSLATIONS.features.es, NEW_FEATURES_ES);
+    Object.assign(TRANSLATIONS.features.it, NEW_FEATURES_IT);
+    Object.assign(TRANSLATIONS.features.fil, NEW_FEATURES_FIL);
+}
+/* ------------------------------------- */
