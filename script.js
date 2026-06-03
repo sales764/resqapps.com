@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
             trackEvent('Newsletter', 'Subscribe', email);
             
             // Show success message
-            alert('🎉 Thank you! We\'ll notify you when RESQ+ launches on Google Play!');
+            alert('🎉 Thank you! We\'ll keep you updated with RESQ+ news and product improvements.');
         });
     }
     

@@ -1,11 +1,13 @@
 /**
  * Newsletter Subscription with EmailJS Integration
  * Sends confirmation emails to subscribers using EmailJS
- * Multi-language support: EN, FR, TH, ZH
+ * Multi-language support: EN, FR, TH
  */
 
 (function() {
     'use strict';
+
+    const EMAIL_SUPPORTED_LANGUAGES = ['en', 'fr', 'th'];
 
     // EmailJS Configuration
     const EMAILJS_CONFIG = {
@@ -21,17 +23,17 @@
             title: '🎉 Welcome Aboard!',
             message: 'Thank you for joining the RESQ+ community!',
             whats_next_title: '✅ What\'s Next?',
-            benefit_1: 'Instant notification when RESQ+ launches',
-            benefit_2: 'Early access to premium features',
+            benefit_1: 'Updates about important RESQ+ improvements',
+            benefit_2: 'Early notice about new features',
             benefit_3: 'Be among the first users',
-            benefit_4: 'Multi-language support (FR/EN/TH/ZH)',
+            benefit_4: 'App support for EN / FR / TH / ES / IT / FIL',
             features_title: '🚀 RESQ+ Features',
             // Individual feature items (plain text, HTML is handled in EmailJS template)
-            features_item_1: 'AI Medical Nurse',
+            features_item_1: 'AI Emergency Nurse',
             features_item_2: 'Team GPS',
             features_item_3: 'SOS System',
-            features_item_4: 'Training Game',
-            features_item_5: '100% Free',
+            features_item_4: 'Weather & Marine Tools',
+            features_item_5: 'Currently Free',
             features_item_6: 'Privacy First',
             cta_button: '🌐 Visit Website',
             contact_title: '💬 Contact Us',
@@ -42,16 +44,16 @@
             title: '🎉 Bienvenue à Bord!',
             message: 'Merci de rejoindre la communauté RESQ+!',
             whats_next_title: '✅ La Suite?',
-            benefit_1: 'Notification instantanée au lancement de RESQ+',
-            benefit_2: 'Accès anticipé aux fonctionnalités premium',
+            benefit_1: 'Mises à jour sur les améliorations importantes de RESQ+',
+            benefit_2: 'Accès anticipé aux nouvelles fonctionnalités',
             benefit_3: 'Parmi les premiers utilisateurs',
-            benefit_4: 'Support multilingue (FR/EN/TH/ZH)',
+            benefit_4: 'Application disponible en EN / FR / TH / ES / IT / FIL',
             features_title: '🚀 Fonctionnalités RESQ+',
-            features_item_1: 'Infirmière IA',
+            features_item_1: 'IA Infirmière d\'Urgence',
             features_item_2: 'GPS Équipe',
             features_item_3: 'Système SOS',
-            features_item_4: 'Jeu de formation',
-            features_item_5: '100% Gratuit',
+            features_item_4: 'Outils météo et marins',
+            features_item_5: 'Actuellement gratuit',
             features_item_6: 'Vie privée d\'abord',
             cta_button: '🌐 Visiter le Site',
             contact_title: '💬 Contactez-nous',
@@ -62,46 +64,27 @@
             title: '🎉 ยินดีต้อนรับ!',
             message: 'ขอบคุณที่เข้าร่วมชุมชน RESQ+!',
             whats_next_title: '✅ ขั้นตอนต่อไป?',
-            benefit_1: 'รับการแจ้งเตือนเมื่อ RESQ+ เปิดตัว',
-            benefit_2: 'เข้าถึงฟีเจอร์พรีเมียมก่อนใคร',
+            benefit_1: 'อัปเดตเกี่ยวกับการปรับปรุงสำคัญของ RESQ+',
+            benefit_2: 'รับข่าวก่อนใครเกี่ยวกับฟีเจอร์ใหม่',
             benefit_3: 'เป็นหนึ่งในผู้ใช้คนแรก',
-            benefit_4: 'รองรับหลายภาษา (FR/EN/TH/ZH)',
+            benefit_4: 'แอปรองรับ EN / FR / TH / ES / IT / FIL',
             features_title: '🚀 ฟีเจอร์ RESQ+',
-            features_item_1: 'พยาบาล AI ทางการแพทย์',
+            features_item_1: 'AI Emergency Nurse',
             features_item_2: 'GPS ทีม',
             features_item_3: 'ระบบ SOS',
-            features_item_4: 'เกมฝึกอบรม',
-            features_item_5: 'ฟรี 100%',
+            features_item_4: 'เครื่องมืออากาศและทางทะเล',
+            features_item_5: 'ปัจจุบันใช้ฟรี',
             features_item_6: 'ความเป็นส่วนตัวมาก่อน',
             cta_button: '🌐 เยี่ยมชมเว็บไซต์',
             contact_title: '💬 ติดต่อเรา',
             copyright: 'สงวนลิขสิทธิ์'
-        },
-        zh: {
-            subtitle: '紧急响应系统',
-            title: '🎉 欢迎加入！',
-            message: '感谢您加入 RESQ+ 社区！',
-            whats_next_title: '✅ 接下来？',
-            benefit_1: 'RESQ+ 发布时即时通知',
-            benefit_2: '提前访问高级功能',
-            benefit_3: '成为首批用户之一',
-            benefit_4: '多语言支持 (FR/EN/TH/ZH)',
-            features_title: '🚀 RESQ+ 功能',
-            features_item_1: 'AI 医疗护士',
-            features_item_2: '团队 GPS',
-            features_item_3: 'SOS 系统',
-            features_item_4: '培训游戏',
-            features_item_5: '100% 免费',
-            features_item_6: '隐私优先',
-            cta_button: '🌐 访问网站',
-            contact_title: '💬 联系我们',
-            copyright: '版权所有。'
         }
     };
 
     // Get current language from localStorage
     function getCurrentLanguage() {
-        return localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en';
+        const lang = localStorage.getItem('resq_lang') || localStorage.getItem('selectedLanguage') || 'en';
+        return EMAIL_SUPPORTED_LANGUAGES.includes(lang) ? lang : 'en';
     }
 
     // Initialize EmailJS
@@ -146,7 +129,7 @@
                 <span style="color: #00d4ff;">🤖 ${content.features_item_1}</span>
                 • <span style="color: #ff0080;">👥 ${content.features_item_2}</span><br>
                 <span style="color: #ff4500;">🚨 ${content.features_item_3}</span>
-                • <span style="color: #00d4ff;">🎮 ${content.features_item_4}</span><br>
+                • <span style="color: #00d4ff;">🧭 ${content.features_item_4}</span><br>
                 <span style="color: #ff0080;">📱 ${content.features_item_5}</span>
                 • <span style="color: #ff4500;">🔒 ${content.features_item_6}</span>
             `;

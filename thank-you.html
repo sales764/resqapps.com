@@ -40,7 +40,7 @@
     
     <!-- SEO Meta Tags -->
     <title id="page-title">Thank You! | RESQ+ Emergency Response</title>
-    <meta name="description" id="page-description" content="Thank you for joining RESQ+! You're now part of our emergency response community. We'll notify you when we launch.">
+    <meta name="description" id="page-description" content="Thank you for joining RESQ+! You're now part of our emergency response community and will receive product updates and news.">
     <meta name="keywords" content="RESQ+ signup, emergency app, thank you">
     <meta name="author" content="RESQ+ Emergency Systems">
     <link rel="canonical" href="https://resqapps.com/thank-you.html">
@@ -49,14 +49,13 @@
     <link rel="alternate" hreflang="en" href="https://resqapps.com/thank-you.html" />
     <link rel="alternate" hreflang="fr" href="https://resqapps.com/thank-you.html?lang=fr" />
     <link rel="alternate" hreflang="th" href="https://resqapps.com/thank-you.html?lang=th" />
-    <link rel="alternate" hreflang="zh" href="https://resqapps.com/thank-you.html?lang=zh" />
     <link rel="alternate" hreflang="x-default" href="https://resqapps.com/thank-you.html" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resqapps.com/thank-you.html">
     <meta property="og:title" content="I just joined RESQ+ - The AI Emergency Response App! 🚨">
-    <meta property="og:description" content="Join me in revolutionizing emergency response! RESQ+ combines AI Medical Nurse, Team Coordination, and Emergency Training. 100% free forever.">
+    <meta property="og:description" content="Join me in discovering RESQ+ with AI Emergency Nurse guidance, SOS tools, Team Connect, and first aid support.">
     <meta property="og:site_name" content="RESQ+">
     <meta property="og:image" content="https://resqapps.com/og-image.jpg">
     <meta property="og:image:secure_url" content="https://resqapps.com/og-image.jpg">
@@ -67,7 +66,6 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="og:locale:alternate" content="th_TH">
-    <meta property="og:locale:alternate" content="zh_CN">
     
     <!-- Favicons & Icons -->
     <link rel="icon" type="image/webp" href="images/app-icon.webp">
@@ -89,7 +87,7 @@
     <meta name="twitter:site" content="@RESQPlus">
     <meta name="twitter:creator" content="@RESQPlus">
     <meta name="twitter:title" content="I just joined RESQ+ - The AI Emergency Response App! 🚨">
-    <meta name="twitter:description" content="Join me in revolutionizing emergency response! RESQ+ combines AI Medical Nurse, Team Coordination, and Emergency Training. 100% free forever.">
+    <meta name="twitter:description" content="Join me in discovering RESQ+ with AI Emergency Nurse guidance, SOS tools, Team Connect, and first aid support.">
     <meta name="twitter:image" content="https://resqapps.com/og-image.jpg">
     <meta name="twitter:image:alt" content="RESQ+ Emergency Response App - AI Medical Nurse + Team Coordination">
     
@@ -537,21 +535,17 @@
                         <source srcset="images/resq-logo.png" type="image/png">
                         <img src="images/resq-logo.png" alt="RESQ+ Logo" data-i18n-alt="homepage.logoAlt" width="200" height="50">
                     </picture>
-                    <span class="logo-text">RESQ+</span>
+                    <span class="logo-text">RESQ+PREMIUM</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span>
                 </a>
                 <div class="nav-links" id="nav-links">
-                <a href="index.html#features" data-i18n="nav_features">Features</a>
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                      <a href="index.html#features" data-i18n="nav_features">Features</a>
                 <a href="index.html#screenshots" data-i18n="nav_screenshots">Screenshots</a>
-                <a href="index.html#testimonials" data-i18n="nav_notify">Get Notified</a>
+                <a href="index.html#download" data-i18n="nav_notify">Download</a>
                 <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
                 
                 <!-- Language Switcher -->
-                <div class="lang-switcher">
-                    <button onclick="i18n.switchLang('en')" class="lang-btn" aria-label="Switch to English" aria-pressed="false" type="button">🇬🇧</button>
-                    <button onclick="i18n.switchLang('fr')" class="lang-btn" aria-label="Passer en Français" aria-pressed="false" type="button">🇫🇷</button>
-                    <button onclick="i18n.switchLang('th')" class="lang-btn" aria-label="เปลี่ยนเป็นภาษาไทย" aria-pressed="false" type="button">🇹🇭</button>
-                    <button onclick="i18n.switchLang('zh')" class="lang-btn" aria-label="切换到中文" aria-pressed="false" type="button">🇨🇳</button>
-                </div>
+                
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links" type="button">
@@ -575,7 +569,7 @@
         
         <!-- Subtitle -->
         <p class="thank-you-subtitle" data-i18n="thankyou_subtitle">
-            Welcome to the RESQ+ community! We'll notify you as soon as we launch.
+            Welcome to the RESQ+ community! We'll keep you updated on new improvements and releases.
         </p>
         
         <!-- Email Confirmation -->
@@ -605,7 +599,7 @@
             <div class="benefit-item">
                 <div class="benefit-icon">🎁</div>
                 <div class="benefit-text">
-                    <strong data-i18n="thankyou_benefit3_title">Exclusive bonus</strong> - <span data-i18n="thankyou_benefit3_desc">Get premium features free for life</span>
+                    <strong data-i18n="thankyou_benefit3_title">Exclusive bonus</strong> - <span data-i18n="thankyou_benefit3_desc">Get updates on new features and improvements</span>
                 </div>
             </div>
             
@@ -686,7 +680,7 @@
         document.getElementById('userEmail').textContent = userEmail;
         
         // Share URLs
-        const shareText = "I just joined RESQ+ - The AI Emergency Response App! 🚨 Join me in revolutionizing emergency response. 100% free forever!";
+        const shareText = "I just joined RESQ+ - The AI Emergency Response App! 🚨 Explore AI Emergency Nurse guidance, SOS tools, Team Connect, and first aid support.";
         const shareUrl = "https://resqapps.com";
         
         // Facebook Share
@@ -878,5 +872,6 @@
             });
         }
     </script>
+    <script src="security-lock.js" defer></script>
 </body>
 </html>

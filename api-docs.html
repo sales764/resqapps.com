@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RESQ+ API Documentation - Integrate emergency response services into your application">
-    <title>API Documentation - RESQ+ Emergency Response</title>
+    <meta name="description" content="RESQ+ API developer preview documentation. Reference-only draft schemas for planned integrations, not a public production API.">
+    <title>API Developer Preview - RESQ+ Emergency Response</title>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJWC7EHMT"></script>
@@ -53,18 +53,14 @@
                         <source srcset="images/resq-logo.png" type="image/png">
                         <img src="images/resq-logo.png" alt="RESQ+ Logo" width="200" height="50">
                     </picture>
-                    <span class="logo-text">RESQ+</span>
+                    <span class="logo-text">RESQ+PREMIUM</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span>
                 </a>
                 <div class="nav-links" id="nav-links">
-                <a href="index.html#features" data-i18n="nav_features">Features</a>
-                <a href="index.html#testimonials" data-i18n="nav_notify">Get Notified</a>
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                      <a href="index.html#features" data-i18n="nav_features">Features</a>
+                <a href="index.html#download" data-i18n="nav_notify">Download</a>
                 <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
-                <div class="lang-switcher">
-                    <button onclick="i18n.switchLang('en')" class="lang-btn" type="button">🇬🇧</button>
-                    <button onclick="i18n.switchLang('fr')" class="lang-btn" type="button">🇫🇷</button>
-                    <button onclick="i18n.switchLang('th')" class="lang-btn" type="button">🇹🇭</button>
-                    <button onclick="i18n.switchLang('zh')" class="lang-btn" type="button">🇨🇳</button>
-                </div>
+                
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" type="button">
                 <span></span>
@@ -79,13 +75,13 @@
     <!-- Hero -->
     <section class="api-hero">
         <div class="container">
-            <h1>⚡ RESQ+ API Documentation</h1>
-            <p>Integrate emergency response services into your application</p>
+            <h1>⚡ RESQ+ API Developer Preview</h1>
+            <p>Reference-only draft documentation for a planned RESQ+ API. This is not a public production integration surface.</p>
             <div class="hero-badges">
-                <span class="badge">REST API</span>
+                <span class="badge">Developer Preview</span>
                 <span class="badge">JSON</span>
-                <span class="badge">OAuth 2.0</span>
-                <span class="badge">Rate Limited</span>
+                <span class="badge">Draft Schema</span>
+                <span class="badge">Non-Production</span>
             </div>
         </div>
     </section>
@@ -103,7 +99,6 @@
                             <ul>
                                 <li><a href="#emergency">Emergency</a></li>
                                 <li><a href="#alerts">Alerts</a></li>
-                                <li><a href="#users">Users</a></li>
                                 <li><a href="#hospitals">Hospitals</a></li>
                             </ul>
                         </li>
@@ -118,26 +113,36 @@
                 <!-- Getting Started -->
                 <div class="docs-section">
                     <h2>🚀 Getting Started</h2>
-                    <p>The RESQ+ API allows you to integrate emergency response services into your application. Access real-time emergency alerts, hospital data, and coordinate emergency responses.</p>
+                    <p>This page describes a planned RESQ+ API surface for evaluation and future partner discussions. The current mobile app does not rely on this public REST documentation for production operation, and this API should be treated as preview-only.</p>
                     
                     <div class="info-box">
                         <h3>📋 Prerequisites</h3>
                         <ul>
-                            <li>Register for an API key at <a href="#register">resqapps.com/api/register</a></li>
-                            <li>Understand REST API principles</li>
-                            <li>Have a valid use case for emergency services integration</li>
+                            <li>Understand that this documentation is for preview and planning purposes</li>
+                            <li>Review REST and JSON integration patterns</li>
+                            <li>Contact RESQ+ directly before assuming any endpoint is available for production use</li>
                         </ul>
                     </div>
 
-                    <h3>Base URL</h3>
+                    <div class="warning-box">
+                        <h3>⚠️ Preview Status</h3>
+                        <ul>
+                            <li>No public self-service registration flow is currently published</li>
+                            <li>Endpoint shapes shown below are illustrative and may change</li>
+                            <li>Do not build production dependencies against this document without direct confirmation</li>
+                        </ul>
+                    </div>
+
+                    <h3>Planned Base URL</h3>
                     <div class="code-block">
                         <pre><code>https://api.resqapps.com/v1</code></pre>
                     </div>
 
-                    <h3>Quick Example</h3>
+                    <h3>Draft Example</h3>
                     <div class="code-block">
-                        <pre><code class="language-bash">curl -X GET "https://api.resqapps.com/v1/alerts" \
-  -H "Authorization: Bearer YOUR_API_KEY" \
+                        <pre><code class="language-bash"># Preview only - illustrative request format
+curl -X GET "https://api.resqapps.com/v1/alerts" \
+  -H "Authorization: Bearer PREVIEW_TOKEN" \
   -H "Content-Type: application/json"</code></pre>
                     </div>
                 </div>
@@ -145,18 +150,18 @@
                 <!-- Authentication -->
                 <div class="docs-section" id="authentication">
                     <h2>🔐 Authentication</h2>
-                    <p>All API requests require authentication using an API key. Include your API key in the Authorization header.</p>
+                    <p>Authentication details are not currently offered as a public self-service workflow. Any future access would be provisioned directly by RESQ+ for approved preview or partner use cases.</p>
 
-                    <h3>API Key Authentication</h3>
+                    <h3>Planned Authorization Header</h3>
                     <div class="code-block">
-                        <pre><code class="language-http">Authorization: Bearer YOUR_API_KEY</code></pre>
+                        <pre><code class="language-http">Authorization: Bearer PREVIEW_TOKEN</code></pre>
                     </div>
 
                     <div class="warning-box">
                         <h3>⚠️ Security</h3>
                         <ul>
-                            <li>Never expose your API key in client-side code</li>
-                            <li>Keep your API key secure and regenerate if compromised</li>
+                            <li>Never expose preview credentials in client-side code</li>
+                            <li>Treat all credentials and schemas on this page as non-final</li>
                             <li>Use HTTPS for all requests</li>
                         </ul>
                     </div>
@@ -165,10 +170,11 @@
                 <!-- Endpoints -->
                 <div class="docs-section" id="endpoints">
                     <h2>📡 API Endpoints</h2>
+                    <p>The endpoint groups below describe draft resource shapes only. They are provided to communicate likely request and response structure, not to promise live production availability.</p>
 
                     <!-- Emergency Endpoints -->
                     <div class="endpoint-group" id="emergency">
-                        <h3>🚨 Emergency Endpoints</h3>
+                        <h3>🚨 Emergency Endpoints (Draft)</h3>
 
                         <!-- Create Emergency -->
                         <div class="endpoint-card">
@@ -176,9 +182,9 @@
                                 <span class="method post">POST</span>
                                 <span class="endpoint-path">/emergency</span>
                             </div>
-                            <p>Create a new emergency request</p>
+                            <p>Illustrative schema for creating a future emergency request resource</p>
                             
-                            <h4>Request Body</h4>
+                            <h4>Example Request Body</h4>
                             <div class="code-block">
                                 <pre><code class="language-json">{
   "type": "medical",
@@ -192,7 +198,7 @@
 }</code></pre>
                             </div>
 
-                            <h4>Response</h4>
+                            <h4>Example Response</h4>
                             <div class="code-block">
                                 <pre><code class="language-json">{
   "success": true,
@@ -213,9 +219,9 @@
                                 <span class="method get">GET</span>
                                 <span class="endpoint-path">/emergency/:id</span>
                             </div>
-                            <p>Get emergency request status</p>
+                            <p>Illustrative status lookup shape for a future emergency resource</p>
                             
-                            <h4>Response</h4>
+                            <h4>Example Response</h4>
                             <div class="code-block">
                                 <pre><code class="language-json">{
   "success": true,
@@ -235,7 +241,7 @@
 
                     <!-- Alerts Endpoints -->
                     <div class="endpoint-group" id="alerts">
-                        <h3>📢 Alert Endpoints</h3>
+                        <h3>📢 Alert Endpoints (Draft)</h3>
 
                         <!-- Get Alerts -->
                         <div class="endpoint-card">
@@ -243,7 +249,7 @@
                                 <span class="method get">GET</span>
                                 <span class="endpoint-path">/alerts</span>
                             </div>
-                            <p>Get active emergency alerts in a region</p>
+                            <p>Illustrative regional alert feed shape for preview discussions</p>
                             
                             <h4>Query Parameters</h4>
                             <table class="params-table">
@@ -306,7 +312,7 @@
 
                     <!-- Hospital Endpoints -->
                     <div class="endpoint-group" id="hospitals">
-                        <h3>🏥 Hospital Endpoints</h3>
+                        <h3>🏥 Hospital Endpoints (Draft)</h3>
 
                         <!-- Get Nearby Hospitals -->
                         <div class="endpoint-card">
@@ -314,9 +320,9 @@
                                 <span class="method get">GET</span>
                                 <span class="endpoint-path">/hospitals/nearby</span>
                             </div>
-                            <p>Find nearby hospitals with emergency services</p>
+                            <p>Illustrative nearby-hospital lookup shape for future integrations</p>
                             
-                            <h4>Response</h4>
+                            <h4>Example Response</h4>
                             <div class="code-block">
                                 <pre><code class="language-json">{
   "success": true,
@@ -345,52 +351,47 @@
                 <!-- Rate Limits -->
                 <div class="docs-section" id="rate-limits">
                     <h2>⏱️ Rate Limits</h2>
-                    <p>API requests are rate limited to ensure fair usage and system stability.</p>
+                    <p>Formal rate limits are not published for this preview. Any testing access would be controlled case by case.</p>
 
                     <table class="rate-limits-table">
                         <thead>
                             <tr>
-                                <th>Plan</th>
+                                <th>Access Tier</th>
                                 <th>Requests/Hour</th>
-                                <th>Requests/Day</th>
+                                <th>Notes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Free</td>
-                                <td>100</td>
-                                <td>1,000</td>
+                                <td>Public</td>
+                                <td>Not available</td>
+                                <td>No public production API access is currently published</td>
                             </tr>
                             <tr>
-                                <td>Basic</td>
-                                <td>1,000</td>
-                                <td>10,000</td>
+                                <td>Preview</td>
+                                <td>Varies</td>
+                                <td>Shared directly during limited evaluation access</td>
                             </tr>
                             <tr>
-                                <td>Pro</td>
-                                <td>10,000</td>
-                                <td>100,000</td>
-                            </tr>
-                            <tr>
-                                <td>Enterprise</td>
-                                <td>Unlimited</td>
-                                <td>Unlimited</td>
+                                <td>Partner</td>
+                                <td>Varies</td>
+                                <td>Subject to direct agreement and technical review</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <h3>Rate Limit Headers</h3>
+                    <h3>Example Headers</h3>
                     <div class="code-block">
-                        <pre><code class="language-http">X-RateLimit-Limit: 1000
-X-RateLimit-Remaining: 999
-X-RateLimit-Reset: 1699464000</code></pre>
+                        <pre><code class="language-http">X-Preview-Limit: varies
+X-Preview-Remaining: varies
+X-Preview-Reset: varies</code></pre>
                     </div>
                 </div>
 
                 <!-- Error Handling -->
                 <div class="docs-section" id="errors">
                     <h2>❌ Error Handling</h2>
-                    <p>The API uses standard HTTP response codes and returns detailed error messages.</p>
+                    <p>Preview integrations should expect schema and error behavior to evolve. Status codes and payloads below are illustrative rather than contractual.</p>
 
                     <h3>HTTP Status Codes</h3>
                     <table class="status-codes-table">
@@ -454,16 +455,17 @@ X-RateLimit-Reset: 1699464000</code></pre>
                 <!-- Code Examples -->
                 <div class="docs-section" id="examples">
                     <h2>💻 Code Examples</h2>
+                    <p>The examples below show draft request structure only. They are not a guarantee that these endpoints are currently active for public production use.</p>
 
                     <!-- JavaScript -->
                     <h3>JavaScript (Node.js)</h3>
                     <div class="code-block">
                         <pre><code class="language-javascript">const axios = require('axios');
 
-const API_KEY = 'your_api_key_here';
+const API_KEY = 'preview_token_here';
 const BASE_URL = 'https://api.resqapps.com/v1';
 
-async function createEmergency() {
+async function previewEmergencyDraft() {
   try {
     const response = await axios.post(`${BASE_URL}/emergency`, {
       type: 'medical',
@@ -481,13 +483,13 @@ async function createEmergency() {
       }
     });
     
-    console.log('Emergency created:', response.data);
+    console.log('Preview response:', response.data);
   } catch (error) {
-    console.error('Error:', error.response.data);
+    console.error('Preview error:', error.response?.data || error.message);
   }
 }
 
-createEmergency();</code></pre>
+previewEmergencyDraft();</code></pre>
                     </div>
 
                     <!-- Python -->
@@ -495,10 +497,10 @@ createEmergency();</code></pre>
                     <div class="code-block">
                         <pre><code class="language-python">import requests
 
-API_KEY = 'your_api_key_here'
+API_KEY = 'preview_token_here'
 BASE_URL = 'https://api.resqapps.com/v1'
 
-def create_emergency():
+def preview_emergency_draft():
     headers = {
         'Authorization': f'Bearer {API_KEY}',
         'Content-Type': 'application/json'
@@ -517,22 +519,22 @@ def create_emergency():
     
     response = requests.post(f'{BASE_URL}/emergency', json=data, headers=headers)
     
-    if response.status_code == 201:
-        print('Emergency created:', response.json())
+    if response.ok:
+        print('Preview response:', response.json())
     else:
-        print('Error:', response.json())
+        print('Preview error:', response.text)
 
-create_emergency()</code></pre>
+preview_emergency_draft()</code></pre>
                     </div>
 
                     <!-- PHP -->
                     <h3>PHP</h3>
                     <div class="code-block">
                         <pre><code class="language-php"><?php
-$apiKey = 'your_api_key_here';
+$apiKey = 'preview_token_here';
 $baseUrl = 'https://api.resqapps.com/v1';
 
-function createEmergency($apiKey, $baseUrl) {
+function previewEmergencyDraft($apiKey, $baseUrl) {
     $data = [
         'type' => 'medical',
         'severity' => 'high',
@@ -557,14 +559,14 @@ function createEmergency($apiKey, $baseUrl) {
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     
-    if ($httpCode === 201) {
-        echo "Emergency created: " . $response;
+    if ($httpCode >= 200 && $httpCode < 300) {
+        echo "Preview response: " . $response;
     } else {
-        echo "Error: " . $response;
+        echo "Preview error: " . $response;
     }
 }
 
-createEmergency($apiKey, $baseUrl);
+previewEmergencyDraft($apiKey, $baseUrl);
 ?></code></pre>
                     </div>
                 </div>
@@ -575,16 +577,16 @@ createEmergency($apiKey, $baseUrl);
     <!-- CTA -->
     <section class="api-cta">
         <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Register for your API key and start integrating emergency services today</p>
-            <a href="#register" class="cta-button">Get API Key</a>
+            <h2>Interested in the API Preview?</h2>
+            <p>Contact RESQ+ if you want to discuss a future integration or preview access use case.</p>
+            <a href="mailto:sales@sornsawan.com" class="cta-button">Contact RESQ+</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 RESQ+. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">API Terms</a></p>
+            <p>&copy; 2026 RESQ+ PREMIUM. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">API Terms</a></p>
         </div>
     </footer>
 
@@ -633,5 +635,6 @@ createEmergency($apiKey, $baseUrl);
         });
     </script>
     <script src="anti-scraping.js" defer></script>
+    <script src="security-lock.js" defer></script>
 </body>
 </html>

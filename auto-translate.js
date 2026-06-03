@@ -55,7 +55,7 @@
         'stats': {
             cards: [
                 { label: 'Emergency Features', sublabel: 'in one ecosystem' },
-                { label: 'Languages', sublabel: 'EN • FR • TH • ZH' },
+                { label: 'Languages', sublabel: 'EN • FR • TH' },
                 { label: 'AI Support', sublabel: 'always available' },
                 { label: 'Free Forever', sublabel: 'no ads, no subscription' }
             ]

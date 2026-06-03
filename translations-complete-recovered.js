@@ -146,7 +146,6 @@ const i18nComplete = {
         },
         
         // Navigation
-        nav_home: "Accueil",
         nav_features: "Fonctionnalités",
         nav_notify: "Télécharger",
         nav_privacy: "Confidentialité",
@@ -483,11 +482,11 @@ const i18nComplete = {
         feature1_item4: "ระบบเสียงเตือน",
         
         feature2_title: "พยาบาลฉุกเฉิน AI",
-        feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
+        feature2_desc: "ผู้ช่วยทางการแพทย์ AI ตลอด 24/7 พร้อมโปรโตคอลกาชาดสากล การประเมินการคัดกรอง และคำแนะนำชุดปฐมพยาบาลใน 4 ภาษา",
         feature2_item1: "รองรับเสียงและภาพ",
         feature2_item2: "โปรโตคอลคัดกรอง ABC-D",
-        feature2_item3: "โปรไฟล์ทางการแพทย์ของครอบครัว",
-        feature2_item4: "วิเคราะห์ตามชุดปฐมพยาบาลของคุณ",
+        feature2_item3: "ภาษา EN / FR / TH",
+        feature2_item4: "บูรณาการชุดปฐมพยาบาล",
         
         feature3_title: "การเชื่อมต่อทีม",
         feature3_desc: "สร้างและประสานงานกับทีมฉุกเฉิน แบ่งปันตำแหน่งแบบเรียลไทม์ การแจ้งเตือนทีมพร้อมข้อความเสียง และการเข้าร่วมด้วย QR code",
@@ -518,7 +517,6 @@ const i18nComplete = {
         feature6_item4: "การออกอากาศฉุกเฉิน",
         
         // Navigation
-        nav_home: "หน้าแรก",
         nav_features: "คุณสมบัติ",
         nav_screenshots: "ภาพหน้าจอ",
         nav_notify: "ดาวน์โหลด",
@@ -909,8 +907,8 @@ const NEW_FEATURES_EN = {
     feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
     feature2_item1: "✓ Voice & image support",
     feature2_item2: "✓ ABC+D triage protocol",
-    feature2_item3: "✓ Family medical profiles",
-    feature2_item4: "✓ Exact kit inventory match",
+    feature2_item3: "? Family medical profiles",
+    feature2_item4: "? Exact kit inventory match",
 
     feature3_title: "Team Connect",
     feature3_desc: "Create and coordinate with emergency teams. Real-time location sharing, team alerts with voice messages, and QR code joining.",
@@ -985,11 +983,11 @@ const NEW_FEATURES_FR = {
     feature1_item4: "✓ Système d'alerte sonore",
 
     feature2_title: "IA Infirmière d'Urgence",
-    feature2_desc: "Assistance médicale par IA personnalisée selon les profils médicaux familiaux et le contenu exact de votre trousse de secours. Saisie vocale/image avec triage ABC+D.",
+    feature2_desc: "Assistance médicale par IA avec évaluation de triage, saisie vocale et d'images, et intégration de la trousse de secours. Internet requis pour l'IA.",
     feature2_item1: "✓ Support vocal et d'images",
     feature2_item2: "✓ Protocole de triage ABC+D",
-    feature2_item3: "✓ Profils médicaux familiaux",
-    feature2_item4: "✓ Inventaire exact de la trousse",
+    feature2_item3: "✓ EN / FR / TH / ES / IT / FIL",
+    feature2_item4: "✓ Aide pour trousse de secours",
 
     feature3_title: "Connexion d'Équipe",
     feature3_desc: "Créez et coordonnez vos équipes d'urgence. Partage de position en temps réel, alertes avec messages vocaux et invitation par code QR.",
@@ -1064,11 +1062,11 @@ const NEW_FEATURES_TH = {
     feature1_item4: "✓ ระบบเสียงเตือนภัย",
 
     feature2_title: "พยาบาลฉุกเฉิน AI",
-    feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
+    feature2_desc: "คำแนะนำทางการแพทย์จาก AI พร้อมการประเมินการคัดกรอง รองรับเสียงและภาพ และคำแนะนำชุดปฐมพยาบาล (ต้องใช้อินเทอร์เน็ต)",
     feature2_item1: "✓ รองรับการป้อนข้อมูลด้วยเสียงและภาพ",
     feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
-    feature2_item3: "✓ โปรไฟล์ทางการแพทย์ของครอบครัว",
-    feature2_item4: "✓ วิเคราะห์ตามชุดปฐมพยาบาลของคุณ",
+    feature2_item3: "✓ EN / FR / TH / ES / IT / FIL",
+    feature2_item4: "✓ การผสานรวมกับชุดปฐมพยาบาล",
 
     feature3_title: "การเชื่อมต่อทีม",
     feature3_desc: "สร้างและประสานงานกับทีมฉุกเฉิน การแชร์ตำแหน่งแบบเรียลไทม์ การแจ้งเตือนทีมด้วยข้อความเสียง และการเข้าร่วมด้วย QR code",
@@ -1143,11 +1141,11 @@ const NEW_FEATURES_ES = {
     feature1_item4: "✓ Sistema de alerta sonora",
 
     feature2_title: "IA Enfermera de Emergencia",
-    feature2_desc: "Guía médica de IA adaptada a los perfiles médicos de su familia y al inventario exacto de su botiquín de primeros auxilios. Entrada de voz/imagen con triaje ABC+D.",
+    feature2_desc: "Gu�a m�dica de IA adaptada a los perfiles m�dicos de su familia y al inventario exacto de su botiqu�n de primeros auxilios. Entrada de voz/imagen con triaje ABC+D.",
     feature2_item1: "✓ Soporte de voz e imagen",
     feature2_item2: "✓ Protocolo de triaje ABC+D",
-    feature2_item3: "✓ Perfiles médicos familiares",
-    feature2_item4: "✓ Inventario exacto del botiquín",
+    feature2_item3: "? Perfiles m�dicos familiares",
+    feature2_item4: "? Inventario exacto del botiqu�n",
 
     feature3_title: "Conexión de Equipo",
     feature3_desc: "Cree y coordine equipos de emergencia. Ubicación en tiempo real, alertas de equipo con mensajes de voz y unión por código QR.",
@@ -1225,8 +1223,8 @@ const NEW_FEATURES_IT = {
     feature2_desc: "Guida medica IA personalizzata per i profili medici familiari e l'inventario esatto del tuo kit di pronto soccorso. Input vocale/immagine con triage ABC+D.",
     feature2_item1: "✓ Supporto voce e immagine",
     feature2_item2: "✓ Protocollo di triage ABC+D",
-    feature2_item3: "✓ Profili medici familiari",
-    feature2_item4: "✓ Inventario esatto del kit",
+    feature2_item3: "? Profili medici familiari",
+    feature2_item4: "? Inventario esatto del kit",
 
     feature3_title: "Team Connect",
     feature3_desc: "Crea e coordina squadre di emergenza. Condivisione posizione in tempo reale, avvisi di squadra con messaggi vocali e QR code.",
@@ -1301,11 +1299,11 @@ const NEW_FEATURES_FIL = {
     feature1_item4: "✓ Sound alert system",
 
     feature2_title: "AI Emergency Nurse",
-    feature2_desc: "AI medikal na gabay na naka-customize para sa mga medikal na profile ng pamilya at sa iyong eksaktong first aid kit inventory. Voice/image input na may ABC+D triage.",
+    feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
     feature2_item1: "✓ Voice at image support",
     feature2_item2: "✓ ABC+D triage protocol",
-    feature2_item3: "✓ Family medical profiles",
-    feature2_item4: "✓ Eksaktong kit inventory",
+    feature2_item3: "? Family medical profiles",
+    feature2_item4: "? Exact kit inventory match",
 
     feature3_title: "Team Connect",
     feature3_desc: "Gumawa at makipag-ugnayan sa mga emergency team. Real-time location sharing, voice message alerts, at QR code joining.",

@@ -13,6 +13,17 @@
  */
 
 (function() {
+    // ==========================================
+    // DEVELOPER MODE TOGGLE
+    // Set to 'true' to disable all protections while editing the site.
+    // MUST BE 'false' in production!
+    // ==========================================
+    const IS_DEV_MODE = true;
+
+    if (IS_DEV_MODE) {
+        console.warn('🛡️ RESQ+ Anti-Scraping is currently DISABLED (Developer Mode Active).');
+        return;
+    }
     'use strict';
 
     // Configuration
@@ -38,7 +49,7 @@
             suspiciousAttempts++;
             
             // Message personnalisé
-            showProtectionMessage('⚠️ Clic droit désactivé pour protéger le contenu');
+            showProtectionMessage('⚠️ Right-click disabled to protect content');
             
             logAttempt('right-click');
             return false;

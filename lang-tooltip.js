@@ -13,7 +13,6 @@
         'en': 'English',
         'fr': 'Français',
         'th': 'ไทย',
-        'zh': '中文',
         'es': 'Español',
         'de': 'Deutsch',
         'it': 'Italiano',
@@ -44,8 +43,6 @@
                     langCode = 'fr';
                 } else if (buttonText.includes('th') || buttonText.includes('🇹🇭')) {
                     langCode = 'th';
-                } else if (buttonText.includes('zh') || buttonText.includes('🇨🇳')) {
-                    langCode = 'zh';
                 }
             }
 

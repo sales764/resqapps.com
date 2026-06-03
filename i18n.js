@@ -1,6 +1,12 @@
-// RESQ+ Multi-Language System - EN•FR•TH•ZH - COMPLETE VERSION
+// RESQ+ Multi-Language System - EN•FR•TH - COMPLETE VERSION
+const I18N_SUPPORTED_LANGUAGES = ['en', 'fr', 'th', 'es', 'it', 'fil'];
+
+function getInitialLanguage() {
+    return 'en';
+}
+
 const i18n = {
-    currentLang: localStorage.getItem('resq_lang') || 'en',
+    currentLang: getInitialLanguage(),
     
     // Merge complete translations from translations-complete.js AND translations.js
     t: (() => {
@@ -8,7 +14,7 @@ const i18n = {
         
         // Merge TRANSLATIONS sections if available
         if (typeof TRANSLATIONS !== 'undefined') {
-            ['en', 'fr', 'th', 'zh'].forEach(lang => {
+            ['en', 'fr', 'th', 'es', 'it', 'fil'].forEach(lang => {
                 if (merged[lang]) {
                     // Merge features
                     if (TRANSLATIONS.features && TRANSLATIONS.features[lang]) {
@@ -34,14 +40,15 @@ const i18n = {
     })() || {
         en: {
             // Navigation
-            nav: {features: "Features", screenshots: "Screenshots", notify: "Get Notified", privacy: "Privacy"},
+            nav: {features: "Features", screenshots: "Screenshots", notify: "Download", privacy: "Privacy", ambassador: "Ambassador"},
             
             // Hero
             hero_badge: "🚨 Professional Emergency Response",
-            hero_title: "AI Medical Nurse + Team Coordination + Emergency Training",
+            hero_partner_badge: "Want to own 33% of our revenue? Become a RESQ+ Partner →",
+            hero_title: "AI Emergency Nurse + Team Coordination + SOS Tools",
             hero_subtitle: "The only emergency app you'll ever need",
-            hero_desc: "Get instant AI medical guidance, coordinate with your team in real-time, train through interactive games, and access 15+ life-saving features. Red Cross compliant. 100% free forever.",
-            hero_btn1: "🚀 Get Notified at Launch",
+            hero_desc: "Get instant AI emergency guidance, coordinate with your team in real-time, and access SOS tools, first aid support, and weather and utilities in one app.",
+            hero_btn1: "🚀 Get RESQ+ Updates",
             hero_btn2: "📱 See Features",
             
             // Features
@@ -68,12 +75,12 @@ const i18n = {
             coming_title: "Available Now on Google Play",
             coming_desc: "Download RESQ+ today and be prepared for any emergency",
             coming_heading: "30-Day Improvement Period - Your Feedback Matters!",
-            coming_text: "RESQ+ is now live on Google Play! We're in a 30-day improvement period, actively refining features based on your feedback. Download now and help us make RESQ+ the best emergency response app possible.",
+            coming_text: "RESQ+ is officially available on Google Play! Download today to transform your smartphone into a complete emergency response system. Protect yourself and your family by starting your 7-day free trial.",
             coming_form_title: "Download on Google Play",
             coming_form_desc: "Get RESQ+ now and start protecting yourself and your loved ones",
             coming_button: "Download",
             coming_button_label: "GET IT ON",
-            coming_features: "✓ 100% Free ✓ No Ads ✓ Zero Personal Data ✓ Local Storage Only",
+            coming_features: "✓ 7-Day Free Trial ✓ No ads ✓ Local emergency profiles ✓ Connected alerts & AI",
             
             // Newsletter
             newsletter_subscribe: "Subscribe",
@@ -86,8 +93,38 @@ const i18n = {
             screenshot4_caption: "Team Connect",
             screenshot5_caption: "Medical Profile",
             screenshot6_caption: "Emergency Settings",
-            screenshot7_caption: "SOS Features",
+            screenshot7_caption: "SOS and emergency tools",
             screenshot8_caption: "Available Now",
+            
+            // Partner Program
+            partner_hero_badge: "🌟 Official Partner Program",
+            partner_hero_title_1: "Don't just share an app.",
+            partner_hero_title_2: "Protect your circle and own 33% of the revenue.",
+            partner_hero_desc: "We are looking for selected local leaders, creators, and visionaries to deploy the ultimate safety infrastructure in Thailand. High payouts, lifetime tracking, and a mission that actually saves lives.",
+            partner_btn_apply: "Secure Your Partner Spot →",
+            partner_btn_benefits: "See Benefits",
+            
+            partner_concept_badge: "💡 The Financial Disruptor",
+            partner_concept_title: "A Strict 50/50 Philosophy",
+            partner_concept_desc: "Most programs give you crumbs. RESQ+ is built on a strict 50/50 net profit-sharing philosophy. After app store fees and local taxes are cleared, we split the money right down the middle. That means an absolute, clean <strong>33% of every single subscription</strong> goes straight to your wallet. Forever.",
+            
+            partner_benefits_badge: "🎁 Benefits",
+            partner_benefits_title: "Why Partner With Us?",
+            partner_benefit1_title: "Uncapped Lifetime Earnings",
+            partner_benefit1_desc: "As long as your referrals stay protected by RESQ+, your bank account keeps growing. No limits, no ceiling.",
+            partner_benefit2_title: "The GoMarketMe Command Center",
+            partner_benefit2_desc: "Gain access to a private, high-tech dashboard. Track clicks, monitor active subscriptions, and view your automated payouts in real-time with total transparency.",
+            partner_benefit3_title: "An Irresistible Product",
+            partner_benefit3_desc: "You aren't selling a useless gadget. You are introducing a cutting-edge emergency and safety infrastructure. When people see it work, they subscribe.",
+            
+            partner_steps_badge: "📋 The Process",
+            partner_steps_title: "Start Earning in 3 Steps",
+            partner_step1_title: "The Verification (2 Mins)",
+            partner_step1_desc: "Submit your legal application. We comply strictly with Thai PDPA regulations to secure your partner account.",
+            partner_step2_title: "The Onboarding",
+            partner_step2_desc: "Once approved, unlock your custom deployment links and access our private ambassador resource vault.",
+            partner_step3_title: "Automated Scaling",
+            partner_step3_desc: "Share, protect, and watch GoMarketMe handle your payouts automatically.",
             
             // FAQ
             faq_badge: "❓ FAQ",
@@ -96,21 +133,22 @@ const i18n = {
             
             // Exit Intent Popup
             exit_title: "Wait! Don't Miss Out!",
-            exit_desc: "Get notified when RESQ+ launches and be among the first to access life-saving features!",
+            exit_desc: "Get updates about RESQ+ improvements and be among the first to hear about important features.",
             exit_placeholder: "your@email.com",
-            exit_button: "🚀 Notify Me at Launch",
-            exit_footer: "100% Free • No Spam • Unsubscribe Anytime"
+            exit_button: "🚀 Get Updates",
+            exit_footer: "No Spam • Unsubscribe Anytime"
         },
         fr: {
             // Navigation
-            nav: {features: "Fonctionnalités", screenshots: "Captures d'écran", notify: "Être Notifié", privacy: "Confidentialité"},
+            nav: {features: "Fonctionnalités", screenshots: "Captures d'écran", notify: "Être Notifié", privacy: "Confidentialité", ambassador: "Ambassadeur"},
             
             // Hero
             hero_badge: "🚨 Réponse d'Urgence Professionnelle",
-            hero_title: "IA Infirmière Médicale + Coordination d'Équipe + Formation aux Urgences",
+            hero_partner_badge: "Envie de posséder 33% de nos revenus ? Devenez Partenaire RESQ+ →",
+            hero_title: "IA Infirmière d'Urgence + Coordination d'Équipe + Outils SOS",
             hero_subtitle: "La seule application d'urgence dont vous aurez besoin",
-            hero_desc: "Obtenez des conseils médicaux instantanés par IA, coordonnez avec votre équipe en temps réel, entraînez-vous avec des jeux interactifs et accédez à plus de 15 fonctionnalités vitales. Conforme à la Croix-Rouge. 100% gratuit pour toujours.",
-            hero_btn1: "🚀 Être Notifié au Lancement",
+            hero_desc: "Obtenez des conseils d'urgence par IA, coordonnez votre équipe en temps réel, et accédez aux outils SOS, aux premiers secours et aux utilitaires météo et marins dans une seule application.",
+            hero_btn1: "🚀 Recevoir les mises à jour RESQ+",
             hero_btn2: "📱 Voir les Fonctionnalités",
             
             // Features
@@ -142,7 +180,7 @@ const i18n = {
             coming_form_desc: "Obtenez RESQ+ maintenant et commencez à protéger vous et vos proches",
             coming_button: "Télécharger",
             coming_button_label: "OBTENIR SUR",
-            coming_features: "✓ 100% Gratuit ✓ Sans Publicités ✓ Zéro Données Personnelles ✓ Stockage Local Seulement",
+            coming_features: "✓ Essai gratuit de 7 jours ✓ Sans publicités ✓ Profils d'urgence locaux ✓ Alertes et IA connectées",
             
             // Newsletter
             newsletter_subscribe: "S'abonner",
@@ -155,7 +193,7 @@ const i18n = {
             screenshot4_caption: "Connexion d'Équipe",
             screenshot5_caption: "Profil Médical",
             screenshot6_caption: "Paramètres d'Urgence",
-            screenshot7_caption: "Fonctionnalités SOS",
+            screenshot7_caption: "SOS et outils d'urgence",
             screenshot8_caption: "Disponible Maintenant",
             
             // FAQ
@@ -165,21 +203,22 @@ const i18n = {
             
             // Exit Intent Popup
             exit_title: "Attendez! Ne Ratez Pas Ça!",
-            exit_desc: "Soyez notifié au lancement de RESQ+ et soyez parmi les premiers à accéder aux fonctionnalités vitales!",
+            exit_desc: "Recevez des nouvelles sur les améliorations de RESQ+ et soyez parmi les premiers informés des fonctionnalités importantes.",
             exit_placeholder: "votre@email.com",
-            exit_button: "🚀 Me Notifier au Lancement",
+            exit_button: "🚀 Recevoir les mises à jour",
             exit_footer: "100% Gratuit • Sans Spam • Désabonnement à Tout Moment"
         },
         th: {
             // Navigation
-            nav: {features: "คุณสมบัติ", screenshots: "ภาพหน้าจอ", notify: "รับการแจ้งเตือน", privacy: "ความเป็นส่วนตัว"},
+            nav: {features: "คุณสมบัติ", screenshots: "ภาพหน้าจอ", notify: "รับการแจ้งเตือน", privacy: "ความเป็นส่วนตัว", ambassador: "แอมบาสเดอร์"},
             
             // Hero
             hero_badge: "🚨 การตอบสนองฉุกเฉินระดับมืออาชีพ",
-            hero_title: "พยาบาลทางการแพทย์ AI + การประสานงานทีม + การฝึกอบรมฉุกเฉิน",
+            hero_partner_badge: "ต้องการรับรายได้ 33% ของเราหรือไม่? ร่วมเป็นพาร์ทเนอร์ RESQ+ →",
+            hero_title: "AI Emergency Nurse + การประสานงานทีม + เครื่องมือ SOS",
             hero_subtitle: "แอปฉุกเฉินเดียวที่คุณต้องการ",
-            hero_desc: "รับคำแนะนำทางการแพทย์แบบ AI ทันที ประสานงานกับทีมของคุณแบบเรียลไทม์ ฝึกฝนผ่านเกมโต้ตอบ และเข้าถึงฟีเจอร์ช่วยชีวิตมากกว่า 15 รายการ สอดคล้องกับกาชาดสากล ฟรี 100% ตลอดไป",
-            hero_btn1: "🚀 รับการแจ้งเตือนเมื่อเปิดตัว",
+            hero_desc: "รับคำแนะนำฉุกเฉินจาก AI ประสานงานกับทีมแบบเรียลไทม์ และเข้าถึงเครื่องมือ SOS การปฐมพยาบาล รวมถึงเครื่องมืออากาศและทางทะเลในแอปเดียว",
+            hero_btn1: "🚀 รับข่าวสาร RESQ+",
             hero_btn2: "📱 ดูคุณสมบัติ",
             
             // Features
@@ -211,7 +250,7 @@ const i18n = {
             coming_form_desc: "รับ RESQ+ ตอนนี้และเริ่มปกป้องตัวคุณและคนที่คุณรัก",
             coming_button: "ดาวน์โหลด",
             coming_button_label: "ดาวน์โหลดจาก",
-            coming_features: "✓ ฟรี 100% ✓ ไม่มีโฆษณา ✓ ไม่มีข้อมูลส่วนบุคคล ✓ จัดเก็บในเครื่องเท่านั้น",
+            coming_features: "✓ ทดลองใช้ฟรี 7 วัน ✓ ไม่มีโฆษณา ✓ โปรไฟล์ฉุกเฉินในเครื่อง ✓ การแจ้งเตือนและ AI แบบเชื่อมต่อ",
             
             // Newsletter
             newsletter_subscribe: "สมัครรับข่าวสาร",
@@ -224,7 +263,7 @@ const i18n = {
             screenshot4_caption: "เชื่อมต่อทีม",
             screenshot5_caption: "โปรไฟล์ทางการแพทย์",
             screenshot6_caption: "การตั้งค่าฉุกเฉิน",
-            screenshot7_caption: "คุณสมบัติ SOS",
+            screenshot7_caption: "SOS และเครื่องมือฉุกเฉิน",
             screenshot8_caption: "พร้อมใช้งานแล้ว",
             
             // FAQ
@@ -234,85 +273,22 @@ const i18n = {
             
             // Exit Intent Popup
             exit_title: "รอก่อน! อย่าพลาด!",
-            exit_desc: "รับการแจ้งเตือนเมื่อ RESQ+ เปิดตัวและเป็นคนแรกที่เข้าถึงฟีเจอร์ช่วยชีวิต!",
+            exit_desc: "รับข่าวเกี่ยวกับการปรับปรุงของ RESQ+ และเป็นกลุ่มแรกที่ทราบฟีเจอร์สำคัญ",
             exit_placeholder: "อีเมลของคุณ@email.com",
-            exit_button: "🚀 แจ้งเตือนฉันเมื่อเปิดตัว",
-            exit_footer: "ฟรี 100% • ไม่มีสแปม • ยกเลิกได้ตลอดเวลา"
-        },
-        zh: {
-            // Navigation
-            nav: {features: "功能", screenshots: "截图", notify: "获取通知", privacy: "隐私"},
-            
-            // Hero
-            hero_badge: "🚨 专业紧急响应",
-            hero_title: "AI医疗护士 + 团队协调 + 紧急培训",
-            hero_subtitle: "您唯一需要的紧急应用",
-            hero_desc: "获取即时AI医疗指导，实时协调您的团队，通过互动游戏进行培训，并访问15+救生功能。符合红十字会标准。永久100%免费。",
-            hero_btn1: "🚀 启动时获取通知",
-            hero_btn2: "📱 查看功能",
-            
-            // Features
-            features_badge: "🎯 核心功能",
-            features_title: "一个应用包含所有内容",
-            features_desc: "为实际情况设计的专业紧急响应工具",
-            
-            // Use Cases
-            usecase_badge: "🌟 真实场景",
-            usecase_title: "RESQ+ 实战",
-            usecase_desc: "看看RESQ+如何在真实紧急情况下发挥作用",
-            
-            // Share Story
-            share_badge: "📸 社区故事",
-            share_title: "RESQ+ 救了我的命",
-            share_desc: "分享您的紧急故事并激励他人。获得特色展示并提高知名度！",
-            share_heading: "您的故事可能在这里！",
-            share_text: "分享RESQ+如何在紧急情况下帮助您。您的故事将激励他人并拯救生命。",
-            share_button: "📸 分享我的紧急故事",
-            share_benefits: "✓ 获得特色展示 ✓ 激励他人 ✓ 提高社交媒体知名度",
-            
-            // Available Now
-            coming_badge: "🚀 现已推出",
-            coming_title: "现已在Google Play上推出",
-            coming_desc: "立即下载RESQ+，为任何紧急情况做好准备",
-            coming_heading: "30天改进期 - 您的反馈很重要！",
-            coming_text: "RESQ+现已在Google Play上推出！我们正处于30天的改进期，根据您的反馈积极完善功能。立即下载，帮助我们使RESQ+成为最好的紧急响应应用。",
-            coming_form_title: "在Google Play上下载",
-            coming_form_desc: "立即获取RESQ+，开始保护您和您所爱的人",
-            coming_button: "下载",
-            coming_button_label: "在",
-            coming_features: "✓ 100%免费 ✓ 无广告 ✓ 零个人数据 ✓ 仅本地存储",
-            
-            // Newsletter
-            newsletter_subscribe: "订阅",
-            newsletter_privacy: "🔒 我们尊重您的隐私。随时可以取消订阅。",
-            
-            // Screenshot Captions
-            screenshot1_caption: "主屏幕",
-            screenshot2_caption: "紧急控制中心",
-            screenshot3_caption: "AI紧急护士",
-            screenshot4_caption: "团队连接",
-            screenshot5_caption: "医疗档案",
-            screenshot6_caption: "紧急设置",
-            screenshot7_caption: "SOS功能",
-            screenshot8_caption: "现已推出",
-            
-            // FAQ
-            faq_badge: "❓ 常见问题",
-            faq_title: "常见问题",
-            faq_desc: "关于RESQ+您需要知道的一切",
-            
-            // Exit Intent Popup
-            exit_title: "等等！不要错过！",
-            exit_desc: "在RESQ+推出时获得通知，成为第一批访问救生功能的人！",
-            exit_placeholder: "您的邮箱@email.com",
-            exit_button: "🚀 启动时通知我",
-            exit_footer: "100%免费 • 无垃圾邮件 • 随时取消订阅"
+            exit_button: "🚀 รับอัปเดต",
+            exit_footer: "ไม่มีสแปม • ยกเลิกได้ตลอดเวลา"
         }
     },
     
+    setLanguage(lang) {
+        this.switchLang(lang);
+    },
+
     switchLang(lang) {
-        this.currentLang = lang;
-        localStorage.setItem('resq_lang', lang);
+        const nextLang = I18N_SUPPORTED_LANGUAGES.includes(lang) ? lang : 'en';
+        this.currentLang = nextLang;
+        localStorage.setItem('resq_lang', nextLang);
+        localStorage.setItem('selectedLanguage', nextLang);
         this.updatePage();
         this.updateExitPopup();
         
@@ -323,7 +299,7 @@ const i18n = {
         });
         
         // Add active class and aria-pressed to selected language button
-        const selectedBtn = document.querySelector(`.lang-btn[onclick*="'${lang}'"]`);
+        const selectedBtn = document.querySelector(`.lang-btn[onclick*="'${nextLang}'"]`);
         if (selectedBtn) {
             selectedBtn.classList.add('active');
             selectedBtn.setAttribute('aria-pressed', 'true');
@@ -353,6 +329,12 @@ const i18n = {
     },
     
     updatePage() {
+        if (!this.t[this.currentLang]) {
+            this.currentLang = 'en';
+            localStorage.setItem('resq_lang', 'en');
+            localStorage.setItem('selectedLanguage', 'en');
+        }
+
         const lang = this.t[this.currentLang];
         if (!lang) return;
         

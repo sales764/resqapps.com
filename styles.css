@@ -1251,6 +1251,21 @@ section + section {
 }
 
 /* ========================================
+   Google Play CTA - Centering
+   ======================================== */
+
+ .google-play-button-wrapper {
+     display: flex !important;
+     flex-direction: column !important;
+     align-items: flex-start !important;
+     justify-content: flex-start !important;
+     gap: 10px !important;
+     margin-top: 10px !important;
+     margin-bottom: 10px !important;
+     width: auto !important;
+ }
+
+/* ========================================
    8. Stats Section
    ======================================== */
 
@@ -2214,5 +2229,64 @@ select:focus {
     .hero,
     section {
         page-break-inside: avoid;
+    }
+}
+
+
+/* --- IMPROVED SLOGAN STYLE --- */
+.logo-slogan {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #e2e8f0; /* Crisp very light gray */
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    display: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: italic;
+}
+
+@media (min-width: 900px) {
+    .logo-slogan {
+        display: inline-block;
+        vertical-align: middle;
+        transform: translateY(2px);
+    }
+}
+
+/* Make logo ultra crisp and readable */
+.navbar .logo-text, .logo-text {
+    background: none !important;
+    -webkit-text-fill-color: #38bdf8 !important; /* Pale, bright, visible blue (Tailwind light blue 400) */
+    color: #38bdf8 !important; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important; /* Stronger drop shadow to pop against dark background */
+    font-weight: 900 !important;
+    letter-spacing: 1px !important;
+    font-size: 1.6rem !important;
+}
+
+
+/* --- NAV COMPANY NAME --- */
+.nav-company {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e2e8f0; /* Crisp very light gray, same as slogan */
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: none; /* Hidden on mobile to save space */
+}
+
+@media (min-width: 1024px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+    .nav-company {
+        display: flex;
+        align-items: center;
     }
 }

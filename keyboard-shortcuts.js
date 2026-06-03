@@ -39,11 +39,6 @@
             action: () => switchLanguage('th'),
             category: 'Language'
         },
-        'Alt+4': {
-            description: 'Switch to 中文',
-            action: () => switchLanguage('zh'),
-            category: 'Language'
-        },
         
         // Navigation shortcuts (Alt + Letter)
         'Alt+H': {
@@ -142,8 +137,7 @@
         const names = {
             'en': 'English',
             'fr': 'Français',
-            'th': 'ภาษาไทย',
-            'zh': '中文'
+            'th': 'ภาษาไทย'
         };
         return names[code] || code;
     }
@@ -540,7 +534,6 @@ Language:
 - Alt+1: English
 - Alt+2: Français
 - Alt+3: ภาษาไทย
-- Alt+4: 中文
 
 Navigation:
 - Alt+H: Home

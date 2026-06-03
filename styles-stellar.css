@@ -459,6 +459,118 @@
 }
 
 /* ============================================
+   GOOGLE PLAY CTA - PREMIUM BUTTON
+   ============================================ */
+
+ .google-play-button {
+     display: inline-flex !important;
+     align-items: center !important;
+     gap: 10px !important;
+     padding: 16px 26px !important;
+     border-radius: 14px !important;
+     text-decoration: none !important;
+     background: linear-gradient(145deg, #0b0b0f, #1a1a1f) !important;
+     border: 1px solid rgba(255, 255, 255, 0.12) !important;
+     box-shadow:
+         0 10px 26px rgba(0, 0, 0, 0.55),
+         0 0 0 1px rgba(79, 172, 254, 0.12),
+         0 0 18px rgba(79, 172, 254, 0.18) !important;
+     transform: translateY(0) scale(1) !important;
+     transition:
+         transform 0.25s ease,
+         box-shadow 0.25s ease,
+         border-color 0.25s ease !important;
+     position: relative !important;
+     overflow: hidden !important;
+     -webkit-font-smoothing: antialiased !important;
+     font-smoothing: antialiased !important;
+ }
+
+ .google-play-button:hover {
+     transform: translateY(-2px) scale(1.06) !important;
+     box-shadow:
+         0 16px 36px rgba(0, 0, 0, 0.62),
+         0 0 0 1px rgba(79, 172, 254, 0.22),
+         0 0 26px rgba(79, 172, 254, 0.35) !important;
+     border-color: rgba(79, 172, 254, 0.35) !important;
+ }
+
+ .google-play-button:focus-visible {
+     outline: 3px solid rgba(79, 172, 254, 0.45) !important;
+     outline-offset: 4px !important;
+ }
+
+ .google-play-button .play-button-label {
+     font-size: 11px !important;
+     letter-spacing: 0.8px !important;
+     opacity: 0.9 !important;
+ }
+
+ .google-play-button .play-button-name {
+     font-size: 18px !important;
+     font-weight: 700 !important;
+     letter-spacing: -0.2px !important;
+ }
+
+ .google-play-button::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: -100%;
+     width: 50%;
+     height: 100%;
+     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+     transition: 0.6s;
+ }
+
+ .google-play-button:hover::after {
+     left: 120%;
+ }
+
+ @media (max-width: 768px) {
+     .google-play-button {
+         transform: translateY(0) scale(1) !important;
+         width: 100% !important;
+     }
+
+     .google-play-button:hover {
+         transform: translateY(-1px) scale(1.02) !important;
+     }
+ }
+
+ .download-trust {
+     display: flex;
+     flex-direction: column;
+     gap: 6px;
+     margin-top: 2px;
+ }
+
+ .download-trust p {
+     margin: 0;
+     font-size: 14px;
+     line-height: 1.35;
+     color: rgba(255, 255, 255, 0.78);
+     font-weight: 600;
+ }
+
+ .stellar-content-wrapper {
+     display: flex !important;
+     flex-direction: column !important;
+     align-items: flex-start !important;
+     gap: 18px !important;
+ }
+
+ .stellar-features-grid {
+     margin-top: 8px !important;
+ }
+
+ .stellar-form-section {
+     display: flex !important;
+     flex-direction: column !important;
+     align-items: flex-start !important;
+ }
+
+/* ============================================
    STELLAR CUSTOM SCROLLBAR
    ============================================ */
 

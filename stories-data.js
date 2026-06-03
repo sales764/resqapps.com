@@ -19,16 +19,16 @@
 
 const storiesData = [
     // Exemple d'histoire avec média local (photo/vidéo uploadée)
-    // {
-    //     id: 1,
-    //     name: "John Doe",
-    //     storyType: "hiking",
-    //     story: "During a mountain hike, I twisted my ankle. RESQ+ helped me contact my team and get help quickly!",
-    //     mediaUrl: "images/stories/hiking-story.jpg", // URL de l'image/vidéo uploadée
-    //     socialLink: "https://instagram.com/johndoe", // Lien vers profil (optionnel)
-    //     date: "2024-11-15",
-    //     approved: true
-    // },
+    {
+        id: 1,
+        name: "Marie Dubois",
+        storyType: "medical",
+        story: "My grandfather had a sudden medical emergency at home. Using RESQ+, the AI Nurse guided me through immediate first aid while I waited for the ambulance. The Emergency Profile feature allowed the paramedics to instantly know his medical history and allergies. I truly believe this app made a huge difference!",
+        mediaUrl: "images/screenshot-3.webp", 
+        socialLink: "https://instagram.com/resqplus",
+        date: "2024-11-20",
+        approved: true
+    },
     
     // Exemple d'histoire partagée via lien social (Instagram, TikTok, YouTube)
     // {

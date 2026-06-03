@@ -11,7 +11,7 @@
         // Share settings
         shareUrl: 'https://www.resqapps.com',
         shareTitle: 'RESQ+ | AI Emergency Response App',
-        shareDescription: 'AI Medical Nurse, GPS team tracking & emergency training in one app. Red Cross compliant. 100% free forever. Save lives with professional guidance.',
+        shareDescription: 'AI Emergency Nurse, SOS tools, team coordination, and first aid support in one app. Get help and guidance faster in urgent situations.',
         shareImage: 'https://resqapps.com/og-image.jpg',
         shareHashtags: 'RESQ,EmergencyResponse,AIHealthcare,LifeSaving',
         

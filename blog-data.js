@@ -91,15 +91,15 @@ window.blogPosts = [
     },
     {
         id: 8,
-        title: "RESQ+ Partners with Thai Red Cross for Emergency Training",
-        excerpt: "Announcing our new partnership to provide emergency response training to communities across Thailand.",
+        title: "RESQ+ Expands Emergency Readiness Features on Android",
+        excerpt: "A look at recent RESQ+ updates across SOS tools, AI guidance, team coordination, and emergency preparedness utilities.",
         content: "Full article content here...",
         category: "news",
         date: "2024-10-01",
         author: "RESQ+ Team",
         authorAvatar: "images/blog/avatar-resq.jpg",
-        image: "images/blog/red-cross-partnership.jpg",
-        url: "blog/red-cross-partnership"
+        image: "images/blog/resq-update.jpg",
+        url: "blog/resq-feature-update"
     }
 ];
 

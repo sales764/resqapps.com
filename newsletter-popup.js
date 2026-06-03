@@ -100,10 +100,10 @@
             // Fallback to English
             config.content = {
                 title: "📧 Stay Updated!",
-                subtitle: "Get early access & exclusive updates",
-                description: "Join 5,000+ people getting notified when RESQ+ launches. Red Cross approved emergency guidance in your inbox.",
+                subtitle: "Get product updates & exclusive news",
+                description: "Get updates about RESQ+ improvements, emergency guidance features, and important product news.",
                 placeholder: "Enter your email",
-                buttonText: "Get Early Access",
+                buttonText: "Get Updates",
                 privacyText: "We respect your privacy. Unsubscribe anytime.",
                 successTitle: "🎉 You're In!",
                 successMessage: "Check your inbox for confirmation.",
@@ -115,10 +115,10 @@
         } else {
             config.content = {
                 title: translations.newsletter_title || "📧 Stay Updated!",
-                subtitle: translations.newsletter_subtitle || "Get early access & exclusive updates",
-                description: translations.newsletter_description || "Join 5,000+ people getting notified when RESQ+ launches.",
+                subtitle: translations.newsletter_subtitle || "Get product updates & exclusive news",
+                description: translations.newsletter_description || "Get updates about RESQ+ improvements and important product news.",
                 placeholder: translations.newsletter_placeholder || "Enter your email",
-                buttonText: translations.newsletter_button || "Get Early Access",
+                buttonText: translations.newsletter_button || "Get Updates",
                 privacyText: translations.newsletter_privacy || "We respect your privacy. Unsubscribe anytime.",
                 successTitle: translations.newsletter_success_title || "🎉 You're In!",
                 successMessage: translations.newsletter_success_message || "Check your inbox for confirmation.",
