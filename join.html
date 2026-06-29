@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join RESQ+ Team</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #1565C0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card { background: white; border-radius: 20px; padding: 30px; max-width: 350px; width: 100%; text-align: center; }
+        .logo { font-size: 50px; }
+        h1 { color: #1565C0; font-size: 22px; margin: 10px 0; }
+        .team { background: #E3F2FD; border-radius: 12px; padding: 15px; margin: 20px 0; }
+        .team-name { font-size: 18px; color: #1565C0; font-weight: bold; }
+        .code { background: #4CAF50; color: white; font-size: 28px; font-weight: bold; padding: 12px 20px; border-radius: 10px; margin: 10px 0; display: inline-block; letter-spacing: 3px; }
+        .copied { background: #FFF3E0; color: #E65100; padding: 10px; border-radius: 8px; margin: 15px 0; font-weight: bold; }
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 10px; font-size: 16px; font-weight: bold; text-decoration: none; margin: 10px 0; }
+        .btn-green { background: #4CAF50; color: white; }
+        .btn-blue { background: #E3F2FD; color: #1565C0; }
+        .info { font-size: 13px; color: #666; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">🚨</div>
+        <h1 id="txt-title">RESQ+ Team Invite</h1>
+        
+        <div class="team">
+            <div id="txt-invited">You're invited to join:</div>
+            <div class="team-name" id="teamName">Team</div>
+            <div class="code" id="teamCode">------</div>
+        </div>
+        
+        <div class="copied" id="copiedMsg">✅ Code copied to clipboard!</div>
+        
+        <a href="#" class="btn btn-green" id="openBtn">
+            📱 <span id="txt-open">Open RESQ+ App</span>
+        </a>
+        
+        <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq" class="btn btn-blue">
+            📲 <span id="txt-install">Install from Play Store</span>
+        </a>
+        
+        <p class="info" id="txt-info">If the app is installed, it will open directly on Team Connect and join automatically!</p>
+    </div>
+
+    <script>
+        // Translations Dictionary
+        const translations = {
+            en: {
+                title: "RESQ+ Team Invite",
+                invited: "You're invited to join:",
+                copiedMsg: "✅ Code copied to clipboard!",
+                open: "Open RESQ+ App",
+                install: "Install from Play Store",
+                info: "If the app is installed, it will open directly on Team Connect and join automatically!",
+                tapToCopy: "📋 Tap code to copy: ",
+                codeCopied: "✅ Code copied!"
+            },
+            fr: {
+                title: "Invitation Équipe RESQ+",
+                invited: "Vous êtes invité(e) à rejoindre :",
+                copiedMsg: "✅ Code copié dans le presse-papiers !",
+                open: "Ouvrir l'application RESQ+",
+                install: "Installer depuis le Play Store",
+                info: "Si l'application est installée, elle s'ouvrira et rejoindra l'équipe automatiquement !",
+                tapToCopy: "📋 Appuyez pour copier : ",
+                codeCopied: "✅ Code copié !"
+            },
+            es: {
+                title: "Invitación Equipo RESQ+",
+                invited: "Estás invitado a unirte a:",
+                copiedMsg: "✅ ¡Código copiado al portapapeles!",
+                open: "Abrir aplicación RESQ+",
+                install: "Instalar desde Play Store",
+                info: "Si la app está instalada, se abrirá directamente en Team Connect y te unirás automáticamente.",
+                tapToCopy: "📋 Toca para copiar: ",
+                codeCopied: "✅ ¡Código copiado!"
+            },
+            it: {
+                title: "Invito Squadra RESQ+",
+                invited: "Sei invitato a unirti a:",
+                copiedMsg: "✅ Codice copiato negli appunti!",
+                open: "Apri l'app RESQ+",
+                install: "Installa dal Play Store",
+                info: "Se l'app è installata, si aprirà direttamente su Team Connect e si unirà automaticamente!",
+                tapToCopy: "📋 Tocca il codice per copiare: ",
+                codeCopied: "✅ Codice copiato!"
+            },
+            tl: {
+                title: "Imbitasyon sa Koponan ng RESQ+",
+                invited: "Inaanyayahan kang sumali sa:",
+                copiedMsg: "✅ Kinopya ang code sa clipboard!",
+                open: "Buksan ang RESQ+ App",
+                install: "I-install mula sa Play Store",
+                info: "Kung naka-install ang app, direktang magbubukas ito sa Team Connect at awtomatikong sasali!",
+                tapToCopy: "📋 I-tap ang code para kopyahin: ",
+                codeCopied: "✅ Kinopya ang code!"
+            },
+            th: {
+                title: "คำเชิญเข้าร่วมทีม RESQ+",
+                invited: "คุณได้รับเชิญให้เข้าร่วม:",
+                copiedMsg: "✅ คัดลอกรหัสไปยังคลิปบอร์ดแล้ว!",
+                open: "เปิดแอป RESQ+",
+                install: "ติดตั้งจาก Play Store",
+                info: "หากติดตั้งแอปแล้ว ระบบจะเปิด Team Connect และเข้าร่วมโดยอัตโนมัติ!",
+                tapToCopy: "📋 แตะรหัสเพื่อคัดลอก: ",
+                codeCopied: "✅ คัดลอกรหัสแล้ว!"
+            }
+        };
+
+        // Detect user language (handle 'tl' vs 'fil' for Filipino)
+        let userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+        if (userLang === 'fi') userLang = 'tl'; // Handle if 'fil' is returned as 'fi'
+        const lang = translations[userLang] ? userLang : 'en';
+        const t = translations[lang];
+
+        // Apply translations to UI
+        document.getElementById('txt-title').textContent = t.title;
+        document.getElementById('txt-invited').textContent = t.invited;
+        document.getElementById('copiedMsg').textContent = t.copiedMsg;
+        document.getElementById('txt-open').textContent = t.open;
+        document.getElementById('txt-install').textContent = t.install;
+        document.getElementById('txt-info').textContent = t.info;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const teamCode = urlParams.get('code') || '000000';
+        
+        // Build Android intent:// deep link — opens app directly to Team Connect
+        // Falls back to Play Store if app is not installed
+        const playStoreFallback = encodeURIComponent('https://play.google.com/store/apps/details?id=com.firstaidkit.resq');
+        document.getElementById('openBtn').href =
+            `intent://team?code=${teamCode}#Intent;scheme=resqplus;package=com.firstaidkit.resq;S.browser_fallback_url=${playStoreFallback};end`;
+        
+        // Auto-open app when page loads — no button click required
+        // Android: opens app directly to Team Connect, or Play Store if not installed
+        setTimeout(function() {
+            window.location.href = document.getElementById('openBtn').href;
+        }, 600);
+        const teamName = decodeURIComponent(urlParams.get('name') || 'Emergency Team');
+        
+        document.getElementById('teamCode').textContent = teamCode;
+        document.getElementById('teamName').textContent = teamName;
+        
+        // Auto-copy code to clipboard
+        navigator.clipboard.writeText(teamCode).then(function() {
+            document.getElementById('copiedMsg').style.display = 'block';
+        }).catch(function() {
+            document.getElementById('copiedMsg').textContent = t.tapToCopy + teamCode;
+            document.getElementById('teamCode').onclick = function() {
+                navigator.clipboard.writeText(teamCode);
+                document.getElementById('copiedMsg').textContent = t.codeCopied;
+            };
+        });
+    </script>
+</body>
+</html>

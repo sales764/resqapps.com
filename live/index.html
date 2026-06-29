@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RESQ+ Live SOS</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          background: #0a0a0a; color: #eee; min-height: 100vh;
+          display: flex; flex-direction: column; align-items: center; padding: 16px;
+        }
+        header { width: 100%; max-width: 720px; margin-bottom: 16px; }
+        h1 { font-size: 20px; font-weight: 700; color: #ff3b30; }
+        .sub { font-size: 13px; color: #888; margin-top: 4px; word-break: break-all; }
+        .pill {
+          display: inline-block; padding: 4px 10px; border-radius: 12px;
+          font-size: 12px; font-weight: 600; margin-top: 8px;
+        }
+        .pill.live { background: #ff3b30; color: white; animation: pulse 1.5s infinite; }
+        .pill.ended { background: #444; color: #aaa; }
+        .pill.waiting { background: #ffae00; color: #000; }
+        @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.5 } }
+        video {
+          width: 100%; max-width: 720px; background: #000;
+          border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .meta {
+          width: 100%; max-width: 720px; margin-top: 16px;
+          background: #1c1c1e; border-radius: 8px; padding: 16px;
+          font-size: 14px; line-height: 1.6;
+        }
+        .meta b { color: #fff; }
+        .meta a { color: #4da3ff; text-decoration: none; }
+        .empty { padding: 60px 20px; text-align: center; color: #666; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>🚨 RESQ+ Live SOS</h1>
+    <div class="sub" id="sosIdDisplay">Loading…</div>
+    <span class="pill waiting" id="statusPill">CONNECTING</span>
+</header>
+
+<video id="player" controls autoplay muted playsinline></video>
+
+<div class="meta">
+    <div>📦 Fragments received: <b id="fragCount">0</b></div>
+    <div>⏱ Last update: <b id="lastUpdate">—</b></div>
+    <div>📍 Last location: <b id="lastLoc">—</b></div>
+    <div id="emptyMsg" class="empty" style="display:none">
+        Waiting for the first video fragment…<br>
+        <small>This page auto-refreshes as new 4 s clips arrive.</small>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import {
+      getFirestore, doc, collection, query, orderBy, onSnapshot
+    } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    // 🔧 TODO — paste your Firebase web config here
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      appId: "YOUR_APP_ID",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Extract sosId from URL: /live/{sosId} or ?id={sosId}
+    const path = window.location.pathname.split("/").filter(Boolean);
+    const sosId = path[path.length - 1] || new URLSearchParams(location.search).get("id");
+    document.getElementById("sosIdDisplay").textContent = sosId
+      ? "Session: " + sosId
+      : "❌ No sosId in URL";
+
+    if (!sosId) throw new Error("Missing sosId");
+
+    const player = document.getElementById("player");
+    const fragCountEl = document.getElementById("fragCount");
+    const lastUpdateEl = document.getElementById("lastUpdate");
+    const lastLocEl = document.getElementById("lastLoc");
+    const statusPill = document.getElementById("statusPill");
+    const emptyMsg = document.getElementById("emptyMsg");
+
+    const queue = [];           // pending downloadUrls in seq order
+    let playedSeqs = new Set(); // seqs already enqueued
+    let isPlaying = false;
+
+    function playNext() {
+      if (queue.length === 0) { isPlaying = false; return; }
+      isPlaying = true;
+      const next = queue.shift();
+      player.src = next;
+      player.play().catch(err => console.warn("Autoplay blocked:", err.message));
+    }
+    player.addEventListener("ended", playNext);
+    player.addEventListener("error", () => { console.warn("Fragment error, skipping"); playNext(); });
+
+    // =========================================================================
+    // ÉCOUTE DES FRAGMENTS VIDÉO EN TEMPS RÉEL (Syntaxe Modulaire v9+)
+    // =========================================================================
+    const fragsRef = query(
+      collection(db, "sos_sessions", sosId, "fragments"),
+      orderBy("seq", "asc")
+    );
+
+    onSnapshot(fragsRef, (snap) => {
+      let count = 0;
+
+      snap.forEach(docSnap => {
+        const f = docSnap.data();
+        count++;
+
+        // Ajout du fragment à la file d'attente s'il est valide et non lu
+        if (f && f.downloadUrl && !playedSeqs.has(f.seq)) {
+          playedSeqs.add(f.seq);
+          queue.push(f.downloadUrl);
+        }
+      });
+
+      // Mise à jour de l'interface utilisateur (UI)
+      if (typeof fragCountEl !== 'undefined' && fragCountEl) {
+        fragCountEl.textContent = count;
+      }
+      if (typeof emptyMsg !== 'undefined' && emptyMsg) {
+        emptyMsg.style.display = count === 0 ? "block" : "none";
+      }
+      if (count > 0 && typeof statusPill !== 'undefined' && statusPill) {
+        statusPill.textContent = "LIVE";
+        statusPill.className = "pill live";
+      }
+
+      // Lancement de la lecture automatique si elle est à l'arrêt
+      if (!isPlaying) {
+        playNext();
+      }
+    }, (error) => {
+      console.error("Erreur lors de la lecture des fragments en direct :", error);
+    });
+
+    // 2. Subscribe to session pivot doc (status + last location)
+    const pivotRef = doc(db, "sos_sessions", sosId);
+    onSnapshot(pivotRef, (snap) => {
+      if (!snap.exists()) {
+        statusPill.textContent = "NOT FOUND";
+        statusPill.className = "pill ended";
+        return;
+      }
+      const d = snap.data();
+      if (d.status === "stopped" || d.endedAt) {
+        statusPill.textContent = "ENDED";
+        statusPill.className = "pill ended";
+      }
+      if (d.lastEventAt?.toDate) {
+        lastUpdateEl.textContent = d.lastEventAt.toDate().toLocaleString();
+      }
+      if (d.lastLat && d.lastLng) {
+        lastLocEl.innerHTML =
+          `<a href="https://www.google.com/maps?q=${d.lastLat},${d.lastLng}" target="_blank">` +
+          `${d.lastLat.toFixed(5)}, ${d.lastLng.toFixed(5)} (Open in Maps)</a>`;
+      }
+    });
+</script>
+</body>
+</html>

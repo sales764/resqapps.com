@@ -684,6 +684,158 @@
         }
     </script>
     <script src="security-lock.js" defer></script>
+
+    <!-- =====================================================================
+         GOOGLE PLAY ACCESSIBILITY API DISCLOSURE (v5.0 — required by the
+         Play Console "Use of Accessibility Services" declaration form).
+
+         Anchor: #accessibility
+         Linked from: SettingsScreen.kt → AccessibilityRationaleDialog
+         Linked from: AndroidManifest meta-data + Play Store listing
+         DO NOT remove without legal & Play Console review.
+         ===================================================================== -->
+    <section id="accessibility" aria-labelledby="accessibility-title" style="
+        max-width: 880px;
+        margin: 56px auto 96px;
+        padding: 32px 28px;
+        border: 1px solid rgba(220, 53, 69, .18);
+        border-left: 6px solid #DC3545;
+        border-radius: 14px;
+        background: #fff8f9;
+        color: #1a1a1a;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.55;
+        scroll-margin-top: 24px;
+    ">
+        <p style="margin: 0 0 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #DC3545; font-weight: 700;">
+            Google Play — Accessibility Services Disclosure
+        </p>
+        <h2 id="accessibility-title" style="margin: 0 0 14px; font-size: 26px; font-weight: 800; color: #111;">
+            12. Use of the Android Accessibility API
+        </h2>
+        <p style="margin: 0 0 16px; font-size: 15.5px;">
+            RESQ+ exposes an <strong>optional</strong> feature that uses Android&#39;s
+            Accessibility API to detect a simultaneous long-press of the
+            <strong>Volume +</strong> and <strong>Volume −</strong> hardware
+            buttons as a panic gesture. This document discloses, in full
+            transparency, the precise behaviour and data flow of that
+            feature so that users can give informed consent before enabling it.
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.1 Opt-in only</h3>
+        <p style="margin: 0 0 12px;">
+            The Accessibility-based trigger is <strong>disabled by default</strong>.
+            It is only activated when the user (a) flips a dedicated toggle
+            inside RESQ+ Settings, (b) reads and accepts an in-app
+            "Prominent Disclosure" dialog, and (c) manually enables the
+            RESQ+ Accessibility service in
+            <em>Android System Settings → Accessibility</em>. All three steps
+            are required. The toggle can be reversed at any time from the
+            same Settings screen, which clears the consent flag instantly.
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.2 Purpose — who this feature is for</h3>
+        <p style="margin: 0 0 12px;">
+            The feature exists to help users who cannot reach or operate the
+            in-app SOS button reliably, including:
+        </p>
+        <ul style="margin: 0 0 14px 22px; padding: 0;">
+            <li>users with <strong>motor or cognitive impairment</strong> who can press hardware keys but cannot navigate touch-screen UIs under stress;</li>
+            <li>users physically restrained by an aggressor and unable to look at the screen;</li>
+            <li>users in low-light or zero-visibility environments;</li>
+            <li>users whose phone is in a pocket, bag or holster.</li>
+        </ul>
+        <p style="margin: 0 0 12px;">
+            The Accessibility API is the only Android mechanism that allows
+            hardware-key detection while the screen is locked. No alternative
+            API offers this capability for third-party apps.
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.3 What data the service accesses</h3>
+        <p style="margin: 0 0 12px;">
+            When enabled, the RESQ+ Accessibility service reads <strong>only</strong>:
+        </p>
+        <ul style="margin: 0 0 14px 22px; padding: 0;">
+            <li>The <strong>KEY_DOWN</strong> and <strong>KEY_UP</strong> events of
+                <code>KEYCODE_VOLUME_UP</code> and <code>KEYCODE_VOLUME_DOWN</code> only;</li>
+            <li>The timestamps of those two key transitions, used solely to
+                measure the 2-second and 5-second hold thresholds.</li>
+        </ul>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.4 What the service NEVER accesses</h3>
+        <p style="margin: 0 0 12px;">
+            RESQ+ <strong>does not</strong>, under any circumstance, access:
+        </p>
+        <ul style="margin: 0 0 14px 22px; padding: 0;">
+            <li>screen content, window content, view hierarchies or UI dumps;</li>
+            <li>text fields, passwords, form inputs, clipboard or selection events;</li>
+            <li>notifications from other apps or system notifications;</li>
+            <li>the list of installed apps, app usage, or foreground app data;</li>
+            <li>browsing history, search queries or URLs;</li>
+            <li>any AccessibilityEvent other than the two hardware-volume key events;</li>
+            <li>biometric data, fingerprints, face data or authentication state.</li>
+        </ul>
+        <p style="margin: 0 0 12px;">
+            The Accessibility service is configured with the narrowest
+            possible event mask
+            (<code>flagRequestFilterKeyEvents</code> only — no
+            <code>typeWindowContentChanged</code>, no
+            <code>typeViewTextChanged</code>, no
+            <code>typeNotificationStateChanged</code>).
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.5 On-device processing</h3>
+        <p style="margin: 0 0 12px;">
+            Volume-key detection runs <strong>100% on-device</strong>. No
+            keypress, timestamp or accessibility event is ever uploaded to
+            RESQ+ servers, Firebase, analytics or any third party. The
+            10-second pre-roll buffer used to capture the trigger gesture
+            lives exclusively in RAM and is discarded if no SOS is launched.
+        </p>
+        <p style="margin: 0 0 12px;">
+            Only when an SOS is <strong>explicitly triggered</strong> by the
+            user (via the 2-second hold, the in-app button, the Quick Settings
+            Tile, or auto-escalation by the on-device fall detector) does
+            RESQ+ start uploading the encrypted event log and 4-second video
+            fragments to Firebase Cloud Storage, restricted to the user&#39;s
+            authorised emergency contacts and certified RESQ+ rescue
+            operators.
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.6 No misuse — Play Store policy alignment</h3>
+        <p style="margin: 0 0 12px;">
+            RESQ+ confirms that its Accessibility service is used
+            <strong>exclusively</strong> to assist users with the panic
+            gesture described above. It is <strong>never</strong> used for:
+            advertising, analytics, tracking, automation of other apps,
+            scraping content, capturing credentials, password autofill,
+            in-app purchase manipulation, or any usage that would violate
+            the
+            <a href="https://support.google.com/googleplay/android-developer/answer/10964491"
+               target="_blank" rel="noopener" style="color: #1565C0;">Google Play
+            Accessibility API policy</a>.
+        </p>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.7 How to disable</h3>
+        <p style="margin: 0 0 12px;">
+            You may revoke consent at any time using either of the
+            following methods (a single one is sufficient):
+        </p>
+        <ul style="margin: 0 0 14px 22px; padding: 0;">
+            <li>open RESQ+ → <em>Settings</em> → toggle <em>Volume Buttons SOS Trigger</em> to <strong>OFF</strong>;</li>
+            <li>open <em>Android System Settings</em> → <em>Accessibility</em> → <em>RESQ+ Volume SOS Trigger</em> → <strong>OFF</strong>;</li>
+            <li>uninstall RESQ+.</li>
+        </ul>
+
+        <h3 style="margin: 22px 0 6px; font-size: 17px; color: #111;">12.8 Contact &amp; questions</h3>
+        <p style="margin: 0;">
+            Questions about this disclosure, or requests for technical or
+            legal review of the implementation, can be addressed to
+            <a href="mailto:sales@sornsawan.com" style="color: #1565C0;">sales@sornsawan.com</a>.
+            We commit to responding within 30 days.
+        </p>
+    </section>
+
 </body>
 </html>
 

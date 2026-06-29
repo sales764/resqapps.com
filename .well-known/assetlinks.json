@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.firstaidkit.resq",
+      "sha256_cert_fingerprints": [
+        "A0:EB:32:03:63:E2:3A:B5:3A:07:EE:AA:FA:6A:2F:41:27:CF:E5:CE:EE:05:02:BB:AE:D0:3E:39:29:BE:DB:98",
+        "10:6E:C0:28:C7:B1:49:61:E0:FE:AC:03:0B:16:5D:28:9C:F6:41:12:24:CF:0A:AB:12:90:E4:14:3F:9B:F5:16",
+        "F9:FC:26:45:8B:4B:58:3B:17:DE:61:2F:69:53:45:FB:E1:44:7A:A6:2E:47:B9:03:8D:56:5D:C2:44:1F:A3:8F"
+      ]
+    }
+  }
+]
