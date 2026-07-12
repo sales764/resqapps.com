@@ -407,9 +407,12 @@
                 snap.docChanges().forEach((change) => {
                     if (change.type !== 'added') return;
                     const data = change.doc.data();
-                    if (data.seq === undefined || seenSeqs.has(data.seq) || !data.url) return;
+                    // The app writes the fragment URL under `downloadUrl`; accept
+                    // `url` too for forward-compatibility.
+                    const fragUrl = data.downloadUrl || data.url;
+                    if (data.seq === undefined || seenSeqs.has(data.seq) || !fragUrl) return;
                     seenSeqs.add(data.seq);
-                    queue.push(data.url);
+                    queue.push(fragUrl);
                     firstFragmentArrived = true;
                     fragCountEl.textContent = String(seenSeqs.size);
                     if (!playing) playNext();
