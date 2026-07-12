@@ -210,6 +210,15 @@
             <button id="unmuteBtn" style="background:var(--gradient-primary);border:none;color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:0.8rem;">Unmute</button>
         </div>
 
+        <!-- DVR review controls: the full footage is reviewable like one video. -->
+        <div class="dvr-row" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;">
+            <button id="btnStart" title="Revoir depuis le début" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">⏮ Début</button>
+            <button id="btnPrev" title="Clip précédent" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">◀ Précédent</button>
+            <button id="btnNext" title="Clip suivant" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">Suivant ▶</button>
+            <button id="btnLive" title="Aller au direct" style="background:var(--gradient-red);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:700;">● Direct</button>
+            <span id="clipLabel" style="color:var(--text-muted);font-size:0.8rem;margin-left:auto;"></span>
+        </div>
+
         <div class="map-header">
             <div class="pulse-dot"></div> Live GPS Tracking
         </div>
@@ -360,65 +369,89 @@
                 showError('Could not load this session. It may not exist or the link may be invalid.');
             });
 
-            // --- Fragment queue + sequential playback ---
+            // --- DVR-style accumulating playback ---------------------------------
+            // The whole incident must be reviewable like ONE growing video: the
+            // recipient (e.g. a parent relaying details to the police) can restart
+            // from the beginning, step through every clip, or jump to the live
+            // edge — and NEW clips keep appending at the end. We therefore NEVER
+            // discard fragments; we keep an ordered list and a play cursor.
             const seenSeqs = new Set();
-            const queue = [];
-            let playing = false;
+            const fragments = [];        // { seq, url }, ascending by seq
+            let currentIdx = -1;         // index of the clip currently playing
+            let followLive = true;       // auto-advance onto new clips as they arrive
             let firstFragmentArrived = false;
+
+            // Control buttons (added to the DOM below).
+            const btnStart = document.getElementById('btnStart');
+            const btnPrev  = document.getElementById('btnPrev');
+            const btnNext  = document.getElementById('btnNext');
+            const btnLive  = document.getElementById('btnLive');
+            const clipLabel = document.getElementById('clipLabel');
 
             function showError(msg) {
                 overlay.style.display = 'flex';
                 overlay.innerHTML = '<div class="error-box">' + msg + '</div>';
             }
 
+            function updateClipLabel() {
+                if (fragments.length === 0) { clipLabel.textContent = ''; return; }
+                clipLabel.textContent = 'Clip ' + (currentIdx + 1) + ' / ' + fragments.length +
+                    (followLive ? ' • LIVE' : '');
+                btnLive.style.opacity = followLive ? '0.5' : '1';
+            }
+
             let stallTimer = null;
             function armStallWatchdog() {
                 if (stallTimer) clearTimeout(stallTimer);
-                // Each fragment is ~4s; if nothing advances in 9s the clip is
-                // stuck (network hiccup / undecodable) — skip to the next.
                 stallTimer = setTimeout(() => {
-                    console.warn('Fragment stalled — skipping');
-                    playNext();
-                }, 9000);
+                    console.warn('Fragment stalled — advancing');
+                    onClipDone();
+                }, 12000);
             }
 
-            function playNext() {
-                if (stallTimer) { clearTimeout(stallTimer); stallTimer = null; }
-
-                // LIVE catch-up: a viewer who joins late (or after a network drop)
-                // must not replay dozens of old 4s clips. Keep only the newest few
-                // so playback stays close to real time.
-                if (queue.length > 3) {
-                    queue.splice(0, queue.length - 3);
-                }
-
-                if (queue.length === 0) {
-                    playing = false;
-                    if (firstFragmentArrived) {
-                        overlay.style.display = 'flex';
-                        overlay.innerHTML = '<div class="spinner"></div><div>Waiting for next clip…</div>';
-                    }
-                    return;
-                }
-                playing = true;
+            function playAt(idx) {
+                if (idx < 0 || idx >= fragments.length) return;
+                currentIdx = idx;
+                followLive = (idx === fragments.length - 1);
                 overlay.style.display = 'none';
-                const url = queue.shift();
-                video.src = url;
-                video.load(); // REQUIRED so the next 'ended' fires reliably (Chrome).
+                video.src = fragments[idx].url;
+                video.load(); // REQUIRED so 'ended' fires reliably for the next clip (Chrome).
                 armStallWatchdog();
                 video.play().catch((e) => {
                     console.warn('Autoplay blocked, retrying muted:', e);
                     video.muted = true;
                     video.play().catch(() => {});
                 });
+                updateClipLabel();
             }
 
-            video.addEventListener('ended', playNext);
+            // Called when the current clip finishes (or stalls).
+            function onClipDone() {
+                if (stallTimer) { clearTimeout(stallTimer); stallTimer = null; }
+                if (currentIdx < fragments.length - 1) {
+                    playAt(currentIdx + 1);
+                } else {
+                    // Reached the newest clip — wait for more. Stay in "follow
+                    // live" so the next arrival auto-plays.
+                    followLive = true;
+                    overlay.style.display = 'flex';
+                    overlay.innerHTML = '<div class="spinner"></div><div>Waiting for next clip…</div>';
+                    updateClipLabel();
+                }
+            }
+
+            video.addEventListener('ended', onClipDone);
             video.addEventListener('playing', armStallWatchdog);
             video.addEventListener('error', () => {
                 console.error('Fragment failed to play, skipping:', video.currentSrc);
-                playNext();
+                onClipDone();
             });
+
+            // Manual navigation — reviewing footage for the police.
+            btnStart.addEventListener('click', () => { if (fragments.length) playAt(0); });
+            btnPrev.addEventListener('click', () => { if (currentIdx > 0) playAt(currentIdx - 1); });
+            btnNext.addEventListener('click', () => { if (currentIdx < fragments.length - 1) playAt(currentIdx + 1); });
+            btnLive.addEventListener('click', () => { if (fragments.length) playAt(fragments.length - 1); });
 
             const fragmentsQuery = query(
                 collection(db, 'sos_sessions', sosId, 'fragments'),
@@ -434,10 +467,19 @@
                     const fragUrl = data.downloadUrl || data.url;
                     if (data.seq === undefined || seenSeqs.has(data.seq) || !fragUrl) return;
                     seenSeqs.add(data.seq);
-                    queue.push(fragUrl);
+                    fragments.push({ seq: data.seq, url: fragUrl });
+                    fragments.sort((a, b) => a.seq - b.seq);
                     firstFragmentArrived = true;
-                    fragCountEl.textContent = String(seenSeqs.size);
-                    if (!playing) playNext();
+                    fragCountEl.textContent = String(fragments.length);
+                    // Start playback on the very first clip; afterwards only
+                    // auto-advance if the viewer is following the live edge (a
+                    // viewer who scrubbed back to review is left undisturbed).
+                    if (currentIdx === -1) {
+                        playAt(0);
+                    } else if (followLive && video.paused) {
+                        playAt(fragments.length - 1);
+                    }
+                    updateClipLabel();
                 });
             }, (err) => {
                 console.error('Fragments listener error:', err);
