@@ -371,12 +371,31 @@
                 overlay.innerHTML = '<div class="error-box">' + msg + '</div>';
             }
 
+            let stallTimer = null;
+            function armStallWatchdog() {
+                if (stallTimer) clearTimeout(stallTimer);
+                // Each fragment is ~4s; if nothing advances in 9s the clip is
+                // stuck (network hiccup / undecodable) — skip to the next.
+                stallTimer = setTimeout(() => {
+                    console.warn('Fragment stalled — skipping');
+                    playNext();
+                }, 9000);
+            }
+
             function playNext() {
+                if (stallTimer) { clearTimeout(stallTimer); stallTimer = null; }
+
+                // LIVE catch-up: a viewer who joins late (or after a network drop)
+                // must not replay dozens of old 4s clips. Keep only the newest few
+                // so playback stays close to real time.
+                if (queue.length > 3) {
+                    queue.splice(0, queue.length - 3);
+                }
+
                 if (queue.length === 0) {
                     playing = false;
                     if (firstFragmentArrived) {
                         overlay.style.display = 'flex';
-                        overlayText.textContent = 'Waiting for next clip…';
                         overlay.innerHTML = '<div class="spinner"></div><div>Waiting for next clip…</div>';
                     }
                     return;
@@ -385,6 +404,8 @@
                 overlay.style.display = 'none';
                 const url = queue.shift();
                 video.src = url;
+                video.load(); // REQUIRED so the next 'ended' fires reliably (Chrome).
+                armStallWatchdog();
                 video.play().catch((e) => {
                     console.warn('Autoplay blocked, retrying muted:', e);
                     video.muted = true;
@@ -393,8 +414,9 @@
             }
 
             video.addEventListener('ended', playNext);
+            video.addEventListener('playing', armStallWatchdog);
             video.addEventListener('error', () => {
-                console.error('Fragment failed to play, skipping:', video.src);
+                console.error('Fragment failed to play, skipping:', video.currentSrc);
                 playNext();
             });
 
