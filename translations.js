@@ -375,17 +375,17 @@ const TRANSLATIONS = {
     screenshots: {
         en: {
             coming_soon_title: "View Screenshots on Google Play!",
-            coming_soon_message: "RESQ+ is now available! See professional screenshots of our AI Medical Nurse, Team Coordination, and Emergency Training features directly on the Google Play Store. Download now and explore all the life-saving features.",
+            coming_soon_message: "RESQ+ is now available! See professional screenshots of our First Aid Assistant, Team Coordination, and Emergency Training features directly on the Google Play Store. Download now and explore all the life-saving features.",
             launching_soon: "🚀 View on Google Play"
         },
         fr: {
             coming_soon_title: "Voir les Captures d'écran sur Google Play !",
-            coming_soon_message: "RESQ+ est maintenant disponible ! Voir les captures d'écran professionnelles de notre Infirmière Médicale IA, Coordination d'Équipe et fonctionnalités de Formation aux Urgences directement sur Google Play Store. Téléchargez maintenant et explorez toutes les fonctionnalités qui sauvent des vies.",
+            coming_soon_message: "RESQ+ est maintenant disponible ! Voir les captures d'écran professionnelles de notre Assistant Premiers Secours IA, Coordination d'Équipe et fonctionnalités de Formation aux Urgences directement sur Google Play Store. Téléchargez maintenant et explorez toutes les fonctionnalités qui sauvent des vies.",
             launching_soon: "🚀 Voir sur Google Play"
         },
         th: {
             coming_soon_title: "ดูภาพหน้าจอบน Google Play!",
-            coming_soon_message: "RESQ+ พร้อมใช้งานแล้ว! ดูภาพหน้าจออย่างมืออาชีพของพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินโดยตรงบน Google Play Store ดาวน์โหลดตอนนี้และสำรวจคุณสมบัติที่ช่วยชีวิตทั้งหมด",
+            coming_soon_message: "RESQ+ พร้อมใช้งานแล้ว! ดูภาพหน้าจออย่างมืออาชีพของผู้ช่วยปฐมพยาบาล AI ทางการแพทย์ การประสานงานทีม และคุณสมบัติการฝึกอบรมฉุกเฉินโดยตรงบน Google Play Store ดาวน์โหลดตอนนี้และสำรวจคุณสมบัติที่ช่วยชีวิตทั้งหมด",
             launching_soon: "🚀 ดูบน Google Play"
         }
     },
@@ -398,7 +398,7 @@ const TRANSLATIONS = {
             emailPlaceholder: "your@email.com",
             screenshot1Alt: "RESQ+ Welcome Screen",
             screenshot2Alt: "RESQ+ SOS Emergency",
-            screenshot3Alt: "RESQ+ AI Medical Nurse",
+            screenshot3Alt: "RESQ+ First Aid Assistant",
             screenshot4Alt: "RESQ+ Emergency Profile",
             screenshot5Alt: "RESQ+ First Aid & Triage",
             screenshot6Alt: "RESQ+ Team Connect",
@@ -411,7 +411,7 @@ const TRANSLATIONS = {
             emailPlaceholder: "votre@email.com",
             screenshot1Alt: "Écran d'accueil RESQ+",
             screenshot2Alt: "RESQ+ SOS Urgence",
-            screenshot3Alt: "RESQ+ Infirmière IA",
+            screenshot3Alt: "RESQ+ Assistant Premiers Secours IA",
             screenshot4Alt: "RESQ+ Profil d'Urgence",
             screenshot5Alt: "RESQ+ Premiers Soins et Triage",
             screenshot6Alt: "RESQ+ Connexion d'Équipe",
@@ -424,7 +424,7 @@ const TRANSLATIONS = {
             emailPlaceholder: "email@ของคุณ.com",
             screenshot1Alt: "หน้าจอต้อนรับ RESQ+",
             screenshot2Alt: "RESQ+ SOS ฉุกเฉิน",
-            screenshot3Alt: "RESQ+ พยาบาล AI",
+            screenshot3Alt: "RESQ+ ผู้ช่วยปฐมพยาบาล AI",
             screenshot4Alt: "RESQ+ โปรไฟล์ฉุกเฉิน",
             screenshot5Alt: "RESQ+ ปฐมพยาบาลและการคัดกรอง",
             screenshot6Alt: "RESQ+ เชื่อมต่อทีม",
@@ -497,8 +497,8 @@ const TRANSLATIONS = {
             feature1_item3: "✓ SMS alerts",
             feature1_item4: "✓ Sound alert tools",
             
-            // Feature 2: AI Emergency Nurse
-            feature2_title: "AI Emergency Nurse",
+            // Feature 2: First Aid Assistant
+            feature2_title: "First Aid Assistant",
             feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
             feature2_item1: "✓ Voice & image support",
             feature2_item2: "✓ ABC+D triage protocol",
@@ -570,8 +570,8 @@ const TRANSLATIONS = {
             feature1_item3: "✓ Alertes SMS",
             feature1_item4: "✓ Outils d'alerte sonore",
             
-            // Feature 2: AI Emergency Nurse
-            feature2_title: "Infirmière d'Urgence IA",
+            // Feature 2: First Aid Assistant
+            feature2_title: "Assistant Premiers Secours IA",
             feature2_desc: "Assistance médicale par IA personnalisée selon les profils médicaux familiaux et le contenu exact de votre trousse de secours. Saisie vocale/image avec triage ABC+D.",
             feature2_item1: "✓ Support vocal et image",
             feature2_item2: "✓ Protocole de triage ABC+D",
@@ -643,8 +643,8 @@ const TRANSLATIONS = {
             feature1_item3: "✓ การแจ้งเตือน SMS",
             feature1_item4: "✓ เครื่องมือแจ้งเตือนด้วยเสียง",
             
-            // Feature 2: AI Emergency Nurse
-            feature2_title: "พยาบาลฉุกเฉิน AI",
+            // Feature 2: First Aid Assistant
+            feature2_title: "ผู้ช่วยปฐมพยาบาล AI",
             feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
             feature2_item1: "✓ รองรับเสียงและรูปภาพ",
             feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
@@ -834,7 +834,7 @@ const NEW_FEATURES_EN = {
     feature1_item3: "✓ SMS emergency alerts",
     feature1_item4: "✓ Sound alert system",
 
-    feature2_title: "AI Emergency Nurse",
+    feature2_title: "First Aid Assistant",
     feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
     feature2_item1: "✓ Voice & image support",
     feature2_item2: "✓ ABC+D triage protocol",
@@ -913,7 +913,7 @@ const NEW_FEATURES_FR = {
     feature1_item3: "✓ Alertes d'urgence SMS",
     feature1_item4: "✓ Système d'alerte sonore",
 
-    feature2_title: "IA Infirmière d'Urgence",
+    feature2_title: "Assistant Premiers Secours IA",
     feature2_desc: "Assistance médicale par IA personnalisée selon les profils médicaux familiaux et le contenu exact de votre trousse de secours. Saisie vocale/image avec triage ABC+D.",
     feature2_item1: "✓ Support vocal et d'images",
     feature2_item2: "✓ Protocole de triage ABC+D",
@@ -992,7 +992,7 @@ const NEW_FEATURES_TH = {
     feature1_item3: "✓ การแจ้งเตือนฉุกเฉินผ่าน SMS",
     feature1_item4: "✓ ระบบเสียงเตือนภัย",
 
-    feature2_title: "พยาบาลฉุกเฉิน AI",
+    feature2_title: "ผู้ช่วยปฐมพยาบาล AI",
     feature2_desc: "คำแนะนำทางการแพทย์จาก AI ที่ปรับแต่งตามโปรไฟล์ทางการแพทย์ของครอบครัวและชุดปฐมพยาบาลของคุณโดยเฉพาะ พร้อมประเมินการคัดกรอง ABC+D",
     feature2_item1: "✓ รองรับการป้อนข้อมูลด้วยเสียงและภาพ",
     feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
@@ -1071,7 +1071,7 @@ const NEW_FEATURES_ES = {
     feature1_item3: "✓ Alertas SMS de emergencia",
     feature1_item4: "✓ Sistema de alerta sonora",
 
-    feature2_title: "IA Enfermera de Emergencia",
+    feature2_title: "Asistente de Primeros Auxilios IA",
     feature2_desc: "Guía médica de IA adaptada a los perfiles médicos de su familia y al inventario exacto de su botiquín de primeros auxilios. Entrada de voz/imagen con triaje ABC+D.",
     feature2_item1: "✓ Soporte de voz e imagen",
     feature2_item2: "✓ Protocolo de triaje ABC+D",
@@ -1150,7 +1150,7 @@ const NEW_FEATURES_IT = {
     feature1_item3: "✓ Avvisi SMS di emergenza",
     feature1_item4: "✓ Sistema di allarme sonoro",
 
-    feature2_title: "Infermiere AI di Emergenza",
+    feature2_title: "Assistente di Primo Soccorso IA",
     feature2_desc: "Guida medica IA personalizzata per i profili medici familiari e l'inventario esatto del tuo kit di pronto soccorso. Input vocale/immagine con triage ABC+D.",
     feature2_item1: "✓ Supporto voce e immagine",
     feature2_item2: "✓ Protocollo di triage ABC+D",
@@ -1229,7 +1229,7 @@ const NEW_FEATURES_FIL = {
     feature1_item3: "✓ Mga SMS emergency alert",
     feature1_item4: "✓ Sound alert system",
 
-    feature2_title: "AI Emergency Nurse",
+    feature2_title: "First Aid Assistant",
     feature2_desc: "AI medikal na gabay na naka-customize para sa mga medikal na profile ng pamilya at sa iyong eksaktong first aid kit inventory. Voice/image input na may ABC+D triage.",
     feature2_item1: "✓ Voice at image support",
     feature2_item2: "✓ ABC+D triage protocol",

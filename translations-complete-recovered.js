@@ -1,4 +1,4 @@
-﻿// RESQ+ COMPLETE TRANSLATIONS - ALL CONTENT
+// RESQ+ COMPLETE TRANSLATIONS - ALL CONTENT
 const i18nComplete = {
     en: {
         common: {
@@ -29,13 +29,13 @@ const i18nComplete = {
         privacy_connected_item2: "<strong>Location Data While Active:</strong> Location data when you actively use SOS, Team Connect, Global Emergency Directory, weather, or nearby-service features.",
         privacy_connected_item3: "<strong>Alert and Team Data:</strong> Team membership, alert responses, community alerts, notification tokens, and related cloud records needed for coordination features.",
         privacy_connected_item4: "<strong>Optional Media and Attachments:</strong> Voice, video, image, or other files you choose to upload or attach through supported features.",
-        privacy_connected_item5: "<strong>AI Requests:</strong> Text, image, and related context sent to generate AI Emergency Nurse guidance.",
+        privacy_connected_item5: "<strong>AI Requests:</strong> Text, image, and related context sent to generate First Aid Assistant guidance.",
         privacy_connected_item6: "<strong>Analytics and Diagnostics:</strong> App analytics, performance signals, and technical diagnostics used to operate and improve the service.",
 
         privacy_permissions_item_location: "<strong>LOCATION:</strong> For SOS location sharing, Team GPS tracking, Global Emergency Directory, and Compass tools.",
         privacy_permissions_item_send_sms: "<strong>SEND_SMS:</strong> To send emergency SMS alerts when you enable the feature and grant SMS permission.",
         privacy_permissions_item_storage: "<strong>STORAGE:</strong> To save local profile data, recordings, and other files created by the app.",
-        privacy_permissions_item_internet: "<strong>INTERNET:</strong> For AI Nurse, sign-in, team sync, cloud alerts, and weather data.",
+        privacy_permissions_item_internet: "<strong>INTERNET:</strong> For First Aid Assistant, sign-in, team sync, cloud alerts, and weather data.",
         privacy_permissions_item_notifications: "<strong>NOTIFICATIONS:</strong> For team, community, and emergency-related notifications.",
         
         privacy_not_collect_title: "2. What We DO <strong>NOT</strong> Collect",
@@ -45,7 +45,7 @@ const i18nComplete = {
         privacy_not_collect_item3: "<strong>Photos & Images:</strong> Profile photos, ID photos, medical images",
         privacy_not_collect_item4: "<strong>Location Data:</strong> Your GPS coordinates, location history, or team tracking data",
         privacy_not_collect_item5: "<strong>Emergency Contacts:</strong> Contact names, phone numbers, or any relationship details",
-        privacy_not_collect_item6: "<strong>AI Conversations:</strong> Your medical consultations or conversations with the AI Medical Nurse",
+        privacy_not_collect_item6: "<strong>AI Conversations:</strong> Your medical consultations or conversations with the First Aid Assistant",
         
         privacy_local_storage_title: "3. Local Device Storage (You Only)",
         privacy_local_storage_text: "The following data is stored ONLY on your device and is <strong>NEVER</strong> uploaded to any server:",
@@ -56,7 +56,7 @@ const i18nComplete = {
         
         privacy_collect_title: "4. What We Process for Connected Features",
         privacy_collect_text: "To deliver connected features, RESQ+ may process <strong>operational and service-related data</strong> when you actively use those features:",
-        privacy_collect_item1: "<strong>Feature Usage:</strong> Which features are used (e.g.: SOS activations, AI Nurse queries, Game sessions)",
+        privacy_collect_item1: "<strong>Feature Usage:</strong> Which features are used (e.g.: SOS activations, First Aid Assistant queries, Game sessions)",
         privacy_collect_item2: "<strong>Technical Data:</strong> App version, device type (Android version), crash reports",
         privacy_collect_item3: "<strong>Performance Metrics:</strong> Response times, load speeds, app stability",
         privacy_collect_item4: "<strong>Language Preference:</strong> Languages used to improve translations",
@@ -64,12 +64,12 @@ const i18nComplete = {
         
         privacy_permissions_title: "5. App Permissions",
         privacy_permissions_text: "RESQ+ requests the following permissions to provide emergency features:",
-        privacy_permissions_camera: "<strong>Camera:</strong> For AI Nurse image analysis and emergency recording",
+        privacy_permissions_camera: "<strong>Camera:</strong> For First Aid Assistant image analysis and emergency recording",
         privacy_permissions_location: "<strong>Location:</strong> For Team GPS tracking and finding nearby hospitals/police",
         privacy_permissions_storage: "<strong>Storage:</strong> To save your emergency profile (locally, encrypted)",
         privacy_permissions_sms: "<strong>SMS:</strong> To send SMS alerts to your emergency contacts",
         privacy_permissions_phone: "<strong>Phone:</strong> For quick dialing emergency services (1669)",
-        privacy_permissions_internet: "<strong>Internet:</strong> For AI Nurse, government alerts, and team sync",
+        privacy_permissions_internet: "<strong>Internet:</strong> For First Aid Assistant, government alerts, and team sync",
         privacy_permissions_notifications: "<strong>Notifications:</strong> For team alerts and emergency broadcasts",
         privacy_permissions_note: "You can revoke permissions anytime in Android settings. Some features may not work without necessary permissions.",
         
@@ -84,7 +84,7 @@ const i18nComplete = {
         privacy_third_party_text: "RESQ+ uses the following third-party services to support connected features:",
         privacy_third_party_item1: "<strong>Google Analytics:</strong> App usage and engagement analytics",
         privacy_third_party_item2: "<strong>Firebase Services:</strong> Sign-in, notifications, alert and team data, optional media uploads, and related cloud features",
-        privacy_third_party_item3: "<strong>Google Gemini API:</strong> AI Emergency Nurse responses and optional image analysis",
+        privacy_third_party_item3: "<strong>Google Gemini API:</strong> First Aid Assistant responses and optional image analysis",
         privacy_third_party_item4: "<strong>Weather Data Providers:</strong> Forecast condition data used by weather-related tools",
         privacy_third_party_note: "These services process data needed to operate their related features under their own service terms and policies.",
         
@@ -133,7 +133,7 @@ const i18nComplete = {
         screenshots_title: "Professional Emergency Interface",
         screenshots_desc: "Designed for emergency situations - clear, fast, reliable",
         screenshots_coming_soon_title: "Screenshots Coming Soon!",
-        screenshots_coming_soon_message: "We're finalizing the app interface for Google Play. Official screenshots of the AI Emergency Nurse, Team Connect, and SOS tools will be available soon.",
+        screenshots_coming_soon_message: "We're finalizing the app interface for Google Play. Official screenshots of the First Aid Assistant, Team Connect, and SOS tools will be available soon.",
         screenshots_launching_soon: "🚀 Available on Google Play",
         
         // ... rest of the code remains the same ...
@@ -154,7 +154,7 @@ const i18nComplete = {
         hero_badge: "🚨 Application d'urgence officielle",
         hero_title_1: "Votre compagnon",
         hero_title_2: "de survie",
-        hero_desc: "Application complète de réponse d'urgence avec AI Emergency Nurse, outils SOS, Team Connect, alertes communautaires, premiers secours et outils météo et utilitaires. L'application est disponible en anglais, français, thaï, espagnol, italien et filipino.",
+        hero_desc: "Application complète de réponse d'urgence avec First Aid Assistant, outils SOS, Team Connect, alertes communautaires, premiers secours et outils météo et utilitaires. L'application est disponible en anglais, français, thaï, espagnol, italien et filipino.",
         privacy_label: "Confidentialité d'abord:",
         privacy_text: "Les profils d'urgence restent sur votre appareil. Les fonctionnalités connectées utilisent des services cloud pour les alertes, la connexion, les notifications et les réponses IA.",
         
@@ -167,7 +167,7 @@ const i18nComplete = {
         btn_explore: "Découvrir les fonctionnalités",
         stat_features: "Fonctionnalités",
         stat_languages: "Langues",
-        stat_ai_nurse: "Infirmière IA",
+        stat_ai_nurse: "Assistant Premiers Secours IA",
         stat_free: "7 JOURS",
         stat_forever: "Essai gratuit",
         
@@ -199,12 +199,12 @@ const i18nComplete = {
         usecase_title: "RESQ+ en action",
         usecase_desc: "Découvrez comment RESQ+ fait la différence dans de vraies urgences",
         usecase1_title: "Urgence en randonnée",
-        usecase1_story: "\"Lors d'une randonnée en groupe, un membre s'est foulé la cheville. Avec le <strong>GPS d'équipe</strong> de RESQ+, nous avons identifié sa position exacte. L'<strong>infirmière IA</strong> nous a guidés pour les premiers soins tandis que l'<strong>alerte d'équipe</strong> a prévenu tout le monde instantanément.\"",
+        usecase1_story: "\"Lors d'une randonnée en groupe, un membre s'est foulé la cheville. Avec le <strong>GPS d'équipe</strong> de RESQ+, nous avons identifié sa position exacte. L'<strong>assistant premiers secours IA</strong> nous a guidés pour les premiers soins tandis que l'<strong>alerte d'équipe</strong> a prévenu tout le monde instantanément.\"",
         usecase1_pill1: "GPS d'équipe",
-        usecase1_pill2: "Infirmière IA",
+        usecase1_pill2: "Assistant Premiers Secours IA",
         usecase1_pill3: "Alertes",
         usecase2_title: "Accident à la plage",
-        usecase2_story: "\"Un enfant a été piqué par une méduse. Les parents ont utilisé l'<strong>infirmière médicale IA</strong> pour une évaluation immédiate (niveau JAUNE) et des instructions étape par étape avec la fonctionnalité <strong>kit de premiers secours</strong>.\"",
+        usecase2_story: "\"Un enfant a été piqué par une méduse. Les parents ont utilisé l'<strong>assistant premiers secours IA</strong> pour une évaluation immédiate (niveau JAUNE) et des instructions étape par étape avec la fonctionnalité <strong>kit de premiers secours</strong>.\"",
         usecase2_pill1: "Triage IA",
         usecase2_pill2: "Premiers secours",
         usecase2_pill3: "Guidage vocal",
@@ -255,15 +255,15 @@ const i18nComplete = {
         faq1_q: "Combien coûte RESQ+ ?",
         faq1_a: "RESQ+ propose un essai gratuit de 7 jours. Ensuite, vous pouvez choisir un abonnement mensuel ou annuel (économie de 2 mois).",
         faq2_q: "Est-ce que ça fonctionne hors ligne?",
-        faq2_a: "De nombreuses fonctionnalités fonctionnent hors ligne, notamment les premiers secours, l'accès au profil d'urgence et les outils SOS principaux. L'infirmière IA, les fonctionnalités d'équipe, les alertes communautaires, et les outils météo nécessitent une connexion Internet.",
+        faq2_a: "De nombreuses fonctionnalités fonctionnent hors ligne, notamment les premiers secours, l'accès au profil d'urgence et les outils SOS principaux. L'assistant premiers secours IA, les fonctionnalités d'équipe, les alertes communautaires, et les outils météo nécessitent une connexion Internet.",
         faq3_q: "Mes données médicales sont-elles en sécurité?",
         faq3_a: "Les profils d'urgence sont stockés localement sur votre appareil. Lorsque vous utilisez des fonctionnalités connectées (connexion, alertes, notifications, synchronisation d'équipe ou conseils IA), des données opérationnelles liées peuvent être traitées par des services cloud.",
-        faq4_q: "Quelle est la précision de l'infirmière médicale IA?",
+        faq4_q: "Quelle est la précision de l'assistant premiers secours IA?",
         faq4_a: "L'IA suit les protocoles de triage ABC+D de la Croix-Rouge et fournit des conseils fondés sur des preuves. Cependant, c'est un outil de support: appelez toujours les services d'urgence (1669) en cas de situation mettant la vie en danger.",
         faq5_q: "Quels appareils sont pris en charge?",
         faq5_a: "RESQ+ fonctionne sur Android 6.0 et versions ultérieures. L'application est conçue pour les téléphones et les tablettes.",
         faq6_q: "Quelles langues sont prises en charge?",
-        faq6_a: "L'application prend en charge l'anglais, le français, le thaï, l'espagnol, l'italien, le filipino et le chinois. Les conseils AI Emergency Nurse sont disponibles dans les langues prises en charge.",
+        faq6_a: "L'application prend en charge l'anglais, le français, le thaï, l'espagnol, l'italien, le filipino et le chinois. Les conseils First Aid Assistant sont disponibles dans les langues prises en charge.",
         faq7_q: "Combien de personnes peuvent rejoindre une équipe?",
         faq7_a: "Les équipes peuvent avoir un nombre illimité de membres. Idéal pour les randonnées, les voyages en famille, les sorties scolaires ou les événements d'entreprise.",
         faq8_q: "Est-ce que l'application consomme beaucoup de batterie?",
@@ -274,7 +274,7 @@ const i18nComplete = {
         faq10_a: "RESQ+ traite les données nécessaires aux fonctionnalités connectées comme la connexion, les alertes, les notifications et les réponses IA. Les détails du profil d'urgence restent sur votre appareil sauf si vous choisissez de les partager via des fonctionnalités prises en charge.",
         
         // Footer
-        footer_description: "Écosystème complet de réponse d'urgence\n15+ fonctionnalités • Coordination d'équipe • Infirmière IA\nConçu pour sauver des vies dans des situations critiques",
+        footer_description: "Écosystème complet de réponse d'urgence\n15+ fonctionnalités • Coordination d'équipe • Assistant Premiers Secours IA\nConçu pour sauver des vies dans des situations critiques",
         footer_product: "Produit",
         footer_features: "Fonctionnalités",
         footer_download: "Télécharger sur Google Play",
@@ -345,12 +345,12 @@ const i18nComplete = {
         privacy_connected_item2: "<strong>Données de localisation pendant l'utilisation:</strong> Localisation lorsque vous utilisez SOS, Team Connect, l'Annuaire d'Urgence Global, la météo ou des services à proximité.",
         privacy_connected_item3: "<strong>Données d'alertes et d'équipe:</strong> Appartenance à une équipe, réponses aux alertes, alertes communautaires, jetons de notification et enregistrements cloud nécessaires.",
         privacy_connected_item4: "<strong>Médias optionnels:</strong> Audio, vidéo, images ou autres fichiers que vous choisissez de téléverser ou joindre.",
-        privacy_connected_item5: "<strong>Requêtes IA:</strong> Texte, images et contexte envoyés pour générer des conseils AI Emergency Nurse.",
+        privacy_connected_item5: "<strong>Requêtes IA:</strong> Texte, images et contexte envoyés pour générer des conseils First Aid Assistant.",
         privacy_connected_item6: "<strong>Analytique et diagnostics:</strong> Analyses d'usage, signaux de performance et diagnostics techniques pour opérer et améliorer le service.",
         privacy_permissions_item_location: "<strong>LOCALISATION:</strong> Pour le partage SOS, le suivi GPS d'équipe, l'Annuaire d'Urgence Global et les outils météo.",
         privacy_permissions_item_send_sms: "<strong>SEND_SMS:</strong> Pour envoyer des SMS d'alerte lorsque vous activez la fonctionnalité et accordez la permission.",
         privacy_permissions_item_storage: "<strong>STOCKAGE:</strong> Pour enregistrer les données locales, les enregistrements et les fichiers créés par l'application.",
-        privacy_permissions_item_internet: "<strong>INTERNET:</strong> Pour l'infirmière IA, la connexion, la synchronisation d'équipe, les alertes cloud et les données météo.",
+        privacy_permissions_item_internet: "<strong>INTERNET:</strong> Pour l'assistant premiers secours IA, la connexion, la synchronisation d'équipe, les alertes cloud et les données météo.",
         privacy_permissions_item_notifications: "<strong>NOTIFICATIONS:</strong> Pour les notifications liées à l'équipe, la communauté et les urgences.",
         privacy_permissions_title: "5. Permissions de l'application",
         privacy_permissions_text: "RESQ+ demande les permissions suivantes pour fournir des fonctionnalités d'urgence:",
@@ -359,7 +359,7 @@ const i18nComplete = {
         privacy_third_party_text: "RESQ+ utilise les services tiers suivants pour les fonctionnalités connectées:",
         privacy_third_party_item1: "<strong>Google Analytics:</strong> Analyses d'utilisation et d'engagement",
         privacy_third_party_item2: "<strong>Firebase:</strong> Connexion, notifications, données d'alertes/équipes, téléversements médias optionnels et fonctionnalités cloud associées",
-        privacy_third_party_item3: "<strong>Google Gemini API:</strong> Réponses AI Emergency Nurse et analyse d'image optionnelle",
+        privacy_third_party_item3: "<strong>Google Gemini API:</strong> Réponses First Aid Assistant et analyse d'image optionnelle",
         privacy_third_party_item4: "<strong>Fournisseurs météo :</strong> Données de prévisions utilisées par les outils météo",
         privacy_third_party_note: "Ces services traitent les données nécessaires à leurs fonctionnalités selon leurs propres conditions et politiques.",
         privacy_children_title: "8. Confidentialité des enfants",
@@ -457,14 +457,14 @@ const i18nComplete = {
         hero_badge: "🚨 แอปฉุกเฉินอย่างเป็นทางการ",
         hero_title_1: "ตัวช่วยชีวิต",
         hero_title_2: "ฉุกเฉินของคุณ",
-        hero_desc: "แอปตอบสนองฉุกเฉินแบบครบวงจรพร้อม AI Emergency Nurse เครื่องมือ SOS Team Connect การแจ้งเตือนชุมชน การปฐมพยาบาล และเครื่องมือสภาพอากาศและยูทิลิตี้ รองรับภาษาอังกฤษ ฝรั่งเศส ไทย สเปน อิตาลี และฟิลิปปินส์",
+        hero_desc: "แอปตอบสนองฉุกเฉินแบบครบวงจรพร้อม First Aid Assistant เครื่องมือ SOS Team Connect การแจ้งเตือนชุมชน การปฐมพยาบาล และเครื่องมือสภาพอากาศและยูทิลิตี้ รองรับภาษาอังกฤษ ฝรั่งเศส ไทย สเปน อิตาลี และฟิลิปปินส์",
         privacy_label: "ความเป็นส่วนตัวเป็นอันดับแรก:",
         privacy_text: "โปรไฟล์ฉุกเฉินจะอยู่ในอุปกรณ์ของคุณ ฟีเจอร์ที่เชื่อมต่อใช้บริการคลาวด์สำหรับการแจ้งเตือน การลงชื่อเข้าใช้ การแจ้งเตือนแบบพุช และคำตอบจาก AI",
         btn_get_notified: "รับข่าวสาร RESQ+",
         btn_explore: "สำรวจคุณสมบัติ",
         stat_features: "ฟีเจอร์",
         stat_languages: "ภาษา",
-        stat_ai_nurse: "พยาบาล AI",
+        stat_ai_nurse: "ผู้ช่วยปฐมพยาบาล AI",
         stat_free: "7 วัน",
         stat_forever: "ทดลองใช้ฟรี",
         
@@ -481,7 +481,7 @@ const i18nComplete = {
         feature1_item3: "การแจ้งเตือน SMS ฉุกเฉิน",
         feature1_item4: "ระบบเสียงเตือน",
         
-        feature2_title: "พยาบาลฉุกเฉิน AI",
+        feature2_title: "ผู้ช่วยปฐมพยาบาล AI",
         feature2_desc: "ผู้ช่วยทางการแพทย์ AI ตลอด 24/7 พร้อมโปรโตคอลกาชาดสากล การประเมินการคัดกรอง และคำแนะนำชุดปฐมพยาบาลใน 4 ภาษา",
         feature2_item1: "รองรับเสียงและภาพ",
         feature2_item2: "โปรโตคอลคัดกรอง ABC-D",
@@ -549,7 +549,7 @@ const i18nComplete = {
         screenshots_title: "อินเทอร์เฟซฉุกเฉินระดับมืออาชีพ",
         screenshots_desc: "ออกแบบสำหรับสถานการณ์ฉุกเฉิน - ชัดเจน รวดเร็ว เชื่อถือได้",
         screenshots_coming_soon_title: "ภาพหน้าจออีกไม่นาน!",
-        screenshots_coming_soon_message: "เรากำลังปรับแต่งอินเทอร์เฟซแอปสำหรับ Google Play ภาพหน้าจออย่างเป็นทางการของ AI Emergency Nurse, Team Connect และเครื่องมือ SOS จะพร้อมใช้งานเร็ว ๆ นี้",
+        screenshots_coming_soon_message: "เรากำลังปรับแต่งอินเทอร์เฟซแอปสำหรับ Google Play ภาพหน้าจออย่างเป็นทางการของ First Aid Assistant, Team Connect และเครื่องมือ SOS จะพร้อมใช้งานเร็ว ๆ นี้",
         screenshots_launching_soon: "🚀 พร้อมใช้งานบน Google Play",
         
         // How It Works
@@ -560,7 +560,7 @@ const i18nComplete = {
         step2_title: "เพิ่มผู้ติดต่อฉุกเฉิน",
         step2_desc: "ตั้งค่าผู้ติดต่อฉุกเฉินของคุณและปรับแต่งการตั้งค่า SOS สำหรับการแจ้งเตือนทันที",
         step3_title: "ได้รับการปกป้องตลอด 24/7",
-        step3_desc: "รับคำแนะนำจากพยาบาล AI ตลอด 24 ชั่วโมง เข้าร่วมทีม และเข้าถึงโปรโตคอลปฐมพยาบาลแบบออฟไลน์",
+        step3_desc: "รับคำแนะนำจากผู้ช่วยปฐมพยาบาล AI ตลอด 24 ชั่วโมง เข้าร่วมทีม และเข้าถึงโปรโตคอลปฐมพยาบาลแบบออฟไลน์",
         
         // Stats Section
         stats1_label: "ฟีเจอร์ฉุกเฉิน",
@@ -578,13 +578,13 @@ const i18nComplete = {
         usecase_desc: "ดูว่า RESQ+ สร้างความแตกต่างในเหตุฉุกเฉินจริงอย่างไร",
         
         usecase1_title: "เหตุฉุกเฉินบนภูเขา",
-        usecase1_story: "ระหว่างการเดินป่าเป็นกลุ่ม สมาชิกคนหนึ่งแพลงข้อเท้า ด้วย GPS ทีมของ RESQ+ เราระบุตำแหน่งที่แน่นอนได้ พยาบาล AI แนะนำเราผ่านการปฐมพยาบาลขณะที่การแจ้งเตือนทีมแจ้งให้ทุกคนทราบทันที",
+        usecase1_story: "ระหว่างการเดินป่าเป็นกลุ่ม สมาชิกคนหนึ่งแพลงข้อเท้า ด้วย GPS ทีมของ RESQ+ เราระบุตำแหน่งที่แน่นอนได้ ผู้ช่วยปฐมพยาบาล AI แนะนำเราผ่านการปฐมพยาบาลขณะที่การแจ้งเตือนทีมแจ้งให้ทุกคนทราบทันที",
         usecase1_pill1: "GPS ทีม",
-        usecase1_pill2: "พยาบาล AI",
+        usecase1_pill2: "ผู้ช่วยปฐมพยาบาล AI",
         usecase1_pill3: "การแจ้งเตือน",
         
         usecase2_title: "อุบัติเหตุที่ชายหาด",
-        usecase2_story: "เด็กถูกแมงกะพรุนต่อย พ่อแม่ใช้พยาบาลทางการแพทย์ AI เพื่อรับการประเมินการคัดกรองทันที (ระดับสีเหลือง) และคำแนะนำการรักษาแบบทีละขั้นตอนด้วยฟีเจอร์ชุดปฐมพยาบาล",
+        usecase2_story: "เด็กถูกแมงกะพรุนต่อย พ่อแม่ใช้ผู้ช่วยปฐมพยาบาล AI เพื่อรับการประเมินการคัดกรองทันที (ระดับสีเหลือง) และคำแนะนำการรักษาแบบทีละขั้นตอนด้วยฟีเจอร์ชุดปฐมพยาบาล",
         usecase2_pill1: "การคัดกรอง AI",
         usecase2_pill2: "ปฐมพยาบาล",
         usecase2_pill3: "คำแนะนำด้วยเสียง",
@@ -671,12 +671,12 @@ const i18nComplete = {
         faq2_a: "หลายฟีเจอร์ใช้งานออฟไลน์ได้ เช่น การปฐมพยาบาล โปรไฟล์ฉุกเฉิน และเครื่องมือ SOS หลัก ส่วน AI ฟีเจอร์ทีม การแจ้งเตือนชุมชน และเครื่องมือสภาพอากาศต้องใช้อินเทอร์เน็ต",
         faq3_q: "ข้อมูลทางการแพทย์ของฉันปลอดภัยหรือไม่?",
         faq3_a: "โปรไฟล์ฉุกเฉินจะถูกเก็บไว้ในอุปกรณ์ของคุณ เมื่อคุณใช้ฟีเจอร์ที่เชื่อมต่อ เช่น การลงชื่อเข้าใช้ การแจ้งเตือน การซิงก์ทีม หรือคำแนะนำจาก AI ข้อมูลการทำงานที่เกี่ยวข้องอาจถูกประมวลผลโดยบริการคลาวด์ที่เกี่ยวข้อง",
-        faq4_q: "พยาบาลทางการแพทย์ AI แม่นยำแค่ไหน?",
+        faq4_q: "ผู้ช่วยปฐมพยาบาล AI แม่นยำแค่ไหน?",
         faq4_a: "AI ปฏิบัติตามโปรโตคอลการคัดกรอง ABC+D ของกาชาดและให้คำแนะนำตามหลักฐาน อย่างไรก็ตาม มันเป็นเครื่องมือสนับสนุน - โทรหาบริการฉุกเฉิน (1669) เสมอสำหรับสถานการณ์ที่คุกคามชีวิต",
         faq5_q: "รองรับอุปกรณ์ใดบ้าง?",
         faq5_a: "RESQ+ ใช้งานได้บน Android 6.0 ขึ้นไป และออกแบบมาสำหรับทั้งโทรศัพท์และแท็บเล็ต",
         faq6_q: "รองรับภาษาอะไรบ้าง?",
-        faq6_a: "ขณะนี้แอปรองรับภาษาอังกฤษ ฝรั่งเศส ไทย สเปน อิตาลี และฟิลิปปินส์ โดย AI Emergency Nurse พร้อมให้คำแนะนำในภาษาที่รองรับเหล่านี้",
+        faq6_a: "ขณะนี้แอปรองรับภาษาอังกฤษ ฝรั่งเศส ไทย สเปน อิตาลี และฟิลิปปินส์ โดย First Aid Assistant พร้อมให้คำแนะนำในภาษาที่รองรับเหล่านี้",
         faq7_q: "มีคนเข้าร่วมทีมได้กี่คน?",
         faq7_a: "ทีมสามารถมีสมาชิกได้ไม่จำกัด เหมาะสำหรับกลุ่มเดินป่า ทริปครอบครัว ทัศนศึกษา หรือกิจกรรมองค์กร",
         faq8_q: "มันทำให้แบตเตอรี่หมดเร็วหรือไม่?",
@@ -694,7 +694,7 @@ const i18nComplete = {
         exit_footer: "ไม่มีสแปม • ยกเลิกได้ตลอดเวลา",
         
         // Footer
-        footer_description: "ระบบนิเวศการตอบสนองฉุกเฉินที่สมบูรณ์\n15+ ฟีเจอร์ • การประสานงานทีม • พยาบาล AI\nออกแบบมาเพื่อช่วยชีวิตในสถานการณ์วิกฤต",
+        footer_description: "ระบบนิเวศการตอบสนองฉุกเฉินที่สมบูรณ์\n15+ ฟีเจอร์ • การประสานงานทีม • ผู้ช่วยปฐมพยาบาล AI\nออกแบบมาเพื่อช่วยชีวิตในสถานการณ์วิกฤต",
         footer_product: "ผลิตภัณฑ์",
         footer_features: "คุณสมบัติ",
         footer_screenshots: "ภาพหน้าจอ",
@@ -740,13 +740,13 @@ const i18nComplete = {
         privacy_connected_item2: "<strong>ข้อมูลตำแหน่งขณะใช้งาน:</strong> ตำแหน่งเมื่อคุณใช้งาน SOS, Team Connect, ไดเรกทอรีฉุกเฉินทั่วโลก สภาพอากาศ หรือบริการใกล้เคียง",
         privacy_connected_item3: "<strong>ข้อมูลการแจ้งเตือนและทีม:</strong> สมาชิกทีม การตอบรับการแจ้งเตือน การแจ้งเตือนชุมชน โทเค็นแจ้งเตือน และบันทึกบนคลาวด์ที่จำเป็นสำหรับการประสานงาน",
         privacy_connected_item4: "<strong>สื่อและไฟล์แนบ (ตัวเลือก):</strong> เสียง วิดีโอ รูปภาพ หรือไฟล์อื่น ๆ ที่คุณเลือกแนบหรืออัปโหลดผ่านฟีเจอร์ที่รองรับ",
-        privacy_connected_item5: "<strong>คำขอ AI:</strong> ข้อความ รูปภาพ และบริบทที่เกี่ยวข้องที่ส่งเพื่อสร้างคำแนะนำจาก AI Emergency Nurse",
+        privacy_connected_item5: "<strong>คำขอ AI:</strong> ข้อความ รูปภาพ และบริบทที่เกี่ยวข้องที่ส่งเพื่อสร้างคำแนะนำจาก First Aid Assistant",
         privacy_connected_item6: "<strong>การวิเคราะห์และการวินิจฉัยระบบ:</strong> การวิเคราะห์การใช้งาน สัญญาณประสิทธิภาพ และข้อมูลวินิจฉัยทางเทคนิคเพื่อให้บริการทำงานและปรับปรุง",
 
         privacy_permissions_item_location: "<strong>LOCATION:</strong> สำหรับการแชร์ตำแหน่ง SOS การติดตาม GPS ของทีม ไดเรกทอรีฉุกเฉินทั่วโลกและเครื่องมือสภาพอากาศ",
         privacy_permissions_item_send_sms: "<strong>SEND_SMS:</strong> เพื่อส่ง SMS แจ้งเตือนเมื่อคุณเปิดใช้ฟีเจอร์และอนุญาตสิทธิ์ SMS",
         privacy_permissions_item_storage: "<strong>STORAGE:</strong> เพื่อบันทึกข้อมูลโปรไฟล์ในเครื่อง การบันทึก และไฟล์อื่น ๆ ที่แอปสร้าง",
-        privacy_permissions_item_internet: "<strong>INTERNET:</strong> สำหรับ AI Nurse การลงชื่อเข้าใช้ การซิงค์ทีม การแจ้งเตือนผ่านคลาวด์ และข้อมูลสภาพอากาศ",
+        privacy_permissions_item_internet: "<strong>INTERNET:</strong> สำหรับ First Aid Assistant การลงชื่อเข้าใช้ การซิงค์ทีม การแจ้งเตือนผ่านคลาวด์ และข้อมูลสภาพอากาศ",
         privacy_permissions_item_notifications: "<strong>NOTIFICATIONS:</strong> สำหรับการแจ้งเตือนที่เกี่ยวกับทีม ชุมชน และเหตุฉุกเฉิน",
         
         privacy_not_collect_title: "2. สิ่งที่เรา<strong>ไม่</strong>เก็บรวบรวม",
@@ -756,7 +756,7 @@ const i18nComplete = {
         privacy_not_collect_item3: "<strong>รูปภาพ:</strong> รูปโปรไฟล์ รูปบัตรประชาชน รูปทางการแพทย์",
         privacy_not_collect_item4: "<strong>ข้อมูลตำแหน่ง:</strong> พิกัด GPS ของคุณ ประวัติตำแหน่ง หรือข้อมูลการติดตามทีม",
         privacy_not_collect_item5: "<strong>ผู้ติดต่อฉุกเฉิน:</strong> ชื่อผู้ติดต่อ หมายเลขโทรศัพท์ หรือรายละเอียดความสัมพันธ์ใดๆ",
-        privacy_not_collect_item6: "<strong>การสนทนา AI:</strong> การปรึกษาทางการแพทย์หรือการสนทนาของคุณกับพยาบาล AI",
+        privacy_not_collect_item6: "<strong>การสนทนา AI:</strong> การปรึกษาทางการแพทย์หรือการสนทนาของคุณกับผู้ช่วยปฐมพยาบาล AI",
         
         privacy_local_storage_title: "3. การจัดเก็บในเครื่องเฉพาะอุปกรณ์ (เฉพาะคุณ)",
         privacy_local_storage_text: "ข้อมูลต่อไปนี้จัดเก็บเฉพาะบนอุปกรณ์ของคุณและ<strong>ไม่เคย</strong>อัปโหลดไปยังเซิร์ฟเวอร์ใดๆ:",
@@ -767,7 +767,7 @@ const i18nComplete = {
         
         privacy_collect_title: "4. สิ่งที่เราประมวลผลสำหรับฟีเจอร์ที่เชื่อมต่อ",
         privacy_collect_text: "เพื่อให้ฟีเจอร์ที่เชื่อมต่อทำงานได้ RESQ+ อาจประมวลผล<strong>ข้อมูลการใช้งานและข้อมูลบริการ</strong> เมื่อคุณใช้ฟีเจอร์เหล่านั้น:",
-        privacy_collect_item1: "<strong>การใช้งานคุณสมบัติ:</strong> คุณสมบัติใดที่ใช้ (เช่น: การเปิดใช้งาน SOS คำถาม AI Nurse เซสชันเกม)",
+        privacy_collect_item1: "<strong>การใช้งานคุณสมบัติ:</strong> คุณสมบัติใดที่ใช้ (เช่น: การเปิดใช้งาน SOS คำถาม First Aid Assistant เซสชันเกม)",
         privacy_collect_item2: "<strong>ข้อมูลทางเทคนิค:</strong> เวอร์ชันแอป ประเภทอุปกรณ์ (เวอร์ชัน Android) รายงานข้อขัดข้อง",
         privacy_collect_item3: "<strong>ตัวชี้วัดประสิทธิภาพ:</strong> เวลาตอบสนอง ความเร็วในการโหลด ความเสถียรของแอป",
         privacy_collect_item4: "<strong>การตั้งค่าภาษา:</strong> ภาษาที่ใช้เพื่อปรับปรุงการแปล",
@@ -775,12 +775,12 @@ const i18nComplete = {
         
         privacy_permissions_title: "5. สิทธิ์การเข้าถึงแอป",
         privacy_permissions_text: "RESQ+ ขอสิทธิ์ต่อไปนี้เพื่อให้บริการคุณสมบัติฉุกเฉิน:",
-        privacy_permissions_camera: "<strong>กล้อง:</strong> สำหรับการวิเคราะห์ภาพ AI Nurse และการบันทึกฉุกเฉิน",
+        privacy_permissions_camera: "<strong>กล้อง:</strong> สำหรับการวิเคราะห์ภาพ First Aid Assistant และการบันทึกฉุกเฉิน",
         privacy_permissions_location: "<strong>ตำแหน่ง:</strong> สำหรับการติดตาม GPS ของทีมและค้นหาโรงพยาบาล/ตำรวจใกล้เคียง",
         privacy_permissions_storage: "<strong>ที่เก็บข้อมูล:</strong> เพื่อบันทึกโปรไฟล์ฉุกเฉินของคุณ (ในเครื่อง เข้ารหัส)",
         privacy_permissions_sms: "<strong>SMS:</strong> เพื่อส่งการแจ้งเตือน SMS ไปยังผู้ติดต่อฉุกเฉินของคุณ",
         privacy_permissions_phone: "<strong>โทรศัพท์:</strong> สำหรับการโทรบริการฉุกเฉินอย่างรวดเร็ว (1669)",
-        privacy_permissions_internet: "<strong>อินเทอร์เน็ต:</strong> สำหรับ AI Nurse การแจ้งเตือนของรัฐบาล และการซิงค์ทีม",
+        privacy_permissions_internet: "<strong>อินเทอร์เน็ต:</strong> สำหรับ First Aid Assistant การแจ้งเตือนของรัฐบาล และการซิงค์ทีม",
         privacy_permissions_notifications: "<strong>การแจ้งเตือน:</strong> สำหรับการแจ้งเตือนทีมและการประกาศฉุกเฉิน",
         privacy_permissions_note: "คุณสามารถเพิกถอนสิทธิ์ได้ตลอดเวลาในการตั้งค่า Android บางคุณสมบัติอาจไม่ทำงานหากไม่มีสิทธิ์ที่จำเป็น",
         
@@ -795,7 +795,7 @@ const i18nComplete = {
         privacy_third_party_text: "RESQ+ ใช้บริการจากบุคคลที่สามต่อไปนี้เพื่อสนับสนุนฟีเจอร์ที่เชื่อมต่อ:",
         privacy_third_party_item1: "<strong>Google Analytics:</strong> การวิเคราะห์การใช้งานและการมีส่วนร่วมของแอป",
         privacy_third_party_item2: "<strong>บริการ Firebase:</strong> การลงชื่อเข้าใช้ การแจ้งเตือน ข้อมูลทีมและการแจ้งเตือน การอัปโหลดสื่อแบบเลือกได้ และฟีเจอร์คลาวด์ที่เกี่ยวข้อง",
-        privacy_third_party_item3: "<strong>Google Gemini API:</strong> คำตอบของ AI Emergency Nurse และการวิเคราะห์รูปภาพแบบเลือกได้",
+        privacy_third_party_item3: "<strong>Google Gemini API:</strong> คำตอบของ First Aid Assistant และการวิเคราะห์รูปภาพแบบเลือกได้",
         privacy_third_party_item4: "<strong>ผู้ให้บริการและข้อมูลสภาพอากาศ:</strong> ข้อมูลพยากรณ์อากาศสำหรับเครื่องมือสภาพอากาศ",
         privacy_third_party_note: "บริการเหล่านี้ประมวลผลข้อมูลที่จำเป็นต่อการทำงานของฟีเจอร์ภายใต้นโยบายและเงื่อนไขของบริการนั้น ๆ",
         
@@ -903,7 +903,7 @@ const NEW_FEATURES_EN = {
     feature1_item3: "✓ SMS emergency alerts",
     feature1_item4: "✓ Sound alert system",
 
-    feature2_title: "AI Emergency Nurse",
+    feature2_title: "First Aid Assistant",
     feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
     feature2_item1: "✓ Voice & image support",
     feature2_item2: "✓ ABC+D triage protocol",
@@ -982,7 +982,7 @@ const NEW_FEATURES_FR = {
     feature1_item3: "✓ Alertes d'urgence SMS",
     feature1_item4: "✓ Système d'alerte sonore",
 
-    feature2_title: "IA Infirmière d'Urgence",
+    feature2_title: "Assistant Premiers Secours IA",
     feature2_desc: "Assistance médicale par IA avec évaluation de triage, saisie vocale et d'images, et intégration de la trousse de secours. Internet requis pour l'IA.",
     feature2_item1: "✓ Support vocal et d'images",
     feature2_item2: "✓ Protocole de triage ABC+D",
@@ -1061,7 +1061,7 @@ const NEW_FEATURES_TH = {
     feature1_item3: "✓ การแจ้งเตือนฉุกเฉินผ่าน SMS",
     feature1_item4: "✓ ระบบเสียงเตือนภัย",
 
-    feature2_title: "พยาบาลฉุกเฉิน AI",
+    feature2_title: "ผู้ช่วยปฐมพยาบาล AI",
     feature2_desc: "คำแนะนำทางการแพทย์จาก AI พร้อมการประเมินการคัดกรอง รองรับเสียงและภาพ และคำแนะนำชุดปฐมพยาบาล (ต้องใช้อินเทอร์เน็ต)",
     feature2_item1: "✓ รองรับการป้อนข้อมูลด้วยเสียงและภาพ",
     feature2_item2: "✓ โปรโตคอลการคัดกรอง ABC+D",
@@ -1140,7 +1140,7 @@ const NEW_FEATURES_ES = {
     feature1_item3: "✓ Alertas SMS de emergencia",
     feature1_item4: "✓ Sistema de alerta sonora",
 
-    feature2_title: "IA Enfermera de Emergencia",
+    feature2_title: "Asistente de Primeros Auxilios IA",
     feature2_desc: "Gu�a m�dica de IA adaptada a los perfiles m�dicos de su familia y al inventario exacto de su botiqu�n de primeros auxilios. Entrada de voz/imagen con triaje ABC+D.",
     feature2_item1: "✓ Soporte de voz e imagen",
     feature2_item2: "✓ Protocolo de triaje ABC+D",
@@ -1219,7 +1219,7 @@ const NEW_FEATURES_IT = {
     feature1_item3: "✓ Avvisi SMS di emergenza",
     feature1_item4: "✓ Sistema di allarme sonoro",
 
-    feature2_title: "Infermiere AI di Emergenza",
+    feature2_title: "Assistente di Primo Soccorso IA",
     feature2_desc: "Guida medica IA personalizzata per i profili medici familiari e l'inventario esatto del tuo kit di pronto soccorso. Input vocale/immagine con triage ABC+D.",
     feature2_item1: "✓ Supporto voce e immagine",
     feature2_item2: "✓ Protocollo di triage ABC+D",
@@ -1298,7 +1298,7 @@ const NEW_FEATURES_FIL = {
     feature1_item3: "✓ Mga SMS emergency alert",
     feature1_item4: "✓ Sound alert system",
 
-    feature2_title: "AI Emergency Nurse",
+    feature2_title: "First Aid Assistant",
     feature2_desc: "AI medical guidance customized to your family's medical profiles and specific first aid kit inventory. Voice/image input with ABC+D triage.",
     feature2_item1: "✓ Voice at image support",
     feature2_item2: "✓ ABC+D triage protocol",

@@ -69,12 +69,12 @@
             cases: [
                 {
                     title: 'Mountain Hiking Emergency',
-                    story: 'During a group hike, one member twisted their ankle. Using RESQ+\'s Team GPS, we pinpointed their exact location. The AI Nurse guided us through first aid while the Team Alert notified everyone instantly.',
-                    pills: ['Team GPS', 'AI Nurse', 'Alerts']
+                    story: 'During a group hike, one member twisted their ankle. Using RESQ+\'s Team GPS, we pinpointed their exact location. The First Aid Assistant guided us through first aid while the Team Alert notified everyone instantly.',
+                    pills: ['Team GPS', 'First Aid Assistant', 'Alerts']
                 },
                 {
                     title: 'Beach Accident',
-                    story: 'A child was stung by a jellyfish. Parents used the AI Medical Nurse to get immediate triage assessment (YELLOW level) and step-by-step treatment instructions with the First Aid Kit feature.',
+                    story: 'A child was stung by a jellyfish. Parents used the First Aid Assistant to get immediate triage assessment (YELLOW level) and step-by-step treatment instructions with the First Aid Kit feature.',
                     pills: ['AI Triage', 'First Aid', 'Voice Guidance']
                 },
                 {

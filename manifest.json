@@ -1,7 +1,7 @@
 {
   "name": "RESQ+ Emergency Response System",
   "short_name": "RESQ+",
-  "description": "Professional emergency app with AI Medical Nurse, Team GPS tracking, Community Alerts & Interactive Training Game. Red Cross compliant. 100% Free forever.",
+  "description": "Professional emergency app with First Aid Assistant, Team GPS tracking, Community Alerts & Interactive Training Game. Red Cross compliant. 100% Free forever.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",
@@ -103,8 +103,8 @@
       ]
     },
     {
-      "name": "AI Medical Nurse",
-      "short_name": "AI Nurse",
+      "name": "First Aid Assistant",
+      "short_name": "First Aid Assistant",
       "description": "Talk to AI medical assistant for triage",
       "url": "/index.html#features",
       "icons": [
@@ -148,7 +148,7 @@
       "sizes": "540x720",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "AI Medical Nurse - Emergency Triage"
+      "label": "First Aid Assistant - Emergency Triage"
     },
     {
       "src": "images/screenshot-2.png",

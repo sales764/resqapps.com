@@ -487,7 +487,7 @@
             { name: 'Marc D.', location: 'Chiang Mai', action: 'joined a team', time: '5 min ago' },
             { name: 'Alex T.', location: 'Phuket', action: 'completed rescue training', time: '8 min ago' },
             { name: 'Sophie B.', location: 'Paris', action: 'downloaded RESQ+', time: '12 min ago' },
-            { name: 'John K.', location: 'New York', action: 'used AI Nurse', time: '15 min ago' }
+            { name: 'John K.', location: 'New York', action: 'used First Aid Assistant', time: '15 min ago' }
         ];
 
         let currentProof = 0;

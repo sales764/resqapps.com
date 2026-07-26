@@ -45,7 +45,7 @@ const i18n = {
             // Hero
             hero_badge: "🚨 Professional Emergency Response",
             hero_partner_badge: "Want to own 33% of our revenue? Become a RESQ+ Partner →",
-            hero_title: "AI Emergency Nurse + Team Coordination + SOS Tools",
+            hero_title: "First Aid Assistant + Team Coordination + SOS Tools",
             hero_subtitle: "The only emergency app you'll ever need",
             hero_desc: "Get instant AI emergency guidance, coordinate with your team in real-time, and access SOS tools, first aid support, and weather and utilities in one app.",
             hero_btn1: "🚀 Get RESQ+ Updates",
@@ -89,7 +89,7 @@ const i18n = {
             // Screenshot Captions
             screenshot1_caption: "Home Screen",
             screenshot2_caption: "Emergency Control Center",
-            screenshot3_caption: "AI Emergency Nurse",
+            screenshot3_caption: "First Aid Assistant",
             screenshot4_caption: "Team Connect",
             screenshot5_caption: "Medical Profile",
             screenshot6_caption: "Emergency Settings",
@@ -145,7 +145,7 @@ const i18n = {
             // Hero
             hero_badge: "🚨 Réponse d'Urgence Professionnelle",
             hero_partner_badge: "Envie de posséder 33% de nos revenus ? Devenez Partenaire RESQ+ →",
-            hero_title: "IA Infirmière d'Urgence + Coordination d'Équipe + Outils SOS",
+            hero_title: "Assistant Premiers Secours IA + Coordination d'Équipe + Outils SOS",
             hero_subtitle: "La seule application d'urgence dont vous aurez besoin",
             hero_desc: "Obtenez des conseils d'urgence par IA, coordonnez votre équipe en temps réel, et accédez aux outils SOS, aux premiers secours et aux utilitaires météo et marins dans une seule application.",
             hero_btn1: "🚀 Recevoir les mises à jour RESQ+",
@@ -189,7 +189,7 @@ const i18n = {
             // Screenshot Captions
             screenshot1_caption: "Écran d'Accueil",
             screenshot2_caption: "Centre de Contrôle d'Urgence",
-            screenshot3_caption: "Infirmière d'Urgence IA",
+            screenshot3_caption: "Assistant Premiers Secours IA",
             screenshot4_caption: "Connexion d'Équipe",
             screenshot5_caption: "Profil Médical",
             screenshot6_caption: "Paramètres d'Urgence",
@@ -215,7 +215,7 @@ const i18n = {
             // Hero
             hero_badge: "🚨 การตอบสนองฉุกเฉินระดับมืออาชีพ",
             hero_partner_badge: "ต้องการรับรายได้ 33% ของเราหรือไม่? ร่วมเป็นพาร์ทเนอร์ RESQ+ →",
-            hero_title: "AI Emergency Nurse + การประสานงานทีม + เครื่องมือ SOS",
+            hero_title: "First Aid Assistant + การประสานงานทีม + เครื่องมือ SOS",
             hero_subtitle: "แอปฉุกเฉินเดียวที่คุณต้องการ",
             hero_desc: "รับคำแนะนำฉุกเฉินจาก AI ประสานงานกับทีมแบบเรียลไทม์ และเข้าถึงเครื่องมือ SOS การปฐมพยาบาล รวมถึงเครื่องมืออากาศและทางทะเลในแอปเดียว",
             hero_btn1: "🚀 รับข่าวสาร RESQ+",
@@ -259,7 +259,7 @@ const i18n = {
             // Screenshot Captions
             screenshot1_caption: "หน้าจอหลัก",
             screenshot2_caption: "ศูนย์ควบคุมฉุกเฉิน",
-            screenshot3_caption: "พยาบาลฉุกเฉิน AI",
+            screenshot3_caption: "ผู้ช่วยปฐมพยาบาล AI",
             screenshot4_caption: "เชื่อมต่อทีม",
             screenshot5_caption: "โปรไฟล์ทางการแพทย์",
             screenshot6_caption: "การตั้งค่าฉุกเฉิน",

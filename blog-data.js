@@ -32,7 +32,7 @@ window.blogPosts = [
     {
         id: 3,
         title: "RESQ+ Launches AI-Powered Emergency Response System",
-        excerpt: "We're excited to announce our new AI Emergency Nurse feature that provides instant medical guidance during emergencies.",
+        excerpt: "We're excited to announce our new First Aid Assistant feature that provides instant medical guidance during emergencies.",
         content: "Full article content here...",
         category: "news",
         date: "2024-10-25",
