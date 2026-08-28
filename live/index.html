@@ -527,8 +527,37 @@
         } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app-check.js";
 
         // See the SECURITY NOTE in the head comment above re: this API key.
+        //
+        // ⚠️ 28/08/2026 — CETTE CLÉ DOIT ÊTRE CELLE DE L'APPLICATION **WEB**
+        // ENREGISTREE DANS FIREBASE (`firebase apps:sdkconfig WEB
+        // 1:265233331353:web:40de283177eefccf6c7408`). NE JAMAIS y remettre la
+        // clé Android de google-services.json.
+        //
+        // Panne constatée en production : la clé Android de
+        // app/src/prod/google-services.json (AIzaSyBiZ…pnXA — volontairement
+        // tronquée ici pour qu'un copier-coller ne puisse pas la remettre en
+        // service) avait été copiée ici avec le
+        // commentaire « restrictions removed ». C'était faux : elle porte
+        // toujours une restriction « applications Android ». Depuis un
+        // navigateur la requête n'a ni en-tête X-Android-Package ni
+        // X-Android-Cert, donc Google la rejette AVANT toute attestation :
+        //
+        //   403 API_KEY_ANDROID_APP_BLOCKED
+        //   « Requests from this Android client application <empty> are blocked. »
+        //   service: firebaseappcheck.googleapis.com
+        //
+        // App Check n'obtenait donc aucun jeton ; l'application de App Check
+        // étant activée sur Cloud Firestore, LES DEUX lectures de cette page
+        // (session + fragments) repartaient en `permission-denied`. Résultat
+        // pour le contact d'urgence : aucune vidéo ET aucune position — les
+        // deux à la fois, ce qui est la signature de cette panne unique.
+        //
+        // Aggravant : après ce 403, le SDK App Check s'auto-limite pendant
+        // 24 h (`appCheck/throttled`). Un proche qui ouvre le lien une fois
+        // garde donc un lecteur mort pendant une journée entière, même une fois
+        // la clé corrigée — d'où l'écran d'erreur explicite ajouté plus bas.
         const firebaseConfig = {
-            apiKey: "AIzaSyBiZzBL3bEtK96NVVaGiqAOZQTiBDKpnXA", // Switched to Android key which has restrictions removed
+            apiKey: "AIzaSyBNEE4abz6lECzp1bT5Z584EjHMsV1DeS4", // clé de l'app WEB enregistrée — surtout pas la clé Android
             authDomain: "resq-production-644f8.firebaseapp.com",
             projectId: "resq-production-644f8",
             storageBucket: "resq-production-644f8.firebasestorage.app",
@@ -578,8 +607,9 @@
                 altLabel: 'Altitude:',
                 altFloor: (n) => ' · approx. floor ' + n,
                 altUnavailable: 'Altitude unavailable — this phone has no barometer',
-                gpsFresh: (s) => '✓ Position updated ' + s + ' s ago',
-                gpsStale: (s) => '⚠ Last position received ' + s + ' s ago',
+                gpsFresh: (s) => '✓ Position updated ' + s + ' ago',
+                gpsStale: (s) => '⚠ Last position received ' + s + ' ago',
+                ageSec: (n) => n + ' s', ageMin: (n) => n + ' min', ageHour: (n) => n + ' h', ageDay: (n) => n + ' d',
                 dictateNote: (n) => 'Read out to the emergency dispatcher (' + n + ')',
                 copyCoords: '📋 Copy coordinates', copied: '✓ Copied!',
                 openMaps: '🧭 Open in Google Maps',
@@ -590,6 +620,8 @@
                 waitingNextClip: 'Waiting for the next clip…',
                 sessionLoadError: 'Could not load this session. It may not exist or the link may be invalid.',
                 fragmentsError: 'Could not load video fragments for this session. If this persists, the sender may not have granted camera/upload permissions.',
+                serviceUnavailable: 'RESQ+ could not reach the live service — this is a fault on our side, not on the sender’s phone. Their SOS may still be running. Call the emergency number above now, and reload this page in a moment.',
+                gpsUnavailable: 'Unavailable — service unreachable',
                 sizeUnit: 'MB',
                 footer: "This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at"
             },
@@ -616,8 +648,9 @@
                 altLabel: 'Altitude :',
                 altFloor: (n) => ' · étage approx. ' + n,
                 altUnavailable: 'Altitude indisponible — pas de baromètre sur ce téléphone',
-                gpsFresh: (s) => '✓ Position mise à jour il y a ' + s + ' s',
-                gpsStale: (s) => '⚠ Dernière position reçue il y a ' + s + ' s',
+                gpsFresh: (s) => '✓ Position mise à jour il y a ' + s,
+                gpsStale: (s) => '⚠ Dernière position reçue il y a ' + s,
+                ageSec: (n) => n + ' s', ageMin: (n) => n + ' min', ageHour: (n) => n + ' h', ageDay: (n) => n + ' j',
                 dictateNote: (n) => 'À dicter au répartiteur des urgences (' + n + ')',
                 copyCoords: '📋 Copier les coordonnées', copied: '✓ Copié !',
                 openMaps: '🧭 Ouvrir dans Google Maps',
@@ -628,6 +661,8 @@
                 waitingNextClip: 'En attente du prochain clip…',
                 sessionLoadError: "Impossible de charger cette session. Elle n'existe peut-être pas ou le lien est invalide.",
                 fragmentsError: "Impossible de charger les clips vidéo de cette session. Si le problème persiste, l'expéditeur n'a peut-être pas accordé les autorisations caméra.",
+                serviceUnavailable: "RESQ+ n'a pas pu joindre le service de direct — la panne est de NOTRE côté, pas sur le téléphone de l'expéditeur. Son SOS est peut-être toujours en cours. Appelez le numéro d'urgence ci-dessus maintenant, puis rechargez cette page dans un instant.",
+                gpsUnavailable: 'Indisponible — service injoignable',
                 sizeUnit: 'Mo',
                 footer: "Ceci est un flux vidéo d'urgence en direct partagé via RESQ+ BlackBox. La vidéo est diffusée directement depuis l'appareil de l'expéditeur pendant l'enregistrement. En savoir plus sur"
             },
@@ -654,8 +689,9 @@
                 altLabel: 'ความสูง :',
                 altFloor: (n) => ' · ชั้นโดยประมาณ ' + n,
                 altUnavailable: 'ไม่มีข้อมูลความสูง — โทรศัพท์ไม่มีบารอมิเตอร์',
-                gpsFresh: (s) => '✓ อัปเดตตำแหน่งเมื่อ ' + s + ' วินาทีที่แล้ว',
-                gpsStale: (s) => '⚠ ตำแหน่งล่าสุดเมื่อ ' + s + ' วินาทีที่แล้ว',
+                gpsFresh: (s) => '✓ อัปเดตตำแหน่งเมื่อ ' + s + 'ที่แล้ว',
+                gpsStale: (s) => '⚠ ตำแหน่งล่าสุดเมื่อ ' + s + 'ที่แล้ว',
+                ageSec: (n) => n + ' วินาที', ageMin: (n) => n + ' นาที', ageHour: (n) => n + ' ชั่วโมง', ageDay: (n) => n + ' วัน',
                 dictateNote: (n) => 'สำหรับแจ้งเจ้าหน้าที่รับแจ้งเหตุฉุกเฉิน (' + n + ')',
                 copyCoords: '📋 คัดลอกพิกัด', copied: '✓ คัดลอกแล้ว!',
                 openMaps: '🧭 เปิดใน Google Maps',
@@ -666,6 +702,8 @@
                 waitingNextClip: 'กำลังรอคลิปถัดไป…',
                 sessionLoadError: 'ไม่สามารถโหลดเซสชันนี้ได้ อาจไม่มีอยู่หรือลิงก์ไม่ถูกต้อง',
                 fragmentsError: 'ไม่สามารถโหลดคลิปวิดีโอของเซสชันนี้ได้ หากยังเป็นอยู่ ผู้ส่งอาจไม่ได้ให้สิทธิ์กล้อง/การอัปโหลด',
+                serviceUnavailable: 'RESQ+ ไม่สามารถเชื่อมต่อบริการถ่ายทอดสดได้ — เป็นปัญหาจากฝั่งเรา ไม่ใช่จากโทรศัพท์ของผู้ส่ง การแจ้ง SOS ของเขาอาจยังดำเนินอยู่ โปรดโทรหมายเลขฉุกเฉินด้านบนทันที แล้วรีเฟรชหน้านี้อีกครั้งในอีกสักครู่',
+                gpsUnavailable: 'ไม่พร้อมใช้งาน — เชื่อมต่อบริการไม่ได้',
                 sizeUnit: 'MB',
                 footer: 'นี่คือวิดีโอเหตุฉุกเฉินถ่ายทอดสดที่แชร์ผ่าน RESQ+ BlackBox วิดีโอสตรีมโดยตรงจากอุปกรณ์ของผู้ส่งขณะบันทึก ดูข้อมูลเพิ่มเติมที่'
             }
@@ -939,19 +977,64 @@
             document.getElementById('val-lng').textContent = t('waiting');
         });
 
-        // --- Fraîcheur GPS : "mise à jour il y a Xs", alerte si > 75 s ---
-        let lastFixEpoch = null;
+        // --- Fraîcheur GPS : "mise à jour il y a X", alerte au-delà de 75 s ---
+        let lastFixEpoch = null;        // horodatage de RÉCEPTION par ce navigateur
+        let lastFixDeviceEpoch = null;  // horodatage déclaré par le téléphone (ms)
         let lastSeenFixMarker = null;
         const gpsFreshness = document.getElementById('gpsFreshness');
+
+        /** Durée lisible : on ne dicte pas « 172800 s » à un régulateur. */
+        function formatAge(sec) {
+            if (sec < 120) return t('ageSec')(sec);
+            if (sec < 7200) return t('ageMin')(Math.round(sec / 60));
+            if (sec < 172800) return t('ageHour')(Math.round(sec / 3600));
+            return t('ageDay')(Math.round(sec / 86400));
+        }
+
+        /**
+         * ⚠️ 28/08/2026 — CORRECTION D'UN AFFICHAGE DANGEREUX.
+         *
+         * L'âge n'était mesuré qu'à la RÉCEPTION par le navigateur. L'intention
+         * était bonne (se protéger d'une horloge de téléphone décalée), mais
+         * elle ne tient que pour une session EN COURS. À l'ouverture d'un lien
+         * vers une session ancienne, le tout premier instantané était horodaté
+         * « maintenant » : une position vieille de DEUX JOURS s'affichait
+         * « ✓ Position mise à jour il y a 30 s », en vert. Constaté en
+         * production sur la session du 26/08.
+         *
+         * Un régulateur du 191/1669 qui lit « il y a 30 s » engage des moyens
+         * sur un point où la victime n'est plus. C'est la pire erreur que cette
+         * page puisse commettre : mieux vaut afficher « inconnu » qu'une
+         * fraîcheur inventée.
+         *
+         * On garde donc la protection contre l'horloge du téléphone, mais l'âge
+         * déclaré par l'appareil devient un PLANCHER : l'affichage ne peut
+         * jamais annoncer une position plus fraîche que ce que dit l'appareil.
+         * Une horloge dans le futur (skew négatif) est ignorée au lieu d'être
+         * crue — elle rendrait l'âge trop petit, c'est-à-dire le défaut même
+         * qu'on corrige ici.
+         */
+        const CLOCK_SKEW_TOLERANCE_MS = 120000; // 2 min : dérive normale d'un téléphone
+        function currentFixAgeSec() {
+            if (lastFixEpoch === null) return null;
+            const receptionAge = Math.max(0, Math.round((Date.now() - lastFixEpoch) / 1000));
+            if (lastFixDeviceEpoch === null) return receptionAge;
+            const deviceDelta = Date.now() - lastFixDeviceEpoch;
+            // Horloge visiblement en avance → non exploitable, on s'en tient à la réception.
+            if (deviceDelta < -CLOCK_SKEW_TOLERANCE_MS) return receptionAge;
+            return Math.max(receptionAge, Math.max(0, Math.round(deviceDelta / 1000)));
+        }
+
         setInterval(() => {
-            if (lastFixEpoch === null) return;
-            const ageSec = Math.max(0, Math.round((Date.now() - lastFixEpoch) / 1000));
+            const ageSec = currentFixAgeSec();
+            if (ageSec === null) return;
+            const pretty = formatAge(ageSec);
             if (ageSec <= 75) {
                 gpsFreshness.style.color = '#7CFC00';
-                gpsFreshness.textContent = t('gpsFresh')(ageSec);
+                gpsFreshness.textContent = t('gpsFresh')(pretty);
             } else {
                 gpsFreshness.style.color = '#ffb020';
-                gpsFreshness.textContent = t('gpsStale')(ageSec);
+                gpsFreshness.textContent = t('gpsStale')(pretty);
             }
         }, 1000);
 
@@ -961,8 +1044,21 @@
         function initMap(lat, lng) {
             if (map) return;
             map = L.map('map').setView([lat, lng], 16);
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+            // ⚠️ 28/08/2026 — les tuiles CARTO « voyager » servaient un fond
+            // barré de « API KEY REQUIRED » : le service gratuit exige
+            // désormais une clé. Le point rouge restait juste, mais le plan
+            // sous-jacent — celui qui permet à un proche de reconnaître une rue
+            // et de la dicter aux secours — était illisible, et pouvait cesser
+            // d'être servi du jour au lendemain.
+            //
+            // Tuiles OpenStreetMap officielles : aucune clé, aucun compte,
+            // aucune facture, donc rien qui puisse expirer sans prévenir. Si le
+            // trafic de cette page devient significatif, passer à un
+            // fournisseur avec clé (la politique d'usage d'OSM vise un usage
+            // modéré) — mais jamais à un service qui se dégrade en silence.
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
             
             const redIcon = L.divIcon({
@@ -1029,6 +1125,34 @@
         function setOverlay(key, isError) { overlayKey = key; overlayIsError = !!isError; renderOverlay(); }
         function hideOverlay() { overlayKey = null; renderOverlay(); }
         onLangChange(renderOverlay);
+
+        /**
+         * Choisit le message d'erreur d'après la CAUSE réelle.
+         *
+         * 28/08/2026 — les deux messages d'origine accusaient tout le monde sauf
+         * le vrai coupable. Lors de la panne de clé API, un proche lisait
+         * « l'expéditeur n'a peut-être pas accordé les autorisations caméra » et
+         * « le lien est peut-être invalide », alors que le téléphone de la
+         * victime filmait et publiait correctement : c'était NOTRE service qui
+         * refusait la lecture. Envoyer un proche chercher une panne inexistante
+         * sur le téléphone d'une personne en danger fait perdre des minutes qui
+         * comptent.
+         *
+         * `permission-denied` / `unavailable` / `unauthenticated` ne peuvent PAS
+         * venir de l'expéditeur : les règles Firestore ouvrent cette session à
+         * quiconque détient le lien. Ces codes signifient toujours une panne
+         * côté service (App Check, clé d'API, règles, réseau). On le dit.
+         */
+        function overlayKeyForError(err) {
+            const code = (err && err.code) ? String(err.code) : '';
+            if (code === 'not-found') return 'sessionLoadError';
+            if (code === 'permission-denied' || code === 'unauthenticated' ||
+                code === 'unavailable' || code === 'resource-exhausted' ||
+                code === 'internal' || code === 'deadline-exceeded') {
+                return 'serviceUnavailable';
+            }
+            return 'sessionLoadError';
+        }
 
         // The status badge keeps its key, not its rendered text, for the same reason.
         let statusKey = 'connecting';
@@ -1164,10 +1288,15 @@
                     // insensible à une horloge téléphone décalée) mais seulement
                     // quand la position a réellement changé — le marqueur `at`
                     // (heartbeat 30 s) ou lastLocationAt sert de numéro de version.
-                    const fixMarker = (data.lastLocation && data.lastLocation.at) || data.lastLocationAt || (lat + ',' + lng);
+                    const deviceAt = (data.lastLocation && data.lastLocation.at) || data.lastLocationAt || null;
+                    const fixMarker = deviceAt || (lat + ',' + lng);
                     if (fixMarker !== lastSeenFixMarker) {
                         lastSeenFixMarker = fixMarker;
                         lastFixEpoch = Date.now();
+                        // L'horodatage de l'APPAREIL sert de plancher d'âge —
+                        // voir currentFixAgeSec(). Sans lui, une session ancienne
+                        // s'affichait comme fraîche à la seconde où on l'ouvrait.
+                        lastFixDeviceEpoch = (typeof deviceAt === 'number' && deviceAt > 0) ? deviceAt : null;
                     }
                 } else if (!map) {
                     document.getElementById('map').style.display = 'none';
@@ -1176,7 +1305,15 @@
             }, (err) => {
                 console.error('Session listener error:', err);
                 setStatus('ended', 'error');
-                setOverlay('sessionLoadError', true);
+                setOverlay(overlayKeyForError(err), true);
+                // Le bloc GPS restait sur « Waiting… » INDÉFINIMENT : rien
+                // n'écrit dans ces champs tant qu'un instantané n'a pas abouti.
+                // Un proche voyait donc « en attente » alors que la page ne
+                // recevrait plus jamais rien — l'attente la plus coûteuse qui
+                // soit dans une urgence. On dit l'échec, explicitement.
+                const unavailable = t('gpsUnavailable');
+                document.getElementById('val-lat').textContent = unavailable;
+                document.getElementById('val-lng').textContent = unavailable;
             });
 
             // --- DVR-style accumulating playback ---------------------------------
@@ -1328,7 +1465,7 @@
                 });
             }, (err) => {
                 console.error('Fragments listener error:', err);
-                setOverlay('fragmentsError', true);
+                setOverlay(overlayKeyForError(err), true);
             });
         }
     </script>
