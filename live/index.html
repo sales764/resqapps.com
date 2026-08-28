@@ -63,7 +63,18 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
+            /* Sticky: the language selector must stay reachable once the reader
+               has scrolled down to the GPS card — that is precisely when someone
+               who landed on the wrong language starts looking for a way out. */
+            position: sticky;
+            top: 0;
+            z-index: 9997;
+            padding: 10px 4px;
+            background: rgba(15, 32, 39, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
+        .header-actions { display: flex; align-items: center; gap: 8px; }
         .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
         .brand span { color: var(--secondary-color); }
         .status-badge {
@@ -160,10 +171,36 @@
         }
         #map {
             width: 100%;
-            height: 250px;
-            margin-top: 20px;
+            height: 300px;
+            margin-top: 12px;
             border-radius: 14px;
             background: #1e1e1e;
+            z-index: 1;
+        }
+        /* Plein écran : la carte couvre tout l'écran, bouton Réduire par-dessus. */
+        #map.map-expanded {
+            position: fixed;
+            inset: 0;
+            height: 100vh;
+            margin-top: 0;
+            border-radius: 0;
+            z-index: 9998;
+        }
+        #mapCollapseBtn {
+            display: none;
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 9999;
+            background: var(--gradient-red);
+            border: none;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.5);
         }
         .map-header {
             margin-top: 24px;
@@ -172,6 +209,83 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        .map-expand-btn {
+            margin-left: auto;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .coord-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .coord-actions button, .coord-actions a {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+        /* Click-to-call emergency buttons — tap = dial (tel:). Mirrors the big
+           regional call button in the app's SosEmergencyCallActivity. */
+        .call-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .call-btn {
+            flex: 1 1 45%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--gradient-red);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 12px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(255,59,59,0.35);
+        }
+        .call-btn .call-number { font-size: 1.2rem; }
+        .call-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .dvr-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        #dvrSlider {
+            width: 100%;
+            margin-top: 10px;
+            accent-color: #ff3b3b;
+            cursor: pointer;
+            height: 22px;
         }
         .pulse-dot {
             width: 8px; height: 8px;
@@ -184,6 +298,102 @@
             70% { box-shadow: 0 0 0 8px rgba(255,59,59,0); }
             100% { box-shadow: 0 0 0 0 rgba(255,59,59,0); }
         }
+
+        /* --- Language selector --------------------------------------------
+           The reader of this link is the emergency CONTACT, not the sender:
+           their phone language may match neither the app nor the SMS. The
+           selector is therefore always on screen (sticky header) and shows the
+           CURRENT language code — a bare globe icon goes unnoticed, "🌐 EN"
+           tells the reader at a glance that another language is available.
+           Neutral tint on purpose: red is reserved for the call buttons and
+           the selector must never compete with them. */
+        .lang-wrap { position: relative; }
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 44px;
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 999px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .lang-sheet {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 190px;
+            padding: 6px;
+            background: #16303a;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 14px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+            z-index: 10000;
+        }
+        .lang-sheet.open { display: block; }
+        .lang-sheet button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 44px;
+            padding: 10px 14px;
+            background: none;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            text-align: left;
+            cursor: pointer;
+        }
+        .lang-sheet button .check { opacity: 0; }
+        .lang-sheet button[aria-checked="true"] {
+            background: rgba(255,255,255,0.12);
+            font-weight: 700;
+        }
+        .lang-sheet button[aria-checked="true"] .check { opacity: 1; }
+
+        /* Shown ONLY when detection found no match and we fell back to English.
+           Silence for the ~90% of readers already served in their language,
+           an explicit prompt for the rest. Native names need no translation. */
+        .lang-hint {
+            display: none;
+            width: 100%;
+            max-width: 720px;
+            align-items: center;
+            gap: 10px;
+            margin: -8px 0 16px;
+            padding: 10px 14px;
+            background: rgba(79,172,254,0.14);
+            border: 1px solid rgba(79,172,254,0.4);
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        .lang-hint.show { display: flex; }
+        .lang-hint .hint-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .lang-hint button {
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
     </style>
     <!-- Leaflet CSS & JS for OpenStreetMap -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -192,47 +402,119 @@
 <body>
     <header>
         <div class="brand">RESQ<span>+</span> Live</div>
-        <div id="statusBadge" class="status-badge status-loading">
-            <span class="dot"></span><span id="statusText">Connecting…</span>
+        <div class="header-actions">
+            <div id="statusBadge" class="status-badge status-loading">
+                <span class="dot"></span><span id="statusText">Connecting…</span>
+            </div>
+            <div class="lang-wrap">
+                <button id="langBtn" type="button" class="lang-btn"
+                        aria-haspopup="true" aria-expanded="false" title="Change language">
+                    <span aria-hidden="true">🌐</span><span id="langBtnCode">EN</span><span aria-hidden="true">⌄</span>
+                </button>
+                <div id="langSheet" class="lang-sheet" role="menu">
+                    <button type="button" role="menuitemradio" data-lang="en" aria-checked="true">English<span class="check" aria-hidden="true">✓</span></button>
+                    <button type="button" role="menuitemradio" data-lang="fr" aria-checked="false">Français<span class="check" aria-hidden="true">✓</span></button>
+                    <button type="button" role="menuitemradio" data-lang="th" aria-checked="false">ไทย<span class="check" aria-hidden="true">✓</span></button>
+                </div>
+            </div>
         </div>
     </header>
+
+    <!-- Fallback prompt: rendered only when the reader's browser language is
+         none of the three we ship. Language names stay in their native script
+         so the prompt is understandable whatever the reader speaks. -->
+    <div id="langHint" class="lang-hint">
+        <span aria-hidden="true">🌐</span>
+        <span>Also available in</span>
+        <span class="hint-actions">
+            <button type="button" data-hint-lang="fr">Français</button>
+            <button type="button" data-hint-lang="th">ไทย</button>
+            <button type="button" id="langHintClose" aria-label="Close">✕</button>
+        </span>
+    </div>
 
     <div class="player-card">
         <div class="video-wrap">
             <video id="player" playsinline autoplay muted></video>
             <div id="overlay" class="overlay-msg">
                 <div class="spinner"></div>
-                <div id="overlayText">Connecting to live session…</div>
+                <div id="overlayText">Connecting to the live session…</div>
             </div>
         </div>
         <div class="meta-row">
-            <span>Fragments received: <span id="fragCount" class="fragment-count">0</span></span>
-            <button id="unmuteBtn" style="background:var(--gradient-primary);border:none;color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:0.8rem;">Unmute</button>
+            <span><span id="fragLabel">Clips received:</span> <span id="fragCount" class="fragment-count">0</span></span>
+            <button id="unmuteBtn" style="background:var(--gradient-primary);border:none;color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:0.8rem;">🔊 Enable sound</button>
         </div>
 
-        <!-- DVR review controls: the full footage is reviewable like one video. -->
-        <div class="dvr-row" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;">
-            <button id="btnStart" title="Revoir depuis le début" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">⏮ Début</button>
-            <button id="btnPrev" title="Clip précédent" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">◀ Précédent</button>
-            <button id="btnNext" title="Clip suivant" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;">Suivant ▶</button>
-            <button id="btnLive" title="Aller au direct" style="background:var(--gradient-red);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:700;">● Direct</button>
+        <!-- Click-to-call: the emergency contact's #1 action. Numbers are the
+             SENDER's country's services (stamped on the session by the app from
+             its RegionConfig); until they arrive the universal GSM 112 shows. -->
+        <div class="call-row">
+            <a id="callPrimaryBtn" class="call-btn" href="tel:112">
+                <span id="callPrimaryLabel">📞 Call emergency services</span>
+                <span id="callPrimaryNumber" class="call-number">112</span>
+            </a>
+            <a id="callSecondaryBtn" class="call-btn" href="#" style="display:none;">
+                <span id="callSecondaryLabel">🚓 Call police</span>
+                <span id="callSecondaryNumber" class="call-number"></span>
+            </a>
+        </div>
+        <div id="callNote" class="call-note">One tap calls the emergency services where the SENDER is. Watching from another country? Call your own emergency number and read out the GPS position below.</div>
+
+        <!-- DVR review controls: the full footage is reviewable like one video.
+             Timeline slider = scrub the whole incident; buttons = fine control. -->
+        <input type="range" id="dvrSlider" min="0" max="0" step="1" value="0" disabled
+               title="Drag to review any moment of the incident">
+        <div class="dvr-row" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;">
+            <button id="btnPlayPause" class="dvr-btn" title="Play / Pause">⏸ Pause</button>
+            <button id="btnStart" class="dvr-btn" title="Replay from the beginning">⏮ Start</button>
+            <button id="btnPrev" class="dvr-btn" title="Previous clip">◀</button>
+            <button id="btnNext" class="dvr-btn" title="Next clip">▶</button>
+            <button id="btnLive" class="dvr-btn" title="Jump to live" style="background:var(--gradient-red);font-weight:700;">● LIVE</button>
             <span id="clipLabel" style="color:var(--text-muted);font-size:0.8rem;margin-left:auto;"></span>
         </div>
 
-        <div class="map-header">
-            <div class="pulse-dot"></div> Live GPS Tracking
+        <!-- Consolidated single-file video for the police. ALWAYS visible so the
+             viewer knows a downloadable file is coming; activates once the sender's
+             device has muxed all fragments into one MP4 (fullVideoUrl on the session). -->
+        <div id="fullVideoRow" style="margin-top:14px;">
+            <a id="fullVideoLink" href="#" download="RESQ_SOS_full.mp4"
+               style="display:none;align-items:center;gap:8px;background:var(--gradient-red);color:#fff;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:0.95rem;">
+               <span id="fullVideoLabel">⬇ Download the full video</span><span id="fullVideoSize"></span>
+            </a>
+            <div id="fullVideoPending"
+                 style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.3);color:var(--text-muted);padding:12px 20px;border-radius:10px;font-size:0.9rem;">
+               ⏳ Full video in preparation — available as soon as the incident ends
+            </div>
+            <div id="fullVideoNote" style="font-size:0.75rem;color:var(--text-muted);margin-top:6px;">Single video file of the entire incident, to hand over to the authorities (police / 911).</div>
         </div>
-        <!-- Coordonnées brutes pour le 911 (Demandées par le parent) -->
-        <div id="raw-coordinates" style="background: #2a2a2a; border-radius: 8px; padding: 12px; margin-bottom: 16px; font-family: monospace; font-size: 1.1rem; color: #fff; text-align: center; border: 1px solid #444;">
-            <div>Latitude : <span id="val-lat" style="color: #ff4757; font-weight: bold;">En attente...</span></div>
-            <div style="margin-top: 4px;">Longitude : <span id="val-lng" style="color: #ff4757; font-weight: bold;">En attente...</span></div>
-            <div style="font-size: 0.8rem; color: #aaa; margin-top: 8px; font-family: sans-serif;">À dicter au répartiteur des urgences (911/112)</div>
+
+        <div class="map-header">
+            <div class="pulse-dot"></div> <span id="mapHeaderLabel">Live GPS position</span>
+            <button id="mapExpandBtn" class="map-expand-btn" title="Expand the map to full screen">⛶ Expand</button>
+        </div>
+        <!-- Raw coordinates for emergency dispatch (requested by the parent) -->
+        <div id="raw-coordinates" style="background: #2a2a2a; border-radius: 8px; padding: 12px; margin-bottom: 4px; font-family: monospace; font-size: 1.1rem; color: #fff; text-align: center; border: 1px solid #444;">
+            <div><span id="latLabel">Latitude:</span> <span id="val-lat" style="color: #ff4757; font-weight: bold;">Waiting…</span></div>
+            <div style="margin-top: 4px;"><span id="lngLabel">Longitude:</span> <span id="val-lng" style="color: #ff4757; font-weight: bold;">Waiting…</span></div>
+            <!-- v3.75 — Altitude barometrique. Le GPS donne une altitude a
+                 +/- 20-50 m, inutilisable pour trouver un etage. Le barometre
+                 donne l etage. Quand le telephone n en a pas, on le DIT au
+                 lieu de laisser un blanc ambigu. -->
+            <div id="row-alt" style="margin-top: 4px; display: none;"><span id="altLabel">Altitude:</span> <span id="val-alt" style="color: #ff4757; font-weight: bold;"></span></div>
+            <div id="gpsFreshness" style="font-size: 0.85rem; color: #7CFC00; margin-top: 8px; font-family: sans-serif;"></div>
+            <div id="dictateNote" style="font-size: 0.8rem; color: #aaa; margin-top: 4px; font-family: sans-serif;">Read out to the emergency dispatcher (911/112)</div>
+            <div class="coord-actions">
+                <button id="copyCoordsBtn" title="Copy coordinates">📋 Copy coordinates</button>
+                <a id="gmapsLink" href="#" target="_blank" rel="noopener" style="display:none;">🧭 Open in Google Maps</a>
+            </div>
         </div>
         <div id="map"></div>
+        <button id="mapCollapseBtn">✕ Close map</button>
     </div>
 
     <footer>
-        This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at <a href="https://resqapps.com">resqapps.com</a>.
+        <span id="footerText">This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at</span> <a href="https://resqapps.com">resqapps.com</a>.
     </footer>
 
     <script type="module">
@@ -268,13 +550,410 @@
 
         const db = getFirestore(app);
 
+        // --- i18n — mirrors the app's 3 languages. English is the default;
+        // French/Thai activate from the RECIPIENT's browser language (the
+        // emergency contact reading the page, not the sender), with a manual
+        // ?lang=en|fr|th override for links shared onward.
+        const I18N = {
+            en: {
+                pageTitle: 'Live SOS Video | RESQ+',
+                langCode: 'EN', langTitle: 'Change language',
+                connecting: 'Connecting…', live: 'LIVE', ended: 'Ended',
+                notFound: 'Not found', noSession: 'No session', error: 'Error',
+                connectingOverlay: 'Connecting to the live session…',
+                noSessionMsg: 'No SOS session ID in this link.',
+                fragLabel: 'Clips received:',
+                enableSound: '🔊 Enable sound', muteSound: '🔇 Mute sound',
+                sliderTitle: 'Drag to review any moment of the incident',
+                pause: '⏸ Pause', play: '▶ Play', start: '⏮ Start', liveBtn: '● LIVE',
+                playPauseTitle: 'Play / Pause', startTitle: 'Replay from the beginning',
+                prevTitle: 'Previous clip', nextTitle: 'Next clip', liveTitle: 'Jump to live',
+                clip: 'Clip', liveTag: 'LIVE', replayTag: 'REPLAY',
+                downloadFull: '⬇ Download the full video',
+                fullPending: '⏳ Full video in preparation — available as soon as the incident ends',
+                fullNote: (p) => 'Single video file of the entire incident, to hand over to the authorities (police / ' + p + ').',
+                mapHeader: 'Live GPS position',
+                expand: '⛶ Expand', expandTitle: 'Expand the map to full screen', collapse: '✕ Close map',
+                latLabel: 'Latitude:', lngLabel: 'Longitude:', waiting: 'Waiting…',
+                altLabel: 'Altitude:',
+                altFloor: (n) => ' · approx. floor ' + n,
+                altUnavailable: 'Altitude unavailable — this phone has no barometer',
+                gpsFresh: (s) => '✓ Position updated ' + s + ' s ago',
+                gpsStale: (s) => '⚠ Last position received ' + s + ' s ago',
+                dictateNote: (n) => 'Read out to the emergency dispatcher (' + n + ')',
+                copyCoords: '📋 Copy coordinates', copied: '✓ Copied!',
+                openMaps: '🧭 Open in Google Maps',
+                callEmergency: '📞 Call emergency services',
+                callAmbulance: '🚑 Call ambulance',
+                callPolice: '🚓 Call police',
+                callNote: "One tap calls the emergency services where the SENDER is. Watching from another country? Call your own emergency number and read out the GPS position below.",
+                waitingNextClip: 'Waiting for the next clip…',
+                sessionLoadError: 'Could not load this session. It may not exist or the link may be invalid.',
+                fragmentsError: 'Could not load video fragments for this session. If this persists, the sender may not have granted camera/upload permissions.',
+                sizeUnit: 'MB',
+                footer: "This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at"
+            },
+            fr: {
+                pageTitle: 'Vidéo SOS en direct | RESQ+',
+                langCode: 'FR', langTitle: 'Changer de langue',
+                connecting: 'Connexion…', live: 'EN DIRECT', ended: 'Terminé',
+                notFound: 'Introuvable', noSession: 'Aucune session', error: 'Erreur',
+                connectingOverlay: 'Connexion à la session en direct…',
+                noSessionMsg: 'Aucun identifiant de session SOS dans ce lien.',
+                fragLabel: 'Clips reçus :',
+                enableSound: '🔊 Activer le son', muteSound: '🔇 Couper le son',
+                sliderTitle: "Faites glisser pour revoir n'importe quel moment de l'incident",
+                pause: '⏸ Pause', play: '▶ Lecture', start: '⏮ Début', liveBtn: '● DIRECT',
+                playPauseTitle: 'Lecture / Pause', startTitle: 'Revoir depuis le début',
+                prevTitle: 'Clip précédent', nextTitle: 'Clip suivant', liveTitle: 'Aller au direct',
+                clip: 'Clip', liveTag: 'DIRECT', replayTag: 'RELECTURE',
+                downloadFull: '⬇ Télécharger la vidéo complète',
+                fullPending: "⏳ Vidéo complète en préparation — disponible dès la fin de l'incident",
+                fullNote: (p) => "Fichier vidéo unique de tout l'incident, à remettre aux autorités (police / " + p + ").",
+                mapHeader: 'Position GPS en direct',
+                expand: '⛶ Agrandir', expandTitle: 'Agrandir la carte en plein écran', collapse: '✕ Réduire la carte',
+                latLabel: 'Latitude :', lngLabel: 'Longitude :', waiting: 'En attente…',
+                altLabel: 'Altitude :',
+                altFloor: (n) => ' · étage approx. ' + n,
+                altUnavailable: 'Altitude indisponible — pas de baromètre sur ce téléphone',
+                gpsFresh: (s) => '✓ Position mise à jour il y a ' + s + ' s',
+                gpsStale: (s) => '⚠ Dernière position reçue il y a ' + s + ' s',
+                dictateNote: (n) => 'À dicter au répartiteur des urgences (' + n + ')',
+                copyCoords: '📋 Copier les coordonnées', copied: '✓ Copié !',
+                openMaps: '🧭 Ouvrir dans Google Maps',
+                callEmergency: "📞 Appeler les urgences",
+                callAmbulance: '🚑 Appeler une ambulance',
+                callPolice: '🚓 Appeler la police',
+                callNote: "Un appui appelle les secours là où se trouve l'EXPÉDITEUR. Vous êtes dans un autre pays ? Appelez vos urgences locales et dictez la position GPS ci-dessous.",
+                waitingNextClip: 'En attente du prochain clip…',
+                sessionLoadError: "Impossible de charger cette session. Elle n'existe peut-être pas ou le lien est invalide.",
+                fragmentsError: "Impossible de charger les clips vidéo de cette session. Si le problème persiste, l'expéditeur n'a peut-être pas accordé les autorisations caméra.",
+                sizeUnit: 'Mo',
+                footer: "Ceci est un flux vidéo d'urgence en direct partagé via RESQ+ BlackBox. La vidéo est diffusée directement depuis l'appareil de l'expéditeur pendant l'enregistrement. En savoir plus sur"
+            },
+            th: {
+                pageTitle: 'วิดีโอ SOS ถ่ายทอดสด | RESQ+',
+                langCode: 'TH', langTitle: 'เปลี่ยนภาษา',
+                connecting: 'กำลังเชื่อมต่อ…', live: 'ถ่ายทอดสด', ended: 'สิ้นสุดแล้ว',
+                notFound: 'ไม่พบ', noSession: 'ไม่มีเซสชัน', error: 'ข้อผิดพลาด',
+                connectingOverlay: 'กำลังเชื่อมต่อกับเซสชันสด…',
+                noSessionMsg: 'ไม่มีรหัสเซสชัน SOS ในลิงก์นี้',
+                fragLabel: 'คลิปที่ได้รับ :',
+                enableSound: '🔊 เปิดเสียง', muteSound: '🔇 ปิดเสียง',
+                sliderTitle: 'ลากเพื่อดูช่วงเวลาใดก็ได้ของเหตุการณ์',
+                pause: '⏸ หยุด', play: '▶ เล่น', start: '⏮ เริ่มต้น', liveBtn: '● สด',
+                playPauseTitle: 'เล่น / หยุด', startTitle: 'ดูซ้ำตั้งแต่ต้น',
+                prevTitle: 'คลิปก่อนหน้า', nextTitle: 'คลิปถัดไป', liveTitle: 'ไปที่การถ่ายทอดสด',
+                clip: 'คลิป', liveTag: 'สด', replayTag: 'ดูย้อนหลัง',
+                downloadFull: '⬇ ดาวน์โหลดวิดีโอฉบับเต็ม',
+                fullPending: '⏳ กำลังเตรียมวิดีโอฉบับเต็ม — พร้อมใช้งานเมื่อเหตุการณ์สิ้นสุด',
+                fullNote: (p) => 'ไฟล์วิดีโอเดียวของเหตุการณ์ทั้งหมด สำหรับส่งมอบให้เจ้าหน้าที่ (ตำรวจ / ' + p + ')',
+                mapHeader: 'ตำแหน่ง GPS แบบเรียลไทม์',
+                expand: '⛶ ขยาย', expandTitle: 'ขยายแผนที่เต็มหน้าจอ', collapse: '✕ ปิดแผนที่',
+                latLabel: 'ละติจูด :', lngLabel: 'ลองจิจูด :', waiting: 'กำลังรอ…',
+                altLabel: 'ความสูง :',
+                altFloor: (n) => ' · ชั้นโดยประมาณ ' + n,
+                altUnavailable: 'ไม่มีข้อมูลความสูง — โทรศัพท์ไม่มีบารอมิเตอร์',
+                gpsFresh: (s) => '✓ อัปเดตตำแหน่งเมื่อ ' + s + ' วินาทีที่แล้ว',
+                gpsStale: (s) => '⚠ ตำแหน่งล่าสุดเมื่อ ' + s + ' วินาทีที่แล้ว',
+                dictateNote: (n) => 'สำหรับแจ้งเจ้าหน้าที่รับแจ้งเหตุฉุกเฉิน (' + n + ')',
+                copyCoords: '📋 คัดลอกพิกัด', copied: '✓ คัดลอกแล้ว!',
+                openMaps: '🧭 เปิดใน Google Maps',
+                callEmergency: '📞 โทรแจ้งเหตุฉุกเฉิน',
+                callAmbulance: '🚑 โทรเรียกรถพยาบาล',
+                callPolice: '🚓 โทรแจ้งตำรวจ',
+                callNote: 'แตะเพื่อโทรหาหน่วยฉุกเฉินในพื้นที่ของผู้ส่ง หากคุณอยู่คนละประเทศ โปรดโทรหาหมายเลขฉุกเฉินในประเทศของคุณ แล้วแจ้งพิกัด GPS ด้านล่าง',
+                waitingNextClip: 'กำลังรอคลิปถัดไป…',
+                sessionLoadError: 'ไม่สามารถโหลดเซสชันนี้ได้ อาจไม่มีอยู่หรือลิงก์ไม่ถูกต้อง',
+                fragmentsError: 'ไม่สามารถโหลดคลิปวิดีโอของเซสชันนี้ได้ หากยังเป็นอยู่ ผู้ส่งอาจไม่ได้ให้สิทธิ์กล้อง/การอัปโหลด',
+                sizeUnit: 'MB',
+                footer: 'นี่คือวิดีโอเหตุฉุกเฉินถ่ายทอดสดที่แชร์ผ่าน RESQ+ BlackBox วิดีโอสตรีมโดยตรงจากอุปกรณ์ของผู้ส่งขณะบันทึก ดูข้อมูลเพิ่มเติมที่'
+            }
+        };
+        // The page language ALWAYS follows the RECIPIENT viewing the link, never
+        // the sender. Resolution order, most to least explicit:
+        //   1. ?lang=en|fr|th      — a forwarded link carrying an explicit choice
+        //   2. localStorage        — a manual pick made on an earlier visit
+        //   3. navigator.languages — the reader's full preference list
+        //   4. 'en'
+        // A manual pick is written back to BOTH localStorage and the URL, so the
+        // language survives a reload AND travels with the link when the contact
+        // forwards it onward (contact → family is the normal path here).
+        const LS_KEY = 'resq.live.lang';
+        const asSupported = (code) => {
+            if (!code) return null;
+            const two = String(code).toLowerCase().slice(0, 2);
+            return I18N[two] ? two : null;
+        };
+        const forcedLang = new URLSearchParams(window.location.search).get('lang');
+        let storedLang = null;
+        try { storedLang = localStorage.getItem(LS_KEY); } catch (e) { /* private mode / blocked storage */ }
+        const viewerLangs = (navigator.languages && navigator.languages.length)
+            ? navigator.languages
+            : [navigator.language || 'en'];
+        const detectedLang = viewerLangs.map(asSupported).find(Boolean) || null;
+        let lang = asSupported(forcedLang) || asSupported(storedLang) || detectedLang || 'en';
+        function t(key) { return I18N[lang][key] || I18N.en[key]; }
+
+        // Renderers whose text depends on live state (status badge, call button
+        // labels, DVR counter, overlay…) register here. A language switch must
+        // NOT reload the page — that would tear down the Firestore listeners and
+        // restart the video feed — so instead we re-run every registered hook.
+        const i18nHooks = [];
+        function onLangChange(fn) { i18nHooks.push(fn); fn(); }
+
+        // Static texts. NOT gated on `lang !== 'en'`: the selector has to be able
+        // to switch BACK to English, which means English must be re-appliable.
+        function applyI18n() {
+            document.documentElement.lang = lang;
+            document.title = t('pageTitle');
+            const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t(key); };
+            const setTitle = (id, key) => { const el = document.getElementById(id); if (el) el.title = t(key); };
+            setText('fragLabel', 'fragLabel');
+            setTitle('dvrSlider', 'sliderTitle');
+            setTitle('btnPlayPause', 'playPauseTitle');
+            setText('btnStart', 'start');       setTitle('btnStart', 'startTitle');
+            setTitle('btnPrev', 'prevTitle');   setTitle('btnNext', 'nextTitle');
+            setText('btnLive', 'liveBtn');      setTitle('btnLive', 'liveTitle');
+            setText('fullVideoLabel', 'downloadFull');
+            setText('fullVideoPending', 'fullPending');
+            setText('mapHeaderLabel', 'mapHeader');
+            setText('mapExpandBtn', 'expand');  setTitle('mapExpandBtn', 'expandTitle');
+            setText('mapCollapseBtn', 'collapse');
+            setText('latLabel', 'latLabel');    setText('lngLabel', 'lngLabel');
+            setText('altLabel', 'altLabel');
+            setText('copyCoordsBtn', 'copyCoords'); setTitle('copyCoordsBtn', 'copyCoords');
+            setText('gmapsLink', 'openMaps');
+            setText('callNote', 'callNote');
+            setText('footerText', 'footer');
+            setText('langBtnCode', 'langCode'); setTitle('langBtn', 'langTitle');
+            document.querySelectorAll('#langSheet button').forEach((b) => {
+                b.setAttribute('aria-checked', String(b.dataset.lang === lang));
+            });
+            i18nHooks.forEach((fn) => fn());
+        }
+
+        // --- Language selector -------------------------------------------------
+        const langBtn = document.getElementById('langBtn');
+        const langSheet = document.getElementById('langSheet');
+        const langHint = document.getElementById('langHint');
+        function closeLangSheet() {
+            langSheet.classList.remove('open');
+            langBtn.setAttribute('aria-expanded', 'false');
+        }
+        function toggleLangSheet() {
+            const open = langSheet.classList.toggle('open');
+            langBtn.setAttribute('aria-expanded', String(open));
+        }
+        function switchLang(next) {
+            closeLangSheet();
+            langHint.classList.remove('show');
+            if (!I18N[next] || next === lang) return;
+            lang = next;
+            try { localStorage.setItem(LS_KEY, next); } catch (e) { /* blocked storage */ }
+            try {
+                // replaceState (not pushState): the phone BACK button must keep
+                // closing the expanded map, not walk back through language picks.
+                const url = new URL(window.location.href);
+                url.searchParams.set('lang', next);
+                history.replaceState(history.state, '', url);
+            } catch (e) { /* older browsers — localStorage still holds the pick */ }
+            applyI18n();
+        }
+        langBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleLangSheet(); });
+        langSheet.addEventListener('click', (e) => {
+            const btn = e.target.closest('button[data-lang]');
+            if (btn) switchLang(btn.dataset.lang);
+        });
+        document.addEventListener('click', (e) => {
+            if (langSheet.classList.contains('open') && !e.target.closest('.lang-wrap')) closeLangSheet();
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLangSheet(); });
+        langHint.addEventListener('click', (e) => {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            if (btn.id === 'langHintClose') langHint.classList.remove('show');
+            else if (btn.dataset.hintLang) switchLang(btn.dataset.hintLang);
+        });
+        // Prompt only when detection came up empty AND the reader never picked a
+        // language: no noise for the readers already served correctly.
+        if (!asSupported(forcedLang) && !asSupported(storedLang) && !detectedLang) {
+            langHint.classList.add('show');
+        }
+
+        // --- Click-to-call emergency numbers, localized to the SENDER's country.
+        // Resolution order (most to least accurate):
+        //   1. policeNumber / emergencyNumber stamped on the session by the app
+        //      (province-accurate, from RegionManager — see BlackBoxLogger.startSession)
+        //   2. country-level fallback below, keyed by the session's countryCode
+        //      (mirrors the app's RegionConfig defaults)
+        //   3. the universal GSM emergency number 112 (works on mobile networks
+        //      in most of the world; US carriers redirect it to 911)
+        // Sessions from app builds older than the stamping feature carry neither
+        // numbers nor countryCode — those get the 112 default.
+        // Mirrors the app's RegionConfig data + RegionManager.getEmergencyPoliceNumber(),
+        // verified against official government sources per country — keep the three
+        // in sync (see EMERGENCY_NUMBERS_AUDIT.md in the repo for numbers + sources).
+        const COUNTRY_FALLBACK = {
+            TH: { e: '1669', p: '191' }, CA: { e: '911', p: '911' },
+            US: { e: '911', p: '911' },  MX: { e: '911', p: '911' },
+            PH: { e: '911', p: '911' },  CU: { e: '104', p: '106' },
+            DO: { e: '911', p: '911' },  GB: { e: '999', p: '999' },
+            FR: { e: '112', p: '17' },   IT: { e: '112', p: '113' },
+            RU: { e: '112', p: '102' },  MY: { e: '999', p: '999' },
+            ID: { e: '112', p: '110' },  KR: { e: '119', p: '112' },
+            JP: { e: '119', p: '110' },  AU: { e: '000', p: '000' },
+            DE: { e: '112', p: '110' },  BR: { e: '192', p: '190' },
+            CL: { e: '131', p: '133' },  ES: { e: '112', p: '091' },
+            AR: { e: '107', p: '911' },  AT: { e: '144', p: '133' },
+            BE: { e: '112', p: '101' },  BO: { e: '168', p: '110' },
+            BA: { e: '124', p: '122' },  BW: { e: '997', p: '999' },
+            BG: { e: '112', p: '112' },  BF: { e: '18', p: '17' },
+            BI: { e: '112', p: '117' },  KH: { e: '119', p: '117' },
+            CM: { e: '119', p: '117' },  CN: { e: '120', p: '110' },
+            CO: { e: '123', p: '123' },  CR: { e: '911', p: '911' },
+            HR: { e: '112', p: '192' },  CZ: { e: '112', p: '158' },
+            DK: { e: '112', p: '112' },  EC: { e: '911', p: '911' },
+            EG: { e: '123', p: '122' },  SV: { e: '132', p: '911' },
+            GQ: { e: '112', p: '114' },  ER: { e: '113', p: '113' },
+            EE: { e: '112', p: '112' },  SZ: { e: '999', p: '999' },
+            ET: { e: '907', p: '991' },  FJ: { e: '911', p: '917' },
+            FI: { e: '112', p: '112' },  GA: { e: '1300', p: '1730' },
+            GM: { e: '116', p: '117' },  GE: { e: '112', p: '112' },
+            GH: { e: '112', p: '191' },  GR: { e: '112', p: '100' }
+        };
+        // Numbers come from a Firestore doc — never trust them raw in an href.
+        const telHref = (n) => 'tel:' + String(n).replace(/[^+\d]/g, '');
+
+        const callPrimaryBtn = document.getElementById('callPrimaryBtn');
+        const callSecondaryBtn = document.getElementById('callSecondaryBtn');
+        function setCallBtn(btn, labelKey, number) {
+            btn.querySelector('.call-number').textContent = number;
+            btn.firstElementChild.textContent = t(labelKey);
+            btn.href = telHref(number);
+            btn.style.display = 'inline-flex';
+        }
+        // The resolved numbers are kept so a language switch can re-label the
+        // buttons without waiting for the next Firestore snapshot.
+        let lastMedical = null, lastPolice = null;
+        function renderCallButtons() {
+            if (lastMedical && lastPolice && lastMedical !== lastPolice) {
+                // Two distinct services (e.g. Thailand 1669 medical / 191 police).
+                setCallBtn(callPrimaryBtn, 'callAmbulance', lastMedical);
+                setCallBtn(callSecondaryBtn, 'callPolice', lastPolice);
+            } else {
+                // One number covers everything (911/112-style) — single big button.
+                setCallBtn(callPrimaryBtn, 'callEmergency', lastMedical || lastPolice || '112');
+                callSecondaryBtn.style.display = 'none';
+            }
+        }
+        function updateCallButtons(medical, policeN) {
+            lastMedical = medical; lastPolice = policeN;
+            renderCallButtons();
+        }
+        onLangChange(renderCallButtons); // renders the 112 default in the reader's language
+
+        // Notes embedding the live numbers — same reasoning: remember the values
+        // so they can be re-rendered in another language at any time.
+        let noteDispatch = null, notePolice = null;
+        function renderNumberNotes() {
+            document.getElementById('fullVideoNote').textContent = t('fullNote')(notePolice || '911');
+            document.getElementById('dictateNote').textContent = t('dictateNote')(noteDispatch || '911/112');
+        }
+        onLangChange(renderNumberNotes);
+
+        // "MB" vs "Mo" — the unit is localized, so the size string is too.
+        let fullVideoBytes = 0;
+        function renderFullVideoSize() {
+            const el = document.getElementById('fullVideoSize');
+            el.textContent = fullVideoBytes > 0
+                ? ' (' + (fullVideoBytes / (1024 * 1024)).toFixed(1) + ' ' + t('sizeUnit') + ')'
+                : '';
+        }
+        onLangChange(renderFullVideoSize);
+
         const statusBadge = document.getElementById('statusBadge');
         const statusText = document.getElementById('statusText');
         const overlay = document.getElementById('overlay');
-        const overlayText = document.getElementById('overlayText');
         const video = document.getElementById('player');
         const fragCountEl = document.getElementById('fragCount');
         const unmuteBtn = document.getElementById('unmuteBtn');
+        const fullVideoRow = document.getElementById('fullVideoRow');
+        const fullVideoLink = document.getElementById('fullVideoLink');
+        const fullVideoPending = document.getElementById('fullVideoPending');
+        const fullVideoSize = document.getElementById('fullVideoSize');
+
+        // --- Carte plein écran (Agrandir / Réduire) ---
+        // Reste TOUJOURS sur cette page : le plein écran est un simple overlay
+        // CSS (aucune navigation). On pousse une entrée d'historique à
+        // l'ouverture pour que le bouton RETOUR du téléphone referme la carte
+        // au lieu de quitter le lien d'urgence.
+        const mapEl = document.getElementById('map');
+        const mapExpandBtn = document.getElementById('mapExpandBtn');
+        const mapCollapseBtn = document.getElementById('mapCollapseBtn');
+        let mapIsExpanded = false;
+        function setMapExpanded(expanded, fromHistory) {
+            if (expanded === mapIsExpanded) return;
+            mapIsExpanded = expanded;
+            mapEl.classList.toggle('map-expanded', expanded);
+            mapCollapseBtn.style.display = expanded ? 'block' : 'none';
+            document.body.style.overflow = expanded ? 'hidden' : '';
+            if (map) setTimeout(() => map.invalidateSize(), 50);
+            if (expanded) {
+                history.pushState({ mapExpanded: true }, '', window.location.href);
+            } else if (!fromHistory && history.state && history.state.mapExpanded) {
+                history.back(); // retire l'entrée ajoutée à l'ouverture
+            }
+        }
+        mapExpandBtn.addEventListener('click', () => setMapExpanded(true));
+        mapCollapseBtn.addEventListener('click', () => setMapExpanded(false));
+        // La carte se referme aussi en tapant dessus deux fois ? Non — on garde
+        // 3 sorties simples et prévisibles : bouton ✕, touche Échap, bouton Retour.
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMapExpanded(false); });
+        window.addEventListener('popstate', () => { if (mapIsExpanded) setMapExpanded(false, true); });
+
+        // --- Copier les coordonnées + lien Google Maps ---
+        let currentLat = null, currentLng = null;
+        const copyCoordsBtn = document.getElementById('copyCoordsBtn');
+        const gmapsLink = document.getElementById('gmapsLink');
+        copyCoordsBtn.addEventListener('click', async () => {
+            if (currentLat === null) return;
+            const text = currentLat.toFixed(6) + ', ' + currentLng.toFixed(6);
+            try {
+                await navigator.clipboard.writeText(text);
+                copyCoordsBtn.textContent = t('copied');
+            } catch (e) {
+                // Fallback for old browsers / non-secure contexts.
+                const ta = document.createElement('textarea');
+                ta.value = text; document.body.appendChild(ta); ta.select();
+                document.execCommand('copy'); ta.remove();
+                copyCoordsBtn.textContent = t('copied');
+            }
+            setTimeout(() => { copyCoordsBtn.textContent = t('copyCoords'); }, 2000);
+        });
+        // "Waiting…" placeholders only — once a fix lands the values are numbers
+        // and must never be touched by a language switch.
+        onLangChange(() => {
+            if (currentLat !== null) return;
+            document.getElementById('val-lat').textContent = t('waiting');
+            document.getElementById('val-lng').textContent = t('waiting');
+        });
+
+        // --- Fraîcheur GPS : "mise à jour il y a Xs", alerte si > 75 s ---
+        let lastFixEpoch = null;
+        let lastSeenFixMarker = null;
+        const gpsFreshness = document.getElementById('gpsFreshness');
+        setInterval(() => {
+            if (lastFixEpoch === null) return;
+            const ageSec = Math.max(0, Math.round((Date.now() - lastFixEpoch) / 1000));
+            if (ageSec <= 75) {
+                gpsFreshness.style.color = '#7CFC00';
+                gpsFreshness.textContent = t('gpsFresh')(ageSec);
+            } else {
+                gpsFreshness.style.color = '#ffb020';
+                gpsFreshness.textContent = t('gpsStale')(ageSec);
+            }
+        }, 1000);
 
         // --- Map Initialization ---
         let map = null;
@@ -304,15 +983,66 @@
             }
         }
 
+        // Sound state is mirrored locally rather than read back from the element:
+        // playAt() force-mutes when autoplay is blocked, and the button label has
+        // to stay truthful through that. <video> ships with the muted attribute.
+        let soundOn = false;
+        function renderUnmuteBtn() {
+            unmuteBtn.textContent = soundOn ? t('muteSound') : t('enableSound');
+        }
         unmuteBtn.addEventListener('click', () => {
-            video.muted = !video.muted;
-            unmuteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+            soundOn = !soundOn;
+            video.muted = !soundOn;
+            renderUnmuteBtn();
+        });
+        onLangChange(renderUnmuteBtn);
+        // Registered here, not inside runLiveViewer: the label must be localized
+        // even on a link that carries no session id. Before the first clip loads
+        // there is nothing to play, so the control keeps its idle "Pause" label.
+        onLangChange(() => {
+            document.getElementById('btnPlayPause').textContent =
+                (video.currentSrc && video.paused) ? t('play') : t('pause');
         });
 
-        function setStatus(mode, text) {
-            statusBadge.className = 'status-badge status-' + mode;
-            statusText.textContent = text;
+        // The overlay is key-driven rather than text-driven: whatever state the
+        // player sits in (connecting / waiting for the next clip / error), a
+        // language switch re-renders it in place.
+        let overlayKey = 'connectingOverlay', overlayIsError = false;
+        function renderOverlay() {
+            if (overlayKey === null) { overlay.style.display = 'none'; return; }
+            overlay.style.display = 'flex';
+            overlay.innerHTML = '';
+            if (overlayIsError) {
+                const box = document.createElement('div');
+                box.className = 'error-box';
+                box.textContent = t(overlayKey);
+                overlay.appendChild(box);
+            } else {
+                const spinner = document.createElement('div');
+                spinner.className = 'spinner';
+                const msg = document.createElement('div');
+                msg.textContent = t(overlayKey);
+                overlay.appendChild(spinner);
+                overlay.appendChild(msg);
+            }
         }
+        function setOverlay(key, isError) { overlayKey = key; overlayIsError = !!isError; renderOverlay(); }
+        function hideOverlay() { overlayKey = null; renderOverlay(); }
+        onLangChange(renderOverlay);
+
+        // The status badge keeps its key, not its rendered text, for the same reason.
+        let statusKey = 'connecting';
+        function setStatus(mode, key) {
+            statusKey = key;
+            statusBadge.className = 'status-badge status-' + mode;
+            statusText.textContent = t(key);
+        }
+        onLangChange(() => { statusText.textContent = t(statusKey); });
+
+        // Every re-renderable element is now registered — paint the page in the
+        // resolved language. Runs for English too, which is what makes switching
+        // BACK to English work.
+        applyI18n();
 
         // Extract sosId from /live/{sosId}
         const pathParts = window.location.pathname.split('/').filter(Boolean);
@@ -320,8 +1050,8 @@
         const sosId = liveIdx >= 0 ? pathParts[liveIdx + 1] : null;
 
         if (!sosId) {
-            setStatus('ended', 'No session');
-            overlayText.textContent = 'No SOS session id was provided in this link.';
+            setStatus('ended', 'noSession');
+            setOverlay('noSessionMsg');
         } else {
             runLiveViewer(sosId);
         }
@@ -330,14 +1060,62 @@
             // --- Session status (LIVE / ENDED) ---
             onSnapshot(doc(db, 'sos_sessions', sosId), (snap) => {
                 if (!snap.exists()) {
-                    setStatus('ended', 'Not found');
+                    setStatus('ended', 'notFound');
                     return;
                 }
                 const data = snap.data();
                 if (data.status === 'active') {
-                    setStatus('live', 'LIVE');
+                    setStatus('live', 'live');
                 } else {
-                    setStatus('ended', 'Ended');
+                    setStatus('ended', 'ended');
+                }
+
+                // Region-aware emergency numbers, stamped on the session by the
+                // app from its RegionConfig (e.g. Thailand: police 191, medical
+                // 1669). Sessions missing them (older app builds) fall back to
+                // the country-level map via countryCode, then to the generic
+                // 911/112 wording and the 112 call button.
+                const stampedPolice = (typeof data.policeNumber === 'string' && data.policeNumber) ? data.policeNumber : null;
+                const stampedEmergency = (typeof data.emergencyNumber === 'string' && data.emergencyNumber) ? data.emergencyNumber : null;
+                const countryCode = (typeof data.countryCode === 'string' && data.countryCode) ? data.countryCode.toUpperCase() : null;
+                const verified = (countryCode && COUNTRY_FALLBACK[countryCode]) || null;
+                // The verified table WINS over the stamped numbers on purpose:
+                // stamped values come from whatever app build the sender happens
+                // to run — including versions that shipped wrong numbers (e.g.
+                // Brazil stamped 190/police as the medical number instead of the
+                // SAMU 192). The table here is source-verified and ships with the
+                // page, so a correction reaches every sender instantly without
+                // waiting for a Play Store rollout. Stamped values are used only
+                // for a country the table does not cover.
+                const police = (verified && verified.p) || stampedPolice || null;
+                const emergency = (verified && verified.e) || stampedEmergency || null;
+                updateCallButtons(emergency, police);
+                if (police) notePolice = police;
+                if (police || emergency) {
+                    noteDispatch = (police && emergency && police !== emergency)
+                        ? police + ' / ' + emergency
+                        : (emergency || police);
+                }
+                if (police || emergency) renderNumberNotes();
+
+                // Consolidated single-file video (police). Written by SOSRecorder
+                // once the incident ends and all fragments are muxed + uploaded.
+                // PRIVACY GATE: only offered AFTER the victim pressed "Stop SOS"
+                // (status no longer 'active'). The file is muxed on stop, so a
+                // URL present on a still-active session can only be stale data
+                // from a previous incident (pre-v7.6 apps reused session docs) —
+                // never surface it while live.
+                if (data.status !== 'active' && data.fullVideoUrl) {
+                    fullVideoLink.href = data.fullVideoUrl;
+                    if (typeof data.fullVideoSizeBytes === 'number' && data.fullVideoSizeBytes > 0) {
+                        fullVideoBytes = data.fullVideoSizeBytes;
+                        renderFullVideoSize();
+                    }
+                    fullVideoLink.style.display = 'inline-flex';
+                    fullVideoPending.style.display = 'none';
+                } else {
+                    fullVideoLink.style.display = 'none';
+                    fullVideoPending.style.display = 'inline-flex';
                 }
                 
                 // Location can arrive under two shapes depending on the write
@@ -359,14 +1137,46 @@
                     // Raw coordinates to dictate to emergency dispatch (911/112).
                     document.getElementById('val-lat').textContent = lat.toFixed(6);
                     document.getElementById('val-lng').textContent = lng.toFixed(6);
+
+                    // v3.75 — Altitude. Trois cas, et on les distingue :
+                    //   mesure disponible      -> on l affiche, avec l etage
+                    //   capteur absent         -> on DIT qu il est absent
+                    //   champ pas encore ecrit -> on n affiche rien (on ne sait pas)
+                    const rowAlt = document.getElementById('row-alt');
+                    const valAlt = document.getElementById('val-alt');
+                    if (typeof data.altitudeM === 'number') {
+                        let txt = data.altitudeM.toFixed(1) + ' m';
+                        if (typeof data.estimatedFloor === 'number' && data.estimatedFloor > 0) {
+                            txt += t('altFloor')(data.estimatedFloor);
+                        }
+                        valAlt.textContent = txt;
+                        rowAlt.style.display = 'block';
+                    } else if (data.barometerAvailable === false) {
+                        valAlt.textContent = t('altUnavailable');
+                        rowAlt.style.display = 'block';
+                    } else {
+                        rowAlt.style.display = 'none';
+                    }
+                    currentLat = lat; currentLng = lng;
+                    gmapsLink.href = 'https://www.google.com/maps?q=' + lat.toFixed(6) + ',' + lng.toFixed(6);
+                    gmapsLink.style.display = 'inline-flex';
+                    // Fraîcheur : on horodate à la RÉCEPTION (horloge du lecteur,
+                    // insensible à une horloge téléphone décalée) mais seulement
+                    // quand la position a réellement changé — le marqueur `at`
+                    // (heartbeat 30 s) ou lastLocationAt sert de numéro de version.
+                    const fixMarker = (data.lastLocation && data.lastLocation.at) || data.lastLocationAt || (lat + ',' + lng);
+                    if (fixMarker !== lastSeenFixMarker) {
+                        lastSeenFixMarker = fixMarker;
+                        lastFixEpoch = Date.now();
+                    }
                 } else if (!map) {
                     document.getElementById('map').style.display = 'none';
                     document.querySelector('.map-header').style.display = 'none';
                 }
             }, (err) => {
                 console.error('Session listener error:', err);
-                setStatus('ended', 'Error');
-                showError('Could not load this session. It may not exist or the link may be invalid.');
+                setStatus('ended', 'error');
+                setOverlay('sessionLoadError', true);
             });
 
             // --- DVR-style accumulating playback ---------------------------------
@@ -380,25 +1190,28 @@
             let currentIdx = -1;         // index of the clip currently playing
             let followLive = true;       // auto-advance onto new clips as they arrive
             let firstFragmentArrived = false;
+            let sliderDragging = false;  // true while the user scrubs the timeline
 
             // Control buttons (added to the DOM below).
             const btnStart = document.getElementById('btnStart');
             const btnPrev  = document.getElementById('btnPrev');
             const btnNext  = document.getElementById('btnNext');
             const btnLive  = document.getElementById('btnLive');
+            const btnPlayPause = document.getElementById('btnPlayPause');
+            const dvrSlider = document.getElementById('dvrSlider');
             const clipLabel = document.getElementById('clipLabel');
-
-            function showError(msg) {
-                overlay.style.display = 'flex';
-                overlay.innerHTML = '<div class="error-box">' + msg + '</div>';
-            }
 
             function updateClipLabel() {
                 if (fragments.length === 0) { clipLabel.textContent = ''; return; }
-                clipLabel.textContent = 'Clip ' + (currentIdx + 1) + ' / ' + fragments.length +
-                    (followLive ? ' • LIVE' : '');
+                clipLabel.textContent = t('clip') + ' ' + (currentIdx + 1) + ' / ' + fragments.length +
+                    ' • ' + (followLive ? t('liveTag') : t('replayTag'));
                 btnLive.style.opacity = followLive ? '0.5' : '1';
+                // Timeline : la glissière couvre TOUT l'incident (1 cran = 1 clip ≈ 4 s).
+                dvrSlider.max = String(Math.max(0, fragments.length - 1));
+                dvrSlider.disabled = fragments.length <= 1;
+                if (!sliderDragging && currentIdx >= 0) dvrSlider.value = String(currentIdx);
             }
+            onLangChange(updateClipLabel);
 
             let stallTimer = null;
             function armStallWatchdog() {
@@ -413,13 +1226,15 @@
                 if (idx < 0 || idx >= fragments.length) return;
                 currentIdx = idx;
                 followLive = (idx === fragments.length - 1);
-                overlay.style.display = 'none';
+                hideOverlay();
                 video.src = fragments[idx].url;
                 video.load(); // REQUIRED so 'ended' fires reliably for the next clip (Chrome).
                 armStallWatchdog();
                 video.play().catch((e) => {
                     console.warn('Autoplay blocked, retrying muted:', e);
                     video.muted = true;
+                    soundOn = false;
+                    renderUnmuteBtn(); // keep the button honest after a forced mute
                     video.play().catch(() => {});
                 });
                 updateClipLabel();
@@ -434,8 +1249,7 @@
                     // Reached the newest clip — wait for more. Stay in "follow
                     // live" so the next arrival auto-plays.
                     followLive = true;
-                    overlay.style.display = 'flex';
-                    overlay.innerHTML = '<div class="spinner"></div><div>Waiting for next clip…</div>';
+                    setOverlay('waitingNextClip');
                     updateClipLabel();
                 }
             }
@@ -445,6 +1259,29 @@
             video.addEventListener('error', () => {
                 console.error('Fragment failed to play, skipping:', video.currentSrc);
                 onClipDone();
+            });
+
+            // Pause volontaire : désarmer le watchdog (sinon il "avance" tout
+            // seul après 12 s) et refléter l'état sur le bouton Lecture/Pause.
+            video.addEventListener('pause', () => {
+                if (stallTimer) { clearTimeout(stallTimer); stallTimer = null; }
+                btnPlayPause.textContent = t('play');
+            });
+            video.addEventListener('play', () => {
+                btnPlayPause.textContent = t('pause');
+            });
+            btnPlayPause.addEventListener('click', () => {
+                if (!fragments.length) return;
+                if (video.paused) { video.play().catch(() => {}); } else { video.pause(); }
+            });
+
+            // Timeline scrubbing — glisser pour revoir n'importe quel moment.
+            dvrSlider.addEventListener('pointerdown', () => { sliderDragging = true; });
+            dvrSlider.addEventListener('pointerup', () => { sliderDragging = false; });
+            dvrSlider.addEventListener('change', () => {
+                sliderDragging = false;
+                const idx = parseInt(dvrSlider.value, 10);
+                if (!Number.isNaN(idx) && fragments.length) playAt(Math.min(idx, fragments.length - 1));
             });
 
             // Manual navigation — reviewing footage for the police.
@@ -460,12 +1297,20 @@
 
             onSnapshot(fragmentsQuery, (snap) => {
                 snap.docChanges().forEach((change) => {
-                    if (change.type !== 'added') return;
+                    if (change.type === 'removed') return;
                     const data = change.doc.data();
                     // The app writes the fragment URL under `downloadUrl`; accept
                     // `url` too for forward-compatibility.
                     const fragUrl = data.downloadUrl || data.url;
-                    if (data.seq === undefined || seenSeqs.has(data.seq) || !fragUrl) return;
+                    if (data.seq === undefined || !fragUrl) return;
+                    // Overwritten descriptor (pre-v7.6 apps could re-upload a seq):
+                    // refresh the stored URL so we never keep playing a stale
+                    // fragment that no longer matches this document.
+                    if (seenSeqs.has(data.seq)) {
+                        const existing = fragments.find(f => f.seq === data.seq);
+                        if (existing && existing.url !== fragUrl) existing.url = fragUrl;
+                        return;
+                    }
                     seenSeqs.add(data.seq);
                     fragments.push({ seq: data.seq, url: fragUrl });
                     fragments.sort((a, b) => a.seq - b.seq);
@@ -483,7 +1328,7 @@
                 });
             }, (err) => {
                 console.error('Fragments listener error:', err);
-                showError('Could not load video fragments for this session. If this persists, the sender may not have granted camera/upload permissions.');
+                setOverlay('fragmentsError', true);
             });
         }
     </script>
