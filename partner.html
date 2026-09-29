@@ -84,17 +84,7 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="styles-stellar.css" as="style">
     
-    <!-- Fonts - Optimized Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    </noscript>
+    <!-- Fonts: Inter and Plus Jakarta Sans are self-hosted (see fonts/ and the @font-face rules at the top of styles.css); nothing is requested from Google Fonts. -->
     
     <!-- CSS Variables (Design System) - LOAD FIRST -->
     <link rel="stylesheet" href="variables.css">
@@ -410,9 +400,7 @@ Designed to save lives in critical situations</p>
         </div>
     </footer>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="newsletter-emailjs.js?v=1780043948898"></script>
+    <!-- EmailJS is loaded on demand by email-approval.js when a story is sent (no third-party script on page load) -->
     
     <script src="translations.js?v=1780043948898"></script>
     <script src="translations-complete.js?v=1780043948898" defer></script>
@@ -420,7 +408,6 @@ Designed to save lives in critical situations</p>
     <script src="script.js?v=1780043948898" defer></script>
     <script src="ux-advanced.js?v=1780043948898" defer></script>
     <script src="email-approval.js?v=1780043948898" defer></script>
-    <script src="visitor-tracking.js?v=1780043948898" defer></script>
     <script src="modal-stellar.js?v=1780043948898" defer></script>
     <script src="stories-data.js?v=1780043948898"></script>
     <script src="stories-display.js?v=1780043948898" defer></script>

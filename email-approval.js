@@ -17,6 +17,25 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvlkypvo'; // Real Formspree 
 // Admin email for notifications
 const ADMIN_EMAIL = 'sales@sornsawan.com';
 
+// EmailJS is a third-party library served by the jsDelivr CDN. It used to be loaded on every page
+// view (even on pages without a form) and now loads only when a story is actually sent.
+const EMAILJS_LIB_URL = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+let emailJsLoading = null;
+
+function loadEmailJS() {
+    if (typeof emailjs !== 'undefined') return Promise.resolve(true);
+    if (!emailJsLoading) {
+        emailJsLoading = new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = EMAILJS_LIB_URL;
+            script.onload = () => resolve(true);
+            script.onerror = () => { emailJsLoading = null; resolve(false); };
+            document.head.appendChild(script);
+        });
+    }
+    return emailJsLoading;
+}
+
 // Initialize EmailJS
 function initEmailJS() {
     if (typeof emailjs !== 'undefined' && EMAIL_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
@@ -40,7 +59,9 @@ async function sendStoryApprovalEmail(formData) {
         fileName: formData.get('media')?.name || 'No file'
     };
 
-    // Try EmailJS first
+    // Load the EmailJS library now (only when a story is sent), then try it first
+    await loadEmailJS();
+    initEmailJS();
     if (typeof emailjs !== 'undefined' && EMAIL_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
         try {
             const response = await emailjs.send(
@@ -182,6 +203,8 @@ async function sendUserConfirmation(userEmail, userName) {
         `
     };
 
+    await loadEmailJS();
+    initEmailJS();
     if (typeof emailjs !== 'undefined' && EMAIL_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
         try {
             await emailjs.send(EMAIL_CONFIG.serviceId, EMAIL_CONFIG.templateId, message);
@@ -197,12 +220,12 @@ window.emailApproval = {
     handleStorySubmission,
     sendUserConfirmation,
     initEmailJS,
+    loadEmailJS,
     ADMIN_EMAIL
 };
 
-// Initialize on load
+// Initialize on load (EmailJS itself is loaded later, when a story is sent)
 document.addEventListener('DOMContentLoaded', () => {
-    initEmailJS();
     console.log('📧 Email approval system ready');
     console.log('📬 Admin email:', ADMIN_EMAIL);
 });

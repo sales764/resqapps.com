@@ -3,7 +3,7 @@
 // Progressive Web App Functionality
 // ========================================
 
-const CACHE_VERSION = 'resq-v2.2.1';
+const CACHE_VERSION = 'resq-v2.2.2';
 const CACHE_NAME = `resq-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = 'resq-runtime';
 const IMAGE_CACHE = 'resq-images';
@@ -38,8 +38,7 @@ const JS_ASSETS = [
     '/translations-complete.js',
     '/ux-advanced.js',
     '/modal-stellar.js',
-    '/email-approval.js',
-    '/visitor-tracking.js'
+    '/email-approval.js'
 ];
 
 // Images to cache (critical ones): only the light WebP files the pages actually display.
