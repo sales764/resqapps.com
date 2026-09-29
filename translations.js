@@ -712,7 +712,9 @@ const TRANSLATIONS = {
 
 // Initialize translation system
 function initTranslations() {
-    const currentLang = 'en';
+    // Follow the language chosen in i18n.js (?lang=, saved choice) instead of forcing English,
+    // which also overwrote the visitor's saved choice on every page load.
+    const currentLang = (typeof getInitialLanguage === 'function') ? getInitialLanguage() : 'en';
     applyTranslations(currentLang);
     setupLanguageSelector();
 }
@@ -826,6 +828,9 @@ if (document.readyState === 'loading') {
 
 
 
+// Block scope: the same NEW_FEATURES_* constants are declared in translations-complete.js.
+// A duplicate top-level const is a SyntaxError that broke the language system on every page loading both files.
+{
 const NEW_FEATURES_EN = {
     feature1_title: "SOS Smart System",
     feature1_desc: "Advanced emergency activation with flash morse code, automatic video recording, SMS alerts, and sound alert system.",
@@ -1326,3 +1331,4 @@ if (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS.features) {
     Object.assign(TRANSLATIONS.features.fil, NEW_FEATURES_FIL);
 }
 /* ------------------------------------- */
+}

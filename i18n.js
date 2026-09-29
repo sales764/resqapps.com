@@ -1,7 +1,24 @@
 // RESQ+ Multi-Language System - EN•FR•TH - COMPLETE VERSION
 const I18N_SUPPORTED_LANGUAGES = ['en', 'fr', 'th', 'es', 'it', 'fil'];
 
+// Remember the page's default (English) text before any translation runs, so that switching
+// back to English (or to a language that lacks a key) restores it. Runs while the DOM is still untouched.
+document.querySelectorAll('[data-i18n]').forEach(el => { el.dataset.i18nDefault = el.innerHTML; });
+
 function getInitialLanguage() {
+    // Priority: ?lang=xx in the URL (shared links, hreflang URLs), then the visitor's saved choice, then English.
+    try {
+        const fromUrl = (new URLSearchParams(window.location.search).get('lang') || '').toLowerCase();
+        if (I18N_SUPPORTED_LANGUAGES.includes(fromUrl)) {
+            localStorage.setItem('resq_lang', fromUrl);
+            localStorage.setItem('selectedLanguage', fromUrl);
+            return fromUrl;
+        }
+        const saved = localStorage.getItem('resq_lang');
+        if (I18N_SUPPORTED_LANGUAGES.includes(saved)) return saved;
+    } catch (e) {
+        // Storage blocked (private mode, strict settings): stay on English.
+    }
     return 'en';
 }
 
@@ -365,6 +382,10 @@ const i18n = {
             } else if (lang[key]) {
                 // Fallback for direct keys
                 el.innerHTML = lang[key];
+            } else if (el.dataset.i18nDefault !== undefined) {
+                // No text for this key in the chosen language (English lives in the HTML itself):
+                // put back the page's default text instead of leaving the previous language.
+                el.innerHTML = el.dataset.i18nDefault;
             }
         });
         
@@ -376,9 +397,16 @@ const i18n = {
 document.addEventListener('DOMContentLoaded', () => {
     i18n.updatePage();
     
-    // Set initial active button
-    const activeBtn = document.querySelector(`.lang-btn[onclick*="${i18n.currentLang}"]`);
-    if (activeBtn) activeBtn.classList.add('active');
+    // Set initial active button: only one, and keep aria-pressed in sync
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+    });
+    const activeBtn = document.querySelector(`.lang-btn[onclick*="'${i18n.currentLang}'"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-pressed', 'true');
+    }
     
     console.log('🌍 Multi-language system ready! Current: ' + i18n.currentLang.toUpperCase());
 });
