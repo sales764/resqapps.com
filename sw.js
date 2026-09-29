@@ -3,7 +3,7 @@
 // Progressive Web App Functionality
 // ========================================
 
-const CACHE_VERSION = 'resq-v2.2.0';
+const CACHE_VERSION = 'resq-v2.2.1';
 const CACHE_NAME = `resq-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = 'resq-runtime';
 const IMAGE_CACHE = 'resq-images';
@@ -42,18 +42,14 @@ const JS_ASSETS = [
     '/visitor-tracking.js'
 ];
 
-// Images to cache (critical ones)
+// Images to cache (critical ones): only the light WebP files the pages actually display.
+// The PNG logo (1.1 MB) and the PNG screenshots (2.8 MB) used to be downloaded in the
+// background on every first visit; screenshots 1-7 are only listed in manifest.json
+// (install dialog), no page shows them.
 const IMAGE_ASSETS = [
-    '/images/resq-logo.png',
+    '/images/resq-logo.webp',
     '/images/app-icon.webp',
-    '/images/screenshot-1.png',
-    '/images/screenshot-2.png',
-    '/images/screenshot-3.png',
-    '/images/screenshot-4.png',
-    '/images/screenshot-5.png',
-    '/images/screenshot-6.png',
-    '/images/screenshot-7.png',
-    '/images/screenshot-8.png'
+    '/images/screenshot-8.webp'
 ];
 
 // Combine all assets

@@ -13,7 +13,7 @@
         
         // Tawk.to settings (FREE)
         tawk: {
-            enabled: true,
+            enabled: false,   // OFF: the IDs below are placeholders. To enable: set real IDs AND add https://embed.tawk.to to script-src in the pages' CSP (it blocks it today)
             propertyId: 'YOUR_TAWK_PROPERTY_ID',     // Change this!
             widgetId: 'YOUR_TAWK_WIDGET_ID',         // Change this!
             
