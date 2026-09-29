@@ -45,6 +45,10 @@
         debug: false
     };
 
+    // Cleanup: the removed visitor-tracking.js used to keep each visitor's IP address, city and
+    // browser details in this localStorage key. Delete what earlier visits left on this device.
+    try { localStorage.removeItem('resq_notifications'); } catch (e) { /* storage blocked */ }
+
     /**
      * Extracts UTM parameters from current URL
      * @returns {Object} Object containing all UTM and additional tracking parameters
