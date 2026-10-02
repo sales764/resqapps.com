@@ -61,7 +61,6 @@ const i18n = {
             
             // Hero
             hero_badge: "🚨 Professional Emergency Response",
-            hero_partner_badge: "Want to own 33% of our revenue? Become a RESQ+ Partner →",
             hero_title: "First Aid Assistant + Team Coordination + SOS Tools",
             hero_subtitle: "The only emergency app you'll ever need",
             hero_desc: "Get instant AI emergency guidance, coordinate with your team in real-time, and access SOS tools, first aid support, and weather and utilities in one app.",
@@ -113,36 +112,6 @@ const i18n = {
             screenshot7_caption: "SOS and emergency tools",
             screenshot8_caption: "Available Now",
             
-            // Partner Program
-            partner_hero_badge: "🌟 Official Partner Program",
-            partner_hero_title_1: "Don't just share an app.",
-            partner_hero_title_2: "Protect your circle and own 33% of the revenue.",
-            partner_hero_desc: "We are looking for selected local leaders, creators, and visionaries to deploy the ultimate safety infrastructure in Thailand. High payouts, lifetime tracking, and a mission that actually saves lives.",
-            partner_btn_apply: "Secure Your Partner Spot →",
-            partner_btn_benefits: "See Benefits",
-            
-            partner_concept_badge: "💡 The Financial Disruptor",
-            partner_concept_title: "A Strict 50/50 Philosophy",
-            partner_concept_desc: "Most programs give you crumbs. RESQ+ is built on a strict 50/50 net profit-sharing philosophy. After app store fees and local taxes are cleared, we split the money right down the middle. That means an absolute, clean <strong>33% of every single subscription</strong> goes straight to your wallet. Forever.",
-            
-            partner_benefits_badge: "🎁 Benefits",
-            partner_benefits_title: "Why Partner With Us?",
-            partner_benefit1_title: "Uncapped Lifetime Earnings",
-            partner_benefit1_desc: "As long as your referrals stay protected by RESQ+, your bank account keeps growing. No limits, no ceiling.",
-            partner_benefit2_title: "The GoMarketMe Command Center",
-            partner_benefit2_desc: "Gain access to a private, high-tech dashboard. Track clicks, monitor active subscriptions, and view your automated payouts in real-time with total transparency.",
-            partner_benefit3_title: "An Irresistible Product",
-            partner_benefit3_desc: "You aren't selling a useless gadget. You are introducing a cutting-edge emergency and safety infrastructure. When people see it work, they subscribe.",
-            
-            partner_steps_badge: "📋 The Process",
-            partner_steps_title: "Start Earning in 3 Steps",
-            partner_step1_title: "The Verification (2 Mins)",
-            partner_step1_desc: "Submit your legal application. We comply strictly with Thai PDPA regulations to secure your partner account.",
-            partner_step2_title: "The Onboarding",
-            partner_step2_desc: "Once approved, unlock your custom deployment links and access our private ambassador resource vault.",
-            partner_step3_title: "Automated Scaling",
-            partner_step3_desc: "Share, protect, and watch GoMarketMe handle your payouts automatically.",
-            
             // FAQ
             faq_badge: "❓ FAQ",
             faq_title: "Frequently Asked Questions",
@@ -161,7 +130,6 @@ const i18n = {
             
             // Hero
             hero_badge: "🚨 Réponse d'Urgence Professionnelle",
-            hero_partner_badge: "Envie de posséder 33% de nos revenus ? Devenez Partenaire RESQ+ →",
             hero_title: "Assistant Premiers Secours IA + Coordination d'Équipe + Outils SOS",
             hero_subtitle: "La seule application d'urgence dont vous aurez besoin",
             hero_desc: "Obtenez des conseils d'urgence par IA, coordonnez votre équipe en temps réel, et accédez aux outils SOS, aux premiers secours et aux utilitaires météo et marins dans une seule application.",
@@ -231,7 +199,6 @@ const i18n = {
             
             // Hero
             hero_badge: "🚨 การตอบสนองฉุกเฉินระดับมืออาชีพ",
-            hero_partner_badge: "ต้องการรับรายได้ 33% ของเราหรือไม่? ร่วมเป็นพาร์ทเนอร์ RESQ+ →",
             hero_title: "First Aid Assistant + การประสานงานทีม + เครื่องมือ SOS",
             hero_subtitle: "แอปฉุกเฉินเดียวที่คุณต้องการ",
             hero_desc: "รับคำแนะนำฉุกเฉินจาก AI ประสานงานกับทีมแบบเรียลไทม์ และเข้าถึงเครื่องมือ SOS การปฐมพยาบาล รวมถึงเครื่องมืออากาศและทางทะเลในแอปเดียว",
