@@ -176,8 +176,10 @@ function initRippleEffects() {
 // ========================================
 function initFormValidation() {
     const emailInputs = document.querySelectorAll('input[type="email"]');
-    
+
     emailInputs.forEach(input => {
+        // Forms with data-own-submit (partner sign-up) validate and send themselves.
+        if (input.closest('form[data-own-submit]')) return;
         const formGroup = input.closest('.form-group') || createFormGroup(input);
         
         input.addEventListener('blur', () => {
@@ -382,8 +384,9 @@ function enhanceNewsletterForm() {
     
     forms.forEach(form => {
         // Skip Stellar forms - they handle their own submission to Formspree
-        if (form.classList.contains('stellar-notify-form') || 
-            form.classList.contains('stellar-story-form')) {
+        if (form.classList.contains('stellar-notify-form') ||
+            form.classList.contains('stellar-story-form') ||
+            form.hasAttribute('data-own-submit')) {
             return;
         }
         

@@ -200,7 +200,7 @@
                             Hostels, scooter rentals, dive schools, guides, travel creators, expat groups: recommend RESQ+ with your own link, QR code or partner code. When someone subscribes through you, you receive 30% of what they pay, and again on every renewal.
                         </p>
                         <div class="hero-buttons" style="justify-content: center;">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOwHCstaHi6OMzMf179AVNvHQcLmQbWrsCE66dZnXZy7Z8yA/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <a href="#join" class="btn btn-primary">
                                 <span class="btn-icon">🚀</span>
                                 <span data-i18n="ptnr_btn_join">Become a partner</span>
                             </a>
@@ -258,7 +258,7 @@
                     <div class="feature-card" style="text-align: center;">
                         <h3 class="feature-title" data-i18n="ptnr_ex1_title">Family plan, yearly</h3>
                         <p style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ 477 ฿</p>
-                        <p class="feature-description" data-i18n="ptnr_ex1_desc">for you, on a 1,590 ฿ plan (you + 5 people), and again each year it renews</p>
+                        <p class="feature-description" data-i18n="ptnr_ex1_desc">for you, on a 1,590 ฿ plan (for up to 6 people), and again each year it renews</p>
                     </div>
                     <div class="feature-card" style="text-align: center;">
                         <h3 class="feature-title" data-i18n="ptnr_ex2_title">Individual, yearly</h3>
@@ -295,7 +295,7 @@
                     <div class="feature-card">
                         <div class="feature-icon firstaid">👨‍👩‍👧</div>
                         <h3 class="feature-title" data-i18n="ptnr_why3_title">Made for families and travellers</h3>
-                        <p class="feature-description" data-i18n="ptnr_why3_desc">One Family plan covers you and 5 people: see where everyone is, get arrival alerts, and receive their SOS wherever you are.</p>
+                        <p class="feature-description" data-i18n="ptnr_why3_desc">One Family plan covers up to 6 people: they see where everyone is, get arrival alerts, and receive each other's SOS wherever they are.</p>
                     </div>
                 </div>
             </div>
@@ -312,7 +312,7 @@
                     </p>
                 </div>
                 <div class="hero-buttons" style="justify-content: center;">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOwHCstaHi6OMzMf179AVNvHQcLmQbWrsCE66dZnXZy7Z8yA/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <a href="#join" class="btn btn-primary">
                         <span class="btn-icon">🚀</span>
                         <span data-i18n="ptnr_btn_join">Become a partner</span>
                     </a>
@@ -320,6 +320,75 @@
                         <span class="btn-icon">💬</span>
                         <span data-i18n="ptnr_btn_question">A question? WhatsApp us</span>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sign-up form (02/10/2026): open to individuals and businesses in every country.
+             Sent by Formspree (already used by the site) to sales@sornsawan.com; the owner
+             then invites the partner in GoMarketMe, which handles links, tracking and payouts. -->
+        <section id="join" class="features fade-in">
+            <style>
+                #join .join-card { max-width: 560px; margin: 0 auto; padding: 32px 28px; border-radius: 24px;
+                    background: rgba(255,255,255,.04); border: 1px solid rgba(58,215,255,.35);
+                    box-shadow: 0 0 40px rgba(58,215,255,.12); }
+                #join .join-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; text-align: left; }
+                #join label { font-weight: 600; font-size: .95rem; color: #fff; }
+                #join input[type=text], #join input[type=email], #join select {
+                    width: 100%; box-sizing: border-box; font: inherit; font-size: 1rem; padding: 13px 14px; border-radius: 12px;
+                    border: 1px solid rgba(185,198,255,.35); background: rgba(6,10,34,.6); color: #fff; }
+                #join select option { color: #0b1033; }
+                #join input:focus, #join select:focus { outline: 2px solid #3ad7ff; outline-offset: 1px; border-color: transparent; }
+                #join .join-consent { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; text-align: left;
+                    font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.85); margin: 6px 0 22px; }
+                #join .join-consent input { width: 20px; height: 20px; margin-top: 2px; accent-color: #3ad7ff; }
+                #join .join-consent a { color: #3ad7ff; }
+                #join .join-submit { width: 100%; justify-content: center; font-size: 1.05rem; padding: 15px 12px; border: 0; cursor: pointer; }
+                @media (max-width: 480px) { #join .join-card { padding: 24px 18px; } #join .join-submit .btn-icon { display: none; } }
+                #join .join-submit[disabled] { opacity: .6; cursor: wait; }
+                #join .join-note { margin: 16px 0 0; font-size: .82rem; line-height: 1.5; color: rgba(185,198,255,.8); text-align: left; }
+                #join .join-msg { margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-weight: 600; text-align: left; display: none; }
+                #join .join-msg.ok { display: block; background: rgba(57,226,155,.12); border: 1px solid rgba(57,226,155,.5); color: #b9ffe0; }
+                #join .join-msg.err { display: block; background: rgba(255,59,78,.12); border: 1px solid rgba(255,59,78,.5); color: #ffd3d8; }
+                #join .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge" data-i18n="ptnr_join_badge">🚀 Join</span>
+                    <h2 class="section-title" data-i18n="ptnr_join_title">Become a RESQ+ partner</h2>
+                    <p class="section-description" data-i18n="ptnr_join_desc" style="max-width: 640px; margin: 0 auto;">
+                        Open to everyone: individuals and businesses, in any country. It takes one minute, and you'll receive your partner invitation by e-mail.
+                    </p>
+                </div>
+                <div class="join-card">
+                    <form id="join-form" novalidate data-own-submit>
+                        <div class="join-field">
+                            <label for="join-name" data-i18n="ptnr_join_name">Full name</label>
+                            <input id="join-name" name="name" type="text" autocomplete="name" required maxlength="80">
+                        </div>
+                        <div class="join-field">
+                            <label for="join-email" data-i18n="ptnr_join_email">E-mail</label>
+                            <input id="join-email" name="email" type="email" autocomplete="email" required maxlength="120">
+                        </div>
+                        <div class="join-field">
+                            <label for="join-country" data-i18n="ptnr_join_country">Country</label>
+                            <select id="join-country" name="country" autocomplete="country" required></select>
+                        </div>
+                        <div class="hp" aria-hidden="true">
+                            <label for="join-website">Leave empty</label>
+                            <input id="join-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                        </div>
+                        <label class="join-consent">
+                            <input id="join-terms" name="terms_accepted" type="checkbox" value="yes" required>
+                            <span data-i18n="ptnr_join_terms">I'm an adult, I join as an independent partner, and I accept the <a href="partner-terms.html" target="_blank" rel="noopener">Partner Program Terms</a>.</span>
+                        </label>
+                        <button type="submit" class="btn btn-primary join-submit" id="join-submit">
+                            <span class="btn-icon">🚀</span>
+                            <span data-i18n="ptnr_join_submit">Send my application</span>
+                        </button>
+                        <p class="join-note" data-i18n="ptnr_join_note">We use these details only to run the partner program, and share them with GoMarketMe, the platform that tracks your sales and pays you. To delete them, write to sales@sornsawan.com.</p>
+                        <div class="join-msg" id="join-msg" role="status" aria-live="polite"></div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -418,10 +487,11 @@ SOS • Live location • First Aid Assistant</p>
     
     <script src="translations.js?v=1780043948898"></script>
     <script src="translations-complete.js?v=1780043948898" defer></script>
-    <script src="translations-business.js?v=20261002b" defer></script>
+    <script src="translations-business.js?v=20261002d" defer></script>
+    <script src="partner-join.js?v=20261002c" defer></script>
     <script src="i18n.js?v=1780043948898" defer></script>
-    <script src="script.js?v=1780043948898" defer></script>
-    <script src="ux-advanced.js?v=1780043948898" defer></script>
+    <script src="script.js?v=20261002b" defer></script>
+    <script src="ux-advanced.js?v=20261002a" defer></script>
     <script src="email-approval.js?v=20261002f" defer></script>
     <script src="modal-stellar.js?v=20261002f" defer></script>
     <script src="stories-data.js?v=1780043948898"></script>

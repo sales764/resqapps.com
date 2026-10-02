@@ -248,7 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Skip forms that handle their own submission
         if (form.classList.contains('stellar-notify-form') || 
             form.classList.contains('stellar-story-form') ||
-            form.id === 'newsletterForm') {
+            form.id === 'newsletterForm' ||
+            form.hasAttribute('data-own-submit')) {
             return;
         }
         
