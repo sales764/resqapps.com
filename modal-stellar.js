@@ -173,7 +173,7 @@ if (storyForm) {
 
             // Step 1: Submit to Formspree (collects data)
             console.log('[Story Form] Submitting to Formspree...');
-            const formspreeResponse = await fetch('https://formspree.io/f/mvlkypvo', {
+            const formspreeResponse = await fetch('https://formspree.io/f/xblqlawn', {
                 method: 'POST',
                 body: formData,
                 headers: {
