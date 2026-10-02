@@ -3,7 +3,7 @@
 // Progressive Web App Functionality
 // ========================================
 
-const CACHE_VERSION = 'resq-v2.2.2';
+const CACHE_VERSION = 'resq-v2.2.3';
 const CACHE_NAME = `resq-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = 'resq-runtime';
 const IMAGE_CACHE = 'resq-images';

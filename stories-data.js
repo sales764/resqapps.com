@@ -30,7 +30,9 @@ const storiesData = [
         isDemo: true,
         socialLink: "https://instagram.com/resqplus",
         date: "2024-11-20",
-        approved: true
+        // 02/10/2026 : exemple de démonstration, jamais une vraie utilisatrice —
+        // ne doit JAMAIS s'afficher comme un témoignage. N'afficher que de vraies histoires.
+        approved: false
     },
     
     // Exemple d'histoire partagée via lien social (Instagram, TikTok, YouTube)
