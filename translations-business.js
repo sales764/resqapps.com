@@ -1,5 +1,5 @@
 // Page Partenaires (partner.html), réécrite le 02/10/2026 : le programme
-// partenaire GoMarketMe (33 % de chaque abonnement apporté, renouvellements
+// partenaire GoMarketMe (30 % de chaque abonnement apporté, renouvellements
 // compris), sans « revenu passif ». L'anglais vit dans partner.html ; ce
 // fichier ne porte que FR et TH, sous des clés ptnr_* neuves (même principe
 // que translations-home.js). Thaï : à faire relire par la propriétaire.
@@ -11,8 +11,8 @@
             ptnr_nav: "Partenaires",
             ptnr_badge: "🤝 Programme partenaire RESQ+",
             ptnr_title_1: "Partagez RESQ+ avec ceux qui comptent pour vous.",
-            ptnr_title_2: "Recevez 33 % de chaque abonnement que vous apportez.",
-            ptnr_desc: "Auberges, loueurs de scooters, écoles de plongée, guides, créateurs de contenu voyage, groupes d'expatriés : recommandez RESQ+ avec votre lien, votre QR code ou votre code partenaire. Quand quelqu'un s'abonne grâce à vous, vous recevez 33 % de ce qu'il paie, et à nouveau à chaque renouvellement.",
+            ptnr_title_2: "Recevez 30 % de chaque abonnement que vous apportez.",
+            ptnr_desc: "Auberges, loueurs de scooters, écoles de plongée, guides, créateurs de contenu voyage, groupes d'expatriés : recommandez RESQ+ avec votre lien, votre QR code ou votre code partenaire. Quand quelqu'un s'abonne grâce à vous, vous recevez 30 % de ce qu'il paie, et à nouveau à chaque renouvellement.",
             ptnr_btn_join: "Devenir partenaire",
             ptnr_btn_how: "Comment ça marche",
             ptnr_steps_badge: "📋 Comment ça marche",
@@ -24,7 +24,7 @@
             ptnr_step3_title: "Soyez payé chaque mois",
             ptnr_step3_desc: "Votre tableau de bord montre les installations et les abonnements. Un relevé est établi le 1er de chaque mois et payé via GoMarketMe.",
             ptnr_earn_badge: "💰 Ce que vous gagnez",
-            ptnr_earn_title: "33 % du prix, à chaque paiement",
+            ptnr_earn_title: "30 % du prix, à chaque paiement",
             ptnr_earn_desc: "Votre part est calculée sur le prix payé par l'abonné, avant la commission de Google. Exemples avec les prix thaïlandais :",
             ptnr_ex1_title: "Forfait Famille, annuel",
             ptnr_ex1_desc: "pour vous, sur un forfait à 1 590 ฿ (vous + 5 personnes), et à nouveau chaque année où il se renouvelle",
@@ -52,8 +52,8 @@
             ptnr_nav: "พาร์ทเนอร์",
             ptnr_badge: "🤝 โปรแกรมพาร์ทเนอร์ RESQ+",
             ptnr_title_1: "แชร์ RESQ+ ให้คนที่คุณห่วงใย",
-            ptnr_title_2: "รับ 33% จากทุกการสมัครสมาชิกที่คุณแนะนำ",
-            ptnr_desc: "โฮสเทล ร้านเช่ามอเตอร์ไซค์ โรงเรียนสอนดำน้ำ ไกด์ ครีเอเตอร์สายท่องเที่ยว กลุ่มชาวต่างชาติ: แนะนำ RESQ+ ด้วยลิงก์ QR code หรือโค้ดพาร์ทเนอร์ของคุณเอง เมื่อมีคนสมัครสมาชิกผ่านคุณ คุณจะได้รับ 33% ของยอดที่เขาจ่าย และได้อีกทุกครั้งที่ต่ออายุ",
+            ptnr_title_2: "รับ 30% จากทุกการสมัครสมาชิกที่คุณแนะนำ",
+            ptnr_desc: "โฮสเทล ร้านเช่ามอเตอร์ไซค์ โรงเรียนสอนดำน้ำ ไกด์ ครีเอเตอร์สายท่องเที่ยว กลุ่มชาวต่างชาติ: แนะนำ RESQ+ ด้วยลิงก์ QR code หรือโค้ดพาร์ทเนอร์ของคุณเอง เมื่อมีคนสมัครสมาชิกผ่านคุณ คุณจะได้รับ 30% ของยอดที่เขาจ่าย และได้อีกทุกครั้งที่ต่ออายุ",
             ptnr_btn_join: "สมัครเป็นพาร์ทเนอร์",
             ptnr_btn_how: "วิธีการทำงาน",
             ptnr_steps_badge: "📋 วิธีการทำงาน",
@@ -65,7 +65,7 @@
             ptnr_step3_title: "รับเงินทุกเดือน",
             ptnr_step3_desc: "แดชบอร์ดของคุณแสดงจำนวนการติดตั้งและการสมัครสมาชิก สรุปยอดทุกวันที่ 1 ของเดือน และจ่ายผ่าน GoMarketMe",
             ptnr_earn_badge: "💰 รายได้ของคุณ",
-            ptnr_earn_title: "33% ของราคา ทุกครั้งที่มีการชำระเงิน",
+            ptnr_earn_title: "30% ของราคา ทุกครั้งที่มีการชำระเงิน",
             ptnr_earn_desc: "ส่วนแบ่งของคุณคิดจากราคาที่สมาชิกจ่าย ก่อนหักส่วนของ Google ตัวอย่างตามราคาในประเทศไทย:",
             ptnr_ex1_title: "แบบครอบครัว รายปี",
             ptnr_ex1_desc: "สำหรับคุณ จากแพ็กเกจ 1,590 ฿ (คุณและอีก 5 คน) และได้อีกทุกปีที่ต่ออายุ",
