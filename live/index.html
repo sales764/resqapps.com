@@ -161,6 +161,30 @@
             max-width: 480px;
         }
         footer a { color: var(--secondary-color); text-decoration: none; }
+        /* Invitation discrète à installer l'appli, sous tout le contenu d'urgence.
+           Contour seulement, jamais de rouge : rien ne doit rivaliser avec les
+           boutons d'appel des secours. */
+        .app-promo {
+            margin-top: 28px;
+            max-width: 480px;
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .app-promo-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 999px;
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
         .error-box {
             background: rgba(255,59,59,0.12);
             border: 1px solid rgba(255,59,59,0.35);
@@ -513,6 +537,15 @@
         <button id="mapCollapseBtn">✕ Close map</button>
     </div>
 
+    <!-- Les proches qui reçoivent un SOS sont les personnes les plus motivées à
+         installer RESQ+. Le lien porte un referrer UTM (source live_page) que
+         InstallAttribution.kt transmet à RevenueCat. -->
+    <aside id="appPromo" class="app-promo">
+        <div id="appPromoText">This alert was sent with RESQ+. Protect your loved ones too.</div>
+        <a id="appPromoBtn" class="app-promo-btn" target="_blank" rel="noopener"
+           href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&amp;referrer=utm_source%3Dlive_page%26utm_medium%3Dsos_link%26utm_campaign%3Dviral">Get RESQ+ free on Google Play</a>
+    </aside>
+
     <footer>
         <span id="footerText">This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at</span> <a href="https://resqapps.com">resqapps.com</a>.
     </footer>
@@ -623,7 +656,9 @@
                 serviceUnavailable: 'RESQ+ could not reach the live service — this is a fault on our side, not on the sender’s phone. Their SOS may still be running. Call the emergency number above now, and reload this page in a moment.',
                 gpsUnavailable: 'Unavailable — service unreachable',
                 sizeUnit: 'MB',
-                footer: "This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at"
+                footer: "This is a live emergency video feed shared via RESQ+ BlackBox. Footage streams directly from the sender's device as it is recorded. Learn more at",
+                promoText: 'This alert was sent with RESQ+. Protect your loved ones too.',
+                promoBtn: 'Get RESQ+ free on Google Play'
             },
             fr: {
                 pageTitle: 'Vidéo SOS en direct | RESQ+',
@@ -664,7 +699,9 @@
                 serviceUnavailable: "RESQ+ n'a pas pu joindre le service de direct — la panne est de NOTRE côté, pas sur le téléphone de l'expéditeur. Son SOS est peut-être toujours en cours. Appelez le numéro d'urgence ci-dessus maintenant, puis rechargez cette page dans un instant.",
                 gpsUnavailable: 'Indisponible — service injoignable',
                 sizeUnit: 'Mo',
-                footer: "Ceci est un flux vidéo d'urgence en direct partagé via RESQ+ BlackBox. La vidéo est diffusée directement depuis l'appareil de l'expéditeur pendant l'enregistrement. En savoir plus sur"
+                footer: "Ceci est un flux vidéo d'urgence en direct partagé via RESQ+ BlackBox. La vidéo est diffusée directement depuis l'appareil de l'expéditeur pendant l'enregistrement. En savoir plus sur",
+                promoText: 'Cette alerte a été envoyée avec RESQ+. Protégez aussi vos proches.',
+                promoBtn: 'Télécharger RESQ+ gratuitement sur Google Play'
             },
             th: {
                 pageTitle: 'วิดีโอ SOS ถ่ายทอดสด | RESQ+',
@@ -705,7 +742,9 @@
                 serviceUnavailable: 'RESQ+ ไม่สามารถเชื่อมต่อบริการถ่ายทอดสดได้ — เป็นปัญหาจากฝั่งเรา ไม่ใช่จากโทรศัพท์ของผู้ส่ง การแจ้ง SOS ของเขาอาจยังดำเนินอยู่ โปรดโทรหมายเลขฉุกเฉินด้านบนทันที แล้วรีเฟรชหน้านี้อีกครั้งในอีกสักครู่',
                 gpsUnavailable: 'ไม่พร้อมใช้งาน — เชื่อมต่อบริการไม่ได้',
                 sizeUnit: 'MB',
-                footer: 'นี่คือวิดีโอเหตุฉุกเฉินถ่ายทอดสดที่แชร์ผ่าน RESQ+ BlackBox วิดีโอสตรีมโดยตรงจากอุปกรณ์ของผู้ส่งขณะบันทึก ดูข้อมูลเพิ่มเติมที่'
+                footer: 'นี่คือวิดีโอเหตุฉุกเฉินถ่ายทอดสดที่แชร์ผ่าน RESQ+ BlackBox วิดีโอสตรีมโดยตรงจากอุปกรณ์ของผู้ส่งขณะบันทึก ดูข้อมูลเพิ่มเติมที่',
+                promoText: 'การแจ้งเตือนนี้ส่งผ่าน RESQ+ ปกป้องคนที่คุณรักได้เช่นกัน',
+                promoBtn: 'ดาวน์โหลด RESQ+ ฟรีบน Google Play'
             }
         };
         // The page language ALWAYS follows the RECIPIENT viewing the link, never
@@ -764,6 +803,8 @@
             setText('gmapsLink', 'openMaps');
             setText('callNote', 'callNote');
             setText('footerText', 'footer');
+            setText('appPromoText', 'promoText');
+            setText('appPromoBtn', 'promoBtn');
             setText('langBtnCode', 'langCode'); setTitle('langBtn', 'langTitle');
             document.querySelectorAll('#langSheet button').forEach((b) => {
                 b.setAttribute('aria-checked', String(b.dataset.lang === lang));
