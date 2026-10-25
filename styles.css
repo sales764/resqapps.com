@@ -907,6 +907,29 @@ section + section {
 
 .download-buttons {
     margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px; /* marge libre du badge App Store : au moins 1/4 de sa hauteur (60 px → 15 px) */
+}
+
+/* Badge App Store (25/10/2026) : une image par langue, une seule visible. Anglais par défaut. */
+.app-store-badge {
+    display: inline-flex;
+    align-items: center;
+    height: 60px;
+}
+
+.app-store-badge img {
+    display: none;
+    height: 60px;
+    width: auto;
+}
+
+html:not([lang|="fr"]):not([lang|="th"]) .app-store-badge .badge-en,
+html[lang|="fr"] .app-store-badge .badge-fr,
+html[lang|="th"] .app-store-badge .badge-th {
+    display: block;
 }
 
 .store-button {
@@ -1126,17 +1149,21 @@ section + section {
     }
     
     .download-card {
-        grid-template-columns: 1fr;
+        /* minmax(0, 1fr) : la colonne ne s'élargit plus jusqu'à la largeur minimale de son contenu.
+           Avec 1fr, la ligne d'infos (3 éléments sans retour à la ligne) poussait le texte et les
+           boutons hors de la carte sur téléphone (25/10/2026, registre C23). */
+        grid-template-columns: minmax(0, 1fr);
         text-align: center;
     }
-    
+
     .download-buttons {
         display: flex;
         justify-content: center;
     }
-    
+
     .download-info {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .footer-content {
@@ -1270,6 +1297,10 @@ section + section {
     .phone-frame {
         width: 250px;
         height: 500px;
+    }
+
+    .download-card {
+        padding: var(--spacing-md);
     }
 }
 

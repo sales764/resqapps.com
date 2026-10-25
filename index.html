@@ -151,7 +151,7 @@
     <meta name="twitter:image:alt" content="RESQ+ SOS, First Aid & Family app icon">
     
     <!-- Preload Critical Resources (no PNG logo preload: the header <picture> serves the 65 KB WebP) -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="styles.css?v=20261025" as="style">
     <link rel="preload" href="styles-stellar.css" as="style">
     
     <!-- Fonts: Inter and Plus Jakarta Sans are self-hosted (see fonts/ and the @font-face rules at the top of styles.css); nothing is requested from Google Fonts. -->
@@ -168,7 +168,8 @@
     <link rel="stylesheet" href="keyboard-shortcuts.css">
     <!-- dark-mode.css removed: the file does not exist in website/ (it was a 404 on every visit) -->
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- ?v= : la page et sa feuille de style changent ensemble (badge App Store, 25/10/2026). -->
+    <link rel="stylesheet" href="styles.css?v=20261025">
     <link rel="stylesheet" href="styles-stellar.css">
     <link rel="stylesheet" href="ux-advanced.css?v=1780043948898">
     <link rel="stylesheet" href="modal-stellar.css">
@@ -1151,7 +1152,19 @@
                         Install RESQ+ for free, add your emergency contacts and invite your family. It takes 3 minutes, and it is ready the day it matters.
                     </p>
                     <div class="download-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" 
+                        <!-- App Store (25/10/2026) : badge officiel d'Apple, non modifié, dans la langue de la page
+                             (html[lang], posé par i18n.js). Règles d'Apple : un seul badge par page, placé avant les
+                             autres boutiques, hauteur ≥ 40 px, marge libre ≥ 1/4 de la hauteur. -->
+                        <a href="https://apps.apple.com/app/id6819823803"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="app-store-badge"
+                           aria-label="Download RESQ+ on the App Store">
+                            <img class="badge-en" src="images/badges/app-store-en.svg" alt="App Store" width="180" height="60">
+                            <img class="badge-fr" src="images/badges/app-store-fr.svg" alt="App Store" width="190" height="60">
+                            <img class="badge-th" src="images/badges/app-store-th.svg" alt="App Store" width="180" height="60">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share"
                            target="_blank" 
                            rel="noopener noreferrer"
                            class="store-button google-play"
