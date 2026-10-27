@@ -253,7 +253,7 @@ const i18nComplete = {
         download_button_subtext: "Google Play",
         download_feature1: "Essai gratuit de 7 jours",
         download_feature2: "Confidentialité protégée",
-        download_feature3: "6 Langues (EN/FR/TH/ES/IT/FIL)",
+        download_feature3: "3 langues dans l'app (EN / FR / TH)",
         
         // Story modal
         story_modal_title: "Partagez votre histoire RESQ+",
@@ -682,7 +682,7 @@ const i18nComplete = {
         download_button_subtext: "Google Play",
         download_feature1: "ทดลองใช้ฟรี 7 วัน",
         download_feature2: "ปกป้องความเป็นส่วนตัว",
-        download_feature3: "6 ภาษา (EN/FR/TH/ES/IT/FIL)",
+        download_feature3: "3 ภาษาในแอป (EN / FR / TH)",
         
         // Privacy Policy Page — révision du 2026-09-26, écrite d'après le code (politique vérifiée clé par clé)
         privacy_title: "นโยบายความเป็นส่วนตัว",
