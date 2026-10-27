@@ -91,12 +91,12 @@ const i18n = {
             coming_title: "Available Now on Google Play",
             coming_desc: "Download RESQ+ today and be prepared for any emergency",
             coming_heading: "30-Day Improvement Period - Your Feedback Matters!",
-            coming_text: "RESQ+ is officially available on Google Play! Download today to transform your smartphone into a complete emergency response system. Protect yourself and your family by starting your 7-day free trial.",
+            coming_text: "RESQ+ is officially available on Google Play! Download today to transform your smartphone into a complete emergency response system. Protect yourself and your family by starting your 30-day free trial.",
             coming_form_title: "Download on Google Play",
             coming_form_desc: "Get RESQ+ now and start protecting yourself and your loved ones",
             coming_button: "Download",
             coming_button_label: "GET IT ON",
-            coming_features: "✓ 7-Day Free Trial ✓ No ads ✓ Local emergency profiles ✓ Connected alerts & AI",
+            coming_features: "✓ 30-Day Free Trial ✓ No ads ✓ Local emergency profiles ✓ Connected alerts & AI",
             
             // Newsletter
             newsletter_subscribe: "Subscribe",
@@ -165,7 +165,7 @@ const i18n = {
             coming_form_desc: "Obtenez RESQ+ maintenant et commencez à protéger vous et vos proches",
             coming_button: "Télécharger",
             coming_button_label: "OBTENIR SUR",
-            coming_features: "✓ Essai gratuit de 7 jours ✓ Sans publicités ✓ Profils d'urgence locaux ✓ Alertes et IA connectées",
+            coming_features: "✓ Essai gratuit de 30 jours ✓ Sans publicités ✓ Profils d'urgence locaux ✓ Alertes et IA connectées",
             
             // Newsletter
             newsletter_subscribe: "S'abonner",
@@ -234,7 +234,7 @@ const i18n = {
             coming_form_desc: "รับ RESQ+ ตอนนี้และเริ่มปกป้องตัวคุณและคนที่คุณรัก",
             coming_button: "ดาวน์โหลด",
             coming_button_label: "ดาวน์โหลดจาก",
-            coming_features: "✓ ทดลองใช้ฟรี 7 วัน ✓ ไม่มีโฆษณา ✓ โปรไฟล์ฉุกเฉินในเครื่อง ✓ การแจ้งเตือนและ AI แบบเชื่อมต่อ",
+            coming_features: "✓ ทดลองใช้ฟรี 30 วัน ✓ ไม่มีโฆษณา ✓ โปรไฟล์ฉุกเฉินในเครื่อง ✓ การแจ้งเตือนและ AI แบบเชื่อมต่อ",
             
             // Newsletter
             newsletter_subscribe: "สมัครรับข่าวสาร",
