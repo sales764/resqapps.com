@@ -98,6 +98,22 @@
     text-underline-offset: 3px;
 }
 
+/* Badge Google Play (28/10/2026), en anglais dans les trois langues (choix de JP). L'image de Google contient sa
+   propre marge libre : 90 px de haut pour un badge visible de 60 px, la hauteur du badge App Store. Les marges
+   négatives alignent le badge visible sur celui de l'App Store. */
+.play-store-badge {
+    display: inline-flex;
+    align-items: center;
+    height: 90px;
+    margin: -15px;
+}
+
+.play-store-badge img {
+    display: block;
+    height: 90px;
+    width: auto;
+}
+
 /* C29 : en français, « Gratuit » ne tient pas à 64 px dans la 1re carte des chiffres de l'accueil et se coupait en
    « Grat / uit ». Le mot suit la largeur de la carte (il fait ≈ 3,8 em), sans dépasser la taille des autres chiffres. */
 .stats-section .stat-card:first-child {

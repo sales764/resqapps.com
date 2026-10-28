@@ -175,7 +175,7 @@
     <link rel="stylesheet" href="modal-stellar.css">
     <link rel="stylesheet" href="lang-switcher.css">
     <link rel="stylesheet" href="stories-styles.css">
-    <link rel="stylesheet" href="lang-tooltip.css?v=20261028">
+    <link rel="stylesheet" href="lang-tooltip.css?v=20261028c">
     <link rel="stylesheet" href="logo-stellar.css">
     <link rel="stylesheet" href="touch-targets.css">
     <link rel="stylesheet" href="cta-optimized.css">
@@ -186,7 +186,9 @@
     <link rel="stylesheet" href="back-to-top.css">
     <link rel="stylesheet" href="styles-stellar-override.css?v=1780043948898">
     <link rel="stylesheet" href="premium-design-enhancements.css?v=1780043948898">
-    <link rel="stylesheet" href="plans.css?v=20261028">
+    <link rel="stylesheet" href="plans.css?v=20261028c">
+    <link rel="stylesheet" href="header.css?v=20261028c">
+    <link rel="stylesheet" href="finitions.css?v=20261028c">
     <link rel="stylesheet" href="print.css" media="print">
     
     <!-- Schema.org Markup -->
@@ -401,6 +403,11 @@
                         <button onclick="i18n.switchLang('th')" class="lang-btn" data-lang="th" aria-label="เปลี่ยนเป็นภาษาไทย" aria-pressed="false" type="button">ไทย</button>
                     </div>
                 </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -462,9 +469,11 @@
                     
                     
                     <div class="hero-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dhero%26utm_campaign%3Dhome" target="_blank" rel="noopener" class="btn btn-primary">
-                            <span class="btn-icon">▶</span>
-                            <span data-i18n="h2_btn_play">Get it free on Google Play</span>
+                        <!-- Vers les deux badges (App Store et Google Play) de #download : le bouton menait à Google Play
+                             seulement, sans rien pour l'iPhone (C22). -->
+                        <a href="#download" class="btn btn-primary">
+                            <span class="btn-icon">📲</span>
+                            <span data-i18n="h2_btn_install">Install RESQ+ free</span>
                         </a>
                         <a href="#features" class="btn btn-secondary">
                             <span data-i18n="h2_btn_how">See how it works</span>
@@ -678,7 +687,7 @@
                 <p class="section-description" data-i18n="h2_cmp_desc">Your safety never sits behind a paywall. Premium is for families who want to look after each other every day.</p>
             </div>
 
-            <div class="features-grid">
+            <div class="features-grid two-by-two">
                 <div class="feature-card">
                     <div class="feature-icon emergency">🆓</div>
                     <h3 class="feature-title" data-i18n="h2_cmp_free_title">Free, forever</h3>
@@ -958,7 +967,7 @@
                     <span class="stellar-beta-badge stellar-live-badge" data-i18n="coming_badge">🚀 NOW AVAILABLE</span>
                 </div>
                 <h2 class="section-title stellar-title">
-                    <span data-i18n="coming_title_prefix">Available Now on</span> <span class="gradient-text">Google Play</span>
+                    <span data-i18n="coming_title_prefix">Available Now on</span> <span class="gradient-text" data-i18n="h2_avail_stores">iPhone and Android</span>
                 </h2>
                 <p class="section-description stellar-description" data-i18n="h2_avail_desc">
                     Free to download, no ads. Premium is optional: circle map with places and trip history, meeting points, extra medical profiles and the First Aid Assistant.
@@ -988,47 +997,30 @@
                     style="margin-top:20px;">
                     <span data-i18n="coming_suggestion_button">Send Feature Suggestion</span> </a>
 
-                    <!-- Google Play Download Button -->
+                    <!-- Téléchargement : vers les deux badges de #download (le bloc ne parlait que de Google Play). -->
                     <div class="stellar-form-section stellar-download-section">
                         <div class="stellar-form-header">
                             <div class="form-icon-wrapper form-icon-wrapper-play">
-                                <svg class="form-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                                </svg>
+                                <span class="form-icon" aria-hidden="true">📲</span>
                             </div>
                             <div>
-                                <h4 class="stellar-form-title" data-i18n="coming_form_title">Download on Google Play</h4>
+                                <h4 class="stellar-form-title" data-i18n="h2_avail_form_title">Free on iPhone and Android</h4>
                                 <p class="stellar-form-desc" data-i18n="coming_form_desc">
                                     Get RESQ+ now and start protecting yourself and your loved ones
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Google Play Button -->
                         <div class="google-play-button-wrapper">
-                            <a 
-                                href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                class="google-play-button"
-                                aria-label="Download RESQ+ on Google Play"
-                            >
-                                <div class="play-button-content">
-                                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                                    </svg>
-                                    <div class="play-button-text">
-                                        <span class="play-button-label" data-i18n="coming_button_label">GET IT ON</span>
-                                        <span class="play-button-name">Google Play</span>
-                                    </div>
-                                </div>
-                                <div class="play-button-shine"></div>
+                            <a href="#download" class="btn btn-primary">
+                                <span class="btn-icon">📲</span>
+                                <span data-i18n="h2_btn_install">Install RESQ+ free</span>
                             </a>
 
                             <div class="download-trust">
                                 <p data-i18n="h2_trust1">✔ Free download</p>
                                 <p data-i18n="h2_trust2">✔ No ads, no advertising ID</p>
-                                <p data-i18n="h2_trust3">✔ Cancel Premium anytime in Google Play</p>
+                                <p data-i18n="h2_trust3">✔ Cancel Premium anytime in Google Play or the App Store</p>
                             </div>
                         </div>
                     </div>
@@ -1073,7 +1065,7 @@
                         <h3 data-i18n="faq1_q">How much does RESQ+ cost?</h3>
                     </div>
                     <div class="faq-answer" data-i18n="h2_faq1_a">
-                        RESQ+ is free to download, with no ads. Every SOS trigger, the live page, first-aid cards, one medical profile and family circles are free. Premium is optional and adds the circle map with places and 30-day trip history, meeting points, extra medical profiles and the First Aid Assistant. The Family plan extends Premium to 5 people in your circle; the First Aid Assistant stays with the subscriber. Manage or cancel anytime in Google Play.
+                        RESQ+ is free to download, with no ads. Every SOS trigger, the live page, first-aid cards, one medical profile and family circles are free. Premium is optional and adds the circle map with places and 30-day trip history, meeting points, extra medical profiles and the First Aid Assistant. The Family plan extends Premium to 5 people in your circle; the First Aid Assistant stays with the subscriber. Manage or cancel anytime in Google Play or the App Store.
                     </div>
                 </div>
 
@@ -1117,7 +1109,7 @@
                         <h3 data-i18n="faq5_q">Which devices are supported?</h3>
                     </div>
                     <div class="faq-answer" data-i18n="h2_faq5_a">
-                        Android phones and tablets running Android 7.0 or later. The Wear OS app (Wear OS 3 and later, with the phone app) adds an SOS tile to your watch.
+                        Android phones and tablets running Android 7.0 or later, and iPhones running iOS 17 or later. The Wear OS app (Wear OS 3 and later, with the phone app) adds an SOS tile to your watch.
                     </div>
                 </div>
 
@@ -1198,20 +1190,16 @@
                             <img class="badge-fr" src="images/badges/app-store-fr.svg" alt="App Store" width="190" height="60">
                             <img class="badge-th" src="images/badges/app-store-th.svg" alt="App Store" width="180" height="60">
                         </a>
+                        <!-- Google Play (28/10/2026) : badge officiel de Google, non modifié, servi par Google. En anglais
+                             dans les trois langues (choix de JP : les versions FR et TH servies par Google ont l'ancienne
+                             icône, plus terne). Règles de Google : au moins aussi grand que les autres badges ; marge
+                             libre = 1/4 de la hauteur, déjà comprise dans l'image (badge visible de 60 px, image de 90 px). -->
                         <a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share"
-                           target="_blank" 
+                           target="_blank"
                            rel="noopener noreferrer"
-                           class="store-button google-play"
+                           class="play-store-badge"
                            aria-label="Download RESQ+ on Google Play">
-                            <div class="store-icon">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                                </svg>
-                            </div>
-                            <div class="store-text">
-                                <span class="store-label" data-i18n="download_button_text">GET IT ON</span>
-                                <span class="store-name" data-i18n="download_button_subtext">Google Play</span>
-                            </div>
+                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="233" height="90" loading="lazy">
                         </a>
                     </div>
                     <div class="download-info">
@@ -1287,6 +1275,7 @@
                         <h4 class="footer-title" data-i18n="footer_product">Product</h4>
                         <ul class="footer-list">
                             <li><a href="#features" data-i18n="footer_features">Features</a></li>
+                            <li><a href="https://apps.apple.com/app/id6819823803" target="_blank" rel="noopener noreferrer" data-i18n="footer_download_ios">Download on the App Store</a></li>
                             <li><a href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="footer_download">Download on Google Play</a></li>
                         </ul>
                     </div>
@@ -1427,8 +1416,8 @@
     <!-- EmailJS is loaded on demand by email-approval.js when a story is sent (no third-party script on page load) -->
     
     <script src="translations.js?v=1780043948898"></script>
-    <script src="translations-complete.js?v=20261028" defer></script>
-    <script src="translations-home.js?v=20261028" defer></script>
+    <script src="translations-complete.js?v=20261028c" defer></script>
+    <script src="translations-home.js?v=20261028c" defer></script>
     <script src="i18n.js?v=1780043948898" defer></script>
     <script src="script.js?v=1780043948898" defer></script>
     <script src="ux-advanced.js?v=1780043948898" defer></script>

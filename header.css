@@ -1,0 +1,191 @@
+/* En-tête compact (28/10/2026, demande de JP : « entête pas jolie, trop grand »).
+   Avant : trois lignes fixées en haut de l'écran (213 px sur ordinateur, 260 px sur un téléphone de 390 px, soit
+   un tiers de l'écran en permanence). Ordinateur : une seule ligne (logo, menu, langues). Tablette et téléphone :
+   logo, langues et bouton ☰ ; le menu s'ouvre dessous (script.js, #mobileMenuBtn). Chargé après toutes les autres
+   feuilles : les plus anciennes imposent leurs valeurs avec !important, d'où les !important ici. */
+
+/* Lien « Passer au contenu principal » : caché tant qu'il n'a pas le focus (la page Conditions, qui ne charge pas
+   inline-cleanup.css, l'affichait en permanence). */
+.skip-link {
+    position: absolute;
+    top: -48px;
+    left: 0;
+    z-index: 2000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.navbar .container {
+    max-width: 1280px !important;
+}
+
+.navbar .nav-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 6px 0 !important;
+}
+
+.navbar .logo {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    padding: 4px 12px !important;
+    gap: 10px !important;
+}
+
+.navbar .logo img {
+    height: 36px !important;
+}
+
+.navbar .logo-text {
+    font-size: 1.5rem !important;
+}
+
+.navbar .logo-slogan,
+.navbar .nav-company {
+    display: none !important;
+}
+
+.navbar .nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 2px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.navbar .nav-links > a {
+    padding: 8px 10px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    min-height: 0 !important;
+}
+
+.navbar .lang-switcher {
+    margin: 0 0 0 10px !important;
+    padding: 3px !important;
+    gap: 2px !important;
+    border-radius: 10px !important;
+}
+
+.navbar .lang-btn {
+    padding: 4px 10px !important;
+    font-size: 0.95rem !important;
+    min-width: 40px !important;
+    min-height: 32px !important;
+    border-radius: 7px !important;
+    transform: none !important;
+}
+
+/* C31 : aucune bulle ni coche dessinée dans les boutons de langue (même règle que lang-tooltip.css, pour les pages
+   qui ne le chargent pas) ; le nom de la langue reste dans la bulle du navigateur. */
+.navbar .lang-switcher .lang-btn::before,
+.navbar .lang-switcher .lang-btn::after {
+    content: none !important;
+}
+
+.navbar .mobile-menu-btn {
+    display: none !important;
+}
+
+/* Tablette, petit portable et téléphone : logo, langues et ☰ ; les liens dans le menu ouvert. Le menu complet
+   demande ≈ 1 120 px en français, d'où la bascule sous 1 200 px. Le slogan (en anglais, jamais traduit) reste
+   caché à toutes les tailles : avec lui, le menu français ne tient pas dans les 1 280 px du conteneur. */
+@media (max-width: 1199px) {
+    .navbar .nav-wrapper {
+        flex-wrap: wrap !important;
+        gap: 6px 8px !important;
+    }
+
+    .navbar .logo {
+        order: 1;
+        margin-right: auto !important;
+        padding: 4px 8px !important;
+    }
+
+    .navbar .logo img {
+        height: 32px !important;
+    }
+
+    .navbar .logo-text {
+        font-size: 1.3rem !important;
+    }
+
+    .navbar .nav-links {
+        order: 2;
+    }
+
+    .navbar .nav-links > a {
+        display: none !important;
+    }
+
+    .navbar .mobile-menu-btn {
+        order: 3;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0 !important;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .navbar .nav-links.active {
+        order: 4;
+        flex: 1 0 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 4px 0 10px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .navbar .nav-links.active > a {
+        display: block !important;
+        padding: 12px 8px !important;
+        font-size: 1.05rem !important;
+    }
+
+    .navbar .nav-links.active .lang-switcher {
+        order: 99;
+        align-self: flex-start;
+        margin: 8px 0 0 !important;
+    }
+}
+
+/* Téléphone : logo, langues et ☰ sur une ligne (sous 380 px, le mot « RESQ+ » laisse la place, le logo reste). */
+@media (max-width: 480px) {
+    .navbar .nav-wrapper {
+        gap: 6px !important;
+    }
+
+    .navbar .logo {
+        padding: 4px 6px !important;
+        gap: 6px !important;
+    }
+
+    .navbar .lang-switcher {
+        margin: 0 !important;
+    }
+
+    .navbar .lang-btn {
+        padding: 4px 7px !important;
+        min-width: 34px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 379px) {
+    .navbar .logo-text {
+        display: none !important;
+    }
+}

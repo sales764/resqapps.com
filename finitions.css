@@ -1,0 +1,94 @@
+/* Finitions de la revue du 28/10/2026 (demande de JP : « bien réviser le site et corriger les erreurs »).
+   Chargé en dernier sur l'accueil, Familles, Partenaires et Confidentialité ; les feuilles plus anciennes imposent
+   leurs valeurs avec !important, d'où les !important ici. */
+
+/* Pas de césure automatique dans les titres, les textes d'accroche et la FAQ (« vi-déo », « Pre-mium »). */
+.hero-title,
+.hero-description,
+.section-title,
+.section-description,
+.faq-answer {
+    hyphens: manual !important;
+    -webkit-hyphens: manual !important;
+}
+
+/* Titre de la politique de confidentialité : 48 px coupaient « confidenti / alité » sur téléphone. */
+.privacy-title {
+    font-size: clamp(1.9rem, 7vw, 3rem) !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+/* Les 4 chiffres sous les boutons de l'accueil : 2 × 2 au lieu de 3 + 1, sans mot coupé (« Gratu / it »,
+   « déclencheur / s »). */
+.hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px !important;
+}
+
+.hero-stats .stat {
+    width: auto !important;
+    min-width: 0;
+}
+
+.hero-stats .stat-number,
+.hero-stats .stat-label {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+/* Encadré « Confidentialité d'abord » : un paragraphe lisible, au lieu de deux colonnes serrées sur téléphone. */
+.privacy-notice {
+    display: block !important;
+    text-align: left !important;
+    line-height: 1.6 !important;
+}
+
+.privacy-notice .privacy-notice-icon {
+    margin-right: 6px;
+}
+
+/* Pied de page : les trois colonnes (Produit, Légal, Assistance) côte à côte, et non empilées dans une seule. */
+.footer-content .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 32px;
+    grid-column: 2 / -1;
+}
+
+@media (max-width: 968px) {
+    .footer-content .footer-links {
+        grid-column: auto;
+    }
+}
+
+/* Pied de page sur téléphone : Produit et Légal côte à côte, Assistance sur toute la largeur, contacts centrés
+   (l'icône partait à gauche et le numéro WhatsApp se coupait en deux). */
+@media (max-width: 768px) {
+    .footer-content .footer-links {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-content .footer-column:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-column .footer-list a {
+        justify-content: center;
+    }
+}
+
+/* Bloc « Gratuit sur iPhone et Android » : bouton sur toute la largeur du bloc (sur téléphone, son texte tenait sur
+   trois lignes). */
+.stellar-download-section .google-play-button-wrapper .btn {
+    align-self: stretch;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .stellar-download-section {
+        padding: 20px 16px !important;
+    }
+}
