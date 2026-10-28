@@ -115,7 +115,7 @@
             ptnr_join_terms: "ข้าพเจ้าบรรลุนิติภาวะแล้ว เข้าร่วมในฐานะพันธมิตรอิสระ และยอมรับ<a href=\"partner-terms.html#th\" target=\"_blank\" rel=\"noopener\">ข้อกำหนดของโปรแกรมพันธมิตร</a>",
             ptnr_join_submit: "ส่งใบสมัคร",
             ptnr_join_note: "เราใช้ข้อมูลนี้เพื่อดำเนินโปรแกรมพันธมิตรเท่านั้น และส่งต่อให้ GoMarketMe ซึ่งเป็นแพลตฟอร์มที่ติดตามยอดขายและจ่ายค่าตอบแทนให้คุณ หากต้องการให้ลบข้อมูล กรุณาติดต่อ sales@sornsawan.com",
-            // Lien et QR code du partenaire (#my-link, 28/10/2026) : thaï À VALIDER (docs/THAI_A_VALIDER_SITE_1_1.md).
+            // Lien et QR code du partenaire (#my-link, 28/10/2026) : thaï validé le 28/10 (docs/THAI_A_VALIDER_SITE_1_1.md).
             ptnr_link_badge: "🔗 เครื่องมือของคุณ",
             ptnr_link_title: "เป็นพันธมิตรอยู่แล้ว? รับลิงก์และ QR code ของคุณ",
             ptnr_link_desc: "พิมพ์โค้ดพาร์ทเนอร์ที่คุณได้รับทางอีเมล แล้วคุณจะได้ลิงก์ Google Play สำหรับแชร์ และ QR code สำหรับพิมพ์เป็นโปสเตอร์ติดที่เคาน์เตอร์",

@@ -346,7 +346,7 @@
             h2_cmp_prem_5: "★ โปรไฟล์การแพทย์สำหรับทั้งครอบครัว",
             h2_cmp_prem_6: "★ ผู้ช่วยปฐมพยาบาล: ด้วยเสียง ข้อความ หรือรูปภาพ",
             h2_cmp_prem_note: "แพ็กเกจครอบครัวครอบคลุมคุณและคนในวงอีก 5 คน (ผู้ช่วยปฐมพยาบาลใช้ได้เฉพาะผู้สมัคร) ยกเลิกได้ทุกเมื่อใน Google Play หรือ App Store",
-            // Prix (étape 1.1, 28/10/2026) : thaï À VALIDER par Aksornsawan (docs/THAI_A_VALIDER_SITE_1_1.md).
+            // Prix (étape 1.1, 28/10/2026) : thaï validé par Aksornsawan le 28/10 (docs/THAI_A_VALIDER_SITE_1_1.md).
             h2_price_title: "ราคา",
             h2_price_free_name: "ฟรี",
             h2_price_free_price: "$0",

@@ -3,7 +3,7 @@
 // restée au pays. L'anglais vit dans families.html ; ce fichier ne porte que FR et TH,
 // sous des clés fam_* neuves (même principe que translations-home.js). Le reste de la
 // page reprend des clés déjà traduites (h2_cmp_prem_*, h2_price_*, h2_dl_*, ptnr_footer_*).
-// Thaï : À VALIDER par Aksornsawan (docs/THAI_A_VALIDER_SITE_1_1.md) avant publication.
+// Thaï validé par Aksornsawan le 28/10/2026 (docs/THAI_A_VALIDER_SITE_1_1.md).
 // Chargé après translations-business.js et avant i18n.js (defer garde l'ordre).
 (function () {
     'use strict';

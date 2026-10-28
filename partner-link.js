@@ -12,7 +12,7 @@
     const VALID = /^[A-Za-z0-9_.-]{1,32}$/;
     const QR_SCALE = 8;
 
-    // L'anglais vit dans partner.html ; FR et TH ici (thaï à valider : docs/THAI_A_VALIDER_SITE_1_1.md).
+    // L'anglais vit dans partner.html ; FR et TH ici (thaï validé le 28/10 : docs/THAI_A_VALIDER_SITE_1_1.md).
     const MSG = {
         en: {
             empty: 'Type your partner code.',

@@ -1,6 +1,6 @@
 // Conditions d'utilisation (terms.html), traduites le 28/10/2026 à la demande de Jean-Philippe (« complète traduction »).
 // L'anglais vit dans terms.html ; ce fichier ne porte que FR et TH, sous des clés tos_*. Traduction fidèle, sans
-// nouvelle clause. Thaï : À VALIDER par Aksornsawan (docs/THAI_A_VALIDER_SITE_1_1.md) avant publication.
+// nouvelle clause. Thaï validé par Aksornsawan le 28/10/2026 (docs/THAI_A_VALIDER_SITE_1_1.md).
 // Chargé après translations-complete.js et avant i18n.js.
 (function () {
     'use strict';
