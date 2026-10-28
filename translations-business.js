@@ -55,7 +55,17 @@
             ptnr_join_country: "Pays",
             ptnr_join_terms: "Je suis majeur, je participe comme partenaire indépendant, et j'accepte les <a href=\"partner-terms.html#fr\" target=\"_blank\" rel=\"noopener\">conditions du programme partenaire</a>.",
             ptnr_join_submit: "Envoyer ma candidature",
-            ptnr_join_note: "Nous utilisons ces informations uniquement pour le programme partenaire, et les transmettons à GoMarketMe, la plateforme qui suit vos ventes et vous paie. Pour les faire supprimer : sales@sornsawan.com."
+            ptnr_join_note: "Nous utilisons ces informations uniquement pour le programme partenaire, et les transmettons à GoMarketMe, la plateforme qui suit vos ventes et vous paie. Pour les faire supprimer : sales@sornsawan.com.",
+            // Lien et QR code du partenaire (#my-link, 28/10/2026).
+            ptnr_link_badge: "🔗 Vos outils",
+            ptnr_link_title: "Déjà partenaire ? Obtenez votre lien et votre QR code",
+            ptnr_link_desc: "Tapez le code partenaire reçu par e-mail. Vous obtenez votre lien Google Play, à partager, et son QR code, à imprimer sur une affiche à votre comptoir.",
+            ptnr_link_label: "Votre code partenaire",
+            ptnr_link_make: "Créer mon lien",
+            ptnr_link_url_label: "Votre lien Google Play",
+            ptnr_link_copy: "Copier",
+            ptnr_link_download: "Télécharger le QR code (PNG)",
+            ptnr_link_note: "Sur Android, RESQ+ reprend votre code à son premier lancement (à partir de la version 4.6.10) ; la personne le confirme. Sur iPhone, ce lien n'existe pas : la personne installe RESQ+ depuis l'App Store et tape votre code dans l'appli."
         },
         th: {
             ptnr_badge: "🤝 โปรแกรมพาร์ทเนอร์ RESQ+",
@@ -104,7 +114,17 @@
             ptnr_join_country: "ประเทศ",
             ptnr_join_terms: "ข้าพเจ้าบรรลุนิติภาวะแล้ว เข้าร่วมในฐานะพันธมิตรอิสระ และยอมรับ<a href=\"partner-terms.html#th\" target=\"_blank\" rel=\"noopener\">ข้อกำหนดของโปรแกรมพันธมิตร</a>",
             ptnr_join_submit: "ส่งใบสมัคร",
-            ptnr_join_note: "เราใช้ข้อมูลนี้เพื่อดำเนินโปรแกรมพันธมิตรเท่านั้น และส่งต่อให้ GoMarketMe ซึ่งเป็นแพลตฟอร์มที่ติดตามยอดขายและจ่ายค่าตอบแทนให้คุณ หากต้องการให้ลบข้อมูล กรุณาติดต่อ sales@sornsawan.com"
+            ptnr_join_note: "เราใช้ข้อมูลนี้เพื่อดำเนินโปรแกรมพันธมิตรเท่านั้น และส่งต่อให้ GoMarketMe ซึ่งเป็นแพลตฟอร์มที่ติดตามยอดขายและจ่ายค่าตอบแทนให้คุณ หากต้องการให้ลบข้อมูล กรุณาติดต่อ sales@sornsawan.com",
+            // Lien et QR code du partenaire (#my-link, 28/10/2026) : thaï À VALIDER (docs/THAI_A_VALIDER_SITE_1_1.md).
+            ptnr_link_badge: "🔗 เครื่องมือของคุณ",
+            ptnr_link_title: "เป็นพันธมิตรอยู่แล้ว? รับลิงก์และ QR code ของคุณ",
+            ptnr_link_desc: "พิมพ์โค้ดพาร์ทเนอร์ที่คุณได้รับทางอีเมล แล้วคุณจะได้ลิงก์ Google Play สำหรับแชร์ และ QR code สำหรับพิมพ์เป็นโปสเตอร์ติดที่เคาน์เตอร์",
+            ptnr_link_label: "โค้ดพาร์ทเนอร์ของคุณ",
+            ptnr_link_make: "สร้างลิงก์ของฉัน",
+            ptnr_link_url_label: "ลิงก์ Google Play ของคุณ",
+            ptnr_link_copy: "คัดลอก",
+            ptnr_link_download: "ดาวน์โหลด QR code (PNG)",
+            ptnr_link_note: "บน Android แอป RESQ+ จะใส่โค้ดของคุณให้เองเมื่อเปิดแอปครั้งแรก (ตั้งแต่เวอร์ชัน 4.6.10) แล้วผู้ใช้กดยืนยัน บน iPhone ไม่มีลิงก์แบบนี้ ผู้ใช้ติดตั้ง RESQ+ จาก App Store แล้วพิมพ์โค้ดของคุณในแอป"
         }
     };
     if (typeof i18nComplete === 'undefined') return;
