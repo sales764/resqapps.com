@@ -166,7 +166,24 @@
             h2_cmp_prem_4: "★ 30 jours d'historique de trajets",
             h2_cmp_prem_5: "★ Profils médicaux pour toute la famille",
             h2_cmp_prem_6: "★ Assistant premiers secours : à la voix, par écrit ou en photo",
-            h2_cmp_prem_note: "Le forfait Famille vous couvre, vous et 5 personnes de votre cercle (l'Assistant reste réservé à l'abonné). Annulable à tout moment dans Google Play."
+            h2_cmp_prem_note: "Le forfait Famille vous couvre, vous et 5 personnes de votre cercle (l'Assistant reste réservé à l'abonné). Annulable à tout moment dans Google Play ou l'App Store.",
+            // Prix (étape 1.1, 28/10/2026) : mêmes chiffres que le bloc #pricing d'index.html.
+            h2_nav_families: "Pour les familles",
+            h2_price_title: "Prix",
+            h2_price_free_name: "Gratuit",
+            h2_price_free_price: "0 $",
+            h2_price_free_detail: "Chaque SOS, les alertes, la page en direct, les premiers secours et les numéros d'urgence. Sans carte bancaire.",
+            h2_price_family_tag: "Vous + 5 personnes",
+            h2_price_family_name: "Premium Famille",
+            h2_price_family_price: "79,99 $ par an",
+            h2_price_family_detail: "Soit 6,67 $ par mois, environ 1,11 $ par personne. Ou 9,99 $ par mois.",
+            h2_price_trial: "30 jours gratuits",
+            h2_price_solo_tag: "Juste pour vous",
+            h2_price_solo_name: "Premium",
+            h2_price_solo_price: "39,99 $ par an",
+            h2_price_solo_detail: "Ou 4,99 $ par mois.",
+            h2_price_note: "Prix en dollars américains : Google Play et l'App Store affichent le prix exact dans votre devise avant l'achat. Essai gratuit pour les nouveaux abonnés : 30 jours sur Google Play, 1 mois sur l'App Store. Annulez au moins 24 heures avant la fin et rien ne vous est facturé.",
+            h2_price_families_link: "Vous vivez ou voyagez en Thaïlande, et votre famille est restée au pays ? Voyez comment fonctionne RESQ+ Famille →"
         },
         th: {
             h2_nav_business: "สำหรับธุรกิจ",
@@ -327,7 +344,24 @@
             h2_cmp_prem_4: "★ ประวัติการเดินทาง 30 วัน",
             h2_cmp_prem_5: "★ โปรไฟล์การแพทย์สำหรับทั้งครอบครัว",
             h2_cmp_prem_6: "★ ผู้ช่วยปฐมพยาบาล: ด้วยเสียง ข้อความ หรือรูปภาพ",
-            h2_cmp_prem_note: "แพ็กเกจครอบครัวครอบคลุมคุณและคนในวงอีก 5 คน (ผู้ช่วยปฐมพยาบาลใช้ได้เฉพาะผู้สมัคร) ยกเลิกได้ทุกเมื่อใน Google Play"
+            h2_cmp_prem_note: "แพ็กเกจครอบครัวครอบคลุมคุณและคนในวงอีก 5 คน (ผู้ช่วยปฐมพยาบาลใช้ได้เฉพาะผู้สมัคร) ยกเลิกได้ทุกเมื่อใน Google Play หรือ App Store",
+            // Prix (étape 1.1, 28/10/2026) : thaï À VALIDER par Aksornsawan (docs/THAI_A_VALIDER_SITE_1_1.md).
+            h2_nav_families: "สำหรับครอบครัว",
+            h2_price_title: "ราคา",
+            h2_price_free_name: "ฟรี",
+            h2_price_free_price: "$0",
+            h2_price_free_detail: "การส่ง SOS ทุกรูปแบบ การแจ้งเตือน หน้าติดตามสด การปฐมพยาบาล และเบอร์ฉุกเฉิน ไม่ต้องใช้บัตรเครดิต",
+            h2_price_family_tag: "คุณ + อีก 5 คน",
+            h2_price_family_name: "Premium ครอบครัว",
+            h2_price_family_price: "$79.99 ต่อปี",
+            h2_price_family_detail: "เฉลี่ยเดือนละ $6.67 หรือประมาณคนละ $1.11 ต่อเดือน หรือจ่ายรายเดือน $9.99",
+            h2_price_trial: "ใช้ฟรี 30 วัน",
+            h2_price_solo_tag: "สำหรับคุณคนเดียว",
+            h2_price_solo_name: "Premium",
+            h2_price_solo_price: "$39.99 ต่อปี",
+            h2_price_solo_detail: "หรือจ่ายรายเดือน $4.99",
+            h2_price_note: "ราคาเป็นดอลลาร์สหรัฐ Google Play และ App Store จะแสดงราคาที่แน่นอนเป็นสกุลเงินของคุณก่อนชำระเงิน สมาชิกใหม่ทดลองใช้ฟรี 30 วันบน Google Play และ 1 เดือนบน App Store หากยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดช่วงทดลอง จะไม่มีการเรียกเก็บเงิน",
+            h2_price_families_link: "อยู่หรือเที่ยวในประเทศไทย และครอบครัวอยู่ต่างประเทศ? ดูว่าแพ็กเกจครอบครัวของ RESQ+ ทำงานอย่างไร →"
         }
     };
     if (typeof i18nComplete === 'undefined') return;

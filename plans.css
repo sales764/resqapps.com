@@ -1,0 +1,199 @@
+/* Prix (accueil, bloc #pricing) et page Familles (families.html) — étape 1.1 du plan de monétisation, 28/10/2026.
+   Le site est toujours sombre (styles-stellar) : textes clairs, contraste ≥ 7:1 sur le fond de la page. */
+
+.plans {
+    margin-top: 56px;
+    text-align: center;
+}
+
+.plans-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 24px;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+/* Famille : le forfait conseillé, mis en avant sans cacher les deux autres. */
+.plan-card-main {
+    border: 2px solid #ff3b3b;
+    background: rgba(255, 59, 59, 0.08);
+}
+
+.plan-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #a3202f;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.plan-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.plan-price {
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.plan-detail {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.plan-trial {
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #7ee2a8;
+}
+
+.plans-note {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.plans-more {
+    margin: 16px 0 0;
+    font-size: 1rem;
+}
+
+.plans-more a {
+    color: #8fd3ff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* C29 : en français, « Gratuit » ne tient pas à 64 px dans la 1re carte des chiffres de l'accueil et se coupait en
+   « Grat / uit ». Le mot suit la largeur de la carte (il fait ≈ 3,8 em), sans dépasser la taille des autres chiffres. */
+.stats-section .stat-card:first-child {
+    container-type: inline-size;
+}
+
+html[lang|="fr"] .stats-section .stat-card:first-child .stat-number {
+    font-size: min(4rem, 25cqi);
+    overflow-wrap: normal;
+}
+
+/* Page Familles : titre sans césure (« fam-ily »), 4 cartes en 2 × 2, numéros thaïs, encadré « qui paie ». */
+.hero-title.no-hyphens {
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    word-break: normal;
+}
+
+.features-grid.two-by-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .features-grid.two-by-two {
+        grid-template-columns: 1fr;
+    }
+}
+
+.thai-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.thai-numbers li {
+    padding: 10px 18px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.thai-numbers strong {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-right: 6px;
+}
+
+.payer-box {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    border-radius: 20px;
+    background: rgba(255, 59, 59, 0.08);
+    border: 2px solid #ff3b3b;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.payer-box h3 {
+    margin: 0 0 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.payer-box ol {
+    margin: 0;
+    padding-left: 1.3em;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+}
+
+.payer-box p {
+    margin: 14px 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .plans-title {
+        font-size: 1.5rem;
+    }
+
+    .plan-price {
+        font-size: 1.6rem;
+    }
+
+    .payer-box {
+        padding: 22px 18px;
+    }
+}
