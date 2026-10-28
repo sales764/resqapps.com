@@ -139,7 +139,7 @@
     <link rel="stylesheet" href="modal-stellar.css">
     <link rel="stylesheet" href="lang-switcher.css">
     <link rel="stylesheet" href="stories-styles.css">
-    <link rel="stylesheet" href="lang-tooltip.css">
+    <link rel="stylesheet" href="lang-tooltip.css?v=20261028">
     <link rel="stylesheet" href="logo-stellar.css">
     <link rel="stylesheet" href="touch-targets.css">
     <link rel="stylesheet" href="cta-optimized.css">
@@ -463,16 +463,22 @@
                         <source srcset="images/resq-logo.png" type="image/png">
                         <img src="images/resq-logo.png" alt="RESQ+ Logo" data-i18n-alt="homepage.logoAlt" width="200" height="50">
                     </picture>
-                    <span class="logo-text">RESQ+</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span>
+                    <span class="logo-text">RESQ+</span><span class="logo-slogan" data-i18n="nav_slogan">Seconds count. Be ready.</span>
                 </a>
                 <div class="nav-links" id="nav-links">
                     <a href="index.html" data-i18n="nav_home">Home</a>
                       <a href="index.html#features" data-i18n="nav_features">Features</a>
                     <a href="index.html#download" data-i18n="nav_notify">Download</a>
-                    <a href="partner.html" data-i18n="nav_partner">Partner</a>
-                    <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
-                    
+                    <a href="families.html" data-i18n="nav_families">For families</a>
+                    <a href="partner.html" data-i18n="nav_partner">Partners</a>
+                    <a href="privacy.html" data-i18n="nav_privacy" class="active">Privacy</a>
+
                     <div class="nav-company" data-i18n="nav_company">By Sornsawan Ltd.</div>
+                    <div class="lang-switcher" role="group" aria-label="Language">
+                        <button onclick="i18n.switchLang('en')" class="lang-btn" data-lang="en" aria-label="Switch to English" aria-pressed="false" type="button">EN</button>
+                        <button onclick="i18n.switchLang('fr')" class="lang-btn" data-lang="fr" aria-label="Passer en Français" aria-pressed="false" type="button">FR</button>
+                        <button onclick="i18n.switchLang('th')" class="lang-btn" data-lang="th" aria-label="เปลี่ยนเป็นภาษาไทย" aria-pressed="false" type="button">ไทย</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -587,7 +593,7 @@
     <!-- Scripts -->
     <!-- EmailJS is loaded on demand by email-approval.js when a story is sent (no third-party script on page load) -->
     
-    <script src="translations-complete.js?v=2026093001" defer></script>
+    <script src="translations-complete.js?v=20261028" defer></script>
     <script src="i18n.js" defer></script>
     <script src="script.js?v=1780043948896" defer></script>
     <script src="ux-advanced.js?v=1780043948896" defer></script>

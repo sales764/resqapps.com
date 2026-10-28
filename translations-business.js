@@ -8,7 +8,6 @@
     'use strict';
     const PARTNER = {
         fr: {
-            ptnr_nav: "Partenaires",
             ptnr_badge: "🤝 Programme partenaire RESQ+",
             ptnr_title_1: "Partagez RESQ+ avec ceux qui comptent pour vous.",
             ptnr_title_2: "Recevez 30 % de chaque abonnement que vous apportez.",
@@ -59,7 +58,6 @@
             ptnr_join_note: "Nous utilisons ces informations uniquement pour le programme partenaire, et les transmettons à GoMarketMe, la plateforme qui suit vos ventes et vous paie. Pour les faire supprimer : sales@sornsawan.com."
         },
         th: {
-            ptnr_nav: "พาร์ทเนอร์",
             ptnr_badge: "🤝 โปรแกรมพาร์ทเนอร์ RESQ+",
             ptnr_title_1: "แชร์ RESQ+ ให้คนที่คุณห่วงใย",
             ptnr_title_2: "รับ 30% จากทุกการสมัครสมาชิกที่คุณแนะนำ",

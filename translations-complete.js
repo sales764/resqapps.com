@@ -109,6 +109,8 @@ const i18nComplete = {
         nav_features: "Fonctionnalités",
         nav_notify: "Télécharger",
         nav_privacy: "Confidentialité",
+        nav_families: "Pour les familles",
+        nav_partner: "Partenaires",
         
         // Hero
         hero_badge: "🚨 Application d'urgence officielle",
@@ -488,6 +490,8 @@ const i18nComplete = {
         nav_screenshots: "ภาพหน้าจอ",
         nav_notify: "ดาวน์โหลด",
         nav_privacy: "ความเป็นส่วนตัว",
+        nav_families: "สำหรับครอบครัว",
+        nav_partner: "พันธมิตร",
         
         // Additional Features 7-9
         feature7_title: "แผนที่รวดเร็ว",

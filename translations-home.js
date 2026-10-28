@@ -7,7 +7,6 @@
     'use strict';
     const HOME = {
         fr: {
-            h2_nav_business: "Entreprises",
             h2_hero_badge: "SOS gratuit · Sans pub · EN · FR · TH",
             h2_hero_title_1: "Un seul SOS.",
             h2_hero_title_2: "Tous ceux qui peuvent aider, en même temps.",
@@ -168,7 +167,6 @@
             h2_cmp_prem_6: "★ Assistant premiers secours : à la voix, par écrit ou en photo",
             h2_cmp_prem_note: "Le forfait Famille vous couvre, vous et 5 personnes de votre cercle (l'Assistant reste réservé à l'abonné). Annulable à tout moment dans Google Play ou l'App Store.",
             // Prix (étape 1.1, 28/10/2026) : mêmes chiffres que le bloc #pricing d'index.html.
-            h2_nav_families: "Pour les familles",
             h2_price_title: "Prix",
             h2_price_free_name: "Gratuit",
             h2_price_free_price: "0 $",
@@ -186,7 +184,6 @@
             h2_price_families_link: "Vous vivez ou voyagez en Thaïlande, et votre famille est restée au pays ? Voyez comment fonctionne RESQ+ Famille →"
         },
         th: {
-            h2_nav_business: "สำหรับธุรกิจ",
             h2_hero_badge: "SOS ฟรี · ไม่มีโฆษณา · EN · FR · TH",
             h2_hero_title_1: "กด SOS ครั้งเดียว",
             h2_hero_title_2: "ทุกคนที่ช่วยได้ รู้พร้อมกัน",
@@ -346,7 +343,6 @@
             h2_cmp_prem_6: "★ ผู้ช่วยปฐมพยาบาล: ด้วยเสียง ข้อความ หรือรูปภาพ",
             h2_cmp_prem_note: "แพ็กเกจครอบครัวครอบคลุมคุณและคนในวงอีก 5 คน (ผู้ช่วยปฐมพยาบาลใช้ได้เฉพาะผู้สมัคร) ยกเลิกได้ทุกเมื่อใน Google Play หรือ App Store",
             // Prix (étape 1.1, 28/10/2026) : thaï À VALIDER par Aksornsawan (docs/THAI_A_VALIDER_SITE_1_1.md).
-            h2_nav_families: "สำหรับครอบครัว",
             h2_price_title: "ราคา",
             h2_price_free_name: "ฟรี",
             h2_price_free_price: "$0",

@@ -262,3 +262,15 @@
 .lang-btn.tooltip-secondary::after {
     border-top-color: var(--secondary-color, #00f2fe);
 }
+
+/* ====================================
+   C31 (28/10/2026) : PAS DE BULLE DANS LE MENU
+   lang-switcher.css se sert des mêmes ::before et ::after (fond au survol, ✓ du bouton actif). Les deux
+   règles se mélangeaient et la bulle s'affichait DANS le bouton, coupée (« 🇫🇷 Français », lu « FR Français »
+   sous Windows, par-dessus « FR »). Le nom de la langue reste dans la bulle du navigateur (title, lang-tooltip.js).
+   ==================================== */
+
+.lang-switcher .lang-btn::before,
+.lang-switcher .lang-btn::after {
+    content: none;
+}
