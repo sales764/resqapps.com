@@ -6,7 +6,8 @@
 // Chargé après translations-complete.js et avant i18n.js (defer garde l'ordre).
 // 31/10/2026 (défaut G27) : exemples de gains dans la monnaie d'un pays choisi (partner-prices.js, modèles
 // ptnr_ex*_tpl), ce qui est gratuit dit exactement (la carte du cercle est Premium), version 4.7.0 (la 4.6.10
-// n'est jamais sortie), français du Québec (code QR, courriel). Thaï : seul le numéro de version a changé.
+// n'est jamais sortie), français du Québec (code QR, courriel). Thaï : numéro de version ; phrase « gratuit »
+// (ptnr_why1_desc, « ลิงก์ถ่ายทอดสด ») validée le 31/10/2026 (docs/THAI_A_VALIDER_PAGE_PARTENAIRE_G27.md).
 (function () {
     'use strict';
     const PARTNER = {
@@ -103,7 +104,7 @@
             ptnr_why_badge: "✅ แนะนำได้ง่าย",
             ptnr_why_title: "ทำไมคนถึงตอบตกลง",
             ptnr_why1_title: "เริ่มใช้ได้ฟรี",
-            ptnr_why1_desc: "ส่ง SOS ถึงคนใกล้ชิด แชร์ตำแหน่งแบบเรียลไทม์ให้ครอบครัว คู่มือปฐมพยาบาล และเบอร์ฉุกเฉินในพื้นที่ ใช้ได้ฟรี ลองใช้ RESQ+ ได้ก่อนจ่ายเงิน",
+            ptnr_why1_desc: "ส่ง SOS ถึงคนใกล้ชิดพร้อมลิงก์ถ่ายทอดสด คู่มือปฐมพยาบาล และเบอร์ฉุกเฉินในพื้นที่ ใช้ได้ฟรี ลองใช้ RESQ+ ได้ก่อนจ่ายเงิน",
             ptnr_why2_title: "เริ่มต้นง่าย",
             ptnr_why2_desc: "สมาชิกใหม่ใช้ฟรี 30 วัน ทุกแพ็กเกจ แล้วจ่ายราคาปกติ",
             ptnr_why3_title: "ออกแบบมาเพื่อครอบครัวและนักเดินทาง",
