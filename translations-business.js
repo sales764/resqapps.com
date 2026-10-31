@@ -4,6 +4,9 @@
 // fichier ne porte que FR et TH, sous des clés ptnr_* neuves (même principe
 // que translations-home.js). Thaï : à faire relire par la propriétaire.
 // Chargé après translations-complete.js et avant i18n.js (defer garde l'ordre).
+// 31/10/2026 (défaut G27) : exemples de gains dans la monnaie d'un pays choisi (partner-prices.js, modèles
+// ptnr_ex*_tpl), ce qui est gratuit dit exactement (la carte du cercle est Premium), version 4.7.0 (la 4.6.10
+// n'est jamais sortie), français du Québec (code QR, courriel). Thaï : seul le numéro de version a changé.
 (function () {
     'use strict';
     const PARTNER = {
@@ -11,30 +14,36 @@
             ptnr_badge: "🤝 Programme partenaire RESQ+",
             ptnr_title_1: "Partagez RESQ+ avec ceux qui comptent pour vous.",
             ptnr_title_2: "Recevez 30 % de chaque abonnement que vous apportez.",
-            ptnr_desc: "Auberges, loueurs de scooters, écoles de plongée, guides, créateurs de contenu voyage, groupes d'expatriés : recommandez RESQ+ avec votre lien, votre QR code ou votre code partenaire. Quand quelqu'un s'abonne grâce à vous, vous recevez 30 % de ce qu'il paie, et à nouveau à chaque renouvellement.",
+            ptnr_desc: "Auberges, loueurs de scooters, écoles de plongée, guides, créateurs de contenu voyage, groupes d'expatriés : recommandez RESQ+ avec votre lien, votre code QR ou votre code partenaire. Quand quelqu'un s'abonne grâce à vous, vous recevez 30 % de ce qu'il paie, et à nouveau à chaque renouvellement.",
             ptnr_btn_join: "Devenir partenaire",
             ptnr_btn_how: "Comment ça marche",
             ptnr_steps_badge: "📋 Comment ça marche",
             ptnr_steps_title: "Trois étapes, inscription gratuite",
             ptnr_step1_title: "Inscrivez-vous",
             ptnr_step1_desc: "Remplissez le court formulaire. Nous ouvrons votre compte partenaire sur GoMarketMe, la plateforme qui suit et paie les partenaires.",
-            ptnr_step2_title: "Partagez votre lien, QR code ou code",
-            ptnr_step2_desc: "Votre lien ouvre RESQ+ sur Google Play, et votre QR code tient sur une affiche à votre comptoir : sur Android, l'appli reprend votre code à son premier lancement. Sur iPhone, la personne tape votre code dans l'appli.",
+            ptnr_step2_title: "Partagez votre lien, votre code QR ou votre code",
+            ptnr_step2_desc: "Votre lien ouvre RESQ+ sur Google Play, et votre code QR tient sur une affiche à votre comptoir : sur Android, l'appli reprend votre code à son premier lancement. Sur iPhone, la personne tape votre code dans l'appli.",
             ptnr_step3_title: "Soyez payé chaque mois",
             ptnr_step3_desc: "Votre tableau de bord montre les installations et les abonnements. Un relevé est établi le 1er de chaque mois et payé via GoMarketMe.",
             ptnr_earn_badge: "💰 Ce que vous gagnez",
             ptnr_earn_title: "30 % du prix, à chaque paiement",
-            ptnr_earn_desc: "Votre part est calculée sur le prix payé par l'abonné. Exemples avec les prix de Google Play en Thaïlande :",
+            ptnr_earn_desc: "Votre part est calculée sur le prix payé par l'abonné. Exemples avec les prix de Google Play (ceux de l'App Store peuvent différer un peu) :",
             ptnr_ex1_title: "Forfait Famille, annuel",
-            ptnr_ex1_desc: "pour vous, sur un forfait à 1 590 ฿ (jusqu'à 6 personnes), et à nouveau chaque année où il se renouvelle",
+            ptnr_ex1_tpl: "pour vous, sur un forfait à {price} (jusqu'à 6 personnes), et à nouveau chaque année où il se renouvelle",
             ptnr_ex2_title: "Individuel, annuel",
-            ptnr_ex2_desc: "pour vous, sur un forfait à 790 ฿, et à nouveau chaque année où il se renouvelle",
+            ptnr_ex2_tpl: "pour vous, sur un forfait à {price}, et à nouveau chaque année où il se renouvelle",
             ptnr_ex3_title: "Forfait Famille, mensuel",
-            ptnr_ex3_desc: "pour vous, chaque mois où le forfait à 199 ฿ continue",
+            ptnr_ex3_tpl: "pour vous, chaque mois où le forfait à {price} continue",
+            ptnr_cty_us: "États-Unis ($ US)",
+            ptnr_cty_ca: "Canada ($ CA)",
+            ptnr_cty_gb: "Royaume-Uni (£)",
+            ptnr_cty_au: "Australie ($ AU)",
+            ptnr_cty_fr: "France (€)",
+            ptnr_cty_th: "Thaïlande (฿)",
             ptnr_why_badge: "✅ Facile à recommander",
             ptnr_why_title: "Pourquoi les gens disent oui",
             ptnr_why1_title: "Gratuit pour commencer",
-            ptnr_why1_desc: "Le SOS aux proches, la position en direct pour la famille, les fiches de premiers secours et les numéros d'urgence locaux sont gratuits. On essaie RESQ+ avant de payer quoi que ce soit.",
+            ptnr_why1_desc: "Le SOS aux proches et son lien en direct, les fiches de premiers secours et les numéros d'urgence locaux sont gratuits. On essaie RESQ+ avant de payer quoi que ce soit.",
             ptnr_why2_title: "Un premier pas facile",
             ptnr_why2_desc: "Les nouveaux abonnés ont 30 jours gratuits sur tous les forfaits, puis le prix normal.",
             ptnr_why3_title: "Pensé pour les familles et les voyageurs",
@@ -49,23 +58,23 @@
             // Formulaire d'inscription (02/10/2026). Thaï validé par la propriétaire le 02/10/2026.
             ptnr_join_badge: "🚀 Inscription",
             ptnr_join_title: "Devenir partenaire RESQ+",
-            ptnr_join_desc: "Ouvert à tous : particuliers et entreprises, dans tous les pays. Une minute suffit, et vous recevez votre invitation de partenaire par e-mail.",
+            ptnr_join_desc: "Ouvert à tous : particuliers et entreprises, dans tous les pays. Une minute suffit, et vous recevez votre invitation de partenaire par courriel.",
             ptnr_join_name: "Nom complet",
-            ptnr_join_email: "E-mail",
+            ptnr_join_email: "Courriel",
             ptnr_join_country: "Pays",
             ptnr_join_terms: "Je suis majeur, je participe comme partenaire indépendant, et j'accepte les <a href=\"partner-terms.html#fr\" target=\"_blank\" rel=\"noopener\">conditions du programme partenaire</a>.",
             ptnr_join_submit: "Envoyer ma candidature",
             ptnr_join_note: "Nous utilisons ces informations uniquement pour le programme partenaire, et les transmettons à GoMarketMe, la plateforme qui suit vos ventes et vous paie. Pour les faire supprimer : sales@sornsawan.com.",
             // Lien et QR code du partenaire (#my-link, 28/10/2026).
             ptnr_link_badge: "🔗 Vos outils",
-            ptnr_link_title: "Déjà partenaire ? Obtenez votre lien et votre QR code",
-            ptnr_link_desc: "Tapez le code partenaire reçu par e-mail. Vous obtenez votre lien Google Play, à partager, et son QR code, à imprimer sur une affiche à votre comptoir.",
+            ptnr_link_title: "Déjà partenaire ? Obtenez votre lien et votre code QR",
+            ptnr_link_desc: "Tapez le code partenaire reçu par courriel. Vous obtenez votre lien Google Play, à partager, et son code QR, à imprimer sur une affiche à votre comptoir.",
             ptnr_link_label: "Votre code partenaire",
             ptnr_link_make: "Créer mon lien",
             ptnr_link_url_label: "Votre lien Google Play",
             ptnr_link_copy: "Copier",
-            ptnr_link_download: "Télécharger le QR code (PNG)",
-            ptnr_link_note: "Sur Android, RESQ+ reprend votre code à son premier lancement (à partir de la version 4.6.10) ; la personne le confirme. Sur iPhone, ce lien n'existe pas : la personne installe RESQ+ depuis l'App Store et tape votre code dans l'appli."
+            ptnr_link_download: "Télécharger le code QR (PNG)",
+            ptnr_link_note: "Sur Android, RESQ+ reprend votre code à son premier lancement (à partir de la version 4.7.0) ; la personne le confirme. Sur iPhone, ce lien n'existe pas : la personne installe RESQ+ depuis l'App Store et tape votre code dans l'appli."
         },
         th: {
             ptnr_badge: "🤝 โปรแกรมพาร์ทเนอร์ RESQ+",
@@ -124,7 +133,7 @@
             ptnr_link_url_label: "ลิงก์ Google Play ของคุณ",
             ptnr_link_copy: "คัดลอก",
             ptnr_link_download: "ดาวน์โหลด QR code (PNG)",
-            ptnr_link_note: "บน Android แอป RESQ+ จะใส่โค้ดของคุณให้เองเมื่อเปิดแอปครั้งแรก (ตั้งแต่เวอร์ชัน 4.6.10) แล้วผู้ใช้กดยืนยัน บน iPhone ไม่มีลิงก์แบบนี้ ผู้ใช้ติดตั้ง RESQ+ จาก App Store แล้วพิมพ์โค้ดของคุณในแอป"
+            ptnr_link_note: "บน Android แอป RESQ+ จะใส่โค้ดของคุณให้เองเมื่อเปิดแอปครั้งแรก (ตั้งแต่เวอร์ชัน 4.7.0) แล้วผู้ใช้กดยืนยัน บน iPhone ไม่มีลิงก์แบบนี้ ผู้ใช้ติดตั้ง RESQ+ จาก App Store แล้วพิมพ์โค้ดของคุณในแอป"
         }
     };
     if (typeof i18nComplete === 'undefined') return;

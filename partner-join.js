@@ -27,9 +27,9 @@
         },
         fr: {
             choose: 'Choisissez votre pays',
-            missing: 'Indiquez votre nom, une adresse e-mail valide et votre pays, puis cochez la case.',
+            missing: 'Indiquez votre nom, une adresse courriel valide et votre pays, puis cochez la case.',
             sending: 'Envoi…',
-            ok: 'Merci ! Vous recevrez votre invitation de partenaire par e-mail sous 24 heures.',
+            ok: 'Merci ! Vous recevrez votre invitation de partenaire par courriel sous 24 heures.',
             err: "L'envoi a échoué. Réessayez, ou écrivez à sales@sornsawan.com."
         },
         th: {

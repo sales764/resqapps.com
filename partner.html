@@ -264,24 +264,39 @@
                     <span class="section-badge" data-i18n="ptnr_earn_badge">💰 What you earn</span>
                     <h2 class="section-title" data-i18n="ptnr_earn_title">30% of the price, on every payment</h2>
                     <p class="section-description" data-i18n="ptnr_earn_desc" style="max-width: 760px; margin: 0 auto;">
-                        Your share is calculated on the price the subscriber pays. Examples with Google Play prices in Thailand:
+                        Your share is calculated on the price the subscriber pays. Examples with Google Play prices (App Store prices can differ a little):
                     </p>
+                    <!-- Pays des exemples (31/10/2026, défaut G27) : prix Google Play par pays dans partner-prices.js.
+                         Caché sur la page thaïe, qui garde ses textes validés et les prix de la Thaïlande. -->
+                    <div id="ptnr-country-box" style="margin: 1rem auto 0; display: flex; gap: 0.6rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+                        <label for="ptnr-country" data-i18n="ptnr_join_country" style="font-weight: 600;">Country</label>
+                        <select id="ptnr-country" style="width: auto; max-width: 320px; font: inherit; padding: 0.45rem 0.8rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.08); color: inherit;">
+                            <option value="US" data-i18n="ptnr_cty_us">United States ($)</option>
+                            <option value="CA" data-i18n="ptnr_cty_ca">Canada (C$)</option>
+                            <option value="GB" data-i18n="ptnr_cty_gb">United Kingdom (£)</option>
+                            <option value="AU" data-i18n="ptnr_cty_au">Australia (A$)</option>
+                            <option value="FR" data-i18n="ptnr_cty_fr">France (€)</option>
+                            <option value="TH" data-i18n="ptnr_cty_th">Thailand (฿)</option>
+                        </select>
+                    </div>
                 </div>
+                <!-- Montants et phrases des 3 exemples : écrits par partner-prices.js selon le pays (ici, les États-Unis
+                     tant que le script n'a pas tourné). -->
                 <div class="features-grid">
                     <div class="feature-card" style="text-align: center;">
                         <h3 class="feature-title" data-i18n="ptnr_ex1_title">Family plan, yearly</h3>
-                        <p style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ 477 ฿</p>
-                        <p class="feature-description" data-i18n="ptnr_ex1_desc">for you, on a 1,590 ฿ plan (for up to 6 people), and again each year it renews</p>
+                        <p class="ptnr-amount" data-ex="fy" style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ $24.00</p>
+                        <p class="feature-description ptnr-ex-desc" data-ex="fy">for you, on the $79.99 plan (for up to 6 people), and again each year it renews</p>
                     </div>
                     <div class="feature-card" style="text-align: center;">
                         <h3 class="feature-title" data-i18n="ptnr_ex2_title">Individual, yearly</h3>
-                        <p style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ 237 ฿</p>
-                        <p class="feature-description" data-i18n="ptnr_ex2_desc">for you, on a 790 ฿ plan, and again each year it renews</p>
+                        <p class="ptnr-amount" data-ex="iy" style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ $12.00</p>
+                        <p class="feature-description ptnr-ex-desc" data-ex="iy">for you, on the $39.99 plan, and again each year it renews</p>
                     </div>
                     <div class="feature-card" style="text-align: center;">
                         <h3 class="feature-title" data-i18n="ptnr_ex3_title">Family plan, monthly</h3>
-                        <p style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ 60 ฿</p>
-                        <p class="feature-description" data-i18n="ptnr_ex3_desc">for you, every month the 199 ฿ plan continues</p>
+                        <p class="ptnr-amount" data-ex="fm" style="font-size: 2.2rem; font-weight: 800; margin: 0.5rem 0;">≈ $3.00</p>
+                        <p class="feature-description ptnr-ex-desc" data-ex="fm">for you, every month the $9.99 plan continues</p>
                     </div>
                 </div>
             </div>
@@ -298,7 +313,7 @@
                     <div class="feature-card">
                         <div class="feature-icon alerts">🆘</div>
                         <h3 class="feature-title" data-i18n="ptnr_why1_title">Free to start</h3>
-                        <p class="feature-description" data-i18n="ptnr_why1_desc">SOS to contacts, live location for the family, first-aid guides and local emergency numbers are free. People try RESQ+ before they pay anything.</p>
+                        <p class="feature-description" data-i18n="ptnr_why1_desc">The SOS to loved ones and its live link, first-aid guides and local emergency numbers are free. People try RESQ+ before they pay anything.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon profile">🎁</div>
@@ -407,7 +422,8 @@
         </section>
 
         <!-- Lien et QR code du partenaire (28/10/2026, demande de JP) : il tape le code reçu par e-mail ; la page fabrique le
-             lien Google Play qui le porte, que l'appli lit depuis la 4.6.10, et son QR code (partner-link.js, qr-encoder.js).
+             lien Google Play qui le porte, que l'appli lit depuis la 4.7.0 (la 4.6.10 n'est jamais sortie), et son QR code
+             (partner-link.js, qr-encoder.js).
              Rien n'est envoyé. -->
         <section id="my-link" class="features fade-in">
             <style>
@@ -460,7 +476,7 @@
                         </div>
                         <canvas id="link-qr" class="link-qr" role="img" aria-label="QR code"></canvas>
                         <a id="link-download" class="btn btn-secondary" href="#" download data-i18n="ptnr_link_download">Download the QR code (PNG)</a>
-                        <p class="link-note" data-i18n="ptnr_link_note">On Android, RESQ+ fills in your code when it first starts (version 4.6.10 and later); the person confirms it. On iPhone there is no such link: the person installs RESQ+ from the App Store and types your code in the app.</p>
+                        <p class="link-note" data-i18n="ptnr_link_note">On Android, RESQ+ fills in your code when it first starts (version 4.7.0 and later); the person confirms it. On iPhone there is no such link: the person installs RESQ+ from the App Store and types your code in the app.</p>
                     </div>
                 </div>
             </div>
@@ -563,11 +579,13 @@ SOS • Live location • First Aid Assistant</p>
     <script src="translations-complete.js?v=20261028c" defer></script>
     <!-- Pour la barre des réseaux sociaux (header_/footer_social_*, header_/footer_share_button), traduite dans ce fichier. -->
     <script src="translations-home.js?v=20261028c" defer></script>
-    <script src="translations-business.js?v=20261028d" defer></script>
-    <script src="partner-join.js?v=20261002c" defer></script>
+    <script src="translations-business.js?v=20261031a" defer></script>
+    <script src="partner-join.js?v=20261031a" defer></script>
     <script src="qr-encoder.js?v=20261028c" defer></script>
     <script src="partner-link.js?v=20261028c" defer></script>
     <script src="i18n.js?v=1780043948898" defer></script>
+    <!-- Après i18n.js : exemples de gains dans la monnaie du pays choisi (défaut G27, 31/10/2026). -->
+    <script src="partner-prices.js?v=20261031a" defer></script>
     <script src="script.js?v=20261002b" defer></script>
     <script src="ux-advanced.js?v=20261002a" defer></script>
     <script src="email-approval.js?v=20261002f" defer></script>
