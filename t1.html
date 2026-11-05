@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://www.googletagmanager.com;">
+<meta name="robots" content="noindex, nofollow">
+<title>Get RESQ+</title>
+<link rel="icon" href="images/apple-touch-icon.png">
+<style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#0F2747;--btn:#0F2747;--btnfg:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141417;--fg:#fff;--btn:#fff;--btnfg:#0F2747}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:24px 16px;text-align:center}
+main{width:100%;max-width:360px}
+img{width:96px;height:96px;border-radius:22px;display:block;margin:0 auto 16px}
+h1{font-size:30px;margin:0}
+p{margin:6px 0 24px}
+a{display:block;padding:15px;margin:10px 0;border-radius:12px;background:var(--btn);color:var(--btnfg);font-weight:700;text-decoration:none}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJWC7EHMT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-EEJWC7EHMT', {'anonymize_ip': true, 'cookie_flags': 'SameSite=None;Secure'});
+(function () {
+  var VARIANTE = 't1';
+  var APPLE = 'https://apps.apple.com/app/id6819823803';
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.firstaidkit.resq&referrer=utm_source%3Dtshirt%26utm_medium%3Dqr%26utm_campaign%3D' + VARIANTE;
+  var ua = navigator.userAgent || '';
+  // Un iPad récent se présente comme un Mac : seul l'écran tactile le distingue.
+  var iphone = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var cible = iphone ? APPLE : android ? PLAY : null;
+  var parti = false;
+  function partir() { if (!parti && cible) { parti = true; location.replace(cible); } }
+  gtag('event', 'tshirt_scan', {variante: VARIANTE, systeme: iphone ? 'iphone' : android ? 'android' : 'autre', event_callback: partir});
+  // Sans réponse de la mesure (bloqueur, réseau lent), on part quand même.
+  setTimeout(partir, 800);
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('apple').href = APPLE;
+    document.getElementById('play').href = PLAY;
+  });
+})();
+</script>
+</head>
+<body>
+<main>
+<img src="images/apple-touch-icon.png" alt="">
+<h1>RESQ+</h1>
+<p>SOS, First Aid &amp; Family</p>
+<a id="apple" href="https://apps.apple.com/app/id6819823803">Get it for iPhone</a>
+<a id="play" href="https://play.google.com/store/apps/details?id=com.firstaidkit.resq&amp;referrer=utm_source%3Dtshirt%26utm_medium%3Dqr%26utm_campaign%3Dt1">Get it for Android</a>
+</main>
+</body>
+</html>
